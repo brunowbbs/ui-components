@@ -1,6 +1,8 @@
 import { AiOutlineAppstore } from "react-icons/ai";
-import { Button, DashboardLayout } from "../lib/main";
+import { Button, Card, DashboardLayout, Input } from "../lib/main";
 import { LuSettings, LuUser } from "react-icons/lu";
+import { Modal } from "../lib/components/modal";
+import { useState } from "react";
 
 const MENU_ITEMS = [
   {
@@ -96,6 +98,8 @@ const MENU_ITEMS_POPOVER_PROFILE = [
 ];
 
 function App() {
+  const [isModalConfirm, setIsModalConfirm] = useState(false);
+
   return (
     <DashboardLayout
       menuItems={MENU_ITEMS}
@@ -105,33 +109,67 @@ function App() {
         menuItems: MENU_ITEMS_POPOVER_PROFILE,
       }}
     >
-      <div>
-        <p className="text-sm">Botões</p>
+      <Card>
+        <p className="text-sm uppercase mb-2">Botões</p>
         <div className="flex gap-2">
-          <Button text="Pressione" onClick={() => alert("ok")} />
-          <Button text="Pressione" onClick={() => alert("ok")} link />
+          <Button text="Primary" onClick={() => alert("ok")} />
+          <Button
+            text="Primary"
+            onClick={() => alert("ok")}
+            outline
+            variant="primary"
+          />
+          <Button text="Danger" onClick={() => alert("ok")} variant="danger" />
+          <Button
+            text="Warning"
+            onClick={() => alert("ok")}
+            variant="warning"
+          />
+          <Button
+            text="Secondary"
+            onClick={() => alert("ok")}
+            variant="secondary"
+          />
+          <Button
+            text="Success"
+            onClick={() => alert("ok")}
+            variant="success"
+          />
           <Button
             text="Pressione"
             onClick={() => alert("ok")}
             icon={<LuSettings size={12} />}
           />
+          <Button isLoading />
           <Button onClick={() => alert("ok")} icon={<LuSettings size={12} />} />
+          <Button text="Pressione" onClick={() => alert("ok")} link />
         </div>
-      </div>
+      </Card>
 
-      <div className="mt-6">
-        <p className="text-sm">Inputs</p>
-        <div className="flex gap-2">
-          <Button text="Pressione" onClick={() => alert("ok")} />
-          <Button text="Pressione" onClick={() => alert("ok")} link />
-          <Button
-            text="Pressione"
-            onClick={() => alert("ok")}
-            icon={<LuSettings size={12} />}
-          />
-          <Button onClick={() => alert("ok")} icon={<LuSettings size={12} />} />
+      <div className="mt-10" />
+      <Card>
+        <p className="text-sm uppercase mb-2">Inputs</p>
+
+        <div className="flex gap-2 flex-row">
+          <Input placeholder="Ex: user@gmail.com" label="E-mail" />
+          <Input placeholder="" label="Password" isPassword />
+          <Input label="Data" type="date" />
+          <Input label="Hora" type="time" />
         </div>
-      </div>
+      </Card>
+
+      <div className="mt-10" />
+      <Card>
+        <p className="text-sm uppercase mb-2">Modais</p>
+
+        <div className="flex gap-2 flex-row">
+          <Button onClick={() => setIsModalConfirm(true)} text="Abrir modal" />
+          <Modal
+            isOpen={isModalConfirm}
+            onClose={() => setIsModalConfirm(false)}
+          />
+        </div>
+      </Card>
     </DashboardLayout>
   );
 }

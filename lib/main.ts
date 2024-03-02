@@ -4,6 +4,6 @@ export { DashboardLayout } from "./layouts/dashboard-layout";
 
 export { Button } from "./components/button";
 export { Input } from "./components/input";
-export { Label } from "./components/label";
 export { Popover } from "./components/popover";
 export { Spinner } from "./components/spinner";
+export { Card } from "./components/card";
