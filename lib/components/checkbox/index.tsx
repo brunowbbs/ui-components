@@ -17,7 +17,7 @@ export function Checkbox({ label }: Props) {
           id="checkbox"
           className="hidden"
         />
-        <div className="flex gap-1 items-end justify-center">
+        <div className="flex gap-2 items-end justify-center">
           {!checked && (
             <BsSquare
               className="fill-current cursor-pointer text-gray-300"
