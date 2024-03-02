@@ -13,7 +13,7 @@ export function Button(props: ButtonProps) {
             !props.outline,
           "border-2 border-green-700 text-green-700 hover:bg-slate-100":
             props.outline,
-          "bg-transparent border-0 hover:bg-transparent hover:border-0":
+          "bg-transparent border-none hover:bg-transparent hover:border-0":
             props.link,
         }
       )}

@@ -105,15 +105,18 @@ function App() {
         menuItems: MENU_ITEMS_POPOVER_PROFILE,
       }}
     >
-      <div className="flex gap-2">
-        <Button text="Pressione" onClick={() => alert("ok")} />
-        <Button text="Pressione" onClick={() => alert("ok")} link />
-        <Button
-          text="Pressione"
-          onClick={() => alert("ok")}
-          icon={<LuSettings size={12} />}
-        />
-        <Button onClick={() => alert("ok")} icon={<LuSettings size={12} />} />
+      <div>
+        <p className="text-sm">Botões</p>
+        <div className="flex gap-2">
+          <Button text="Pressione" onClick={() => alert("ok")} />
+          <Button text="Pressione" onClick={() => alert("ok")} link />
+          <Button
+            text="Pressione"
+            onClick={() => alert("ok")}
+            icon={<LuSettings size={12} />}
+          />
+          <Button onClick={() => alert("ok")} icon={<LuSettings size={12} />} />
+        </div>
       </div>
     </DashboardLayout>
   );
