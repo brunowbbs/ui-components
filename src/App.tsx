@@ -191,12 +191,13 @@ function App() {
               text="Abrir modal"
             />
             <Modal
+              maxWidth={300}
               isOpen={isModalConfirm}
               onClose={() => setIsModalConfirm(false)}
             >
-              <h4 className="font-bold mb-1 text-sm">Atenção</h4>
+              <h4 className="font-bold mb-1 text-md">Atenção</h4>
               <p className="text-sm">
-                Tem certeza que deseja excluir esta questão?
+                Tem certeza que deseja excluir o item selecionado?
               </p>
               <div className="flex gap-2 pt-4">
                 <Button

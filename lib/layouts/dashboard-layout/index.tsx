@@ -50,7 +50,7 @@ export function DashboardLayout({
     ? {
         open: {
           x: 0,
-          width: "14rem",
+          width: "13rem",
           transition: {
             damping: 40,
           },
@@ -66,7 +66,7 @@ export function DashboardLayout({
       }
     : {
         open: {
-          width: "14rem",
+          width: "13rem",
           transition: {
             damping: 40,
           },
@@ -93,7 +93,7 @@ export function DashboardLayout({
           variants={Nav_animation}
           initial={{ x: isTabletMid ? -250 : 0 }}
           animate={open ? "open" : "closed"}
-          className=" bg-white text-gray border-transparent shadow-sm max-w-[14rem] w-[14rem] 
+          className=" bg-white text-gray border-transparent shadow-sm max-w-[13rem] w-[13rem] 
             overflow-hidden md:relative fixed
          h-screen z-[999]"
         >
