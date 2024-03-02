@@ -1,9 +1,16 @@
 import { AiOutlineAppstore } from "react-icons/ai";
-import { Button, Card, DashboardLayout, Input } from "../lib/main";
+import {
+  Button,
+  Card,
+  DashboardLayout,
+  Input,
+  Select,
+  Checkbox,
+  RadioButtonGroup,
+} from "../lib/main";
 import { LuSettings, LuUser } from "react-icons/lu";
 import { Modal } from "../lib/components/modal";
 import { useState } from "react";
-import { Select } from "../lib/components/select";
 
 const MENU_ITEMS = [
   {
@@ -112,7 +119,9 @@ function App() {
     >
       <div className="h-full">
         <Card>
-          <p className="text-sm uppercase mb-2">Botões</p>
+          <p className="text-sm uppercase mb-2 font-bold text-primary">
+            Botões
+          </p>
           <div className="flex gap-2">
             <Button text="Primary" onClick={() => alert("ok")} />
             <Button
@@ -155,9 +164,11 @@ function App() {
           </div>
         </Card>
 
-        <div className="mt-10" />
+        <div className="mt-7" />
         <Card>
-          <p className="text-sm uppercase mb-2">Inputs</p>
+          <p className="text-sm uppercase mb-2 font-bold text-primary">
+            Inputs
+          </p>
 
           <div className="flex gap-2 flex-row">
             <Input placeholder="Ex: user@gmail.com" label="E-mail" />
@@ -167,9 +178,11 @@ function App() {
           </div>
         </Card>
 
-        <div className="mt-10" />
+        <div className="mt-7" />
         <Card>
-          <p className="text-sm uppercase mb-2">Modais</p>
+          <p className="text-sm uppercase mb-2 font-bold text-primary">
+            Modais
+          </p>
 
           <div className="flex gap-2 flex-row">
             <Button
@@ -183,9 +196,11 @@ function App() {
           </div>
         </Card>
 
-        <div className="mt-10" />
+        <div className="mt-7" />
         <Card>
-          <p className="text-sm uppercase mb-2">Selects</p>
+          <p className="text-sm uppercase mb-2 font-bold text-primary">
+            Selects
+          </p>
 
           <div className="flex gap-2 flex-row">
             <Select
@@ -208,6 +223,33 @@ function App() {
               ]}
             />
           </div>
+        </Card>
+        <div className="mt-7" />
+
+        <Card>
+          <p className="text-sm uppercase mb-2 font-bold text-primary">
+            Checkbox
+          </p>
+
+          <div className="flex gap-2 flex-row">
+            <Checkbox label="Continuar logado" />
+          </div>
+        </Card>
+        <div className="mt-7" />
+
+        <Card>
+          <p className="text-sm uppercase mb-2 font-bold text-primary">
+            Radio Buttons
+          </p>
+
+          <RadioButtonGroup
+            onChange={(value) => console.log(value)}
+            options={[
+              { label: "Option 1", value: "option1" },
+              { label: "Option 2", value: "option2" },
+              { label: "Option 3", value: "option3" },
+            ]}
+          />
         </Card>
       </div>
     </DashboardLayout>
