@@ -11,6 +11,7 @@ import {
 import { LuSettings, LuUser } from "react-icons/lu";
 import { Modal } from "../lib/components/modal";
 import { useState } from "react";
+import { showToast } from "../lib/components/toast";
 
 const MENU_ITEMS = [
   {
@@ -164,7 +165,7 @@ function App() {
           </div>
         </Card>
 
-        <div className="mt-7" />
+        <div className="mt-3" />
         <Card>
           <p className="text-sm uppercase mb-2 font-bold text-primary">
             Inputs
@@ -178,7 +179,7 @@ function App() {
           </div>
         </Card>
 
-        <div className="mt-7" />
+        <div className="mt-3" />
         <Card>
           <p className="text-sm uppercase mb-2 font-bold text-primary">
             Modais
@@ -196,7 +197,7 @@ function App() {
           </div>
         </Card>
 
-        <div className="mt-7" />
+        <div className="mt-3" />
         <Card>
           <p className="text-sm uppercase mb-2 font-bold text-primary">
             Selects
@@ -224,7 +225,7 @@ function App() {
             />
           </div>
         </Card>
-        <div className="mt-7" />
+        <div className="mt-3" />
 
         <Card>
           <p className="text-sm uppercase mb-2 font-bold text-primary">
@@ -235,8 +236,8 @@ function App() {
             <Checkbox label="Continuar logado" />
           </div>
         </Card>
-        <div className="mt-7" />
 
+        <div className="mt-3" />
         <Card>
           <p className="text-sm uppercase mb-2 font-bold text-primary">
             Radio Buttons
@@ -250,6 +251,32 @@ function App() {
               { label: "Option 3", value: "option3" },
             ]}
           />
+        </Card>
+
+        <div className="mt-3" />
+        <Card>
+          <p className="text-sm uppercase mb-2 font-bold text-primary">
+            Toasts
+          </p>
+          <div className="flex gap-2">
+            <Button
+              text="Toast Success"
+              variant="success"
+              onClick={() => showToast("Registro salvo com sucesso", "success")}
+            />
+            <Button
+              text="Toast Error"
+              variant="danger"
+              onClick={() => showToast("Erro ao salvar registro", "error")}
+            />
+            <Button
+              text="Toast Warning"
+              variant="warning"
+              onClick={() =>
+                showToast("Há uma registro que precisa de atenção", "warning")
+              }
+            />
+          </div>
         </Card>
       </div>
     </DashboardLayout>
