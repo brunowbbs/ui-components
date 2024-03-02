@@ -107,16 +107,13 @@ function App() {
     >
       <div className="flex gap-2">
         <Button text="Pressione" onClick={() => alert("ok")} />
-        <Button text="Pressione" onClick={() => alert("ok")} />
-        <Button text="Pressione" onClick={() => alert("ok")} />
-
         <Button text="Pressione" onClick={() => alert("ok")} link />
-
         <Button
-          // text="Pressione"
+          text="Pressione"
           onClick={() => alert("ok")}
           icon={<LuSettings size={12} />}
         />
+        <Button onClick={() => alert("ok")} icon={<LuSettings size={12} />} />
       </div>
     </DashboardLayout>
   );
