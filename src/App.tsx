@@ -118,6 +118,20 @@ function App() {
           <Button onClick={() => alert("ok")} icon={<LuSettings size={12} />} />
         </div>
       </div>
+
+      <div className="mt-6">
+        <p className="text-sm">Inputs</p>
+        <div className="flex gap-2">
+          <Button text="Pressione" onClick={() => alert("ok")} />
+          <Button text="Pressione" onClick={() => alert("ok")} link />
+          <Button
+            text="Pressione"
+            onClick={() => alert("ok")}
+            icon={<LuSettings size={12} />}
+          />
+          <Button onClick={() => alert("ok")} icon={<LuSettings size={12} />} />
+        </div>
+      </div>
     </DashboardLayout>
   );
 }
