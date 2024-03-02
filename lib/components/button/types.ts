@@ -10,4 +10,5 @@ export type ButtonProps = {
   size?: "sm" | "md" | "lg";
   link?: boolean;
   icon?: ReactElement;
+  width?: number;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;

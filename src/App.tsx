@@ -193,7 +193,22 @@ function App() {
             <Modal
               isOpen={isModalConfirm}
               onClose={() => setIsModalConfirm(false)}
-            />
+            >
+              <h4 className="font-bold mb-1 text-sm">Atenção</h4>
+              <p className="text-sm">
+                Tem certeza que deseja excluir esta questão?
+              </p>
+              <div className="flex gap-2 pt-4">
+                <Button
+                  width={80}
+                  text="Sim"
+                  onClick={() => {}}
+                  isLoading={false}
+                  variant="danger"
+                />
+                <Button text="Não" width={80} onClick={() => {}} outline />
+              </div>
+            </Modal>
           </div>
         </Card>
 

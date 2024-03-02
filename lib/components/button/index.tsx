@@ -13,6 +13,7 @@ export function Button(props: ButtonProps) {
     disabled,
     text,
     icon,
+    width = undefined,
   } = props;
 
   const [isHovered, setIsHovered] = useState(false);
@@ -26,6 +27,7 @@ export function Button(props: ButtonProps) {
   };
 
   const buttonStyles = {
+    width,
     backgroundColor: isHovered ? COLORS[`${variant}-darker`] : COLORS[variant],
     color: "white",
     transition: "all 0.5s ease",

@@ -30,7 +30,7 @@ export function Modal({
         },
       }}
     >
-      <div className="p-8 min-w-14">{children}</div>
+      <div className="py-1 px-1.5 min-w-14">{children}</div>
     </ModalResponsive>
   );
 }
