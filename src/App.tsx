@@ -1,5 +1,5 @@
 import { AiOutlineAppstore } from "react-icons/ai";
-import { DashboardLayout } from "../lib/main";
+import { Button, DashboardLayout } from "../lib/main";
 import { LuSettings, LuUser } from "react-icons/lu";
 
 const MENU_ITEMS = [
@@ -104,7 +104,21 @@ function App() {
         userLoggedData: USER_LOGGED,
         menuItems: MENU_ITEMS_POPOVER_PROFILE,
       }}
-    ></DashboardLayout>
+    >
+      <div className="flex gap-2">
+        <Button text="Pressione" onClick={() => alert("ok")} />
+        <Button text="Pressione" onClick={() => alert("ok")} />
+        <Button text="Pressione" onClick={() => alert("ok")} />
+
+        <Button text="Pressione" onClick={() => alert("ok")} link />
+
+        <Button
+          // text="Pressione"
+          onClick={() => alert("ok")}
+          icon={<LuSettings size={12} />}
+        />
+      </div>
+    </DashboardLayout>
   );
 }
 
