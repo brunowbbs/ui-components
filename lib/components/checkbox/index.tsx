@@ -15,7 +15,7 @@ export function Checkbox({ label }: Props) {
           type="checkbox"
           onClick={checkHandler}
           id="checkbox"
-          className="opacity-0"
+          className="hidden"
         />
         <div className="flex gap-1 items-end justify-center">
           {!checked && (
