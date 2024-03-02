@@ -13,6 +13,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "noImplicitAny": false, // Change to allow any type
 
     /* Linting */
     "strict": true,
