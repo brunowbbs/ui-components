@@ -44,6 +44,7 @@ export function Button(props: ButtonProps) {
 
   if (link) {
     buttonStyles.backgroundColor = "transparent";
+    buttonStyles.borderColor = "transparent";
   }
 
   return (

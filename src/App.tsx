@@ -161,7 +161,7 @@ function App() {
               onClick={() => alert("ok")}
               icon={<LuSettings size={12} />}
             />
-            <Button text="Pressione" onClick={() => alert("ok")} link />
+            <Button text="Link" onClick={() => alert("ok")} link />
           </div>
         </Card>
 
@@ -275,17 +275,17 @@ function App() {
           </p>
           <div className="flex gap-2">
             <Button
-              text="Toast Success"
+              text="Success"
               variant="success"
               onClick={() => showToast("Registro salvo com sucesso", "success")}
             />
             <Button
-              text="Toast Error"
+              text="Error"
               variant="danger"
               onClick={() => showToast("Erro ao salvar registro", "error")}
             />
             <Button
-              text="Toast Warning"
+              text="Warning"
               variant="warning"
               onClick={() =>
                 showToast("Há uma registro que precisa de atenção", "warning")
