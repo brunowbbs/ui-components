@@ -80,7 +80,7 @@ export function DashboardLayout({
       };
 
   return (
-    <div className="flex relative">
+    <div className="flex">
       <div>
         <div
           onClick={() => setOpen(false)}
@@ -191,7 +191,7 @@ export function DashboardLayout({
         </motion.div>
       </div>
 
-      <div className="flex-1">
+      <div className="h-screen w-screen flex flex-col flex-1">
         <div className="bg-white shadow-sm z-[0] py-4 pl-2 pr-6 ml-[1px] flex items-center gap-2 h-14 w-full justify-between">
           <div className="flex gap-2 flex-1">
             <div
@@ -215,13 +215,6 @@ export function DashboardLayout({
                 </motion.div>
               </div>
             </div>
-            {/* <div className="border flex items-center px-1 gap-1 rounded w-3/4 max-w-[300px] ">
-              <LuSearch color="#999" size={15} />
-              <input
-                placeholder="Ctrl + k"
-                className="text-[12px] outline-0 flex-1"
-              />
-            </div> */}
           </div>
           <div className="flex gap-2">
             <Popover
@@ -241,9 +234,7 @@ export function DashboardLayout({
             </Popover>
           </div>
         </div>
-        <section className="overflow-y-auto max-h-screen-90 px-5 py-3">
-          {children}
-        </section>
+        <section className="flex-1 px-5 py-3">{children}</section>
       </div>
     </div>
   );
