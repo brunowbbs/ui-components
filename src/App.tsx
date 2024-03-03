@@ -277,7 +277,6 @@ function App() {
                 { label: "Montes Claros", value: 3 },
               ]}
             />
-            <Input width={80} placeholder="Ex: user@gmail.com" label="E-mail" />
 
             <Select
               width={80}
