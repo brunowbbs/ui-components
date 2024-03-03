@@ -1,12 +1,9 @@
 import CurrencyInput from "react-currency-input-field";
 import ReactInputMask from "react-input-mask";
 
-import { useState } from "react";
 import { InputProps } from "./types";
 
 export function InputMask(props: InputProps) {
-  const [formattedValue, setFormattedValue] = useState("");
-
   let mask = "";
 
   if (props.type === "phone") {
