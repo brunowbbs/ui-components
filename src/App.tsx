@@ -230,6 +230,8 @@ function App() {
                 { label: "Montes Claros", value: 3 },
               ]}
             />
+            <Input width={80} placeholder="Ex: user@gmail.com" label="E-mail" />
+
             <Select
               width={80}
               isMulti
@@ -239,6 +241,8 @@ function App() {
                 { label: "Geladeira", value: 1 },
                 { label: "Liquidificador", value: 2 },
                 { label: "Batedeira", value: 3 },
+                { label: "Forno elétrico", value: 4 },
+                { label: "Cafeteira", value: 5 },
               ]}
             />
           </div>
