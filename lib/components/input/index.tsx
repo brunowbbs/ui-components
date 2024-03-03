@@ -18,7 +18,7 @@ export function Input(props: InputProps) {
       <p className="text-sm font-medium">{props.label}</p>
       <div
         className={clsx("border rounded-sm bg-slate-50 relative", {
-          "border-blue-500": isFocused,
+          "border-primary": isFocused,
         })}
       >
         <input
