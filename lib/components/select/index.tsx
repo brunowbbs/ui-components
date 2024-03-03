@@ -1,5 +1,4 @@
 import { BiChevronDown } from "react-icons/bi";
-import { IoCloseSharp } from "react-icons/io5";
 import SelectReact from "react-select";
 import { SelectProps } from "./types";
 
