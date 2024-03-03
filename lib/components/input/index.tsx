@@ -5,6 +5,7 @@ import { InputProps } from "./types";
 
 export function Input(props: InputProps) {
   const [isVisibleContent, setIsVisibleContent] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
 
   const inputType = props.isPassword
     ? isVisibleContent
@@ -15,13 +16,22 @@ export function Input(props: InputProps) {
   return (
     <div className={`flex flex-col w-${props.width ?? "full"}`}>
       <p className="text-sm font-medium">{props.label}</p>
-      <div className="border rounded-sm bg-slate-50 relative">
+      <div
+        className={clsx("border rounded-sm bg-slate-50 relative", {
+          "border-blue-500": isFocused,
+        })}
+      >
         <input
           {...props}
           type={inputType}
-          className={clsx("text-sm px-2 h-7 outline-none w-full ", {
-            "pr-6": props.isPassword,
-          })}
+          className={clsx(
+            "text-sm px-2 h-7 outline-none w-full focus:ring-primary focus:border-primary",
+            {
+              "pr-6": props.isPassword,
+            }
+          )}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
         />
         {props.isPassword && (
           <div className="absolute inset-y-0 right-0 flex items-center pr-2">

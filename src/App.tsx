@@ -210,9 +210,9 @@ function App() {
 
             <InputMask
               width={80}
-              label="Valor"
+              label="Preço"
               type="money"
-              placeholder="Valor"
+              placeholder="Preço"
             />
 
             <InputMask width={80} label="CPF" type="cpf" placeholder="CPF" />

@@ -1,23 +1,19 @@
+import { useState } from "react";
+import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
-import ReactQuill from "react-quill";
-
 export function RichText() {
+  const [isFocused, setIsFocused] = useState(false);
+
   return (
-    <div className="border rounded-sm">
+    <div className={`border rounded-sm ${isFocused ? "border-primary" : ""}`}>
       <ReactQuill
-        // defaultValue={getValues("question")}
         modules={modules}
-        // value={getValues("question")}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
         onChange={(value) => {
           console.log(value);
-          // const valueReplaced = value.replace(/<p><br><\/p>/g, "");
-
-          // if (valueReplaced === "") {
-          //   setValue("question", valueReplaced);
-          // } else {
-          //   setValue("question", value);
-          // }
+          // Adicione o código de manipulação de valor aqui, se necessário
         }}
       />
     </div>
