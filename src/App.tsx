@@ -7,6 +7,7 @@ import {
   Select,
   Checkbox,
   RadioButtonGroup,
+  RichText,
 } from "../lib/main";
 import { LuSettings, LuUser } from "react-icons/lu";
 import { Modal } from "../lib/components/modal";
@@ -191,11 +192,11 @@ function App() {
               text="Abrir modal"
             />
             <Modal
-              maxWidth={300}
+              maxWidth={350}
               isOpen={isModalConfirm}
               onClose={() => setIsModalConfirm(false)}
             >
-              <h4 className="font-bold mb-1 text-md">Atenção</h4>
+              <h4 className="font-semibold mb-1">Atenção</h4>
               <p className="text-sm">
                 Tem certeza que deseja excluir o item selecionado?
               </p>
@@ -203,11 +204,16 @@ function App() {
                 <Button
                   width={80}
                   text="Sim"
-                  onClick={() => {}}
+                  onClick={() => setIsModalConfirm(false)}
                   isLoading={false}
                   variant="danger"
                 />
-                <Button text="Não" width={80} onClick={() => {}} outline />
+                <Button
+                  text="Não"
+                  width={80}
+                  onClick={() => setIsModalConfirm(false)}
+                  outline
+                />
               </div>
             </Modal>
           </div>
@@ -299,6 +305,14 @@ function App() {
               }
             />
           </div>
+        </Card>
+
+        <div className="mt-3" />
+        <Card>
+          <p className="text-sm uppercase mb-2 font-bold text-primary">
+            Texto Rico
+          </p>
+          <RichText />
         </Card>
       </div>
     </DashboardLayout>

@@ -14,7 +14,7 @@ export function Input(props: InputProps) {
 
   return (
     <div className={`flex flex-col w-${props.width ?? "full"}`}>
-      <p className="text-sm">{props.label}</p>
+      <p className="text-sm font-medium">{props.label}</p>
       <div className="border rounded-sm bg-slate-50 relative">
         <input
           {...props}

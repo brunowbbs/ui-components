@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-.max-h-screen-90 {
-  height: calc(100vh - 3.5rem);
+@layer base {
+  html {
+    font-family: "Public Sans", sans-serif;
+    touch-action: manipulation;
+  }
+  body {
+    background: #f9f9f9;
+  }
+
+  body,
+  input,
+  select,
+  textarea {
+    color: #636e72;
+  }
 }

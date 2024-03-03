@@ -11,16 +11,13 @@ export function PopoverProfile({
     <div>
       <div className="flex gap-2 border-b pb-2 mb-2">
         {userLoggedData.avatar && (
-          <img
-            src={userLoggedData.avatar}
-            className="w-8 h-8 rounded-full cursor-pointer"
-          />
+          <img src={userLoggedData.avatar} className="w-8 h-8 rounded-full" />
         )}
         <div className="flex flex-col">
           <span className="font-semibold text-sm line-clamp-1 text-slate-600">
             {userLoggedData.name}
           </span>
-          <span className="font-thin text-[0.65rem] text-slate-600">
+          <span className="font-light text-[0.65rem] text-slate-600">
             {userLoggedData.description}
           </span>
         </div>

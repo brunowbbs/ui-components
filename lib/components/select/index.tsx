@@ -14,7 +14,7 @@ export function Select({
 }: SelectProps) {
   return (
     <div className={`w-${width ?? "full"}`}>
-      <p className="text-sm">{label}</p>
+      <p className="text-sm font-medium">{label}</p>
 
       <SelectReact
         isMulti={isMulti}
@@ -46,6 +46,7 @@ export function Select({
             borderWidth: "1px",
             borderStyle: "solid",
             paddingLeft: 4,
+            paddingRight: 4,
           }),
 
           input: (base) => ({
