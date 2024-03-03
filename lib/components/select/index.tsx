@@ -19,7 +19,7 @@ export function Select({
         isDisabled={disabled}
         placeholder={placeholder}
         options={options}
-        className="text-sm border rounded-sm "
+        className="text-sm border rounded-sm cursor-pointer"
         noOptionsMessage={() => "Nenhuma opção encontrada"}
         components={{
           DropdownIndicator: () => <BiChevronDown size={18} color="#777" />, // Use o novo ícone
