@@ -12,7 +12,8 @@ export function Button(props: ButtonProps) {
     isLoading,
     disabled,
     text,
-    icon,
+    iconRight,
+    iconLeft,
     width = undefined,
   } = props;
 
@@ -65,8 +66,9 @@ export function Button(props: ButtonProps) {
           })}
         >
           <div className="flex flex-row items-center gap-1 text-sm">
-            {icon}
+            {iconLeft}
             {text}
+            {iconRight}
           </div>
         </p>
       )}

@@ -9,6 +9,7 @@ export type ButtonProps = {
   disabled?: boolean;
   size?: "sm" | "md" | "lg";
   link?: boolean;
-  icon?: ReactElement;
+  iconRight?: ReactElement;
+  iconLeft?: ReactElement;
   width?: number;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;

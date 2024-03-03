@@ -13,3 +13,6 @@ export { RadioButtonGroup } from "./components/radio-button";
 export { Modal } from "./components/modal";
 export { showToast } from "./components/toast";
 export { RichText } from "./components/rich-text";
+export { Tabs } from "./components/tabs";
+export { Wizard } from "./components/wizard";
+export { InputMask } from "./components/input-mask";

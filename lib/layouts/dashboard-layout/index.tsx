@@ -234,7 +234,12 @@ export function DashboardLayout({
             </Popover>
           </div>
         </div>
-        <section className="flex-1 px-5 py-3">{children}</section>
+        <section
+          className="flex-1 px-5 py-3 overflow-y-auto bg-slate-100"
+          style={{ paddingBottom: 10 }}
+        >
+          {children}
+        </section>
       </div>
     </div>
   );

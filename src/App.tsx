@@ -8,11 +8,15 @@ import {
   Checkbox,
   RadioButtonGroup,
   RichText,
+  Tabs,
+  Wizard,
+  InputMask,
 } from "../lib/main";
 import { LuSettings, LuUser } from "react-icons/lu";
 import { Modal } from "../lib/components/modal";
 import { useState } from "react";
 import { showToast } from "../lib/components/toast";
+import { MdDashboard, MdHome, MdReport } from "react-icons/md";
 
 const MENU_ITEMS = [
   {
@@ -119,7 +123,7 @@ function App() {
         menuItems: MENU_ITEMS_POPOVER_PROFILE,
       }}
     >
-      <div className="h-full">
+      <div>
         <Card>
           <p className="text-sm uppercase mb-2 font-bold text-primary">
             Botões
@@ -155,12 +159,17 @@ function App() {
             <Button
               text="Pressione"
               onClick={() => alert("ok")}
-              icon={<LuSettings size={12} />}
+              iconLeft={<LuSettings size={12} />}
+            />
+            <Button
+              text="Pressione"
+              onClick={() => alert("ok")}
+              iconRight={<LuSettings size={12} />}
             />
             <Button isLoading />
             <Button
               onClick={() => alert("ok")}
-              icon={<LuSettings size={12} />}
+              iconLeft={<LuSettings size={12} />}
             />
             <Button text="Link" onClick={() => alert("ok")} link />
           </div>
@@ -174,9 +183,41 @@ function App() {
 
           <div className="flex gap-2 flex-row flex-wrap">
             <Input width={80} placeholder="Ex: user@gmail.com" label="E-mail" />
-            <Input width={80} placeholder="" label="Password" isPassword />
+            <Input
+              width={80}
+              placeholder="Password"
+              label="Password"
+              isPassword
+            />
             <Input width={80} label="Data" type="date" />
             <Input width={80} label="Hora" type="time" />
+          </div>
+        </Card>
+
+        <div className="mt-3" />
+        <Card>
+          <p className="text-sm uppercase mb-2 font-bold text-primary">
+            Inputs Mask
+          </p>
+
+          <div className="flex gap-2 flex-row flex-wrap">
+            <InputMask
+              width={80}
+              label="Telefone"
+              type="phone"
+              placeholder="Telefone"
+            />
+
+            <InputMask
+              width={80}
+              label="Valor"
+              type="money"
+              placeholder="Valor"
+            />
+
+            <InputMask width={80} label="CPF" type="cpf" placeholder="CPF" />
+
+            <InputMask width={80} label="CNPJ" type="cnpj" placeholder="CNPJ" />
           </div>
         </Card>
 
@@ -314,7 +355,52 @@ function App() {
           </p>
           <RichText />
         </Card>
+
+        <div className="mt-3" />
+        <Card>
+          <p className="text-sm uppercase mb-2 font-bold text-primary">Tabs</p>
+          <Tabs
+            tabs={[
+              {
+                title: "Tab 1",
+                content: <div className="text-sm">Content for Tab 1</div>,
+              },
+              {
+                title: "Tab 2",
+                content: <div className="text-sm">Content for Tab 2</div>,
+              },
+              {
+                title: "Tab 3",
+                content: <div className="text-sm">Content for Tab 3</div>,
+              },
+            ]}
+          />
+        </Card>
       </div>
+
+      <div className="mt-3" />
+      <Card>
+        <p className="text-sm uppercase mb-2 font-bold text-primary">Wizard</p>
+        <Wizard
+          steps={[
+            {
+              component: <div>Step 1</div>,
+              icon: <MdHome size={22} />,
+              name: "Step 1",
+            },
+            {
+              component: <div>Step 2</div>,
+              icon: <MdDashboard size={22} />,
+              name: "Step 2",
+            },
+            {
+              component: <div>Step 3</div>,
+              icon: <MdReport size={22} />,
+              name: "Step 2",
+            },
+          ]}
+        />
+      </Card>
     </DashboardLayout>
   );
 }
