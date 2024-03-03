@@ -34,3 +34,15 @@
   min-height: 250px;
   overflow: auto;
 }
+
+.ql-snow .ql-tooltip {
+  margin-left: 250px;
+}
+
+.ql-snow .ql-tooltip input[type="text"] {
+  height: 20px;
+  outline: none;
+  font-size: 0.75rem;
+  padding-left: 5px;
+  width: 150px;
+}

@@ -15,6 +15,7 @@ export function RichText() {
           console.log(value);
           // Adicione o código de manipulação de valor aqui, se necessário
         }}
+        style={{ maxWidth: "100%", paddingRight: "50px" }} // Adicione estilos aqui
       />
     </div>
   );
@@ -24,11 +25,14 @@ const modules = {
   toolbar: {
     container: [
       [{ font: [] }],
-      [{ size: ["small", false, "large", "huge"] }],
+      [{ size: ["small", false, "large"] }],
       ["bold", "italic", "underline", "strike", "blockquote"],
       [{ color: [] }, { background: [] }],
       [{ list: "ordered" }, { list: "bullet" }],
-      ["link"],
+      ["link", "video", "image"],
+      [{ align: [] }],
+      [{ indent: "-1" }, { indent: "+1" }],
+      ["clean"],
     ],
   },
 };
