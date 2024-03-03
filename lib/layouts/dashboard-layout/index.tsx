@@ -192,7 +192,7 @@ export function DashboardLayout({
       </div>
 
       <div className="h-screen w-screen flex flex-col flex-1">
-        <div className="bg-white shadow-sm z-[0] py-4 pl-2 pr-6 ml-[1px] flex items-center gap-2 h-14 w-full justify-between">
+        <div className="bg-white shadow-sm z-[0] py-4 pl-2 pr-6 ml-[1px] flex items-center gap-2 h-14 justify-between">
           <div className="flex gap-2 flex-1">
             <div
               className="m-1 md:hidden cursor-pointer"

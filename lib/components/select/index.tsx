@@ -9,9 +9,10 @@ export function Select({
   placeholder,
   disabled,
   isMulti = false,
+  width,
 }: SelectProps) {
   return (
-    <div className="w-full">
+    <div className={`w-${width ?? "full"}`}>
       <p className="text-sm">{label}</p>
 
       <SelectReact
@@ -19,20 +20,21 @@ export function Select({
         isDisabled={disabled}
         placeholder={placeholder}
         options={options}
-        className="text-sm border rounded-sm"
+        className="text-sm border rounded-sm "
         noOptionsMessage={() => "Nenhuma opção encontrada"}
         components={{
           DropdownIndicator: () => <BiChevronDown size={18} color="#777" />, // Use o novo ícone
-          ClearIndicator: () => <IoCloseSharp color="#777" />,
         }}
         styles={{
-          control: () => ({
+          control: (_, state) => ({
             paddingRight: 5,
             display: "flex",
             width: "100%",
-            height: "28px",
+            // height: state.isFocused ? "auto" : "28px", // altura automática se estiver focado, caso contrário, 20px
+            borderColor: state.isFocused ? "#4299e1" : "transparent",
+            borderWidth: "1px",
+            borderStyle: "solid",
           }),
-
           menu: (baseStyles) => ({
             ...baseStyles,
             overflowY: "auto",

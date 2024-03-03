@@ -4,4 +4,5 @@ export type SelectProps = {
   options: { label: string; value: string | number }[];
   disabled?: boolean;
   isMulti?: boolean;
+  width?: number;
 };

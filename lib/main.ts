@@ -10,3 +10,5 @@ export { Card } from "./components/card";
 export { Select } from "./components/select";
 export { Checkbox } from "./components/checkbox";
 export { RadioButtonGroup } from "./components/radio-button";
+export { Modal } from "./components/modal";
+export { showToast } from "./components/toast";

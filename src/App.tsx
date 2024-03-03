@@ -123,7 +123,7 @@ function App() {
           <p className="text-sm uppercase mb-2 font-bold text-primary">
             Botões
           </p>
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap">
             <Button text="Primary" onClick={() => alert("ok")} />
             <Button
               text="Primary"
@@ -171,11 +171,11 @@ function App() {
             Inputs
           </p>
 
-          <div className="flex gap-2 flex-row">
-            <Input placeholder="Ex: user@gmail.com" label="E-mail" />
-            <Input placeholder="" label="Password" isPassword />
-            <Input label="Data" type="date" />
-            <Input label="Hora" type="time" />
+          <div className="flex gap-2 flex-row flex-wrap">
+            <Input width={80} placeholder="Ex: user@gmail.com" label="E-mail" />
+            <Input width={80} placeholder="" label="Password" isPassword />
+            <Input width={80} label="Data" type="date" />
+            <Input width={80} label="Hora" type="time" />
           </div>
         </Card>
 
@@ -221,6 +221,7 @@ function App() {
 
           <div className="flex gap-2 flex-row">
             <Select
+              width={80}
               label="Cidade"
               placeholder="Selecione uma cidade"
               options={[
@@ -230,6 +231,7 @@ function App() {
               ]}
             />
             <Select
+              width={80}
               isMulti
               label="Eletrodomésticos"
               placeholder="Selecione seus eletrodomésticos"
