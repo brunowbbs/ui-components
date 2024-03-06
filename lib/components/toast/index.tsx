@@ -1,9 +1,8 @@
+import { motion } from "framer-motion";
 import { useEffect } from "react";
 import ReactDOM from "react-dom";
-import { motion } from "framer-motion";
 import { BiCheckCircle, BiErrorCircle } from "react-icons/bi";
 import { IoClose } from "react-icons/io5";
-import { MdWarning } from "react-icons/md";
 import { PiWarningCircle } from "react-icons/pi";
 
 interface ToastProps {

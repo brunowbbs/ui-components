@@ -1,7 +1,4 @@
-import "./index.css";
-
 export { DashboardLayout } from "./layouts/dashboard-layout";
-
 export { Button } from "./components/button";
 export { Card } from "./components/card";
 export { Checkbox } from "./components/checkbox";
