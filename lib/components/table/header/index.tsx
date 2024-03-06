@@ -23,11 +23,7 @@ export function TableRowGroup({
 }: TableRowGroupProps) {
   const { rowGroupProps } = useTableRowGroup();
 
-  return (
-    <Element role="row" {...mergeProps(rowGroupProps, props)}>
-      {children}
-    </Element>
-  );
+  return <Element {...mergeProps(rowGroupProps, props)}>{children}</Element>;
 }
 
 export function TableHeaderRow({ state, children, item }: TableHeaderRowProps) {

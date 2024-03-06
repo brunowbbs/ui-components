@@ -407,8 +407,20 @@ function App() {
         <p className="text-sm uppercase mb-2 font-bold text-primary">Table</p>
 
         <Table
-          columns={["name", "type", "level"]}
-          rows={[{ key: "1", items: ["Charizard", "Fire", "67"] }]}
+          columns={["id", "date", "status", "customer", "purchased", "actions"]}
+          rows={[
+            {
+              key: "1",
+              items: [
+                "1",
+                "01 de mar 24",
+                <>pending</>,
+                "John",
+                "paid",
+                <Button text="Primary" onClick={() => alert("ok")} />,
+              ],
+            },
+          ]}
         />
       </Card>
     </DashboardLayout>

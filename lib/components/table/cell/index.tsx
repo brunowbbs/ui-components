@@ -13,7 +13,7 @@ import {
 import type { FocusableElement, Node } from "@react-types/shared";
 import clsx from "clsx";
 
-import { Checkbox } from "../../checkbox";
+import { Checkbox } from "../checkbox";
 import type { TableCellProps } from "./types";
 
 export function TableCell({ cell, state }: TableCellProps) {
@@ -52,7 +52,7 @@ export function TableCheckboxCell({ cell, state }) {
 
   return (
     <td {...gridCellProps} ref={ref}>
-      <Checkbox label="" {...checkboxProps} />
+      <Checkbox {...checkboxProps} />
     </td>
   );
 }
@@ -66,13 +66,14 @@ export function TableSelectAllCell({ column, state }) {
     ref
   );
   const { checkboxProps } = useTableSelectAllCheckbox(state);
+  const isShowCheckbox = state.selectionManager.selectionMode === "single";
 
   return (
     <th {...columnHeaderProps} ref={ref}>
-      {state.selectionManager.selectionMode === "single" ? (
+      {isShowCheckbox ? (
         <VisuallyHidden>{checkboxProps["aria-label"]}</VisuallyHidden>
       ) : (
-        <Checkbox label="" {...checkboxProps} />
+        <Checkbox {...checkboxProps} />
       )}
     </th>
   );

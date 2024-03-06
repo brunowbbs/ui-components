@@ -1,7 +1,11 @@
-.customTable {
-  @apply table
-  border-collapse
+.custom-table {
+  @apply table-auto
   w-full;
+}
+
+.safearea-table {
+  @apply flex
+  overflow-x-auto;
 }
 
 .tr-header {
@@ -18,7 +22,7 @@
   font-medium
   text-left
   tracking-wide
-  uppercase;
+  capitalize;
 
   &.--col-span {
     @apply text-center;
@@ -29,7 +33,9 @@
   @apply border-b
   border-b-gray-200
   font-normal
-  outline-none;
+  outline-none
+  hover:bg-neutral-100
+  cursor-pointer;
 
   &.--selected {
     @apply bg-primary-darker;
@@ -52,17 +58,14 @@
 
 .td-cell {
   @apply px-5
-  py-3;
+  py-3
+  text-sm
+  text-ellipsis
+  overflow-hidden
+  whitespace-nowrap;
 
   &.--outlined {
     @apply outline
     outline-slate-400;
-  }
-
-  .cell-rendered {
-    @apply max-w-[180px]
-    text-ellipsis
-    overflow-hidden
-    whitespace-nowrap;
   }
 }

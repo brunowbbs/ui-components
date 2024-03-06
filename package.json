@@ -47,7 +47,6 @@
     "dist"
   ],
   "dependencies": {
-    "@bedrock-layout/use-forwarded-ref": "^2.0.13",
     "add": "^2.0.6",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.8",

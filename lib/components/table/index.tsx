@@ -11,7 +11,7 @@ import {
 import { TableCell, TableCheckboxCell, TableSelectAllCell } from "./cell";
 import { TableColumnHeader, TableHeaderRow, TableRowGroup } from "./header";
 import { TableRow } from "./row";
-import { CustomTableProps, TableProps } from "./types";
+import { CustomTableProps, ItemsTypes, RowTypes, TableProps } from "./types";
 
 import "./styles.css";
 
@@ -29,7 +29,7 @@ function CustomTable(props: CustomTableProps) {
   const { gridProps } = useTable(props, state, ref);
 
   return (
-    <table {...gridProps} ref={ref} className="customTable">
+    <table {...gridProps} ref={ref} className="custom-table">
       <TableRowGroup type="thead">
         {collection.headerRows.map((headerRow) => (
           <TableHeaderRow key={headerRow.key} item={headerRow} state={state}>
@@ -70,22 +70,24 @@ function CustomTable(props: CustomTableProps) {
 
 export function Table({ columns, rows, mode = "none" }: TableProps) {
   return (
-    <CustomTable aria-label="Tabela" selectionMode={mode}>
-      <TableHeader>
-        {columns.map((column) => (
-          <Column>{column}</Column>
-        ))}
-      </TableHeader>
+    <div className="safearea-table">
+      <CustomTable aria-label="Tabela" selectionMode={mode}>
+        <TableHeader>
+          {columns.map((column: ItemsTypes) => (
+            <Column key={column}>{column}</Column>
+          ))}
+        </TableHeader>
 
-      <TableBody>
-        {rows.map(({ key, items }) => (
-          <Row key={key}>
-            {items.map((item) => (
-              <Cell>{item}</Cell>
-            ))}
-          </Row>
-        ))}
-      </TableBody>
-    </CustomTable>
+        <TableBody>
+          {rows.map(({ key, items }: RowTypes) => (
+            <Row key={key}>
+              {items.map((item: ItemsTypes) => (
+                <Cell key={item}>{item}</Cell>
+              ))}
+            </Row>
+          ))}
+        </TableBody>
+      </CustomTable>
+    </div>
   );
 }

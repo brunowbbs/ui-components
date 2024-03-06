@@ -9,7 +9,11 @@ export type CustomTableProps = AriaTableProps<object> &
   };
 
 export type TableProps = {
-  columns: Array<string | ReactNode>;
-  rows: Array<{ key: string; items: Array<string | ReactNode> }>;
+  columns: Array<ItemsTypes>;
+  rows: Array<RowTypes>;
   mode?: "multiple" | "none" | "single";
 };
+
+export type RowTypes = { key: string; items: Array<ItemsTypes> };
+
+export type ItemsTypes = string | ReactNode;
