@@ -1,22 +1,23 @@
+import { useState } from "react";
 import { AiOutlineAppstore } from "react-icons/ai";
+import { LuSettings, LuUser } from "react-icons/lu";
+import { MdDashboard, MdHome, MdReport } from "react-icons/md";
+import { showToast } from "../lib/components/toast";
 import {
   Button,
   Card,
+  Checkbox,
   DashboardLayout,
   Input,
-  Select,
-  Checkbox,
+  InputMask,
+  Modal,
   RadioButtonGroup,
   RichText,
+  Select,
+  Table,
   Tabs,
   Wizard,
-  InputMask,
 } from "../lib/main";
-import { LuSettings, LuUser } from "react-icons/lu";
-import { Modal } from "../lib/components/modal";
-import { useState } from "react";
-import { showToast } from "../lib/components/toast";
-import { MdDashboard, MdHome, MdReport } from "react-icons/md";
 
 const MENU_ITEMS = [
   {
@@ -398,6 +399,16 @@ function App() {
               name: "Step 2",
             },
           ]}
+        />
+      </Card>
+
+      <div className="mt-3" />
+      <Card>
+        <p className="text-sm uppercase mb-2 font-bold text-primary">Table</p>
+
+        <Table
+          columns={["name", "type", "level"]}
+          rows={[{ key: "1", items: ["Charizard", "Fire", "67"] }]}
         />
       </Card>
     </DashboardLayout>
