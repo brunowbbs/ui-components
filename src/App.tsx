@@ -131,6 +131,21 @@ function App() {
           <div className="flex gap-2 flex-wrap">
             <Button text="Primary" onClick={() => alert("ok")} />
             <Button
+              size="sm"
+              text="Primary"
+              onClick={() => alert("ok")}
+              outline
+              variant="primary"
+            />
+            <Button
+              text="Primary"
+              onClick={() => alert("ok")}
+              outline
+              variant="primary"
+            />
+
+            <Button
+              size="lg"
               text="Primary"
               onClick={() => alert("ok")}
               outline
