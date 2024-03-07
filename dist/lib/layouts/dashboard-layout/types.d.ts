@@ -17,6 +17,7 @@ type MenuItem = {
     }[];
 };
 export type DashboardLayoutType = PropsWithChildren & {
+    startSidebarOpened?: boolean;
     menuItems: MenuItem[];
     popoverProfile: PopoverProfileProps;
 };

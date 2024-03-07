@@ -1,2 +1,2 @@
 import { DashboardLayoutType } from "./types";
-export declare function DashboardLayout({ children, menuItems, popoverProfile, }: DashboardLayoutType): import("react/jsx-runtime").JSX.Element;
+export declare function DashboardLayout({ children, menuItems, popoverProfile, startSidebarOpened, }: DashboardLayoutType): import("react/jsx-runtime").JSX.Element;
