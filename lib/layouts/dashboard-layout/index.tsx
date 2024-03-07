@@ -144,13 +144,15 @@ export function DashboardLayout({
                           }
                         : () => {
                             item.action();
+
+                            if (isSmallScreen || !startSidebarOpened) {
+                              setOpen(false);
+                            }
+
                             setDropdownActive({
                               group: null,
                               itemGroup: null,
                             });
-                            if (!startSidebarOpened || isSmallScreen) {
-                              setOpen(false);
-                            }
                           }
                     }
                   >
@@ -180,7 +182,12 @@ export function DashboardLayout({
                         {item.dropdown?.map((dropdown_item, dropdownIndex) => (
                           <div key={dropdownIndex} className="flex">
                             <button
-                              onClick={dropdown_item.action}
+                              onClick={() => {
+                                dropdown_item.action();
+                                if (isSmallScreen || !startSidebarOpened) {
+                                  setOpen(false);
+                                }
+                              }}
                               className="flex-1 text-[12px] ml-4 font-medium text-black items-center flex gap-2 py-1 px-1 cursor-pointer hover:bg-slate-100 transition"
                             >
                               <span className="text-[6px]">○</span>
