@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { LuMenu } from "react-icons/lu";
 import { MdMenu } from "react-icons/md";
 import { useMediaQuery } from "react-responsive";
-import { Popover } from "../../main";
+import { Popover } from "../..";
 import { PopoverProfile } from "./components/popover-profile";
 
 import { FiChevronDown } from "react-icons/fi";

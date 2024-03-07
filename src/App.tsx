@@ -11,7 +11,7 @@ import {
   Tabs,
   Wizard,
   InputMask,
-} from "../lib/main";
+} from "../lib";
 import { LuSettings, LuUser } from "react-icons/lu";
 import { Modal } from "../lib/components/modal";
 import { useState } from "react";
