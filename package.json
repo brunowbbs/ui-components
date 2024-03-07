@@ -40,7 +40,7 @@
     "**/*.css"
   ],
   "main": "dist/main.js",
-  "types": "dist/main.d.ts",
+  "types": "dist/lib/main.d.ts",
   "files": [
     "dist"
   ],
