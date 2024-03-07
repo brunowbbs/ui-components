@@ -8,7 +8,7 @@ import { Select as i } from "./components/select/index.js";
 import { Checkbox as c } from "./components/checkbox/index.js";
 import { RadioButtonGroup as k } from "./components/radio-button/index.js";
 import { Modal as B } from "./components/modal/index.js";
-import { showToast as I } from "./components/toast/index.js";
+import { showToast as I } from "./components/toast/showToast.js";
 import { RichText as R } from "./components/rich-text/index.js";
 import { Tabs as v } from "./components/tabs/index.js";
 import { Wizard as y } from "./components/wizard/index.js";

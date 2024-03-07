@@ -11,7 +11,7 @@ export { Select } from "./components/select";
 export { Checkbox } from "./components/checkbox";
 export { RadioButtonGroup } from "./components/radio-button";
 export { Modal } from "./components/modal";
-export { showToast } from "./components/toast";
+export { showToast } from "./components/toast/showToast";
 export { RichText } from "./components/rich-text";
 export { Tabs } from "./components/tabs";
 export { Wizard } from "./components/wizard";

@@ -11,7 +11,11 @@ interface ToastProps {
   type?: "success" | "warning" | "error";
 }
 
-const Toast = ({ message, duration = 3000, type = "success" }: ToastProps) => {
+export const Toast = ({
+  message,
+  duration = 3000,
+  type = "success",
+}: ToastProps) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       removeToast();
@@ -68,19 +72,5 @@ const Toast = ({ message, duration = 3000, type = "success" }: ToastProps) => {
         />
       </div>
     </motion.div>
-  );
-};
-
-export const showToast = (
-  message: string,
-  type?: "success" | "warning" | "error",
-  duration?: number
-) => {
-  const toastRoot = document.createElement("div");
-  toastRoot.id = "toast-root";
-  document.body.appendChild(toastRoot);
-  ReactDOM.render(
-    <Toast message={message} duration={duration} type={type} />,
-    toastRoot
   );
 };
