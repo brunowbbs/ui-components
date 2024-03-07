@@ -148,7 +148,7 @@ export function DashboardLayout({
                               group: null,
                               itemGroup: null,
                             });
-                            if (!startSidebarOpened) {
+                            if (!startSidebarOpened || isSmallScreen) {
                               setOpen(false);
                             }
                           }
