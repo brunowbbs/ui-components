@@ -7,7 +7,11 @@ import { libInjectCss } from "vite-plugin-lib-inject-css";
 import { resolve } from "path";
 
 export default defineConfig({
-  plugins: [react(), libInjectCss(), dts({ include: ["lib"] })],
+  plugins: [
+    react(),
+    libInjectCss(),
+    dts({ include: "lib", insertTypesEntry: true }),
+  ],
   build: {
     rollupOptions: {
       external: ["react", "react/jsx-runtime"],

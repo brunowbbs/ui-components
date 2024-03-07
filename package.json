@@ -36,11 +36,8 @@
     "vite-plugin-dts": "^3.7.3",
     "vite-plugin-lib-inject-css": "^2.0.0"
   },
-  "sideEffects": [
-    "**/*.css"
-  ],
   "main": "dist/main.js",
-  "types": "dist/lib/main.d.ts",
+  "types": "dist/main.d.ts",
   "files": [
     "dist"
   ],

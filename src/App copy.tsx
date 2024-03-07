@@ -15,7 +15,7 @@ import {
 import { LuSettings, LuUser } from "react-icons/lu";
 import { Modal } from "../lib/components/modal";
 import { useState } from "react";
-import { showToast } from "../lib/components/toast";
+import { showToast } from "../lib/components/toast/showToast";
 import { MdDashboard, MdHome, MdReport } from "react-icons/md";
 
 const MENU_ITEMS = [
