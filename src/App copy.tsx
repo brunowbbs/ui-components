@@ -11,11 +11,11 @@ import {
   Tabs,
   Wizard,
   InputMask,
-} from "../dist/main.ts";
+} from "../lib/main";
 import { LuSettings, LuUser } from "react-icons/lu";
 import { Modal } from "../lib/components/modal";
 import { useState } from "react";
-import { showToast } from "../lib/components/toast/showToast.tsx";
+import { showToast } from "../lib/components/toast";
 import { MdDashboard, MdHome, MdReport } from "react-icons/md";
 
 const MENU_ITEMS = [
