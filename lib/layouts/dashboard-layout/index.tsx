@@ -221,8 +221,9 @@ export function DashboardLayout({
           </div>
           <div className="flex gap-2">
             <Popover
-              left={530}
-              mask_button={
+              width={220}
+              left={5.3}
+              button={
                 <img
                   src="https://avatars.githubusercontent.com/brunowbbs"
                   className="w-8 h-8 rounded-full cursor-pointer"

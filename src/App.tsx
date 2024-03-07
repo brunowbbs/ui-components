@@ -11,12 +11,14 @@ import {
   Tabs,
   Wizard,
   InputMask,
+  Popover,
 } from "../lib";
 import { LuSettings, LuUser } from "react-icons/lu";
 import { Modal } from "../lib/components/modal";
 import { useState } from "react";
 import { showToast } from "../lib/components/toast/showToast";
 import { MdDashboard, MdHome, MdReport } from "react-icons/md";
+import { IoMdMore } from "react-icons/io";
 
 const MENU_ITEMS = [
   {
@@ -414,6 +416,31 @@ function App() {
             },
           ]}
         />
+      </Card>
+
+      <div className="mt-3" />
+
+      <Card>
+        <p className="text-sm uppercase mb-2 font-bold text-primary">
+          Popovers
+        </p>
+
+        <div className="flex items-center justify-between">
+          <Button variant="success" text="Novo produto" />
+
+          <div className="">
+            <Popover
+              left={11}
+              button={
+                <div className="border border-gray-400 rounded-md cursor-pointer">
+                  <IoMdMore />
+                </div>
+              }
+            >
+              <h3>Hello world</h3>
+            </Popover>
+          </div>
+        </div>
       </Card>
     </DashboardLayout>
   );

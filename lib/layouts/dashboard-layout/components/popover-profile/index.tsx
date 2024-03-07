@@ -1,6 +1,5 @@
 import { LuLogOut } from "react-icons/lu";
 import { PopoverProfileProps } from "./types";
-// import { useNavigate } from "react-router-dom";
 
 export function PopoverProfile({
   menuItems = [],
