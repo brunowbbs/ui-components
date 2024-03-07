@@ -148,6 +148,9 @@ export function DashboardLayout({
                               group: null,
                               itemGroup: null,
                             });
+                            if (!startSidebarOpened) {
+                              setOpen(false);
+                            }
                           }
                     }
                   >
