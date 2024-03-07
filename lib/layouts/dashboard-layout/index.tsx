@@ -96,25 +96,25 @@ export function DashboardLayout({
           initial={{ x: isSmallScreen ? -250 : 0 }}
           animate={open ? "open" : "closed"}
           className={clsx(
-            "bg-white text-gray border-transparent shadow-sm overflow-hidden md:relative fixed h-screen z-[999]",
+            "bg-white border-transparent shadow-sm overflow-hidden md:relative fixed h-screen z-[999] font-medium",
             { "w-[13rem]": open }
           )}
         >
-          <div className="flex items-center gap-2 font-medium py-3  mx-5">
+          <div className="flex items-center gap-2 font-medium py-3 mx-5">
             <img src={logo} width={12} alt="" className="w-[12px]" />
             {(open || isSmallScreen) && (
-              <span className="text-[1.rem] whitespace-pre font-semibold text-gray-600">
+              <span className="text-[1.rem] whitespace-pre font-semibold">
                 Dashboard
               </span>
             )}
           </div>
 
           {menuItems?.map((group, indexGroup) => (
-            <div className="px-3">
+            <div className="px-3 ">
               {(open || isSmallScreen) && (
                 <small
                   key={indexGroup}
-                  className="text-slate-400 inline-block px-1 font-light text-[12px]"
+                  className="inline-block px-1 font-medium text-slate-400 text-[12px]"
                 >
                   {group.group_name}
                 </small>
@@ -153,7 +153,7 @@ export function DashboardLayout({
                   >
                     {item.icon}
                     {(open || isSmallScreen) && (
-                      <span className="text-sm text-slate-600 font-normal w-full select-none">
+                      <span className="text-sm font-medium text-black w-full select-none">
                         {item.title}
                       </span>
                     )}
@@ -178,7 +178,7 @@ export function DashboardLayout({
                           <div key={dropdownIndex} className="flex">
                             <button
                               onClick={dropdown_item.action}
-                              className="flex-1 text-[12px] ml-4 text-slate-600 font-light items-center flex gap-2 py-1 px-1 cursor-pointer hover:bg-slate-100 transition"
+                              className="flex-1 text-[12px] ml-4 font-medium text-black items-center flex gap-2 py-1 px-1 cursor-pointer hover:bg-slate-100 transition"
                             >
                               <span className="text-[6px]">○</span>
                               {dropdown_item.title}

@@ -47,6 +47,7 @@ export function Select({
             borderStyle: "solid",
             paddingLeft: 4,
             paddingRight: 4,
+            fontWeight: 500,
           }),
 
           input: (base) => ({
@@ -122,7 +123,7 @@ export function Select({
             cursor: "pointer",
             // background: "blue",
             backgroundColor: state.isFocused ? "#ecf0f1" : "transparent",
-            color: "#4a5568",
+            color: "#000",
             "&:hover": {
               backgroundColor: "#ecf0f1",
             },

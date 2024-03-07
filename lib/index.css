@@ -20,7 +20,8 @@
   input,
   select,
   textarea {
-    color: #636e72;
+    font-weight: 500;
+    /* color: #636e72; */
   }
 }
 

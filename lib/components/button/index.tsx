@@ -62,7 +62,8 @@ export function Button(props: ButtonProps) {
       ) : (
         <p
           className={clsx({
-            "text-primary hover:text-primary-darker hover:transition": link,
+            "text-primary hover:text-primary-darker hover:transition font-medium":
+              link,
           })}
         >
           <div className="flex flex-row items-center gap-1 text-sm">

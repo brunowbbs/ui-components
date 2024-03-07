@@ -5616,19 +5616,19 @@ function eZ({
           initial: { x: s ? -250 : 0 },
           animate: p ? "open" : "closed",
           className: Td(
-            "bg-white text-gray border-transparent shadow-sm overflow-hidden md:relative fixed h-screen z-[999]",
+            "bg-white border-transparent shadow-sm overflow-hidden md:relative fixed h-screen z-[999] font-medium",
             { "w-[13rem]": p }
           ),
           children: [
-            /* @__PURE__ */ Zt("div", { className: "flex items-center gap-2 font-medium py-3  mx-5", children: [
+            /* @__PURE__ */ Zt("div", { className: "flex items-center gap-2 font-medium py-3 mx-5", children: [
               /* @__PURE__ */ Ue("img", { src: $V, width: 12, alt: "", className: "w-[12px]" }),
-              (p || s) && /* @__PURE__ */ Ue("span", { className: "text-[1.rem] whitespace-pre font-semibold text-gray-600", children: "Dashboard" })
+              (p || s) && /* @__PURE__ */ Ue("span", { className: "text-[1.rem] whitespace-pre font-semibold", children: "Dashboard" })
             ] }),
-            i == null ? void 0 : i.map((g, y) => /* @__PURE__ */ Zt("div", { className: "px-3", children: [
+            i == null ? void 0 : i.map((g, y) => /* @__PURE__ */ Zt("div", { className: "px-3 ", children: [
               (p || s) && /* @__PURE__ */ Ue(
                 "small",
                 {
-                  className: "text-slate-400 inline-block px-1 font-light text-[12px]",
+                  className: "inline-block px-1 font-medium text-slate-400 text-[12px]",
                   children: g.group_name
                 },
                 y
@@ -5656,7 +5656,7 @@ function eZ({
                       },
                       children: [
                         b.icon,
-                        (p || s) && /* @__PURE__ */ Ue("span", { className: "text-sm text-slate-600 font-normal w-full select-none", children: b.title }),
+                        (p || s) && /* @__PURE__ */ Ue("span", { className: "text-sm font-medium text-black w-full select-none", children: b.title }),
                         (p || s) && b.dropdown && ((I = b.dropdown) == null ? void 0 : I.length) && /* @__PURE__ */ Ue(qV, { className: "mr-1", size: 19 })
                       ]
                     },
@@ -5674,7 +5674,7 @@ function eZ({
                         "button",
                         {
                           onClick: R.action,
-                          className: "flex-1 text-[12px] ml-4 text-slate-600 font-light items-center flex gap-2 py-1 px-1 cursor-pointer hover:bg-slate-100 transition",
+                          className: "flex-1 text-[12px] ml-4 font-medium text-black items-center flex gap-2 py-1 px-1 cursor-pointer hover:bg-slate-100 transition",
                           children: [
                             /* @__PURE__ */ Ue("span", { className: "text-[6px]", children: "○" }),
                             R.title
@@ -5786,21 +5786,21 @@ function QV({ color: n }) {
   );
 }
 const vc = {
-  primary: "#3498db",
-  "primary-lighter": "#7ab6e0",
-  "primary-darker": "#1f6ab6",
+  primary: "#0d68c5",
+  "primary-lighter": "#3d6bb3",
+  "primary-darker": "#093170",
   secondary: "#95a5a6",
   "secondary-lighter": "#bfc6c7",
   "secondary-darker": "#6b7a7b",
-  danger: "#e74c3c",
-  "danger-lighter": "#ff8272",
-  "danger-darker": "#b73a29",
-  success: "#2ecc71",
-  "success-lighter": "#6deea1",
-  "success-darker": "#1e995d",
-  warning: "#f1c40f",
-  "warning-lighter": "#f9da6c",
-  "warning-darker": "#b89a0b"
+  danger: "#D83C38",
+  "danger-lighter": "#c54949",
+  "danger-darker": "#801313",
+  success: "#2D8647",
+  "success-lighter": "#3c965a",
+  "success-darker": "#0f692d",
+  warning: "#f9a825",
+  "warning-lighter": "#fab950",
+  "warning-darker": "#ae7519"
 };
 function zE(n) {
   const {
@@ -5838,7 +5838,7 @@ function zE(n) {
         "p",
         {
           className: Td({
-            "text-primary hover:text-primary-darker hover:transition": l
+            "text-primary hover:text-primary-darker hover:transition font-medium": l
           }),
           children: /* @__PURE__ */ Zt("div", { className: "flex flex-row items-center gap-1 text-sm", children: [
             v,
@@ -5873,7 +5873,7 @@ function tZ(n) {
               ...n,
               type: p,
               className: Td(
-                "text-sm px-2 h-7 outline-none w-full focus:ring-primary focus:border-primary",
+                "text-sm font-medium px-2 h-7 outline-none w-full focus:ring-primary focus:border-primary",
                 {
                   "pr-6": n.isPassword
                 }
@@ -30017,7 +30017,8 @@ function rZ({
             borderWidth: "1px",
             borderStyle: "solid",
             paddingLeft: 4,
-            paddingRight: 4
+            paddingRight: 4,
+            fontWeight: 500
           }),
           input: (d) => ({
             ...d,
@@ -30083,7 +30084,7 @@ function rZ({
             cursor: "pointer",
             // background: "blue",
             backgroundColor: S.isFocused ? "#ecf0f1" : "transparent",
-            color: "#4a5568",
+            color: "#000",
             "&:hover": {
               backgroundColor: "#ecf0f1"
             }

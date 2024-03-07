@@ -25,7 +25,7 @@ export function Input(props: InputProps) {
           {...props}
           type={inputType}
           className={clsx(
-            "text-sm px-2 h-7 outline-none w-full focus:ring-primary focus:border-primary",
+            "text-sm font-medium px-2 h-7 outline-none w-full focus:ring-primary focus:border-primary",
             {
               "pr-6": props.isPassword,
             }
