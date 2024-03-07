@@ -14,10 +14,10 @@ export function PopoverProfile({
           <img src={userLoggedData.avatar} className="w-8 h-8 rounded-full" />
         )}
         <div className="flex flex-col">
-          <span className="font-semibold text-sm line-clamp-1 text-slate-600">
+          <span className="font-semibold text-sm line-clamp-1 ">
             {userLoggedData.name}
           </span>
-          <span className="font-light text-[0.65rem] text-slate-600">
+          <span className="font-light text-[0.65rem] ">
             {userLoggedData.description}
           </span>
         </div>
@@ -26,7 +26,7 @@ export function PopoverProfile({
         {menuItems?.map((item) => (
           <li className="flex items-center gap-2 p-1 rounded hover:bg-slate-100 transition cursor-pointer">
             {item.icon}
-            <span className="text-sm text-slate-600">{item.title}</span>
+            <span className="text-sm ">{item.title}</span>
           </li>
         ))}
 
@@ -38,7 +38,7 @@ export function PopoverProfile({
           }}
         >
           <LuLogOut size={14} />
-          <span className="text-sm text-slate-600">Sair</span>
+          <span className="text-sm ">Sair</span>
         </li>
       </ul>
     </div>
