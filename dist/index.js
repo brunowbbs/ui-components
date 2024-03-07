@@ -5501,14 +5501,14 @@ function YV({
     /* @__PURE__ */ Zt("div", { className: "flex gap-2 border-b pb-2 mb-2", children: [
       i.avatar && /* @__PURE__ */ Ue("img", { src: i.avatar, className: "w-8 h-8 rounded-full" }),
       /* @__PURE__ */ Zt("div", { className: "flex flex-col", children: [
-        /* @__PURE__ */ Ue("span", { className: "font-semibold text-sm line-clamp-1 text-slate-600", children: i.name }),
-        /* @__PURE__ */ Ue("span", { className: "font-light text-[0.65rem] text-slate-600", children: i.description })
+        /* @__PURE__ */ Ue("span", { className: "font-semibold text-sm line-clamp-1 ", children: i.name }),
+        /* @__PURE__ */ Ue("span", { className: "font-light text-[0.65rem] ", children: i.description })
       ] })
     ] }),
     /* @__PURE__ */ Zt("ul", { children: [
       n == null ? void 0 : n.map((u) => /* @__PURE__ */ Zt("li", { className: "flex items-center gap-2 p-1 rounded hover:bg-slate-100 transition cursor-pointer", children: [
         u.icon,
-        /* @__PURE__ */ Ue("span", { className: "text-sm text-slate-600", children: u.title })
+        /* @__PURE__ */ Ue("span", { className: "text-sm ", children: u.title })
       ] })),
       /* @__PURE__ */ Ue("div", { className: "border-t my-2" }),
       /* @__PURE__ */ Zt(
@@ -5520,7 +5520,7 @@ function YV({
           },
           children: [
             /* @__PURE__ */ Ue(UV, { size: 14 }),
-            /* @__PURE__ */ Ue("span", { className: "text-sm text-slate-600", children: "Sair" })
+            /* @__PURE__ */ Ue("span", { className: "text-sm ", children: "Sair" })
           ]
         }
       )
