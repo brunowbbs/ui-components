@@ -54,7 +54,7 @@ export function Button(props: ButtonProps) {
       style={buttonStyles}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="px-3 flex items-center justify-center rounded-sm py-1"
+      className="px-3 flex items-center justify-center rounded-md py-[5.75px]"
       {...props}
     >
       {isLoading ? (

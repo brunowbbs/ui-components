@@ -16,3 +16,7 @@ export { RichText } from "./components/rich-text";
 export { Tabs } from "./components/tabs";
 export { Wizard } from "./components/wizard";
 export { InputMask } from "./components/input-mask";
+export { BarChart } from "./components/charts/bar-chart";
+export { LineChart } from "./components/charts/line-chart";
+export { DougnutChart } from "./components/charts/dougnut-chart";
+export { PieChart } from "./components/charts/pie-chart";

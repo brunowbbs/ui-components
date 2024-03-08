@@ -17,7 +17,7 @@ export function Input(props: InputProps) {
     <div className={`flex flex-col w-${props.width ?? "full"}`}>
       <p className="text-sm font-medium">{props.label}</p>
       <div
-        className={clsx("border rounded-sm bg-slate-50 relative", {
+        className={clsx("border rounded py-[0.75px] relative", {
           "border-primary": isFocused,
         })}
       >
@@ -25,7 +25,7 @@ export function Input(props: InputProps) {
           {...props}
           type={inputType}
           className={clsx(
-            "text-sm font-medium px-2 h-7 outline-none w-full focus:ring-primary focus:border-primary",
+            "text-sm font-medium px-2 h-7 rounded outline-none border-gray-300 w-full focus:ring-primary focus:border-primary",
             {
               "pr-6": props.isPassword,
             }

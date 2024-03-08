@@ -20,7 +20,7 @@ export function Checkbox({ label }: Props) {
         <div className="flex gap-2 items-end justify-center">
           {!checked && (
             <BsSquare
-              className="fill-current cursor-pointer text-gray-300"
+              className="fill-current cursor-pointer text-gray-400"
               size={16}
             />
           )}

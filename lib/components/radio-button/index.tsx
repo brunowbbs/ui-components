@@ -43,7 +43,7 @@ export function RadioButton({
       />
       {!checked && (
         <BsCircle
-          className="fill-current cursor-pointer text-gray-300"
+          className="fill-current cursor-pointer text-gray-400"
           size={16}
         />
       )}

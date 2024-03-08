@@ -1,24 +1,29 @@
+import { useState } from "react";
 import { AiOutlineAppstore } from "react-icons/ai";
+import { IoMdMore } from "react-icons/io";
+import { LuSettings, LuUser } from "react-icons/lu";
+import { MdDashboard, MdHome, MdReport } from "react-icons/md";
+import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import {
+  BarChart,
   Button,
   Card,
-  DashboardLayout,
-  Input,
-  Select,
   Checkbox,
+  DashboardLayout,
+  DougnutChart,
+  Input,
+  InputMask,
+  LineChart,
+  PieChart,
+  Popover,
   RadioButtonGroup,
   RichText,
+  Select,
   Tabs,
   Wizard,
-  InputMask,
-  Popover,
 } from "../lib";
-import { LuSettings, LuUser } from "react-icons/lu";
 import { Modal } from "../lib/components/modal";
-import { useState } from "react";
 import { showToast } from "../lib/components/toast/showToast";
-import { MdDashboard, MdHome, MdReport } from "react-icons/md";
-import { IoMdMore } from "react-icons/io";
 
 const MENU_ITEMS = [
   {
@@ -113,6 +118,35 @@ const MENU_ITEMS_POPOVER_PROFILE = [
   },
 ];
 
+const sourceData = Array.from({ length: 28 }, (_, index) => {
+  const day = index + 1;
+  const label = day < 10 ? `0${day}/02` : `${day}/02`;
+  const value = Math.floor(Math.random() * 101);
+  return { label, value };
+});
+
+const sourceData2 = Array.from({ length: 28 }, (_, index) => {
+  const day = index + 1;
+  const label = day < 10 ? `0${day}/02` : `${day}/02`;
+  const value1 = Math.floor(Math.random() * 101);
+  return { label, value1, value2: value1 + 10 };
+});
+
+const sourcedata3 = [
+  {
+    label: "Leandro",
+    value: 32,
+  },
+  {
+    label: "Antonio",
+    value: 45,
+  },
+  {
+    label: "Fernanda",
+    value: 23,
+  },
+];
+
 function App() {
   const [isModalConfirm, setIsModalConfirm] = useState(false);
 
@@ -198,7 +232,7 @@ function App() {
             Inputs
           </p>
 
-          <div className="flex gap-2 flex-row flex-wrap">
+          <div className="flex items-end gap-2 flex-row flex-wrap">
             <Input width={80} placeholder="Ex: user@gmail.com" label="E-mail" />
             <Input
               width={80}
@@ -294,6 +328,8 @@ function App() {
                 { label: "Montes Claros", value: 3 },
               ]}
             />
+            <Input width={80} placeholder="Ex: user@gmail.com" label="E-mail" />
+            <InputMask width={80} label="CNPJ" type="cnpj" placeholder="CNPJ" />
 
             <Select
               width={80}
@@ -419,7 +455,6 @@ function App() {
       </Card>
 
       <div className="mt-3" />
-
       <Card>
         <p className="text-sm uppercase mb-2 font-bold text-primary">
           Popovers
@@ -430,15 +465,128 @@ function App() {
 
           <div className="">
             <Popover
-              left={11}
+              left={4.5}
               button={
                 <div className="border border-gray-400 rounded-md cursor-pointer">
                   <IoMdMore />
                 </div>
               }
             >
-              <h3>Hello world</h3>
+              <p className="text-sm">Hello world</p>
             </Popover>
+          </div>
+        </div>
+      </Card>
+
+      <div className="mt-3" />
+      <Card>
+        <p className="text-sm uppercase mb-2 font-bold text-primary">Charts</p>
+
+        <div className="flex flex-row gap-3">
+          <div className="flex-1">
+            <Card>
+              <p className="text-center font-bold">Vendas Totais Mensais</p>
+              <div className="flex items-start justify-between">
+                <div>
+                  <div className="flex items-center gap-1">
+                    <RiMoneyDollarCircleLine size={20} />
+                    <p className="font-semibold">Conversão de negócios</p>
+                  </div>
+                  <p className=" text-sm ml-6 text-gray-500">
+                    Mês: Fevereiro | Ano: 2024
+                  </p>
+                </div>
+                <div className="flex items-center gap-2 flex-1 max-w-[200px]">
+                  <Select
+                    label={""}
+                    placeholder="Selecione um vendedor"
+                    options={[{ label: "Wesley", value: 1 }]}
+                  />
+                </div>
+              </div>
+
+              <BarChart sourceData={sourceData} height={250} offset={7} />
+            </Card>
+          </div>
+
+          <div className="flex-1">
+            <Card>
+              <p className="text-center font-bold">Vendas Totais Mensais</p>
+              <div className="flex items-start justify-between">
+                <div>
+                  <div className="flex items-center gap-1">
+                    <RiMoneyDollarCircleLine size={20} />
+                    <p className="font-semibold">Conversão de negócios</p>
+                  </div>
+                  <p className=" text-sm ml-6 text-gray-500">
+                    Mês: Fevereiro | Ano: 2024
+                  </p>
+                </div>
+                <div className="flex items-center gap-2 flex-1 max-w-[200px]">
+                  <Select
+                    label={""}
+                    placeholder="Selecione um vendedor"
+                    options={[{ label: "Wesley", value: 1 }]}
+                  />
+                </div>
+              </div>
+
+              <LineChart sourceData={sourceData2} height={250} />
+            </Card>
+          </div>
+        </div>
+
+        <div className="flex flex-row gap-3 mt-4">
+          <div className="flex-1">
+            <Card>
+              <p className="text-center font-bold">Vendas Totais Mensais</p>
+              <div className="flex items-start justify-between">
+                <div>
+                  <div className="flex items-center gap-1">
+                    <RiMoneyDollarCircleLine size={20} />
+                    <p className="font-semibold">Conversão de negócios</p>
+                  </div>
+                  <p className=" text-sm ml-6 text-gray-500">
+                    Mês: Fevereiro | Ano: 2024
+                  </p>
+                </div>
+                <div className="flex items-center gap-2 flex-1 max-w-[200px]">
+                  <Select
+                    label={""}
+                    placeholder="Selecione um vendedor"
+                    options={[{ label: "Wesley", value: 1 }]}
+                  />
+                </div>
+              </div>
+
+              <DougnutChart sourceData={sourcedata3} />
+            </Card>
+          </div>
+
+          <div className="flex-1 flex-wrap">
+            <Card>
+              <p className="text-center font-bold">Vendas Totais Mensais</p>
+              <div className="flex items-start justify-between">
+                <div>
+                  <div className="flex items-center gap-1">
+                    <RiMoneyDollarCircleLine size={20} />
+                    <p className="font-semibold">Conversão de negócios</p>
+                  </div>
+                  <p className=" text-sm ml-6 text-gray-500">
+                    Mês: Fevereiro | Ano: 2024
+                  </p>
+                </div>
+                <div className="flex items-center gap-2 flex-1 max-w-[200px]">
+                  <Select
+                    label={""}
+                    placeholder="Selecione um vendedor"
+                    options={[{ label: "Wesley", value: 1 }]}
+                  />
+                </div>
+              </div>
+
+              <PieChart sourceData={sourcedata3} />
+            </Card>
           </div>
         </div>
       </Card>

@@ -21,7 +21,7 @@ export function Select({
         isDisabled={disabled}
         placeholder={placeholder}
         options={options}
-        className="text-sm border rounded-sm cursor-pointer"
+        className="text-sm rounded-md cursor-pointer"
         noOptionsMessage={() => "Nenhuma opção encontrada"}
         components={{
           ClearIndicator: (props) => (
@@ -40,13 +40,16 @@ export function Select({
         }}
         styles={{
           control: (_, state) => ({
+            borderRadius: 6,
             display: "flex",
             width: "100%",
-            borderColor: state.isFocused ? COLORS.primary : "transparent",
+            paddingTop: 1.7,
+            paddingBottom: 1.6,
+            borderColor: state.isFocused ? COLORS.primary : "#e4e7eb",
             borderWidth: "1px",
             borderStyle: "solid",
-            paddingLeft: 4,
-            paddingRight: 4,
+            paddingLeft: 8,
+            paddingRight: 8,
             fontWeight: 500,
           }),
 

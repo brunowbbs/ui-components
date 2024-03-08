@@ -6,7 +6,11 @@ export function RichText() {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
-    <div className={`border rounded-sm ${isFocused ? "border-primary" : ""}`}>
+    <div
+      className={`border rounded-md ${
+        isFocused ? "border-primary" : "border-gray-200"
+      }`}
+    >
       <ReactQuill
         modules={modules}
         onFocus={() => setIsFocused(true)}
