@@ -1,26 +1,47 @@
 import { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { RichTextProps } from "./types";
 
-export function RichText() {
+export function RichText({
+  onChangeValue,
+  error,
+  value,
+  label,
+}: RichTextProps) {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
-    <div
-      className={`border rounded-md ${
-        isFocused ? "border-primary" : "border-gray-200"
-      }`}
-    >
-      <ReactQuill
-        modules={modules}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
-        onChange={(value) => {
-          console.log(value);
-          // Adicione o código de manipulação de valor aqui, se necessário
-        }}
-        style={{ maxWidth: "100%", paddingRight: "50px" }} // Adicione estilos aqui
-      />
+    <div>
+      <p className="text-sm font-medium">{label}</p>
+
+      <div
+        className={`border rounded-md ${
+          error
+            ? "border-red-600"
+            : isFocused
+            ? "border-primary"
+            : "border-gray-400"
+        }`}
+      >
+        <ReactQuill
+          defaultValue={value}
+          modules={modules}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
+          onChange={(value) => {
+            const valueReplaced = value.replace(/<p><br><\/p>/g, "");
+
+            if (valueReplaced === "") {
+              onChangeValue(valueReplaced);
+            } else {
+              onChangeValue(value);
+            }
+          }}
+          style={{ maxWidth: "100%", paddingRight: "50px" }}
+        />
+      </div>
+      {error && <p className="text-[10px] text-red-600">{error}</p>}
     </div>
   );
 }

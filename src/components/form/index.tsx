@@ -6,6 +6,7 @@ import {
   Input,
   InputMask,
   RadioButtonGroup,
+  RichText,
   Select,
   useForm,
 } from "../../../lib";
@@ -25,6 +26,7 @@ const ValidationSchema = z.object({
     message: "Voce precisa aceitar os termos",
   }),
   linguagem: z.string().min(1, "Linguagem é obrigatória"),
+  observacao: z.string().min(1, "Observação é obrigatória"),
 });
 
 export function Form() {
@@ -34,6 +36,7 @@ export function Form() {
     cpf: string;
     permanecer: boolean;
     linguagem: string | number;
+    observacao: string;
   }>({
     initialValues: {
       name: "",
@@ -41,6 +44,7 @@ export function Form() {
       cpf: "",
       permanecer: false,
       linguagem: "",
+      observacao: "",
     },
     onSubmit: (values) => {
       alert(JSON.stringify(values));
@@ -50,7 +54,7 @@ export function Form() {
 
   return (
     <div>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 mt-4">
         <Input
           value={form.values.name}
           label="Nome completo"
@@ -93,6 +97,13 @@ export function Form() {
             { label: "JavaScript", value: "option3" },
           ]}
           error={form.errors?.linguagem}
+        />
+
+        <RichText
+          value={form.values.observacao}
+          onChangeValue={(value) => form.setFieldValue("observacao", value)}
+          label="Observação"
+          error={form.errors?.observacao}
         />
       </div>
       <div className="mt-5 flex justify-end">
