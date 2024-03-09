@@ -17,7 +17,7 @@ export function Input(props: InputProps) {
     <div className={`flex flex-col w-${props.width ?? "full"}`}>
       <p className="text-sm font-medium">{props.label}</p>
       <div
-        className={clsx("border rounded py-[0.75px] relative", {
+        className={clsx("border rounded py-[0.75px] relative border-gray-400", {
           "border-primary": isFocused,
           "border-red-600": props.error,
         })}
@@ -28,7 +28,7 @@ export function Input(props: InputProps) {
             onChange={(event) => props.onChangeValue(event.target.value)}
             type={inputType}
             className={clsx(
-              "text-sm font-medium px-2 h-7 rounded outline-none border-gray-300 w-full focus:ring-primary focus:border-primary",
+              "text-sm font-medium px-2 h-7 rounded outline-none border-gray-500 w-full focus:ring-primary focus:border-primary",
               {
                 "pr-6": props.isPassword,
               }

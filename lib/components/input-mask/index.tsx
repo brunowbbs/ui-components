@@ -22,7 +22,7 @@ export function InputMask(props: InputProps) {
       <p className="text-sm font-medium">{props.label}</p>
       <div
         className={clsx(
-          "border border-gray-200 rounded-md py-[2.5px] relative",
+          "border border-gray-400 rounded-md py-[2.5px] relative",
           {
             "border-primary": isFocused,
             "border-red-600": props.error,

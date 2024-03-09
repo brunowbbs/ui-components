@@ -61,7 +61,7 @@ export function Select({
               ? COLORS.danger
               : state.isFocused
               ? COLORS.primary
-              : "#e4e7eb",
+              : "#94a3b8",
             borderWidth: "1px",
             borderStyle: "solid",
             paddingLeft: 8,

@@ -10,8 +10,6 @@ export function Checkbox({ label, onChangeValue, error, value }: Props) {
     onChangeValue(!checked);
   };
 
-  // alert(error);
-
   return (
     <>
       <label htmlFor="checkbox" className="cursor-pointer">

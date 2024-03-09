@@ -6,12 +6,14 @@ type FormProps<T extends FormikValues> = {
   initialValues: T;
   onSubmit: (values: T, formikHelpers: FormikHelpers<T>) => void;
   validationSchema?: AnyZodObject;
+  validateOnChange?: boolean;
 };
 
 export function useForm<T extends FormikValues>({
   initialValues,
   onSubmit,
   validationSchema,
+  validateOnChange = true,
 }: FormProps<T>) {
   const validateForm = (values: T) => {
     const errors: Record<string, string> = {};
@@ -33,7 +35,7 @@ export function useForm<T extends FormikValues>({
     initialValues,
     onSubmit,
     validate: validateForm,
-    validateOnChange: true,
+    validateOnChange: validateOnChange,
   });
 
   return {

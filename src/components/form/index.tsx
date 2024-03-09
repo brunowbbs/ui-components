@@ -9,27 +9,22 @@ import {
   Select,
   useForm,
 } from "../../../lib";
-import { useEffect } from "react";
 
-const cpfRegex = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/;
+const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
 
 const ValidationSchema = z.object({
-  name: z
-    .string()
-    .min(3, "Username is too short")
-    .max(50, "Username is too long")
-    .min(1, "Username is required"),
-  sexo: z.number().min(1, "Gender is required"),
+  name: z.string().min(3, "Nome inválido").min(1, "Nome é obrigatório"),
+  sexo: z.number().min(1, "Sexo é obrigatório"),
   cpf: z
     .string()
-    .min(1, "CPF is required")
+    .min(1, "CPF é obrigatório")
     .refine((value) => cpfRegex.test(value), {
-      message: "Invalid CPF format",
+      message: "CPF inválido",
     }),
   permanecer: z.boolean().refine((value) => value === true, {
-    message: "You must agree to continue",
+    message: "Voce precisa aceitar os termos",
   }),
-  linguagem: z.string().min(1, "Language is required"),
+  linguagem: z.string().min(1, "Linguagem é obrigatória"),
 });
 
 export function Form() {
@@ -48,14 +43,10 @@ export function Form() {
       linguagem: "",
     },
     onSubmit: (values) => {
-      console.log("Form submitted:", values);
+      alert(JSON.stringify(values));
     },
     validationSchema: ValidationSchema,
   });
-
-  useEffect(() => {
-    console.log(form.errors);
-  }, [form.errors]);
 
   return (
     <div>
@@ -97,15 +88,20 @@ export function Form() {
           label="Selecione a linguagem"
           onChange={(value) => form.setFieldValue("linguagem", value)}
           options={[
-            { label: "Option 1", value: "option1" },
-            { label: "Option 2", value: "option2" },
-            { label: "Option 3", value: "option3" },
+            { label: "HTML", value: "option1" },
+            { label: "CSS", value: "option2" },
+            { label: "JavaScript", value: "option3" },
           ]}
           error={form.errors?.linguagem}
         />
       </div>
-
-      <Button text="Salvar" onClick={() => form.handleSubmit()} />
+      <div className="mt-5 flex justify-end">
+        <Button
+          text="Salvar"
+          onClick={() => form.handleSubmit()}
+          type="submit"
+        />
+      </div>
     </div>
   );
 }
