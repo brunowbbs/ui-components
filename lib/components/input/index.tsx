@@ -23,6 +23,7 @@ export function Input(props: InputProps) {
       >
         <input
           {...props}
+          onChange={(event) => props.onChangeValue(event.target.value)}
           type={inputType}
           className={clsx(
             "text-sm font-medium px-2 h-7 rounded outline-none border-gray-300 w-full focus:ring-primary focus:border-primary",

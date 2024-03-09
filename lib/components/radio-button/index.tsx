@@ -33,27 +33,20 @@ export function RadioButton({
 }: RadioButtonProps) {
   return (
     <label htmlFor={String(value)} className="flex items-center gap-2 mb-1">
-      <input
-        type="radio"
+      <button
+        onClick={onChange}
         id={String(value)}
         value={value}
-        checked={checked}
-        onChange={onChange}
-        className="hidden"
-      />
-      {!checked && (
-        <BsCircle
-          className="fill-current cursor-pointer text-gray-400"
-          size={16}
-        />
-      )}
-      {checked && (
-        <BsCheckCircle
-          className="fill-current text-primary cursor-pointer"
-          size={16}
-        />
-      )}
-      <p className="text-sm">{label}</p>
+        className="flex items-center gap-2 cursor-pointer"
+      >
+        {!checked && (
+          <BsCircle className="fill-current text-gray-400" size={16} />
+        )}
+        {checked && (
+          <BsCheckCircle className="fill-current text-primary" size={16} />
+        )}
+        <p className="text-sm">{label}</p>
+      </button>
     </label>
   );
 }

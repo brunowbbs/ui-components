@@ -21,6 +21,7 @@ import {
   Select,
   Tabs,
   Wizard,
+  useForm,
 } from "../lib";
 import { Modal } from "../lib/components/modal";
 import { showToast } from "../lib/components/toast/showToast";
@@ -148,6 +149,12 @@ const sourcedata3 = [
 ];
 
 function App() {
+  const { Form } = useForm({
+    initialValues: {},
+    onSubmit: () => {},
+    validationSchema: {},
+  });
+
   const [isModalConfirm, setIsModalConfirm] = useState(false);
 
   return (
@@ -233,15 +240,31 @@ function App() {
           </p>
 
           <div className="flex items-end gap-2 flex-row flex-wrap">
-            <Input width={80} placeholder="Ex: user@gmail.com" label="E-mail" />
             <Input
+              width={80}
+              placeholder="Ex: user@gmail.com"
+              label="E-mail"
+              onChangeValue={() => {}}
+            />
+            <Input
+              onChangeValue={() => {}}
               width={80}
               placeholder="Password"
               label="Password"
               isPassword
             />
-            <Input width={80} label="Data" type="date" />
-            <Input width={80} label="Hora" type="time" />
+            <Input
+              width={80}
+              label="Data"
+              type="date"
+              onChangeValue={() => {}}
+            />
+            <Input
+              width={80}
+              label="Hora"
+              type="time"
+              onChangeValue={() => {}}
+            />
           </div>
         </Card>
 
@@ -253,6 +276,7 @@ function App() {
 
           <div className="flex gap-2 flex-row flex-wrap">
             <InputMask
+              onChangeValue={() => {}}
               width={80}
               label="Telefone"
               type="phone"
@@ -260,15 +284,28 @@ function App() {
             />
 
             <InputMask
+              onChangeValue={() => {}}
               width={80}
               label="Preço"
               type="money"
               placeholder="Preço"
             />
 
-            <InputMask width={80} label="CPF" type="cpf" placeholder="CPF" />
+            <InputMask
+              width={80}
+              label="CPF"
+              type="cpf"
+              placeholder="CPF"
+              onChangeValue={() => {}}
+            />
 
-            <InputMask width={80} label="CNPJ" type="cnpj" placeholder="CNPJ" />
+            <InputMask
+              width={80}
+              label="CNPJ"
+              type="cnpj"
+              placeholder="CNPJ"
+              onChangeValue={() => {}}
+            />
           </div>
         </Card>
 
@@ -319,6 +356,7 @@ function App() {
 
           <div className="flex gap-2 flex-row">
             <Select
+              onChangeValue={() => {}}
               width={80}
               label="Cidade"
               placeholder="Selecione uma cidade"
@@ -328,10 +366,22 @@ function App() {
                 { label: "Montes Claros", value: 3 },
               ]}
             />
-            <Input width={80} placeholder="Ex: user@gmail.com" label="E-mail" />
-            <InputMask width={80} label="CNPJ" type="cnpj" placeholder="CNPJ" />
+            <Input
+              width={80}
+              placeholder="Ex: user@gmail.com"
+              label="E-mail"
+              onChangeValue={() => {}}
+            />
+            <InputMask
+              width={80}
+              label="CNPJ"
+              type="cnpj"
+              placeholder="CNPJ"
+              onChangeValue={() => {}}
+            />
 
             <Select
+              onChangeValue={() => {}}
               width={80}
               isMulti
               label="Eletrodomésticos"
@@ -354,7 +404,7 @@ function App() {
           </p>
 
           <div className="flex gap-2 flex-row">
-            <Checkbox label="Continuar logado" />
+            <Checkbox label="Continuar logado" onChangeValue={() => {}} />
           </div>
         </Card>
 
@@ -415,15 +465,27 @@ function App() {
             tabs={[
               {
                 title: "Tab 1",
-                content: <div className="text-sm">Content for Tab 1</div>,
+                content: (
+                  <div className="text-sm">
+                    <p>Content for Tab 1</p>
+                  </div>
+                ),
               },
               {
                 title: "Tab 2",
-                content: <div className="text-sm">Content for Tab 2</div>,
+                content: (
+                  <div className="text-sm">
+                    <p>Content for Tab 2</p>
+                  </div>
+                ),
               },
               {
                 title: "Tab 3",
-                content: <div className="text-sm">Content for Tab 3</div>,
+                content: (
+                  <div className="text-sm">
+                    <p>Content for Tab 3</p>
+                  </div>
+                ),
               },
             ]}
           />
@@ -498,6 +560,7 @@ function App() {
                 </div>
                 <div className="flex items-center gap-2 flex-1 max-w-[200px]">
                   <Select
+                    onChangeValue={() => {}}
                     label={""}
                     placeholder="Selecione um vendedor"
                     options={[{ label: "Wesley", value: 1 }]}
@@ -524,6 +587,7 @@ function App() {
                 </div>
                 <div className="flex items-center gap-2 flex-1 max-w-[200px]">
                   <Select
+                    onChangeValue={() => {}}
                     label={""}
                     placeholder="Selecione um vendedor"
                     options={[{ label: "Wesley", value: 1 }]}
@@ -552,6 +616,7 @@ function App() {
                 </div>
                 <div className="flex items-center gap-2 flex-1 max-w-[200px]">
                   <Select
+                    onChangeValue={() => {}}
                     label={""}
                     placeholder="Selecione um vendedor"
                     options={[{ label: "Wesley", value: 1 }]}
@@ -578,6 +643,7 @@ function App() {
                 </div>
                 <div className="flex items-center gap-2 flex-1 max-w-[200px]">
                   <Select
+                    onChangeValue={() => {}}
                     label={""}
                     placeholder="Selecione um vendedor"
                     options={[{ label: "Wesley", value: 1 }]}
@@ -590,8 +656,56 @@ function App() {
           </div>
         </div>
       </Card>
+
+      <div className="flex-1 flex-wrap mt-3">
+        <Card>
+          <p className="text-sm uppercase mb-2 font-bold text-primary">
+            Formulário
+          </p>
+
+          <Form>
+            <div className="flex flex-col gap-3">
+              <Input
+                label="Nome completo"
+                onChangeValue={(value) => console.log(value)}
+              />
+              <InputMask
+                type="cpf"
+                label="CPF"
+                placeholder="000.000.000-00"
+                onChangeValue={(value) => console.log(value)}
+              />
+              <Select
+                onChangeValue={(value) => console.log(value)}
+                placeholder="Selecione"
+                label="Sexo"
+                options={[
+                  { label: "Masculino", value: 1 },
+                  { label: "Feminino", value: 2 },
+                ]}
+              />
+              <Checkbox
+                label="Permanecer conectado"
+                onChangeValue={(value) => console.log(value)}
+              />
+              <RadioButtonGroup
+                onChange={(value) => console.log(value)}
+                options={[
+                  { label: "Option 1", value: "option1" },
+                  { label: "Option 2", value: "option2" },
+                  { label: "Option 3", value: "option3" },
+                ]}
+              />
+            </div>
+          </Form>
+        </Card>
+      </div>
     </DashboardLayout>
   );
+
+  // function onSubmit() {
+  //   console.log("okokokokoko");
+  // }
 }
 
 export default App;

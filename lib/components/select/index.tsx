@@ -11,6 +11,7 @@ export function Select({
   disabled,
   isMulti = false,
   width,
+  onChangeValue,
 }: SelectProps) {
   return (
     <div className={`w-${width ?? "full"}`}>
@@ -21,6 +22,14 @@ export function Select({
         isDisabled={disabled}
         placeholder={placeholder}
         options={options}
+        onChange={(event) => {
+          onChangeValue(
+            event as {
+              label: string;
+              value: string | number;
+            }
+          );
+        }}
         className="text-sm rounded-md cursor-pointer"
         noOptionsMessage={() => "Nenhuma opção encontrada"}
         components={{

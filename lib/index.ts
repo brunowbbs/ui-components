@@ -11,7 +11,6 @@ export { Select } from "./components/select";
 export { Checkbox } from "./components/checkbox";
 export { RadioButtonGroup } from "./components/radio-button";
 export { Modal } from "./components/modal";
-export { showToast } from "./components/toast/showToast";
 export { RichText } from "./components/rich-text";
 export { Tabs } from "./components/tabs";
 export { Wizard } from "./components/wizard";
@@ -20,3 +19,7 @@ export { BarChart } from "./components/charts/bar-chart";
 export { LineChart } from "./components/charts/line-chart";
 export { DougnutChart } from "./components/charts/dougnut-chart";
 export { PieChart } from "./components/charts/pie-chart";
+
+export { showToast } from "./components/toast/showToast";
+
+export { useForm } from "./components/form";
