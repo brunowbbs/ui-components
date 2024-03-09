@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { BsCheckSquare, BsSquare } from "react-icons/bs";
 import { Props } from "./types";
+import clsx from "clsx";
 
-export function Checkbox({ label, onChangeValue }: Props) {
-  const [checked, setChecked] = useState(false);
+export function Checkbox({ label, onChangeValue, error, value }: Props) {
+  const [checked, setChecked] = useState(Boolean(value));
   const checkHandler = () => {
     setChecked((prevChecked) => !prevChecked);
     onChangeValue(!checked);
@@ -16,7 +17,10 @@ export function Checkbox({ label, onChangeValue }: Props) {
           <div className="flex gap-2 items-end justify-center">
             {!checked && (
               <BsSquare
-                className="fill-current text-gray-400 cursor-pointer"
+                className={clsx("fill-current cursor-pointer", {
+                  "text-red-600": error,
+                  "text-gray-400": !error,
+                })}
                 size={16}
               />
             )}
@@ -29,6 +33,7 @@ export function Checkbox({ label, onChangeValue }: Props) {
             <p className="text-sm">{label}</p>
           </div>
         </button>
+        {error && <p className="text-[10px] text-red-600 -mt-1">{error}</p>}
       </label>
     </>
   );

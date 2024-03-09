@@ -235,12 +235,16 @@ function App() {
 
           <div className="flex items-end gap-2 flex-row flex-wrap">
             <Input
+              name=""
+              value=""
               width={80}
               placeholder="Ex: user@gmail.com"
               label="E-mail"
               onChangeValue={() => {}}
             />
             <Input
+              name=""
+              value=""
               onChangeValue={() => {}}
               width={80}
               placeholder="Password"
@@ -248,12 +252,16 @@ function App() {
               isPassword
             />
             <Input
+              name=""
+              value=""
               width={80}
               label="Data"
               type="date"
               onChangeValue={() => {}}
             />
             <Input
+              name=""
+              value=""
               width={80}
               label="Hora"
               type="time"
@@ -350,6 +358,8 @@ function App() {
 
           <div className="flex gap-2 flex-row">
             <Select
+              name=""
+              value=""
               onChangeValue={() => {}}
               width={80}
               label="Cidade"
@@ -361,6 +371,8 @@ function App() {
               ]}
             />
             <Input
+              name=""
+              value=""
               width={80}
               placeholder="Ex: user@gmail.com"
               label="E-mail"
@@ -375,6 +387,8 @@ function App() {
             />
 
             <Select
+              name=""
+              value=""
               onChangeValue={() => {}}
               width={80}
               isMulti
@@ -554,8 +568,10 @@ function App() {
                 </div>
                 <div className="flex items-center gap-2 flex-1 max-w-[200px]">
                   <Select
+                    name=""
+                    value=""
                     onChangeValue={() => {}}
-                    label={""}
+                    label=""
                     placeholder="Selecione um vendedor"
                     options={[{ label: "Wesley", value: 1 }]}
                   />
@@ -581,8 +597,10 @@ function App() {
                 </div>
                 <div className="flex items-center gap-2 flex-1 max-w-[200px]">
                   <Select
+                    name=""
+                    value=""
                     onChangeValue={() => {}}
-                    label={""}
+                    label=""
                     placeholder="Selecione um vendedor"
                     options={[{ label: "Wesley", value: 1 }]}
                   />
@@ -610,8 +628,10 @@ function App() {
                 </div>
                 <div className="flex items-center gap-2 flex-1 max-w-[200px]">
                   <Select
+                    name=""
+                    value=""
                     onChangeValue={() => {}}
-                    label={""}
+                    label=""
                     placeholder="Selecione um vendedor"
                     options={[{ label: "Wesley", value: 1 }]}
                   />
@@ -637,8 +657,10 @@ function App() {
                 </div>
                 <div className="flex items-center gap-2 flex-1 max-w-[200px]">
                   <Select
+                    name=""
+                    value=""
                     onChangeValue={() => {}}
-                    label={""}
+                    label=""
                     placeholder="Selecione um vendedor"
                     options={[{ label: "Wesley", value: 1 }]}
                   />
@@ -654,7 +676,7 @@ function App() {
       <div className="flex-1 flex-wrap mt-3">
         <Card>
           <p className="text-sm uppercase mb-2 font-bold text-primary">
-            Formulário
+            Formulário com validação
           </p>
           <Form />
         </Card>
