@@ -11,27 +11,32 @@ export function Select({
   disabled,
   isMulti = false,
   width,
+  value,
   onChangeValue,
+  name,
+  error,
 }: SelectProps) {
   return (
     <div className={`w-${width ?? "full"}`}>
       <p className="text-sm font-medium">{label}</p>
 
       <SelectReact
+        name={name}
+        value={options.find((option) => option.value === value)}
         isMulti={isMulti}
         isDisabled={disabled}
         placeholder={placeholder}
         options={options}
-        onChange={(event) => {
+        onChange={(event) =>
           onChangeValue(
             event as {
               label: string;
               value: string | number;
             }
-          );
-        }}
+          )
+        }
         className="text-sm rounded-md cursor-pointer"
-        noOptionsMessage={() => "Nenhuma opção encontrada"}
+        noOptionsMessage={() => "Nenhum item encontrado"}
         components={{
           ClearIndicator: (props) => (
             <div
@@ -54,7 +59,11 @@ export function Select({
             width: "100%",
             paddingTop: 1.7,
             paddingBottom: 1.6,
-            borderColor: state.isFocused ? COLORS.primary : "#e4e7eb",
+            borderColor: error
+              ? COLORS.danger
+              : state.isFocused
+              ? COLORS.primary
+              : "#e4e7eb",
             borderWidth: "1px",
             borderStyle: "solid",
             paddingLeft: 8,
@@ -174,6 +183,7 @@ export function Select({
           }),
         }}
       />
+      {error && <p className="text-[10px] text-red-600">{error}</p>}
     </div>
   );
 }

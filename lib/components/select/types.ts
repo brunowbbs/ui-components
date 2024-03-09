@@ -9,4 +9,7 @@ export type SelectProps = {
     label: string;
     value: string | number;
   }) => void;
+  value: string | number;
+  name: string;
+  error?: string;
 };

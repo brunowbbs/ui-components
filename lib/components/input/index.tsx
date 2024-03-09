@@ -19,23 +19,30 @@ export function Input(props: InputProps) {
       <div
         className={clsx("border rounded py-[0.75px] relative", {
           "border-primary": isFocused,
+          "border-red-600": props.error,
         })}
       >
-        <input
-          {...props}
-          onChange={(event) => props.onChangeValue(event.target.value)}
-          type={inputType}
-          className={clsx(
-            "text-sm font-medium px-2 h-7 rounded outline-none border-gray-300 w-full focus:ring-primary focus:border-primary",
-            {
-              "pr-6": props.isPassword,
-            }
-          )}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-        />
+        <div>
+          <input
+            {...props}
+            onChange={(event) => props.onChangeValue(event.target.value)}
+            type={inputType}
+            className={clsx(
+              "text-sm font-medium px-2 h-7 rounded outline-none border-gray-300 w-full focus:ring-primary focus:border-primary",
+              {
+                "pr-6": props.isPassword,
+              }
+            )}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+          />
+        </div>
         {props.isPassword && (
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2">
+          <div
+            className={clsx(
+              `absolute inset-y-0 right-0 flex items-center pr-2`
+            )}
+          >
             {!isVisibleContent ? (
               <RiEyeOffLine
                 color="#999"
@@ -54,6 +61,7 @@ export function Input(props: InputProps) {
           </div>
         )}
       </div>
+      {props.error && <p className="text-[10px] text-red-600">{props.error}</p>}
     </div>
   );
 }

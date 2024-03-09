@@ -25,6 +25,7 @@ export function InputMask(props: InputProps) {
           "border border-gray-200 rounded-md py-[2.5px] relative",
           {
             "border-primary": isFocused,
+            "border-red-600": props.error,
           }
         )}
       >
@@ -56,6 +57,7 @@ export function InputMask(props: InputProps) {
           />
         )}
       </div>
+      {props.error && <p className="text-[10px] text-red-600">{props.error}</p>}
     </div>
   );
 }

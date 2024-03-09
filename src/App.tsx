@@ -21,10 +21,10 @@ import {
   Select,
   Tabs,
   Wizard,
-  useForm,
 } from "../lib";
 import { Modal } from "../lib/components/modal";
 import { showToast } from "../lib/components/toast/showToast";
+import { Form } from "./components/form";
 
 const MENU_ITEMS = [
   {
@@ -149,12 +149,6 @@ const sourcedata3 = [
 ];
 
 function App() {
-  const { Form } = useForm({
-    initialValues: {},
-    onSubmit: () => {},
-    validationSchema: {},
-  });
-
   const [isModalConfirm, setIsModalConfirm] = useState(false);
 
   return (
@@ -662,42 +656,7 @@ function App() {
           <p className="text-sm uppercase mb-2 font-bold text-primary">
             Formulário
           </p>
-
-          <Form>
-            <div className="flex flex-col gap-3">
-              <Input
-                label="Nome completo"
-                onChangeValue={(value) => console.log(value)}
-              />
-              <InputMask
-                type="cpf"
-                label="CPF"
-                placeholder="000.000.000-00"
-                onChangeValue={(value) => console.log(value)}
-              />
-              <Select
-                onChangeValue={(value) => console.log(value)}
-                placeholder="Selecione"
-                label="Sexo"
-                options={[
-                  { label: "Masculino", value: 1 },
-                  { label: "Feminino", value: 2 },
-                ]}
-              />
-              <Checkbox
-                label="Permanecer conectado"
-                onChangeValue={(value) => console.log(value)}
-              />
-              <RadioButtonGroup
-                onChange={(value) => console.log(value)}
-                options={[
-                  { label: "Option 1", value: "option1" },
-                  { label: "Option 2", value: "option2" },
-                  { label: "Option 3", value: "option3" },
-                ]}
-              />
-            </div>
-          </Form>
+          <Form />
         </Card>
       </div>
     </DashboardLayout>
