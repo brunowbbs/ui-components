@@ -9,14 +9,25 @@ import {
   Select,
   useForm,
 } from "../../../lib";
+import { useEffect } from "react";
+
+const cpfRegex = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/;
 
 const ValidationSchema = z.object({
-  name: z.string().min(1, "Username is required"),
+  name: z
+    .string()
+    .min(3, "Username is too short")
+    .max(50, "Username is too long")
+    .min(1, "Username is required"),
   sexo: z.number().min(1, "Gender is required"),
-  cpf: z.string().min(1, "CPF is required"),
+  cpf: z
+    .string()
+    .min(1, "CPF is required")
+    .refine((value) => cpfRegex.test(value), {
+      message: "Invalid CPF format",
+    }),
   permanecer: z.boolean().refine((value) => value === true, {
     message: "You must agree to continue",
-    path: ["permanecer"],
   }),
   linguagem: z.string().min(1, "Language is required"),
 });
@@ -41,6 +52,10 @@ export function Form() {
     },
     validationSchema: ValidationSchema,
   });
+
+  useEffect(() => {
+    console.log(form.errors);
+  }, [form.errors]);
 
   return (
     <div>
@@ -86,7 +101,7 @@ export function Form() {
             { label: "Option 2", value: "option2" },
             { label: "Option 3", value: "option3" },
           ]}
-          error={form.errors?.name}
+          error={form.errors?.linguagem}
         />
       </div>
 

@@ -15,7 +15,6 @@ export function RadioButtonGroup({
   const handleOptionChange = (optionValue: string | number) => {
     setSelectedOption(optionValue);
     onChange(optionValue);
-    alert(optionValue);
   };
 
   return (
