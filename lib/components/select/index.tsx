@@ -13,7 +13,6 @@ export function Select({
   width,
   value,
   onChangeValue,
-  name,
   error,
 }: SelectProps) {
   return (
@@ -21,7 +20,6 @@ export function Select({
       <p className="text-sm font-medium">{label}</p>
 
       <SelectReact
-        name={name}
         value={options.find((option) => option.value === value)}
         isMulti={isMulti}
         isDisabled={disabled}

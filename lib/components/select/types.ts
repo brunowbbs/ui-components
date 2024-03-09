@@ -10,6 +10,5 @@ export type SelectProps = {
     value: string | number;
   }) => void;
   value: string | number;
-  name: string;
   error?: string;
 };
