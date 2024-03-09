@@ -8,7 +8,7 @@ export function RadioButtonGroup({
   onChange,
   label,
   error,
-  value = "",
+  value,
 }: RadioButtonGroupProps) {
   const [selectedOption, setSelectedOption] = useState<string | number>(value);
 

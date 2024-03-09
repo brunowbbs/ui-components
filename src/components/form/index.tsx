@@ -1,3 +1,5 @@
+import { z } from "zod";
+
 import {
   Button,
   Checkbox,
@@ -8,6 +10,17 @@ import {
   useForm,
 } from "../../../lib";
 
+const ValidationSchema = z.object({
+  name: z.string().min(1, "Username is required"),
+  sexo: z.number().min(1, "Gender is required"),
+  cpf: z.string().min(1, "CPF is required"),
+  permanecer: z.boolean().refine((value) => value === true, {
+    message: "You must agree to continue",
+    path: ["permanecer"],
+  }),
+  linguagem: z.string().min(1, "Language is required"),
+});
+
 export function Form() {
   const { form } = useForm<{
     name: string;
@@ -16,13 +29,6 @@ export function Form() {
     permanecer: boolean;
     linguagem: string | number;
   }>({
-    // initialValues: {
-    //   name: "Wesley Bruno Barbosa Silva",
-    //   sexo: 2,
-    //   cpf: "11164846680",
-    //   permanecer: true,
-    //   linguagem: "option1",
-    // },
     initialValues: {
       name: "",
       sexo: 0,
@@ -33,6 +39,7 @@ export function Form() {
     onSubmit: (values) => {
       console.log("Form submitted:", values);
     },
+    validationSchema: ValidationSchema,
   });
 
   return (
@@ -55,7 +62,7 @@ export function Form() {
         />
         <Select
           value={form.values.sexo}
-          onChangeValue={(value) => form.setFieldValue("sexo", value)}
+          onChangeValue={(value) => form.setFieldValue("sexo", value.value)}
           placeholder="Selecione"
           label="Sexo"
           options={[
@@ -66,7 +73,7 @@ export function Form() {
         />
         <Checkbox
           value={form.values.permanecer}
-          label="Permanecer conectado"
+          label="Aceitar termos"
           onChangeValue={(value) => form.setFieldValue("permanecer", value)}
           error={form.errors?.permanecer}
         />
