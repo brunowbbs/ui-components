@@ -167,19 +167,6 @@ function App() {
           </p>
           <div className="flex gap-2 flex-wrap">
             <Button text="Primary" onClick={() => alert("ok")} />
-            <Button
-              size="sm"
-              text="Primary"
-              onClick={() => alert("ok")}
-              outline
-              variant="primary"
-            />
-            <Button
-              text="Primary"
-              onClick={() => alert("ok")}
-              outline
-              variant="primary"
-            />
 
             <Button
               size="lg"
@@ -358,7 +345,6 @@ function App() {
 
           <div className="flex gap-2 flex-row">
             <Select
-              name=""
               value=""
               onChangeValue={() => {}}
               width={80}
@@ -387,7 +373,6 @@ function App() {
             />
 
             <Select
-              name=""
               value=""
               onChangeValue={() => {}}
               width={80}
@@ -423,6 +408,8 @@ function App() {
           </p>
 
           <RadioButtonGroup
+            value=""
+            label=""
             onChange={(value) => console.log(value)}
             options={[
               { label: "Option 1", value: "option1" },
@@ -463,7 +450,7 @@ function App() {
           <p className="text-sm uppercase mb-2 font-bold text-primary">
             Texto Rico
           </p>
-          <RichText />
+          <RichText onChangeValue={() => {}} value="" label="" />
         </Card>
 
         <div className="mt-3" />
@@ -568,7 +555,6 @@ function App() {
                 </div>
                 <div className="flex items-center gap-2 flex-1 max-w-[200px]">
                   <Select
-                    name=""
                     value=""
                     onChangeValue={() => {}}
                     label=""
@@ -597,7 +583,6 @@ function App() {
                 </div>
                 <div className="flex items-center gap-2 flex-1 max-w-[200px]">
                   <Select
-                    name=""
                     value=""
                     onChangeValue={() => {}}
                     label=""
@@ -628,7 +613,6 @@ function App() {
                 </div>
                 <div className="flex items-center gap-2 flex-1 max-w-[200px]">
                   <Select
-                    name=""
                     value=""
                     onChangeValue={() => {}}
                     label=""
@@ -657,7 +641,6 @@ function App() {
                 </div>
                 <div className="flex items-center gap-2 flex-1 max-w-[200px]">
                   <Select
-                    name=""
                     value=""
                     onChangeValue={() => {}}
                     label=""
