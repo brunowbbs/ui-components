@@ -16,24 +16,24 @@ export function useForm<T extends FormikValues>({
   validateOnChange = true,
 }: FormProps<T>) {
   const validateForm = (values: T) => {
+    console.log("MUDEI");
     const errors: Record<string, string> = {};
-    try {
-      if (validationSchema) {
-        const response = validationSchema.parse(values);
-
-        console.log(">>>>>>>ZOD", response);
-      }
-    } catch (error) {
-      if (error instanceof ZodError) {
-        error.errors.forEach((validationError) => {
-          errors[validationError.path.join(".")] = validationError.message;
-        });
-      } else {
-        console.error("Error during schema validation:", error);
+    if (validationSchema) {
+      try {
+        validationSchema.parse(values);
+      } catch (error) {
+        if (error instanceof ZodError) {
+          error.errors.forEach((validationError) => {
+            // Verifique se existe um path e adicione o erro ao objeto de erros
+            if (validationError.path) {
+              errors[validationError.path.join(".")] = validationError.message;
+            } else {
+              errors._error = validationError.message;
+            }
+          });
+        }
       }
     }
-
-    console.log(errors);
     return errors;
   };
 
