@@ -32,6 +32,8 @@ export function useForm<T extends FormikValues>({
         console.error("Error during schema validation:", error);
       }
     }
+
+    console.log(errors);
     return errors;
   };
 
