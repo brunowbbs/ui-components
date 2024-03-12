@@ -1,10 +1,9 @@
 /// <reference types="react" />
 import { FormikValues, FormikHelpers } from "formik";
-import { AnyZodObject } from "zod";
 type FormProps<T extends FormikValues> = {
     initialValues: T;
     onSubmit: (values: T, formikHelpers: FormikHelpers<T>) => void;
-    validationSchema?: AnyZodObject;
+    validationSchema?: any;
     validateOnChange?: boolean;
 };
 export declare function useForm<T extends FormikValues>({ initialValues, onSubmit, validationSchema, validateOnChange, }: FormProps<T>): {

@@ -1,11 +1,10 @@
 import { useFormik, FormikValues, FormikHelpers } from "formik";
-import { ZodError } from "zod";
-import { AnyZodObject } from "zod";
+import { ValidationError } from "yup";
 
 type FormProps<T extends FormikValues> = {
   initialValues: T;
   onSubmit: (values: T, formikHelpers: FormikHelpers<T>) => void;
-  validationSchema?: AnyZodObject;
+  validationSchema?: any; // Alterado para aceitar qualquer tipo de schema do Yup
   validateOnChange?: boolean;
 };
 
@@ -15,18 +14,16 @@ export function useForm<T extends FormikValues>({
   validationSchema,
   validateOnChange = true,
 }: FormProps<T>) {
-  const validateForm = (values: T) => {
-    console.log("MUDEI");
+  const validateForm = async (values: T) => {
     const errors: Record<string, string> = {};
     if (validationSchema) {
       try {
-        validationSchema.parse(values);
+        await validationSchema.validate(values, { abortEarly: false });
       } catch (error) {
-        if (error instanceof ZodError) {
-          error.errors.forEach((validationError) => {
-            // Verifique se existe um path e adicione o erro ao objeto de erros
+        if (error instanceof ValidationError) {
+          error.inner.forEach((validationError) => {
             if (validationError.path) {
-              errors[validationError.path.join(".")] = validationError.message;
+              errors[validationError.path] = validationError.message;
             } else {
               errors._error = validationError.message;
             }
