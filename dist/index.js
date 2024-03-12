@@ -40073,7 +40073,7 @@ var lne = rT.exports;
 const une = /* @__PURE__ */ Ey(lne);
 function Ude(t) {
   let e = "";
-  t.type === "phone" ? e = "(99) 99999-9999" : t.type === "cnpj" ? e = "99.999.999/9999-99" : t.type === "cpf" && (e = "999.999.999-99");
+  t.type === "phone" ? e = "(99) 99999-9999" : t.type === "cnpj" ? e = "99.999.999/9999-99" : t.type === "cpf" ? e = "999.999.999-99" : t.type === "cep" && (e = "99.999-99");
   const [n, r] = Un(!1);
   return /* @__PURE__ */ on("div", { className: `flex flex-col w-${t.width ?? "full"}`, children: [
     /* @__PURE__ */ He("p", { className: "text-sm font-medium", children: t.label }),
