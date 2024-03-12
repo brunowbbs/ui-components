@@ -1,5 +1,5 @@
 export type RichTextProps = {
-  onChangeValue: (value: string) => void;
+  onChange: (value: string) => void;
   error?: string;
   value: string;
   label: string;

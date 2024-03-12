@@ -44,7 +44,7 @@ export function InputMask(props: InputProps) {
             decimalScale={2}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
-            onChange={(event) => props.onChangeValue(event.target.value)}
+            onChange={(event) => props.onChange(event.target.value)}
           />
         ) : (
           <ReactInputMask
@@ -55,7 +55,7 @@ export function InputMask(props: InputProps) {
             value={props.value}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
-            onChange={(event) => props.onChangeValue(event.target.value)}
+            onChange={(event) => props.onChange(event.target.value)}
           />
         )}
       </div>

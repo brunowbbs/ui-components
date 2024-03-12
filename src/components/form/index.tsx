@@ -30,14 +30,7 @@ const ValidationSchema = z.object({
 });
 
 export function Form() {
-  const { form } = useForm<{
-    name: string;
-    sexo: number;
-    cpf: string;
-    permanecer: boolean;
-    linguagem: string | number;
-    observacao: string;
-  }>({
+  const { form } = useForm({
     initialValues: {
       name: "",
       sexo: 0,
@@ -47,7 +40,7 @@ export function Form() {
       observacao: "",
     },
     onSubmit: (values) => {
-      alert(JSON.stringify(values));
+      console.log(values);
     },
     validationSchema: ValidationSchema,
   });
@@ -59,7 +52,7 @@ export function Form() {
           value={form.values.name}
           label="Nome completo"
           placeholder="Informe o nome completo"
-          onChangeValue={(value) => form.setFieldValue("name", value)}
+          onChange={(value) => form.setFieldValue("name", value)}
           error={form.errors?.name}
         />
         <InputMask
@@ -67,12 +60,12 @@ export function Form() {
           type="cpf"
           label="CPF"
           placeholder="000.000.000-00"
-          onChangeValue={(value) => form.setFieldValue("cpf", value)}
+          onChange={(value) => form.setFieldValue("cpf", value)}
           error={form.errors?.cpf}
         />
         <Select
           value={form.values.sexo}
-          onChangeValue={(value) => form.setFieldValue("sexo", value.value)}
+          onChange={(value) => form.setFieldValue("sexo", value.value)}
           placeholder="Selecione"
           label="Sexo"
           options={[
@@ -84,7 +77,7 @@ export function Form() {
         <Checkbox
           value={form.values.permanecer}
           label="Aceitar termos"
-          onChangeValue={(value) => form.setFieldValue("permanecer", value)}
+          onChange={(value) => form.setFieldValue("permanecer", value)}
           error={form.errors?.permanecer}
         />
         <RadioButtonGroup
@@ -101,7 +94,7 @@ export function Form() {
 
         <RichText
           value={form.values.observacao}
-          onChangeValue={(value) => form.setFieldValue("observacao", value)}
+          onChange={(value) => form.setFieldValue("observacao", value)}
           label="Observação"
           error={form.errors?.observacao}
         />

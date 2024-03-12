@@ -3,12 +3,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { RichTextProps } from "./types";
 
-export function RichText({
-  onChangeValue,
-  error,
-  value,
-  label,
-}: RichTextProps) {
+export function RichText({ onChange, error, value, label }: RichTextProps) {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -33,9 +28,9 @@ export function RichText({
             const valueReplaced = value.replace(/<p><br><\/p>/g, "");
 
             if (valueReplaced === "") {
-              onChangeValue(valueReplaced);
+              onChange(valueReplaced);
             } else {
-              onChangeValue(value);
+              onChange(value);
             }
           }}
           style={{ maxWidth: "100%", paddingRight: "50px" }}

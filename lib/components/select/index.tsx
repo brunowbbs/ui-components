@@ -12,7 +12,7 @@ export function Select({
   isMulti = false,
   width,
   value,
-  onChangeValue,
+  onChange,
   error,
 }: SelectProps) {
   return (
@@ -26,7 +26,7 @@ export function Select({
         placeholder={placeholder}
         options={options}
         onChange={(event) =>
-          onChangeValue(
+          onChange(
             event as {
               label: string;
               value: string | number;

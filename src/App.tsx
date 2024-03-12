@@ -227,16 +227,16 @@ function App() {
               width={80}
               placeholder="Ex: user@gmail.com"
               label="E-mail"
-              onChangeValue={() => {}}
+              onChange={() => {}}
             />
             <Input
               name=""
               value=""
-              onChangeValue={() => {}}
+              onChange={() => {}}
               width={80}
               placeholder="Password"
               label="Password"
-              isPassword
+              password
             />
             <Input
               name=""
@@ -244,7 +244,7 @@ function App() {
               width={80}
               label="Data"
               type="date"
-              onChangeValue={() => {}}
+              onChange={() => {}}
             />
             <Input
               name=""
@@ -252,7 +252,7 @@ function App() {
               width={80}
               label="Hora"
               type="time"
-              onChangeValue={() => {}}
+              onChange={() => {}}
             />
           </div>
         </Card>
@@ -265,7 +265,7 @@ function App() {
 
           <div className="flex gap-2 flex-row flex-wrap">
             <InputMask
-              onChangeValue={() => {}}
+              onChange={() => {}}
               width={80}
               label="Telefone"
               type="phone"
@@ -273,7 +273,7 @@ function App() {
             />
 
             <InputMask
-              onChangeValue={() => {}}
+              onChange={() => {}}
               width={80}
               label="Preço"
               type="money"
@@ -285,7 +285,7 @@ function App() {
               label="CPF"
               type="cpf"
               placeholder="CPF"
-              onChangeValue={() => {}}
+              onChange={() => {}}
             />
 
             <InputMask
@@ -293,7 +293,7 @@ function App() {
               label="CNPJ"
               type="cnpj"
               placeholder="CNPJ"
-              onChangeValue={() => {}}
+              onChange={() => {}}
             />
           </div>
         </Card>
@@ -346,7 +346,7 @@ function App() {
           <div className="flex gap-2 flex-row">
             <Select
               value=""
-              onChangeValue={() => {}}
+              onChange={() => {}}
               width={80}
               label="Cidade"
               placeholder="Selecione uma cidade"
@@ -362,19 +362,19 @@ function App() {
               width={80}
               placeholder="Ex: user@gmail.com"
               label="E-mail"
-              onChangeValue={() => {}}
+              onChange={() => {}}
             />
             <InputMask
               width={80}
               label="CNPJ"
               type="cnpj"
               placeholder="CNPJ"
-              onChangeValue={() => {}}
+              onChange={() => {}}
             />
 
             <Select
               value=""
-              onChangeValue={() => {}}
+              onChange={() => {}}
               width={80}
               isMulti
               label="Eletrodomésticos"
@@ -397,7 +397,7 @@ function App() {
           </p>
 
           <div className="flex gap-2 flex-row">
-            <Checkbox label="Continuar logado" onChangeValue={() => {}} />
+            <Checkbox label="Continuar logado" onChange={() => {}} />
           </div>
         </Card>
 
@@ -450,7 +450,7 @@ function App() {
           <p className="text-sm uppercase mb-2 font-bold text-primary">
             Texto Rico
           </p>
-          <RichText onChangeValue={() => {}} value="" label="" />
+          <RichText onChange={() => {}} value="" label="" />
         </Card>
 
         <div className="mt-3" />
@@ -493,17 +493,29 @@ function App() {
         <Wizard
           steps={[
             {
-              component: <div>Step 1</div>,
+              component: (
+                <div>
+                  <span>Step 1</span>
+                </div>
+              ),
               icon: <MdHome size={22} />,
               name: "Step 1",
             },
             {
-              component: <div>Step 2</div>,
+              component: (
+                <div>
+                  <span>Step 2</span>
+                </div>
+              ),
               icon: <MdDashboard size={22} />,
               name: "Step 2",
             },
             {
-              component: <div>Step 3</div>,
+              component: (
+                <div>
+                  <span>Step 3</span>
+                </div>
+              ),
               icon: <MdReport size={22} />,
               name: "Step 2",
             },
@@ -556,7 +568,7 @@ function App() {
                 <div className="flex items-center gap-2 flex-1 max-w-[200px]">
                   <Select
                     value=""
-                    onChangeValue={() => {}}
+                    onChange={() => {}}
                     label=""
                     placeholder="Selecione um vendedor"
                     options={[{ label: "Wesley", value: 1 }]}
@@ -584,7 +596,7 @@ function App() {
                 <div className="flex items-center gap-2 flex-1 max-w-[200px]">
                   <Select
                     value=""
-                    onChangeValue={() => {}}
+                    onChange={() => {}}
                     label=""
                     placeholder="Selecione um vendedor"
                     options={[{ label: "Wesley", value: 1 }]}
@@ -614,7 +626,7 @@ function App() {
                 <div className="flex items-center gap-2 flex-1 max-w-[200px]">
                   <Select
                     value=""
-                    onChangeValue={() => {}}
+                    onChange={() => {}}
                     label=""
                     placeholder="Selecione um vendedor"
                     options={[{ label: "Wesley", value: 1 }]}
@@ -642,7 +654,7 @@ function App() {
                 <div className="flex items-center gap-2 flex-1 max-w-[200px]">
                   <Select
                     value=""
-                    onChangeValue={() => {}}
+                    onChange={() => {}}
                     label=""
                     placeholder="Selecione um vendedor"
                     options={[{ label: "Wesley", value: 1 }]}
