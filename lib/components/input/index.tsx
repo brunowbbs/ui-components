@@ -7,7 +7,7 @@ export function Input(props: InputProps) {
   const [isVisibleContent, setIsVisibleContent] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
 
-  const inputType = props.password
+  const inputType = props.isPassword
     ? isVisibleContent
       ? "text"
       : "password"
@@ -24,13 +24,12 @@ export function Input(props: InputProps) {
       >
         <div>
           <input
-            {...props}
-            onChange={(event) => props.onChange(event.target.value)}
+            onChange={(event) => props.onChangeValue(event.target.value)}
             type={inputType}
             className={clsx(
               "text-sm font-medium px-2 h-7 rounded outline-none border-gray-500 w-full focus:ring-primary focus:border-primary",
               {
-                "pr-6": props.password,
+                "pr-6": props.isPassword,
                 "cursor-pointer":
                   props.type === "date" ||
                   props.type === "datetime-local" ||
@@ -39,9 +38,10 @@ export function Input(props: InputProps) {
             )}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
+            {...props}
           />
         </div>
-        {props.password && (
+        {props.isPassword && (
           <div
             className={clsx(
               `absolute inset-y-0 right-0 flex items-center pr-2`

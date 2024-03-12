@@ -3,11 +3,11 @@ import { BsCheckSquare, BsSquare } from "react-icons/bs";
 import { Props } from "./types";
 import clsx from "clsx";
 
-export function Checkbox({ label, onChange, error, value }: Props) {
+export function Checkbox({ label, onChangeValue, error, value }: Props) {
   const [checked, setChecked] = useState(Boolean(value));
   const checkHandler = () => {
     setChecked((prevChecked) => !prevChecked);
-    onChange(!checked);
+    onChangeValue(!checked);
   };
 
   return (

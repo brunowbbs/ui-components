@@ -8,7 +8,7 @@ export type SelectProps = {
     disabled?: boolean;
     isMulti?: boolean;
     width?: number;
-    onChange: (selectedOption: {
+    onChangeValue: (selectedOption: {
         label: string;
         value: string | number;
     }) => void;

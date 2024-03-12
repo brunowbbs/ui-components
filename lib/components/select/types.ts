@@ -5,7 +5,10 @@ export type SelectProps = {
   disabled?: boolean;
   isMulti?: boolean;
   width?: number;
-  onChange: (selectedOption: { label: string; value: string | number }) => void;
+  onChangeValue: (selectedOption: {
+    label: string;
+    value: string | number;
+  }) => void;
   value: string | number;
   error?: string;
 };

@@ -5,7 +5,7 @@ import clsx from "clsx";
 
 export function RadioButtonGroup({
   options,
-  onChange,
+  onChangeValue,
   label,
   error,
   value,
@@ -14,7 +14,7 @@ export function RadioButtonGroup({
 
   const handleOptionChange = (optionValue: string | number) => {
     setSelectedOption(optionValue);
-    onChange(optionValue);
+    onChangeValue(optionValue);
   };
 
   return (
@@ -27,7 +27,7 @@ export function RadioButtonGroup({
           label={option.label}
           value={option.value}
           checked={selectedOption === option.value}
-          onChange={() => handleOptionChange(option.value)}
+          onChangeValue={() => handleOptionChange(option.value)}
         />
       ))}
       {error && <p className="text-[10px] text-red-600 -mt-1">{error}</p>}
@@ -39,13 +39,13 @@ export function RadioButton({
   label,
   value,
   checked,
-  onChange,
+  onChangeValue,
   error,
 }: RadioButtonProps) {
   return (
     <label htmlFor={String(value)} className="flex items-center gap-2 mb-1">
       <button
-        onClick={onChange}
+        onClick={onChangeValue}
         value={value}
         className="flex items-center gap-2 cursor-pointer"
       >
