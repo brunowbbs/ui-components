@@ -31,6 +31,10 @@ export function Input(props: InputProps) {
               "text-sm font-medium px-2 h-7 rounded outline-none border-gray-500 w-full focus:ring-primary focus:border-primary",
               {
                 "pr-6": props.isPassword,
+                "cursor-pointer":
+                  props.type === "date" ||
+                  props.type === "datetime-local" ||
+                  props.type === "time",
               }
             )}
             onFocus={() => setIsFocused(true)}

@@ -5883,7 +5883,8 @@ function Nde(t) {
               className: Xl(
                 "text-sm font-medium px-2 h-7 rounded outline-none border-gray-500 w-full focus:ring-primary focus:border-primary",
                 {
-                  "pr-6": t.isPassword
+                  "pr-6": t.isPassword,
+                  "cursor-pointer": t.type === "date" || t.type === "datetime-local" || t.type === "time"
                 }
               ),
               onFocus: () => i(!0),
