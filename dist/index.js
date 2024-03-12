@@ -54290,7 +54290,7 @@ function Jde({
             c[p.path.join(".")] = p.message;
           }) : console.error("Error during schema validation:", f);
         }
-        return c;
+        return console.log(c), c;
       },
       validateOnChange: r
     })
