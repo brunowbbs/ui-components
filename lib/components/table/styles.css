@@ -15,7 +15,7 @@
 
 .th-header {
   @apply px-4
-  py-4
+  py-3
   cursor-default
 
   text-sm
@@ -58,7 +58,7 @@
 
 .td-cell {
   @apply px-5
-  py-3
+  py-1
   text-sm
   text-ellipsis
   overflow-hidden

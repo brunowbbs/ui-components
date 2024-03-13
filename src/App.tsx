@@ -19,6 +19,7 @@ import {
   RadioButtonGroup,
   RichText,
   Select,
+  Table,
   Tabs,
   Wizard,
 } from "../lib";
@@ -676,10 +677,57 @@ function App() {
           <Form />
         </Card>
       </div>
+
+      <div className="flex-1 flex-wrap mt-3">
+        <Card>
+          <p className="text-sm uppercase mb-2 font-bold text-primary">Table</p>
+
+          <Table
+            mode="multiple"
+            disabled={["1"]}
+            columns={[
+              { key: "id", elem: "Id" },
+              { key: "date", elem: "Date" },
+              { key: "status", elem: "Status" },
+              { key: "customer", elem: "Customer" },
+              { key: "purchased", elem: "Purchased" },
+              { key: "actions", elem: "Actions" },
+            ]}
+            rows={[
+              {
+                key: "1",
+                items: [
+                  { key: "id", elem: "1" },
+                  { key: "date", elem: "01 de mar 24" },
+                  { key: "status", elem: "pending" },
+                  { key: "customer", elem: "John" },
+                  { key: "purchased", elem: "paid" },
+                  {
+                    key: "actions",
+                    elem: <Button text="Primary" onClick={() => alert("ok")} />,
+                  },
+                ],
+              },
+              {
+                key: "2",
+                items: [
+                  { key: "id", elem: "2" },
+                  { key: "date", elem: "12 de mar 24" },
+                  { key: "status", elem: "pending" },
+                  { key: "customer", elem: "Leo" },
+                  { key: "purchased", elem: "unpaid" },
+                  {
+                    key: "actions",
+                    elem: <Button text="Primary" onClick={() => alert("ok")} />,
+                  },
+                ],
+              },
+            ]}
+          />
+        </Card>
+      </div>
     </DashboardLayout>
   );
-
-
 }
 
 export default App;
