@@ -12,6 +12,7 @@ export type TableProps = {
   columns: Array<ItemsTypes>;
   rows: Array<RowTypes>;
   mode?: "multiple" | "none" | "single";
+  disabled?: Array<string>;
 };
 
 export type RowTypes = { key: string; items: Array<ItemsTypes> };

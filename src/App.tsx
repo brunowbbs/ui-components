@@ -408,6 +408,7 @@ function App() {
 
         <Table
           mode="multiple"
+          disabled={["1"]}
           columns={[
             { key: "id", elem: "Id" },
             { key: "date", elem: "Date" },

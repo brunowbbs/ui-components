@@ -72,10 +72,14 @@ export const CustomTable = forwardRef(
   }
 );
 
-export function Table({ columns, rows, mode = "none" }: TableProps) {
+export function Table({ columns, rows, mode = "none", disabled }: TableProps) {
   return (
     <div className="safearea-table">
-      <CustomTable aria-label="Tabela" selectionMode={mode}>
+      <CustomTable
+        aria-label="Tabela"
+        selectionMode={mode}
+        disabledKeys={disabled}
+      >
         <TableHeader>
           {columns.map((column: ItemsTypes) => (
             <Column key={column.key}>{column.elem}</Column>
