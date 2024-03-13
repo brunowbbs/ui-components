@@ -1,0 +1,71 @@
+.custom-table {
+  @apply table-auto
+  w-full;
+}
+
+.safearea-table {
+  @apply flex
+  overflow-x-auto;
+}
+
+.tr-header {
+  @apply bg-neutral-100
+  border-b;
+}
+
+.th-header {
+  @apply px-4
+  py-4
+  cursor-default
+
+  text-sm
+  font-medium
+  text-left
+  tracking-wide
+  capitalize;
+
+  &.--col-span {
+    @apply text-center;
+  }
+}
+
+.tr-row {
+  @apply border-b
+  border-b-gray-200
+  font-normal
+  outline-none
+  hover:bg-neutral-100
+  cursor-pointer;
+
+  &.--selected {
+    @apply bg-neutral-50;
+  }
+
+  &.--pressed {
+    @apply bg-neutral-200;
+  }
+
+  &.--disabled {
+    @apply text-gray-400;
+  }
+
+  &.--outlined {
+    @apply outline
+    outline-neutral-400
+    bg-primary-lighter;
+  }
+}
+
+.td-cell {
+  @apply px-5
+  py-3
+  text-sm
+  text-ellipsis
+  overflow-hidden
+  whitespace-nowrap;
+
+  &.--outlined {
+    @apply outline
+    outline-slate-400;
+  }
+}

@@ -679,9 +679,7 @@ function App() {
     </DashboardLayout>
   );
 
-  // function onSubmit() {
-  //   console.log("okokokokoko");
-  // }
+
 }
 
 export default App;
