@@ -42,7 +42,7 @@
   }
 
   &.--pressed {
-    @apply bg-primary;
+    @apply bg-neutral-200;
   }
 
   &.--disabled {
@@ -51,7 +51,7 @@
 
   &.--outlined {
     @apply outline
-    outline-slate-400
+    outline-neutral-400
     bg-primary-lighter;
   }
 }
