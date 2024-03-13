@@ -22,7 +22,8 @@
   input,
   select,
   textarea {
-    color: #636e72;
+    font-weight: 500;
+    /* color: #636e72; */
   }
 }
 
@@ -35,6 +36,7 @@
 }
 
 .ql-editor {
+  font-family: "Plus Jakarta Sans", "sans-serif";
   border: none !important;
   height: 250px;
   max-height: 250px;

@@ -1,37 +1,39 @@
 import { useState } from "react";
 import { BsCheckSquare, BsSquare } from "react-icons/bs";
 import { Props } from "./types";
+import clsx from "clsx";
 
-export function Checkbox({ label }: Props) {
-  const [checked, setChecked] = useState(false);
+export function Checkbox({ label, onChangeValue, error, value }: Props) {
+  const [checked, setChecked] = useState(Boolean(value));
   const checkHandler = () => {
     setChecked((prevChecked) => !prevChecked);
+    onChangeValue(!checked);
   };
 
   return (
     <>
-      <label htmlFor="checkbox">
-        <input
-          type="checkbox"
-          onClick={checkHandler}
-          id="checkbox"
-          className="hidden"
-        />
-        <div className="flex gap-2 items-end justify-center">
-          {!checked && (
-            <BsSquare
-              className="fill-current cursor-pointer text-gray-300"
-              size={16}
-            />
-          )}
-          {checked && (
-            <BsCheckSquare
-              className="fill-current text-primary cursor-pointer"
-              size={16}
-            />
-          )}
-          <p className="text-sm">{label}</p>
-        </div>
+      <label htmlFor="checkbox" className="cursor-pointer">
+        <button type="button" onClick={checkHandler}>
+          <div className="flex gap-2 items-end justify-center">
+            {!checked && (
+              <BsSquare
+                className={clsx("fill-current cursor-pointer", {
+                  "text-red-600": error,
+                  "text-gray-400": !error,
+                })}
+                size={16}
+              />
+            )}
+            {checked && (
+              <BsCheckSquare
+                className="fill-current text-primary cursor-pointer"
+                size={16}
+              />
+            )}
+            <p className="text-sm">{label}</p>
+          </div>
+        </button>
+        {error && <p className="text-[10px] text-red-600 -mt-1">{error}</p>}
       </label>
     </>
   );

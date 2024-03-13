@@ -4,20 +4,24 @@ import { useEffect, useRef, useState } from "react";
 import { LuMenu } from "react-icons/lu";
 import { MdMenu } from "react-icons/md";
 import { useMediaQuery } from "react-responsive";
-import { Popover } from "../../main";
+import { Popover } from "../..";
 import { PopoverProfile } from "./components/popover-profile";
 
 import { FiChevronDown } from "react-icons/fi";
 import logo from "./logo-temp.jpeg";
 import { DashboardLayoutType, DropdownSelect } from "./types";
+import clsx from "clsx";
 
 export function DashboardLayout({
   children,
   menuItems = [],
   popoverProfile,
+  startSidebarOpened = true,
 }: DashboardLayoutType) {
-  const isTabletMid = useMediaQuery({ query: "(max-width: 768px)" });
-  const [open, setOpen] = useState(isTabletMid ? false : true);
+  const isSmallScreen = useMediaQuery({ query: "(max-width: 768px)" });
+  const [open, setOpen] = useState(
+    startSidebarOpened && !isSmallScreen ? true : false
+  );
   const sidebarRef = useRef<MotionProps>();
 
   const [dropdownActive, setDropdownActive] = useState({
@@ -35,32 +39,30 @@ export function DashboardLayout({
   }, []);
 
   useEffect(() => {
-    if (isTabletMid) {
-      setOpen(false);
-    } else {
+    if (startSidebarOpened && !isSmallScreen) {
       setOpen(true);
     }
-  }, [isTabletMid]);
+  }, [isSmallScreen, startSidebarOpened]);
 
   useEffect(() => {
-    isTabletMid && setOpen(false);
-  }, [isTabletMid]);
+    isSmallScreen && setOpen(false);
+  }, [isSmallScreen]);
 
-  const Nav_animation = isTabletMid
+  const Nav_animation = isSmallScreen
     ? {
         open: {
           x: 0,
           width: "13rem",
           transition: {
-            damping: 40,
+            damping: 2,
           },
         },
         closed: {
           x: -250,
           width: 0,
           transition: {
-            damping: 40,
-            delay: 0.15,
+            damping: 2,
+            delay: 0.05,
           },
         },
       }
@@ -68,13 +70,13 @@ export function DashboardLayout({
         open: {
           width: "13rem",
           transition: {
-            damping: 40,
+            damping: 2,
           },
         },
         closed: {
           width: "3.2rem",
           transition: {
-            damping: 40,
+            damping: 2,
           },
         },
       };
@@ -91,27 +93,28 @@ export function DashboardLayout({
         <motion.div
           ref={sidebarRef as any}
           variants={Nav_animation}
-          initial={{ x: isTabletMid ? -250 : 0 }}
+          initial={{ x: isSmallScreen ? -250 : 0 }}
           animate={open ? "open" : "closed"}
-          className=" bg-white text-gray border-transparent shadow-sm max-w-[13rem] w-[13rem] 
-            overflow-hidden md:relative fixed
-         h-screen z-[999]"
+          className={clsx(
+            "bg-white border-transparent shadow-sm overflow-hidden md:relative fixed h-screen z-[999] font-medium",
+            { "w-[13rem]": open }
+          )}
         >
-          <div className="flex items-center gap-2 font-medium py-3  mx-5">
-            <img src={logo} width={20} alt="" className="min-w-[16px]" />
-            {(open || isTabletMid) && (
-              <span className="text-[1.rem] whitespace-pre font-semibold text-gray-600">
+          <div className="flex items-center gap-2 font-medium py-3 mx-5">
+            <img src={logo} width={12} alt="" className="w-[12px]" />
+            {(open || isSmallScreen) && (
+              <span className="text-[1.rem] whitespace-pre font-semibold">
                 Dashboard
               </span>
             )}
           </div>
 
           {menuItems?.map((group, indexGroup) => (
-            <div className="px-3">
-              {(open || isTabletMid) && (
+            <div className="px-3 ">
+              {(open || isSmallScreen) && (
                 <small
                   key={indexGroup}
-                  className="text-slate-400 inline-block px-1 font-light text-[12px]"
+                  className="inline-block px-1 font-medium text-slate-400 text-[12px]"
                 >
                   {group.group_name}
                 </small>
@@ -141,6 +144,11 @@ export function DashboardLayout({
                           }
                         : () => {
                             item.action();
+
+                            if (isSmallScreen || !startSidebarOpened) {
+                              setOpen(false);
+                            }
+
                             setDropdownActive({
                               group: null,
                               itemGroup: null,
@@ -149,19 +157,19 @@ export function DashboardLayout({
                     }
                   >
                     {item.icon}
-                    {(open || isTabletMid) && (
-                      <span className="text-sm text-slate-600 font-normal w-full select-none">
+                    {(open || isSmallScreen) && (
+                      <span className="text-sm font-medium text-black w-full select-none">
                         {item.title}
                       </span>
                     )}
-                    {(open || isTabletMid) &&
+                    {(open || isSmallScreen) &&
                       item.dropdown &&
                       item.dropdown?.length && (
                         <FiChevronDown className="mr-1" size={19} />
                       )}
                   </li>
 
-                  {(open || isTabletMid) &&
+                  {(open || isSmallScreen) &&
                     dropdownActive.group === indexGroup &&
                     dropdownActive.itemGroup === indexItem && (
                       <motion.div
@@ -174,8 +182,13 @@ export function DashboardLayout({
                         {item.dropdown?.map((dropdown_item, dropdownIndex) => (
                           <div key={dropdownIndex} className="flex">
                             <button
-                              onClick={dropdown_item.action}
-                              className="flex-1 text-[12px] ml-4 text-slate-600 font-light items-center flex gap-2 py-1 px-1 cursor-pointer hover:bg-slate-100 transition"
+                              onClick={() => {
+                                dropdown_item.action();
+                                if (isSmallScreen || !startSidebarOpened) {
+                                  setOpen(false);
+                                }
+                              }}
+                              className="flex-1 text-[12px] ml-4 font-medium text-black items-center flex gap-2 py-1 px-1 cursor-pointer hover:bg-slate-100 transition"
                             >
                               <span className="text-[6px]">○</span>
                               {dropdown_item.title}
@@ -218,8 +231,9 @@ export function DashboardLayout({
           </div>
           <div className="flex gap-2">
             <Popover
-              left={530}
-              mask_button={
+              width={220}
+              left={5.3}
+              button={
                 <img
                   src="https://avatars.githubusercontent.com/brunowbbs"
                   className="w-8 h-8 rounded-full cursor-pointer"

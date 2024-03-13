@@ -13,6 +13,8 @@ export function InputMask(props: InputProps) {
     mask = "99.999.999/9999-99";
   } else if (props.type === "cpf") {
     mask = "999.999.999-99";
+  } else if (props.type === "cep") {
+    mask = "99.999-99";
   }
 
   const [isFocused, setIsFocused] = useState(false);
@@ -21,9 +23,13 @@ export function InputMask(props: InputProps) {
     <div className={`flex flex-col w-${props.width ?? "full"}`}>
       <p className="text-sm font-medium">{props.label}</p>
       <div
-        className={clsx("border rounded-sm py-0.5 relative", {
-          "border-primary": isFocused,
-        })}
+        className={clsx(
+          "border border-gray-400 rounded-md py-[2.5px] relative",
+          {
+            "border-primary": isFocused,
+            "border-red-600": props.error,
+          }
+        )}
       >
         {props.type === "money" ? (
           <CurrencyInput
@@ -38,6 +44,7 @@ export function InputMask(props: InputProps) {
             decimalScale={2}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
+            onChange={(event) => props.onChangeValue(event.target.value)}
           />
         ) : (
           <ReactInputMask
@@ -46,12 +53,13 @@ export function InputMask(props: InputProps) {
             mask={mask}
             maskChar="_"
             value={props.value}
-            onChange={props.onChange}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
+            onChange={(event) => props.onChangeValue(event.target.value)}
           />
         )}
       </div>
+      {props.error && <p className="text-[10px] text-red-600">{props.error}</p>}
     </div>
   );
 }

@@ -11,18 +11,30 @@ export function Select({
   disabled,
   isMulti = false,
   width,
+  value,
+  onChangeValue,
+  error,
 }: SelectProps) {
   return (
     <div className={`w-${width ?? "full"}`}>
       <p className="text-sm font-medium">{label}</p>
 
       <SelectReact
+        value={options.find((option) => option.value === value)}
         isMulti={isMulti}
         isDisabled={disabled}
         placeholder={placeholder}
         options={options}
-        className="text-sm border rounded-sm cursor-pointer"
-        noOptionsMessage={() => "Nenhuma opção encontrada"}
+        onChange={(event) =>
+          onChangeValue(
+            event as {
+              label: string;
+              value: string | number;
+            }
+          )
+        }
+        className="text-sm rounded-md cursor-pointer"
+        noOptionsMessage={() => "Nenhum item encontrado"}
         components={{
           ClearIndicator: (props) => (
             <div
@@ -40,13 +52,21 @@ export function Select({
         }}
         styles={{
           control: (_, state) => ({
+            borderRadius: 6,
             display: "flex",
             width: "100%",
-            borderColor: state.isFocused ? COLORS.primary : "transparent",
+            paddingTop: 1.7,
+            paddingBottom: 1.6,
+            borderColor: error
+              ? COLORS.danger
+              : state.isFocused
+              ? COLORS.primary
+              : "#94a3b8",
             borderWidth: "1px",
             borderStyle: "solid",
-            paddingLeft: 4,
-            paddingRight: 4,
+            paddingLeft: 8,
+            paddingRight: 8,
+            fontWeight: 500,
           }),
 
           input: (base) => ({
@@ -122,7 +142,7 @@ export function Select({
             cursor: "pointer",
             // background: "blue",
             backgroundColor: state.isFocused ? "#ecf0f1" : "transparent",
-            color: "#4a5568",
+            color: "#000",
             "&:hover": {
               backgroundColor: "#ecf0f1",
             },
@@ -161,6 +181,7 @@ export function Select({
           }),
         }}
       />
+      {error && <p className="text-[10px] text-red-600">{error}</p>}
     </div>
   );
 }

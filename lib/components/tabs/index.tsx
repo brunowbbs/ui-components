@@ -21,11 +21,13 @@ export function Tabs({ tabs }: TabProps) {
                 : "text-gray-600 border-b-2 border-b-transparent hover:text-primary"
             }`}
           >
-            {tab.title}
+            <span>{tab.title}</span>
           </button>
         ))}
       </div>
-      <div>{tabs[tabSelected].content}</div>
+      <div>
+        <span>{tabs[tabSelected].content}</span>
+      </div>
     </div>
   );
 }

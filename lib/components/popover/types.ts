@@ -2,5 +2,6 @@ import { PropsWithChildren, ReactNode } from "react";
 
 export type Props = {
   left?: number;
-  mask_button: ReactNode;
+  button: ReactNode;
+  width?: number;
 } & PropsWithChildren;
