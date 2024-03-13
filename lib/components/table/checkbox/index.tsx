@@ -8,5 +8,7 @@ export function Checkbox(props) {
   const state = useToggleState(props);
   const { inputProps } = useCheckbox(props, state, ref);
 
-  return <input {...inputProps} ref={ref} style={props.style} />;
+  return (
+    <input className="ml-2" {...inputProps} ref={ref} style={props.style} />
+  );
 }

@@ -7,3 +7,8 @@ export type TableCellProps = PropsWithChildren<{
   cell: Node<object>;
   state: TableState<object>;
 }>;
+
+export type TableColProps = PropsWithChildren<{
+  column: Node<object>;
+  state: TableState<object>;
+}>;

@@ -1,5 +1,5 @@
-import type { RefObject } from "react";
-import { useRef } from "react";
+import type { Ref, TableHTMLAttributes } from "react";
+import { forwardRef } from "react";
 import {
   mergeProps,
   useFocusRing,
@@ -9,6 +9,8 @@ import {
 } from "react-aria";
 
 import clsx from "clsx";
+
+import useForwardedRef from "@bedrock-layout/use-forwarded-ref";
 
 import type {
   TableColumnHeaderProps,
@@ -26,37 +28,47 @@ export function TableRowGroup({
   return <Element {...mergeProps(rowGroupProps, props)}>{children}</Element>;
 }
 
-export function TableHeaderRow({ state, children, item }: TableHeaderRowProps) {
-  const ref = useRef<RefObject<Element>>();
+export const TableHeaderRow = forwardRef(
+  (
+    { state, children, item }: TableHeaderRowProps,
+    ref: Ref<TableHTMLAttributes<HTMLTableRowElement>>
+  ) => {
+    const forwardedRef = useForwardedRef(ref);
 
-  const { rowProps } = useTableHeaderRow({ node: item }, state, ref);
+    const { rowProps } = useTableHeaderRow({ node: item }, state, forwardedRef);
 
-  return (
-    <tr {...rowProps} ref={ref} className="tr-header">
-      {children}
-    </tr>
-  );
-}
+    return (
+      <tr {...rowProps} ref={forwardedRef} className="tr-header">
+        {children}
+      </tr>
+    );
+  }
+);
 
-export function TableColumnHeader({ state, column }: TableColumnHeaderProps) {
-  const ref = useRef();
+export const TableColumnHeader = forwardRef(
+  (
+    { state, column }: TableColumnHeaderProps,
+    ref: Ref<TableHTMLAttributes<HTMLTableHeaderCellElement>>
+  ) => {
+    const forwardedRef = useForwardedRef(ref);
 
-  const { columnHeaderProps } = useTableColumnHeader(
-    { node: column },
-    state,
-    ref
-  );
-  const { isFocusVisible, focusProps } = useFocusRing();
+    const { columnHeaderProps } = useTableColumnHeader(
+      { node: column },
+      state,
+      forwardedRef
+    );
+    const { isFocusVisible, focusProps } = useFocusRing();
 
-  return (
-    <th
-      ref={ref}
-      {...mergeProps(columnHeaderProps, focusProps)}
-      className={clsx("th-header", {
-        "--outline": isFocusVisible,
-      })}
-    >
-      {column.rendered}
-    </th>
-  );
-}
+    return (
+      <th
+        ref={forwardedRef}
+        {...mergeProps(columnHeaderProps, focusProps)}
+        className={clsx("th-header", {
+          "--outline": isFocusVisible,
+        })}
+      >
+        {column.rendered}
+      </th>
+    );
+  }
+);
