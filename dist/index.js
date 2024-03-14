@@ -5713,6 +5713,7 @@ function gfe({
             "bg-white border-transparent shadow-sm overflow-hidden md:relative fixed h-screen z-[999] font-medium",
             { "w-[13rem]": s }
           ),
+          style: { maxWidth: "13rem" },
           children: [
             /* @__PURE__ */ Zt("div", { className: "flex items-center gap-2 font-medium py-3 mx-5", children: [
               /* @__PURE__ */ Me("img", { src: lW, width: 12, alt: "", className: "w-[12px]" }),

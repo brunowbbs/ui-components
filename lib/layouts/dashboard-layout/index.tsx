@@ -99,6 +99,7 @@ export function DashboardLayout({
             "bg-white border-transparent shadow-sm overflow-hidden md:relative fixed h-screen z-[999] font-medium",
             { "w-[13rem]": open }
           )}
+          style={{ maxWidth: "13rem" }}
         >
           <div className="flex items-center gap-2 font-medium py-3 mx-5">
             <img src={logo} width={12} alt="" className="w-[12px]" />
