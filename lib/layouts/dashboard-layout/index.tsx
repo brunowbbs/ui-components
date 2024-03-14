@@ -30,15 +30,6 @@ export function DashboardLayout({
   } as DropdownSelect);
 
   useEffect(() => {
-    if (
-      !localStorage.getItem("@token") ||
-      localStorage.getItem("@token") !== "19a&_0129aj81cla0_919*8*as"
-    ) {
-      localStorage.clear();
-    }
-  }, []);
-
-  useEffect(() => {
     if (startSidebarOpened && !isSmallScreen) {
       setOpen(true);
     }
