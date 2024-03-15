@@ -5840,7 +5840,7 @@ function gfe({
       /* @__PURE__ */ Me(
         "section",
         {
-          className: "flex-1 px-5 py-3 overflow-y-auto bg-slate-100",
+          className: "flex-1 px-5 py-3 overflow-y-auto bg-slate-50",
           style: { paddingBottom: 10 },
           children: t
         }
@@ -55404,7 +55404,15 @@ $B.getCollectionNode = function* (e) {
 let efe = $B;
 function jB(t) {
   const e = bt.useRef(null), n = mce(t), { inputProps: r } = vce(t, n, e);
-  return /* @__PURE__ */ Me("input", { className: "", ...r, ref: e, style: t.style });
+  return /* @__PURE__ */ Me(
+    "input",
+    {
+      className: "outline-none cursor-pointer",
+      ...r,
+      ref: e,
+      style: t.style
+    }
+  );
 }
 const tfe = La(
   ({ cell: t, state: e }, n) => {

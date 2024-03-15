@@ -8,5 +8,12 @@ export function Checkbox(props) {
   const state = useToggleState(props);
   const { inputProps } = useCheckbox(props, state, ref);
 
-  return <input className="" {...inputProps} ref={ref} style={props.style} />;
+  return (
+    <input
+      className="outline-none cursor-pointer"
+      {...inputProps}
+      ref={ref}
+      style={props.style}
+    />
+  );
 }

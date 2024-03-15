@@ -21,7 +21,7 @@
   cursor-default
 
   text-sm
-  font-bold
+  font-semibold
   text-left
   tracking-wide
   capitalize;
@@ -49,7 +49,7 @@
   }
 
   &.--disabled {
-    @apply text-gray-400;
+    @apply text-gray-300;
   }
 
   &.--outlined {

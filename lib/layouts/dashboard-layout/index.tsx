@@ -241,7 +241,7 @@ export function DashboardLayout({
           </div>
         </div>
         <section
-          className="flex-1 px-5 py-3 overflow-y-auto bg-slate-100"
+          className="flex-1 px-5 py-3 overflow-y-auto bg-slate-50"
           style={{ paddingBottom: 10 }}
         >
           {children}
