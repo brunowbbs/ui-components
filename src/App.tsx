@@ -691,7 +691,7 @@ function App() {
               { key: "status", elem: "Status" },
               { key: "customer", elem: "Customer" },
               { key: "purchased", elem: "Purchased" },
-              { key: "actions", elem: "Actions" },
+              // { key: "actions", elem: "Actions" },
             ]}
             rows={[
               {
@@ -702,10 +702,10 @@ function App() {
                   { key: "status", elem: "pending" },
                   { key: "customer", elem: "John" },
                   { key: "purchased", elem: "paid" },
-                  {
-                    key: "actions",
-                    elem: <Button text="Primary" onClick={() => alert("ok")} />,
-                  },
+                  // {
+                  //   key: "actions",
+                  //   elem: <Button text="Primary" onClick={() => alert("ok")} />,
+                  // },
                 ],
               },
               {
@@ -716,10 +716,10 @@ function App() {
                   { key: "status", elem: "pending" },
                   { key: "customer", elem: "Leo" },
                   { key: "purchased", elem: "unpaid" },
-                  {
-                    key: "actions",
-                    elem: <Button text="Primary" onClick={() => alert("ok")} />,
-                  },
+                  // {
+                  //   key: "actions",
+                  //   elem: <Button text="Primary" onClick={() => alert("ok")} />,
+                  // },
                 ],
               },
             ]}

@@ -61,7 +61,11 @@ export const TableCheckboxCell = forwardRef(
     );
 
     return (
-      <td {...gridCellProps} ref={forwardedRef}>
+      <td
+        className="flex justify-center mt-1.5"
+        {...gridCellProps}
+        ref={forwardedRef}
+      >
         <Checkbox {...checkboxProps} />
       </td>
     );

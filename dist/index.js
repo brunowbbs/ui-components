@@ -55404,7 +55404,7 @@ $B.getCollectionNode = function* (e) {
 let efe = $B;
 function jB(t) {
   const e = bt.useRef(null), n = mce(t), { inputProps: r } = vce(t, n, e);
-  return /* @__PURE__ */ Me("input", { className: "ml-2", ...r, ref: e, style: t.style });
+  return /* @__PURE__ */ Me("input", { className: "", ...r, ref: e, style: t.style });
 }
 const tfe = La(
   ({ cell: t, state: e }, n) => {
@@ -55431,7 +55431,15 @@ const tfe = La(
       { key: t.parentKey },
       e
     );
-    return /* @__PURE__ */ Me("td", { ...i, ref: r, children: /* @__PURE__ */ Me(jB, { ...s }) });
+    return /* @__PURE__ */ Me(
+      "td",
+      {
+        className: "flex justify-center mt-1.5",
+        ...i,
+        ref: r,
+        children: /* @__PURE__ */ Me(jB, { ...s })
+      }
+    );
   }
 ), rfe = La(
   ({ column: t, state: e }, n) => {
