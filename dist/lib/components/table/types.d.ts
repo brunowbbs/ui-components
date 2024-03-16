@@ -1,6 +1,6 @@
+/// <reference types="react" />
 import type { AriaTableProps } from "react-aria";
 import type { TableStateProps } from "@react-stately/table";
-import { Key, ReactNode } from "react";
 export type CustomTableProps = AriaTableProps<object> & TableStateProps<object> & {
     className?: string;
 };
@@ -15,6 +15,6 @@ export type RowTypes = {
     items: Array<ItemsTypes>;
 };
 export type ItemsTypes = {
-    elem: string | ReactNode;
-    key: Key;
+    elem: string | JSX.Element | number;
+    key: string;
 };

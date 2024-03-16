@@ -25,6 +25,7 @@ import {
 } from "../lib";
 import { Modal } from "../lib/components/modal";
 import { showToast } from "../lib/components/toast/showToast";
+import { mountDataTable } from "../lib/utils";
 import { Form } from "./components/form";
 
 const MENU_ITEMS = [
@@ -148,6 +149,15 @@ const sourcedata3 = [
     value: 23,
   },
 ];
+
+const { columns, rows } = mountDataTable(
+  ["Id", "Date", "Status", "Customer", "Purchased"],
+  [
+    ["1", "01 de mar 24", "pending", "John", "unpaid"],
+    ["2", "12 de mar 24", "processed", "Leo", "paid"],
+    ["3", "21 de mar 25", "processed", "Bruno", "paid"],
+  ]
+);
 
 function App() {
   const [isModalConfirm, setIsModalConfirm] = useState(false);
@@ -685,44 +695,8 @@ function App() {
           <Table
             mode="multiple"
             disabled={["1"]}
-            columns={[
-              { key: "id", elem: "Id" },
-              { key: "date", elem: "Date" },
-              { key: "status", elem: "Status" },
-              { key: "customer", elem: "Customer" },
-              { key: "purchased", elem: "Purchased" },
-              // { key: "actions", elem: "Actions" },
-            ]}
-            rows={[
-              {
-                key: "1",
-                items: [
-                  { key: "id", elem: "1" },
-                  { key: "date", elem: "01 de mar 24" },
-                  { key: "status", elem: "pending" },
-                  { key: "customer", elem: "John" },
-                  { key: "purchased", elem: "paid" },
-                  // {
-                  //   key: "actions",
-                  //   elem: <Button text="Primary" onClick={() => alert("ok")} />,
-                  // },
-                ],
-              },
-              {
-                key: "2",
-                items: [
-                  { key: "id", elem: "2" },
-                  { key: "date", elem: "12 de mar 24" },
-                  { key: "status", elem: "pending" },
-                  { key: "customer", elem: "Leo" },
-                  { key: "purchased", elem: "unpaid" },
-                  // {
-                  //   key: "actions",
-                  //   elem: <Button text="Primary" onClick={() => alert("ok")} />,
-                  // },
-                ],
-              },
-            ]}
+            columns={columns}
+            rows={rows}
           />
         </Card>
       </div>
