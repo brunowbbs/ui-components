@@ -164,6 +164,7 @@ function App() {
 
   return (
     <DashboardLayout
+      startSidebarOpened={false}
       menuItems={MENU_ITEMS}
       popoverProfile={{
         logoutAction: () => alert("ok"),

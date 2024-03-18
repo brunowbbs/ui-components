@@ -88,9 +88,9 @@ export function DashboardLayout({
           animate={open ? "open" : "closed"}
           className={clsx(
             "bg-white border-transparent shadow-sm overflow-hidden md:relative fixed h-screen z-[999] font-medium",
-            { "w-[13rem]": open }
+            { "w-[13rem]": open, "w-[3.2rem]": startSidebarOpened === false }
           )}
-          style={{ maxWidth: "13rem" }}
+          style={{ maxWidth: open ? "13rem" : "3.2rem" }}
         >
           <div className="flex items-center gap-2 font-medium py-3 mx-5">
             <img src={logo} width={12} alt="" className="w-[12px]" />
