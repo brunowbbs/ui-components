@@ -4,7 +4,7 @@ export type InputProps = {
   value: string;
   width?: number;
   label: string;
-  password?: boolean;
+  isPassword?: boolean;
   onChangeValue: (value: string | number) => void;
   error?: string;
   placeholder?: string;

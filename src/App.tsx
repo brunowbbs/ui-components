@@ -243,9 +243,9 @@ function App() {
               value=""
               onChangeValue={() => {}}
               width={80}
-              placeholder="Password"
-              label="Password"
-              password={true}
+              placeholder="isPassword"
+              label="isPassword"
+              isPassword={true}
             />
             <Input
               value=""

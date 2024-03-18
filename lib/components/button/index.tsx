@@ -15,6 +15,7 @@ export function Button(props: ButtonProps) {
     iconRight,
     iconLeft,
     width = undefined,
+    type = "button",
     onClick,
   } = props;
 
@@ -51,6 +52,7 @@ export function Button(props: ButtonProps) {
 
   return (
     <button
+      type={type}
       onClick={onClick}
       disabled={disabled || isLoading}
       style={buttonStyles}

@@ -13,4 +13,6 @@ export type ButtonProps = {
   iconLeft?: ReactElement;
   width?: number;
   onClick?: () => void;
+  className?: string;
+  type?: "submit" | "reset" | "button";
 };
