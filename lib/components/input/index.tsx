@@ -10,7 +10,7 @@ export function Input(props: InputProps) {
   const inputType = props.isPassword
     ? isVisibleContent
       ? "text"
-      : "isPassword"
+      : "password"
     : props.type ?? "text";
 
   return (
