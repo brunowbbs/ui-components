@@ -5824,11 +5824,11 @@ function gfe({
           dW,
           {
             width: 220,
-            left: 5.3,
+            left: 5.8,
             button: /* @__PURE__ */ Me(
               "img",
               {
-                src: n.userLoggedData.avatar ?? "https://cdn-icons-png.flaticon.com/256/149/149071.png",
+                src: n.userLoggedData.avatar || "https://cdn-icons-png.flaticon.com/256/149/149071.png",
                 className: "w-8 h-8 rounded-full cursor-pointer"
               }
             ),

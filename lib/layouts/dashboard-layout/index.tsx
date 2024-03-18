@@ -224,11 +224,11 @@ export function DashboardLayout({
           <div className="flex gap-2">
             <Popover
               width={220}
-              left={5.3}
+              left={5.8}
               button={
                 <img
                   src={
-                    popoverProfile.userLoggedData.avatar ??
+                    popoverProfile.userLoggedData.avatar ||
                     "https://cdn-icons-png.flaticon.com/256/149/149071.png"
                   }
                   className="w-8 h-8 rounded-full cursor-pointer"
