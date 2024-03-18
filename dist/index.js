@@ -5709,9 +5709,9 @@ function gfe({
           animate: s ? "open" : "closed",
           className: Ma(
             "bg-white border-transparent shadow-sm overflow-hidden md:relative fixed h-screen z-[999] font-medium",
-            { "w-[13rem]": s }
+            { "w-[13rem]": s, "w-[3.2rem]": r === !1 }
           ),
-          style: { maxWidth: "13rem" },
+          style: { maxWidth: s ? "13rem" : "3.2rem" },
           children: [
             /* @__PURE__ */ Zt("div", { className: "flex items-center gap-2 font-medium py-3 mx-5", children: [
               /* @__PURE__ */ Me("img", { src: lW, width: 12, alt: "", className: "w-[12px]" }),
