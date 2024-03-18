@@ -64,7 +64,7 @@ export const Toast = ({
         {renderIcon()}
         <div className="flex flex-col flex-1">
           <p className="text-sm font-bold">{renderTitle()}</p>
-          <p className="text-sm font-light">{message}</p>
+          <p className="text-sm text-gray-600">{message}</p>
         </div>
         <IoClose
           onClick={removeToast}

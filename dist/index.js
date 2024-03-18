@@ -5995,6 +5995,7 @@ function yfe(t) {
                   "cursor-pointer": t.type === "date" || t.type === "datetime-local" || t.type === "time"
                 }
               ),
+              placeholder: t.placeholder,
               onFocus: () => i(!0),
               onBlur: () => i(!1)
             }
@@ -40246,7 +40247,7 @@ function kfe(t) {
             disabled: t.disabled,
             className: "outline-none px-2 p-0 w-full text-sm",
             name: "input-name",
-            placeholder: "Digite um valor",
+            placeholder: t.placeholder,
             prefix: "R$ ",
             groupSeparator: ".",
             decimalSeparator: ",",
@@ -40260,6 +40261,7 @@ function kfe(t) {
         ) : /* @__PURE__ */ Me(
           ere,
           {
+            placeholder: t.placeholder,
             disabled: t.disabled,
             className: "w-full text-sm outline-none bg-white px-2",
             mask: e,
@@ -50391,7 +50393,7 @@ const Vle = ({
         i(),
         /* @__PURE__ */ Vt("div", { className: "flex flex-col flex-1", children: [
           /* @__PURE__ */ Me("p", { className: "text-sm font-bold", children: s() }),
-          /* @__PURE__ */ Me("p", { className: "text-sm font-light", children: t })
+          /* @__PURE__ */ Me("p", { className: "text-sm text-gray-600", children: t })
         ] }),
         /* @__PURE__ */ Me(
           mP,

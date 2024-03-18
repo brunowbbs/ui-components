@@ -36,7 +36,7 @@ export function InputMask(props: InputProps) {
             disabled={props.disabled}
             className="outline-none px-2 p-0 w-full text-sm"
             name="input-name"
-            placeholder="Digite um valor"
+            placeholder={props.placeholder}
             prefix="R$ "
             groupSeparator="."
             decimalSeparator=","
@@ -49,6 +49,7 @@ export function InputMask(props: InputProps) {
           />
         ) : (
           <ReactInputMask
+            placeholder={props.placeholder}
             disabled={props.disabled}
             className="w-full text-sm outline-none bg-white px-2"
             mask={mask}

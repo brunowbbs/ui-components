@@ -37,6 +37,7 @@ export function Input(props: InputProps) {
                   props.type === "time",
               }
             )}
+            placeholder={props.placeholder}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
             // {...props}
