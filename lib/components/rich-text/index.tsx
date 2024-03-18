@@ -8,6 +8,7 @@ export function RichText({
   error,
   value,
   label,
+  disabled,
 }: RichTextProps) {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -25,6 +26,7 @@ export function RichText({
         }`}
       >
         <ReactQuill
+          readOnly={disabled}
           defaultValue={value}
           modules={modules}
           onFocus={() => setIsFocused(true)}

@@ -8,6 +8,7 @@ export type RadioButtonProps = {
     checked: boolean;
     onChangeValue: () => void;
     error?: string;
+    disabled?: boolean;
 };
 export type RadioButtonGroupProps = {
     value: string | number;
@@ -15,5 +16,6 @@ export type RadioButtonGroupProps = {
     options: Option[];
     onChangeValue: (value: string | number) => void;
     error?: string;
+    disabled?: boolean;
 };
 export {};

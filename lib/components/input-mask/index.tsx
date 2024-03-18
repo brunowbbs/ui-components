@@ -33,6 +33,7 @@ export function InputMask(props: InputProps) {
       >
         {props.type === "money" ? (
           <CurrencyInput
+            disabled={props.disabled}
             className="outline-none px-2 p-0 w-full text-sm"
             name="input-name"
             placeholder="Digite um valor"
@@ -48,7 +49,7 @@ export function InputMask(props: InputProps) {
           />
         ) : (
           <ReactInputMask
-            // {...props}
+            disabled={props.disabled}
             className="w-full text-sm outline-none bg-white px-2"
             mask={mask}
             maskChar="_"

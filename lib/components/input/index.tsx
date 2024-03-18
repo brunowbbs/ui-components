@@ -24,6 +24,7 @@ export function Input(props: InputProps) {
       >
         <div>
           <input
+            disabled={props.disabled}
             onChange={(event) => props.onChangeValue(event.target.value)}
             type={inputType}
             className={clsx(

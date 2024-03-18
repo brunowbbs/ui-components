@@ -6,4 +6,5 @@ export type InputProps = {
   error?: string;
   placeholder?: string;
   value?: string;
+  disabled?: boolean;
 };

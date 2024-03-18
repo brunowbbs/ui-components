@@ -5,4 +5,5 @@ export type Props = {
     onChangeValue: (value: boolean) => void;
     error?: string;
     value?: boolean;
+    disabled?: boolean;
 };

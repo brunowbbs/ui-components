@@ -3,4 +3,5 @@ export type RichTextProps = {
     error?: string;
     value: string;
     label: string;
+    disabled?: boolean;
 };

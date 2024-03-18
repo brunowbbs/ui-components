@@ -9,10 +9,13 @@ export function RadioButtonGroup({
   label,
   error,
   value,
+  disabled,
 }: RadioButtonGroupProps) {
   const [selectedOption, setSelectedOption] = useState<string | number>(value);
 
   const handleOptionChange = (optionValue: string | number) => {
+    if (disabled) return;
+
     setSelectedOption(optionValue);
     onChangeValue(optionValue);
   };
@@ -20,8 +23,9 @@ export function RadioButtonGroup({
   return (
     <div>
       <p className="text-sm mb-2">{label}</p>
-      {options.map((option, index) => (
+      {options?.map((option, index) => (
         <RadioButton
+          disabled={disabled}
           error={error}
           key={index}
           label={option.label}
@@ -41,27 +45,40 @@ export function RadioButton({
   checked,
   onChangeValue,
   error,
+  disabled,
 }: RadioButtonProps) {
   return (
     <label htmlFor={String(value)} className="flex items-center gap-2 mb-1">
       <button
         onClick={onChangeValue}
         value={value}
-        className="flex items-center gap-2 cursor-pointer"
+        className={clsx("flex items-center gap-2 cursor-pointer", {
+          "cursor-default": disabled,
+        })}
       >
         {!checked && (
           <BsCircle
             className={clsx("fill-current ", {
-              "text-gray-400": !error,
+              "text-gray-500": !error,
               "text-red-600": error,
+              "text-slate-300": disabled,
             })}
             size={16}
           />
         )}
         {checked && (
-          <BsCheckCircle className="fill-current text-primary" size={16} />
+          <BsCheckCircle
+            className={clsx("fill-current cursor-pointer", {
+              "text-primary": !disabled,
+              "cursor-default": disabled,
+              "text-slate-300": disabled,
+            })}
+            size={16}
+          />
         )}
-        <p className="text-sm">{label}</p>
+        <p className={clsx("text-sm", { "text-gray-400": disabled })}>
+          {label}
+        </p>
       </button>
     </label>
   );

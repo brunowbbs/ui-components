@@ -9,4 +9,5 @@ export type InputProps = {
   error?: string;
   placeholder?: string;
   type?: HTMLInputTypeAttribute;
+  disabled?: boolean;
 };
