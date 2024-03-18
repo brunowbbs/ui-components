@@ -27,8 +27,11 @@ export function PopoverProfile({
         </div>
       </div>
       <ul>
-        {menuItems?.map((item) => (
-          <li className="flex items-center gap-2 p-1 rounded hover:bg-slate-100 transition cursor-pointer">
+        {menuItems?.map((item, index) => (
+          <li
+            key={index}
+            className="flex items-center gap-2 p-1 rounded hover:bg-slate-100 transition cursor-pointer"
+          >
             {item.icon}
             <span className="text-sm ">{item.title}</span>
           </li>

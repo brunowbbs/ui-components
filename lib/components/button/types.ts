@@ -12,4 +12,5 @@ export type ButtonProps = {
   iconRight?: ReactElement;
   iconLeft?: ReactElement;
   width?: number;
-} & React.ButtonHTMLAttributes<HTMLButtonElement>;
+  onClick?: () => void;
+};

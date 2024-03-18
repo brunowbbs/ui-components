@@ -102,17 +102,14 @@ export function DashboardLayout({
           </div>
 
           {menuItems?.map((group, indexGroup) => (
-            <div className="px-3 ">
+            <div className="px-3" key={indexGroup}>
               {(open || isSmallScreen) && (
-                <small
-                  key={indexGroup}
-                  className="inline-block px-1 font-medium text-slate-400 text-[12px]"
-                >
+                <small className="inline-block px-1 font-medium text-slate-400 text-[12px]">
                   {group.group_name}
                 </small>
               )}
               {group.items.map((item, indexItem) => (
-                <div>
+                <div key={indexItem}>
                   <li
                     key={indexItem}
                     className="flex gap-1 py-2 px-1 cursor-pointer hover:bg-slate-100 transition items-center"

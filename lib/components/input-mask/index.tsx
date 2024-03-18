@@ -48,7 +48,7 @@ export function InputMask(props: InputProps) {
           />
         ) : (
           <ReactInputMask
-            {...props}
+            // {...props}
             className="w-full text-sm outline-none bg-white px-2"
             mask={mask}
             maskChar="_"

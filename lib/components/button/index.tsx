@@ -15,6 +15,7 @@ export function Button(props: ButtonProps) {
     iconRight,
     iconLeft,
     width = undefined,
+    onClick,
   } = props;
 
   const [isHovered, setIsHovered] = useState(false);
@@ -50,15 +51,17 @@ export function Button(props: ButtonProps) {
 
   return (
     <button
+      onClick={onClick}
       disabled={disabled || isLoading}
       style={buttonStyles}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className="px-3 flex items-center justify-center rounded-md py-[5.75px]"
-      {...props}
     >
       {isLoading ? (
-        <Spinner color={outline ? "green" : "white"} />
+        <span>
+          <Spinner color={outline ? "green" : "white"} />
+        </span>
       ) : (
         <p
           className={clsx({
@@ -66,11 +69,11 @@ export function Button(props: ButtonProps) {
               link,
           })}
         >
-          <div className="flex flex-row items-center gap-1 text-sm">
-            {iconLeft}
-            {text}
-            {iconRight}
-          </div>
+          <span className="flex flex-row items-center gap-1 text-sm">
+            <span> {iconLeft}</span>
+            <span> {text}</span>
+            <span> {iconRight}</span>
+          </span>
         </p>
       )}
     </button>

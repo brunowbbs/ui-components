@@ -221,7 +221,7 @@ function App() {
               onClick={() => alert("ok")}
               iconLeft={<LuSettings size={12} />}
             />
-            <Button text="Link" onClick={() => alert("ok")} link />
+            <Button text="Link" onClick={() => alert("ok")} link={true} />
           </div>
         </Card>
 
@@ -233,7 +233,6 @@ function App() {
 
           <div className="flex items-end gap-2 flex-row flex-wrap">
             <Input
-              name=""
               value=""
               width={80}
               placeholder="Ex: user@gmail.com"
@@ -241,16 +240,14 @@ function App() {
               onChangeValue={() => {}}
             />
             <Input
-              name=""
               value=""
               onChangeValue={() => {}}
               width={80}
               placeholder="Password"
               label="Password"
-              isPassword
+              password={true}
             />
             <Input
-              name=""
               value=""
               width={80}
               label="Data"
@@ -258,7 +255,6 @@ function App() {
               onChangeValue={() => {}}
             />
             <Input
-              name=""
               value=""
               width={80}
               label="Hora"
@@ -368,7 +364,6 @@ function App() {
               ]}
             />
             <Input
-              name=""
               value=""
               width={80}
               placeholder="Ex: user@gmail.com"

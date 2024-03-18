@@ -1,8 +1,12 @@
+import { HTMLInputTypeAttribute } from "react";
+
 export type InputProps = {
   value: string;
   width?: number;
   label: string;
-  isPassword?: boolean;
+  password?: boolean;
   onChangeValue: (value: string | number) => void;
   error?: string;
-} & React.InputHTMLAttributes<HTMLInputElement>;
+  placeholder?: string;
+  type?: HTMLInputTypeAttribute;
+};

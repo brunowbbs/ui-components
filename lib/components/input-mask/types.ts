@@ -4,4 +4,6 @@ export type InputProps = {
   type?: "money" | "phone" | "cpf" | "cnpj" | "cep";
   onChangeValue: (value: string) => void;
   error?: string;
-} & React.InputHTMLAttributes<HTMLInputElement>;
+  placeholder?: string;
+  value?: string;
+};
