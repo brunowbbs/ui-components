@@ -227,7 +227,10 @@ export function DashboardLayout({
               left={5.3}
               button={
                 <img
-                  src="https://avatars.githubusercontent.com/brunowbbs"
+                  src={
+                    popoverProfile.userLoggedData.avatar ??
+                    "https://cdn-icons-png.flaticon.com/256/149/149071.png"
+                  }
                   className="w-8 h-8 rounded-full cursor-pointer"
                 />
               }

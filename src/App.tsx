@@ -105,7 +105,6 @@ const MENU_ITEMS = [
 const USER_LOGGED = {
   description: "Porteirinha - MG",
   name: "Wesley Bruno Barbosa Silva",
-  avatar: "https://avatars.githubusercontent.com/brunowbbs",
 };
 
 const MENU_ITEMS_POPOVER_PROFILE = [

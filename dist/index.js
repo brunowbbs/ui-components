@@ -5593,7 +5593,13 @@ function oW({
 }) {
   return /* @__PURE__ */ Zt("div", { children: [
     /* @__PURE__ */ Zt("div", { className: "flex gap-2 border-b pb-2 mb-2", children: [
-      e.avatar && /* @__PURE__ */ Me("img", { src: e.avatar, className: "w-8 h-8 rounded-full" }),
+      /* @__PURE__ */ Me(
+        "img",
+        {
+          src: e.avatar || "https://cdn-icons-png.flaticon.com/256/149/149071.png",
+          className: "w-8 h-8 rounded-full"
+        }
+      ),
       /* @__PURE__ */ Zt("div", { className: "flex flex-col", children: [
         /* @__PURE__ */ Me("span", { className: "font-semibold text-sm line-clamp-1 ", children: e.name }),
         /* @__PURE__ */ Me("span", { className: "font-light text-[0.65rem] ", children: e.description })
@@ -5822,7 +5828,7 @@ function gfe({
             button: /* @__PURE__ */ Me(
               "img",
               {
-                src: "https://avatars.githubusercontent.com/brunowbbs",
+                src: n.userLoggedData.avatar ?? "https://cdn-icons-png.flaticon.com/256/149/149071.png",
                 className: "w-8 h-8 rounded-full cursor-pointer"
               }
             ),

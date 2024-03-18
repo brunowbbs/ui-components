@@ -9,9 +9,14 @@ export function PopoverProfile({
   return (
     <div>
       <div className="flex gap-2 border-b pb-2 mb-2">
-        {userLoggedData.avatar && (
-          <img src={userLoggedData.avatar} className="w-8 h-8 rounded-full" />
-        )}
+        <img
+          src={
+            userLoggedData.avatar ||
+            "https://cdn-icons-png.flaticon.com/256/149/149071.png"
+          }
+          className="w-8 h-8 rounded-full"
+        />
+
         <div className="flex flex-col">
           <span className="font-semibold text-sm line-clamp-1 ">
             {userLoggedData.name}
