@@ -17,6 +17,7 @@ export function Button(props: ButtonProps) {
     width = undefined,
     type = "button",
     onClick,
+    className,
   } = props;
 
   const [isHovered, setIsHovered] = useState(false);
@@ -58,7 +59,7 @@ export function Button(props: ButtonProps) {
       style={buttonStyles}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="px-3 flex items-center justify-center rounded-md py-[5.75px]"
+      className={`px-3 flex items-center justify-center rounded-md py-[5.75px] ${className}`}
     >
       {isLoading ? (
         <span>

@@ -5916,29 +5916,30 @@ function dA(t) {
     iconLeft: f,
     width: p = void 0,
     type: m = "button",
-    onClick: v
-  } = t, [y, x] = Rt(!1), E = () => {
-    x(!0);
-  }, C = () => {
-    x(!1);
-  }, w = {
+    onClick: v,
+    className: y
+  } = t, [x, E] = Rt(!1), C = () => {
+    E(!0);
+  }, w = () => {
+    E(!1);
+  }, A = {
     width: p,
-    backgroundColor: y ? Qn[`${e}-darker`] : Qn[e],
+    backgroundColor: x ? Qn[`${e}-darker`] : Qn[e],
     color: "white",
     transition: "all 0.5s ease",
     borderWidth: 1,
-    borderColor: y ? Qn[`${e}-darker`] : Qn[e]
+    borderColor: x ? Qn[`${e}-darker`] : Qn[e]
   };
-  return r && (w.backgroundColor = "transparent", w.color = y ? Qn[`${e}-darker`] : Qn[e]), n && (w.backgroundColor = "transparent", w.borderColor = "transparent"), /* @__PURE__ */ Me(
+  return r && (A.backgroundColor = "transparent", A.color = x ? Qn[`${e}-darker`] : Qn[e]), n && (A.backgroundColor = "transparent", A.borderColor = "transparent"), /* @__PURE__ */ Me(
     "button",
     {
       type: m,
       onClick: v,
       disabled: s || i,
-      style: w,
-      onMouseEnter: E,
-      onMouseLeave: C,
-      className: "px-3 flex items-center justify-center rounded-md py-[5.75px]",
+      style: A,
+      onMouseEnter: C,
+      onMouseLeave: w,
+      className: `px-3 flex items-center justify-center rounded-md py-[5.75px] ${y}`,
       children: i ? /* @__PURE__ */ Me("span", { children: /* @__PURE__ */ Me(uW, { color: r ? "green" : "white" }) }) : /* @__PURE__ */ Me(
         "p",
         {
