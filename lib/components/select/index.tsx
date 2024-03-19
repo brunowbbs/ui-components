@@ -20,7 +20,7 @@ export function Select({
       <p className="text-sm font-medium">{label}</p>
 
       <SelectReact
-        value={options.find((option) => option.value === value)}
+        value={options.find((option) => String(option.value) === String(value))}
         isMulti={isMulti}
         isDisabled={disabled}
         placeholder={placeholder}
@@ -29,7 +29,7 @@ export function Select({
           onChangeValue(
             event as {
               label: string;
-              value: string | number;
+              value: string;
             }
           )
         }
@@ -48,7 +48,7 @@ export function Select({
               <IoClose size={15} color="#444" />
             </div>
           ),
-          DropdownIndicator: () => <BiChevronDown size={18} color="#777" />, // Use o novo ícone
+          DropdownIndicator: () => <BiChevronDown size={18} color="#777" />,
         }}
         styles={{
           control: (_, state) => ({

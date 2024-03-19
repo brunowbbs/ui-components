@@ -3,15 +3,15 @@ export type SelectProps = {
     placeholder: string;
     options: {
         label: string;
-        value: string | number | boolean | null | undefined;
+        value: string | number;
     }[];
     disabled?: boolean;
     isMulti?: boolean;
     width?: number;
     onChangeValue: (selectedOption: {
         label: string;
-        value: string | number | boolean | null | undefined;
+        value: string;
     }) => void;
-    value: string | number | boolean | null | undefined;
+    value: string;
     error?: string;
 };

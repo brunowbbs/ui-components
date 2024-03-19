@@ -406,7 +406,7 @@ function App() {
 
           <div className="flex gap-2 flex-row">
             <Checkbox
-              disabled
+              // disabled
               value={true}
               label="Continuar logado"
               onChangeValue={() => {}}
@@ -422,7 +422,7 @@ function App() {
           </p>
 
           <RadioButtonGroup
-            disabled
+            // disabled
             value="option1"
             label=""
             onChangeValue={(value) => console.log(value)}
