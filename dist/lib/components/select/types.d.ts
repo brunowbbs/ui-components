@@ -10,7 +10,7 @@ export type SelectProps = {
     width?: number;
     onChangeValue: (selectedOption: {
         label: string;
-        value: string | number;
+        value: string | number | boolean;
     }) => void;
     value: string | number | boolean;
     error?: string;
