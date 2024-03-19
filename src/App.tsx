@@ -161,6 +161,8 @@ const { columns, rows } = mountDataTable(
 function App() {
   const [isModalConfirm, setIsModalConfirm] = useState(false);
 
+  const [isShowPopoverDemo, setIsShowPopoverDemo] = useState(false);
+
   return (
     <DashboardLayout
       startSidebarOpened={false}
@@ -547,6 +549,9 @@ function App() {
 
           <div className="">
             <Popover
+              isOpen={isShowPopoverDemo}
+              onClose={() => setIsShowPopoverDemo(false)}
+              onOpen={() => setIsShowPopoverDemo(true)}
               left={4.5}
               button={
                 <div className="border border-gray-400 rounded-md cursor-pointer">

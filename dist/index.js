@@ -5663,18 +5663,18 @@ function gfe({
   popoverProfile: n,
   startSidebarOpened: r = !0
 }) {
-  const i = aW.useMediaQuery({ query: "(max-width: 768px)" }), [s, l] = Rt(
-    !!(r && !i)
-  ), c = vt(), [f, p] = Rt({
+  const [i, s] = Rt(!1), l = aW.useMediaQuery({ query: "(max-width: 768px)" }), [c, f] = Rt(
+    !!(r && !l)
+  ), p = vt(), [m, v] = Rt({
     group: null,
     itemGroup: null
   });
   Nt(() => {
-    r && !i && l(!0);
-  }, [i, r]), Nt(() => {
-    i && l(!1);
-  }, [i]);
-  const m = i ? {
+    r && !l && f(!0);
+  }, [l, r]), Nt(() => {
+    l && f(!1);
+  }, [l]);
+  const y = l ? {
     open: {
       x: 0,
       width: "13rem",
@@ -5709,59 +5709,59 @@ function gfe({
       /* @__PURE__ */ Me(
         "div",
         {
-          onClick: () => l(!1),
-          className: `md:hidden fixed inset-0 max-h-screen bg-black/50 z-[999] ${s ? "block" : "hidden"} `
+          onClick: () => f(!1),
+          className: `md:hidden fixed inset-0 max-h-screen bg-black/50 z-[999] ${c ? "block" : "hidden"} `
         }
       ),
       /* @__PURE__ */ Vt(
         bg.div,
         {
-          ref: c,
-          variants: m,
-          initial: { x: i ? -250 : 0 },
-          animate: s ? "open" : "closed",
+          ref: p,
+          variants: y,
+          initial: { x: l ? -250 : 0 },
+          animate: c ? "open" : "closed",
           className: Tr(
             "bg-white border-transparent shadow-sm overflow-hidden md:relative fixed h-screen z-[999] font-medium",
-            { "w-[13rem]": s, "w-[3.2rem]": r === !1 }
+            { "w-[13rem]": c, "w-[3.2rem]": r === !1 }
           ),
-          style: { maxWidth: s ? "13rem" : "3.2rem" },
+          style: { maxWidth: c ? "13rem" : "3.2rem" },
           children: [
             /* @__PURE__ */ Vt("div", { className: "flex items-center gap-2 font-medium py-3 mx-5", children: [
               /* @__PURE__ */ Me("img", { src: lW, width: 12, alt: "", className: "w-[12px]" }),
-              (s || i) && /* @__PURE__ */ Me("span", { className: "text-[1.rem] whitespace-pre font-semibold", children: "Dashboard" })
+              (c || l) && /* @__PURE__ */ Me("span", { className: "text-[1.rem] whitespace-pre font-semibold", children: "Dashboard" })
             ] }),
-            e == null ? void 0 : e.map((v, y) => /* @__PURE__ */ Vt("div", { className: "px-3", children: [
-              (s || i) && /* @__PURE__ */ Me("small", { className: "inline-block px-1 font-medium text-slate-400 text-[12px]", children: v.group_name }),
-              v.items.map((x, E) => {
-                var C, w, A;
+            e == null ? void 0 : e.map((x, E) => /* @__PURE__ */ Vt("div", { className: "px-3", children: [
+              (c || l) && /* @__PURE__ */ Me("small", { className: "inline-block px-1 font-medium text-slate-400 text-[12px]", children: x.group_name }),
+              x.items.map((C, w) => {
+                var A, k, D;
                 return /* @__PURE__ */ Vt("div", { children: [
                   /* @__PURE__ */ Vt(
                     "li",
                     {
                       className: "flex gap-1 py-2 px-1 cursor-pointer hover:bg-slate-100 transition items-center",
-                      onClick: x.dropdown && ((C = x.dropdown) == null ? void 0 : C.length) > 0 ? () => {
-                        f.group === y && f.itemGroup === E ? p({
+                      onClick: C.dropdown && ((A = C.dropdown) == null ? void 0 : A.length) > 0 ? () => {
+                        m.group === E && m.itemGroup === w ? v({
                           group: null,
                           itemGroup: null
-                        }) : p({
-                          group: y,
-                          itemGroup: E
+                        }) : v({
+                          group: E,
+                          itemGroup: w
                         });
                       } : () => {
-                        x.action(), (i || !r) && l(!1), p({
+                        C.action(), (l || !r) && f(!1), v({
                           group: null,
                           itemGroup: null
                         });
                       },
                       children: [
-                        x.icon,
-                        (s || i) && /* @__PURE__ */ Me("span", { className: "text-sm font-medium text-black w-full select-none", children: x.title }),
-                        (s || i) && x.dropdown && ((w = x.dropdown) == null ? void 0 : w.length) && /* @__PURE__ */ Me(sW, { className: "mr-1", size: 19 })
+                        C.icon,
+                        (c || l) && /* @__PURE__ */ Me("span", { className: "text-sm font-medium text-black w-full select-none", children: C.title }),
+                        (c || l) && C.dropdown && ((k = C.dropdown) == null ? void 0 : k.length) && /* @__PURE__ */ Me(sW, { className: "mr-1", size: 19 })
                       ]
                     },
-                    E
+                    w
                   ),
-                  (s || i) && f.group === y && f.itemGroup === E && /* @__PURE__ */ Me(
+                  (c || l) && m.group === E && m.itemGroup === w && /* @__PURE__ */ Me(
                     bg.div,
                     {
                       className: "select-none",
@@ -5769,24 +5769,24 @@ function gfe({
                       animate: { opacity: 1, y: 0 },
                       exit: { opacity: 0, y: -20 },
                       transition: { duration: 0.2 },
-                      children: (A = x.dropdown) == null ? void 0 : A.map((k, D) => /* @__PURE__ */ Me("div", { className: "flex", children: /* @__PURE__ */ Vt(
+                      children: (D = C.dropdown) == null ? void 0 : D.map((_, I) => /* @__PURE__ */ Me("div", { className: "flex", children: /* @__PURE__ */ Vt(
                         "button",
                         {
                           onClick: () => {
-                            k.action(), (i || !r) && l(!1);
+                            _.action(), (l || !r) && f(!1);
                           },
                           className: "flex-1 text-[12px] ml-4 font-medium text-black items-center flex gap-2 py-1 px-1 cursor-pointer hover:bg-slate-100 transition",
                           children: [
                             /* @__PURE__ */ Me("span", { className: "text-[6px]", children: "○" }),
-                            k.title
+                            _.title
                           ]
                         }
-                      ) }, D))
+                      ) }, I))
                     }
                   )
-                ] }, E);
+                ] }, w);
               })
-            ] }, y))
+            ] }, E))
           ]
         }
       )
@@ -5798,7 +5798,7 @@ function gfe({
             "div",
             {
               className: "m-1 md:hidden cursor-pointer",
-              onClick: () => l(!0),
+              onClick: () => f(!0),
               children: /* @__PURE__ */ Me(iW, { size: 25 })
             }
           ),
@@ -5806,13 +5806,13 @@ function gfe({
             "div",
             {
               onClick: () => {
-                l(!s);
+                f(!c);
               },
               className: "bg-gray-100 px-1.5 py-1.5 rounded relative cursor-pointer transition duration-300 ease-in-out hover:bg-gray-300 md:block hidden",
               children: /* @__PURE__ */ Me(
                 bg.div,
                 {
-                  animate: s ? { rotate: 0 } : { rotate: 180 },
+                  animate: c ? { rotate: 0 } : { rotate: 180 },
                   transition: { duration: 0 },
                   children: /* @__PURE__ */ Me(nW, { size: 20 })
                 }
@@ -5823,6 +5823,9 @@ function gfe({
         /* @__PURE__ */ Me("div", { className: "flex gap-2", children: /* @__PURE__ */ Me(
           $q,
           {
+            isOpen: i,
+            onClose: () => s(!1),
+            onOpen: () => s(!0),
             width: 220,
             left: 5.8,
             button: /* @__PURE__ */ Me(
@@ -37320,23 +37323,31 @@ function _fe({
     }
   );
 }
-function $q({ left: t = 0, button: e, children: n, width: r = 100 }) {
-  const [i, s] = Rt(!1), l = vt(null), c = vt(null);
+function $q({
+  left: t = 0,
+  button: e,
+  children: n,
+  width: r = 100,
+  isOpen: i,
+  onOpen: s,
+  onClose: l
+}) {
+  const c = vt(null), f = vt(null);
   return Nt(() => {
-    const p = (m) => {
-      l.current && !l.current.contains(m.target) && c.current && !c.current.contains(m.target) && s(!1);
+    const m = (v) => {
+      c.current && !c.current.contains(v.target) && f.current && !f.current.contains(v.target) && l();
     };
-    return document.addEventListener("mousedown", p), () => {
-      document.removeEventListener("mousedown", p);
+    return document.addEventListener("mousedown", m), () => {
+      document.removeEventListener("mousedown", m);
     };
-  }, []), /* @__PURE__ */ Vt("div", { className: "relative", children: [
-    /* @__PURE__ */ Me("button", { ref: c, onClick: () => {
-      s((p) => !p);
+  }, [l]), /* @__PURE__ */ Vt("div", { className: "relative", children: [
+    /* @__PURE__ */ Me("button", { ref: f, onClick: () => {
+      i ? l() : s();
     }, className: "h-full flex", children: e }),
     i && /* @__PURE__ */ Me(
       bg.div,
       {
-        ref: l,
+        ref: c,
         initial: { opacity: 0, y: 0 },
         animate: { opacity: 1, y: 0 },
         style: { left: t ? `${-t * 100}%` : void 0, width: r },

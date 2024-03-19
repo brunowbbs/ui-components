@@ -1,10 +1,18 @@
 import { clsx } from "clsx";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Props } from "./types";
 
-export function Popover({ left = 0, button, children, width = 100 }: Props) {
-  const [show, setShow] = useState(false);
+export function Popover({
+  left = 0,
+  button,
+  children,
+  width = 100,
+  isOpen,
+  onOpen,
+  onClose,
+}: Props) {
+  // const [show, setShow] = useState(false);
   const popoverRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -16,7 +24,8 @@ export function Popover({ left = 0, button, children, width = 100 }: Props) {
         buttonRef.current &&
         !buttonRef.current.contains(event.target as Node)
       ) {
-        setShow(false);
+        onClose();
+        // setShow(false);
       }
     };
 
@@ -25,10 +34,14 @@ export function Popover({ left = 0, button, children, width = 100 }: Props) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [onClose]);
 
   const togglePopover = () => {
-    setShow((prevShow) => !prevShow);
+    if (isOpen) {
+      onClose();
+    } else {
+      onOpen();
+    }
   };
 
   return (
@@ -37,7 +50,7 @@ export function Popover({ left = 0, button, children, width = 100 }: Props) {
         {button}
       </button>
 
-      {show && (
+      {isOpen && (
         <motion.div
           ref={popoverRef}
           initial={{ opacity: 0, y: 0 }}

@@ -18,6 +18,8 @@ export function DashboardLayout({
   popoverProfile,
   startSidebarOpened = true,
 }: DashboardLayoutType) {
+  const [isShowPopoverProfile, setIsShowPopoverProfile] = useState(false);
+
   const isSmallScreen = useMediaQuery({ query: "(max-width: 768px)" });
   const [open, setOpen] = useState(
     startSidebarOpened && !isSmallScreen ? true : false
@@ -220,6 +222,9 @@ export function DashboardLayout({
           </div>
           <div className="flex gap-2">
             <Popover
+              isOpen={isShowPopoverProfile}
+              onClose={() => setIsShowPopoverProfile(false)}
+              onOpen={() => setIsShowPopoverProfile(true)}
               width={220}
               left={5.8}
               button={
