@@ -3,7 +3,7 @@ export type SelectProps = {
     placeholder: string;
     options: {
         label: string;
-        value: string | number;
+        value: string | number | boolean;
     }[];
     disabled?: boolean;
     isMulti?: boolean;

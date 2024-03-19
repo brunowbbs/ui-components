@@ -1,7 +1,7 @@
 export type SelectProps = {
   label: string;
   placeholder: string;
-  options: { label: string; value: string | number }[];
+  options: { label: string; value: string | number | boolean }[];
   disabled?: boolean;
   isMulti?: boolean;
   width?: number;
