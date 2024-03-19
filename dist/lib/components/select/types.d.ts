@@ -12,6 +12,6 @@ export type SelectProps = {
         label: string;
         value: string | number;
     }) => void;
-    value: string | number;
+    value: string | number | boolean;
     error?: string;
 };
