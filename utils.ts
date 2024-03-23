@@ -15,7 +15,7 @@ export const COLORS = {
   "success-lighter": "#3c965a",
   "success-darker": "#0f692d",
 
-  warning: "#f9a825",
-  "warning-lighter": "#fab950",
-  "warning-darker": "#ae7519",
+  warning: "#f39c12",
+  "warning-lighter": "#fab74d",
+  "warning-darker": "#d35400",
 };

@@ -5,6 +5,7 @@ import { LuSettings, LuUser } from "react-icons/lu";
 import { MdDashboard, MdHome, MdReport } from "react-icons/md";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import {
+  Alert,
   BarChart,
   Button,
   Card,
@@ -306,6 +307,23 @@ function App() {
             />
           </div>
         </Card>
+
+        {/* <div className="mt-3" />
+        <Card>
+          <p className="text-sm uppercase mb-2 font-bold text-primary">
+            Alerts
+          </p> */}
+
+        {/* <div className="flex gap-2 flex-row"> */}
+        <Alert
+          message="Seu disco está quase cheio!"
+          title="Atenção"
+          type="error"
+          actionButton={() => alert("ok")}
+          textButton="Resolver"
+        />
+        {/* </div> */}
+        {/* </Card> */}
 
         <div className="mt-3" />
         <Card>

@@ -6,11 +6,11 @@ export default {
   theme: {
     extend: {
       colors: { ...COLORS, transparent: "transparent" },
-    },
-    fontSize: {
-      xsm: "0.5rem",
-      sm: "0.75rem",
-      md: "1rem",
+      fontSize: {
+        xsm: "0.5rem",
+        sm: "0.75rem",
+        md: "1rem",
+      },
     },
   },
   plugins: [],

@@ -1,4 +1,5 @@
 export { DashboardLayout } from "./layouts/dashboard-layout";
+export { Alert } from "./components/alert";
 export { Button } from "./components/button";
 export { Card } from "./components/card";
 export { BarChart } from "./components/charts/bar-chart";
@@ -14,8 +15,8 @@ export { RadioButtonGroup } from "./components/radio-button";
 export { RichText } from "./components/rich-text";
 export { Select } from "./components/select";
 export { Spinner } from "./components/spinner";
+export { Table } from "./components/table";
 export { Tabs } from "./components/tabs";
 export { Wizard } from "./components/wizard";
-export { Table } from "./components/table";
 export { showToast } from "./components/toast/showToast";
 export * from "./utils";
