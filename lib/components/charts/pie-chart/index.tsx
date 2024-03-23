@@ -51,6 +51,8 @@ export function PieChart({
               display: true,
               position: "bottom",
               labels: {
+                usePointStyle: true,
+                pointStyle: "circle",
                 font: {
                   weight: 700,
                   family: "Plus Jakarta Sans",
@@ -58,6 +60,7 @@ export function PieChart({
                 },
               },
             },
+
             datalabels: {
               display: true,
               color: "white",
