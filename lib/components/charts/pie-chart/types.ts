@@ -7,4 +7,6 @@ export type PieChartProps = {
   height?: number;
   sourceData: ChartData[];
   offset?: number;
+  borderColors?: string[];
+  backgroundColors?: string[];
 };

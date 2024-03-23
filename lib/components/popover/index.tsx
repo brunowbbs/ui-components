@@ -12,7 +12,6 @@ export function Popover({
   onOpen,
   onClose,
 }: Props) {
-  // const [show, setShow] = useState(false);
   const popoverRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 

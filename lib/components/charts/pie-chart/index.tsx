@@ -1,6 +1,5 @@
 import { defaults } from "chart.js/auto";
-import { Pie } from "react-chartjs-2"; // Importando o componente Pie
-import { COLORS } from "../../../../utils";
+import { Pie } from "react-chartjs-2";
 import { PieChartProps } from "./types";
 
 defaults.maintainAspectRatio = false;
@@ -29,6 +28,8 @@ export function PieChart({
   sourceData = sourcedata3,
   height = 200,
   offset,
+  backgroundColors,
+  borderColors,
 }: PieChartProps) {
   return (
     <div className="w-full" style={{ height }}>
@@ -37,10 +38,10 @@ export function PieChart({
           labels: sourceData.map((data) => data.label),
           datasets: [
             {
-              label: "Count",
+              label: "Total",
               data: sourceData.map((data) => data.value),
-              backgroundColor: [COLORS.primary, COLORS.danger, COLORS.warning],
-              borderColor: [COLORS.primary, COLORS.danger, COLORS.warning],
+              backgroundColor: backgroundColors,
+              borderColor: borderColors,
             },
           ],
         }}
