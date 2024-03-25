@@ -22,7 +22,8 @@ export function Input(props: InputProps) {
           "border-red-600": props.error,
         })}
       >
-        <div>
+        <div className="flex items-center">
+          {props.iconLeft ? <div className="ml-1">{props.iconLeft}</div> : null}
           <input
             disabled={props.disabled}
             onChange={(event) => props.onChangeValue(event.target.value)}

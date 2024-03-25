@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AiOutlineAppstore } from "react-icons/ai";
 import { IoMdMore } from "react-icons/io";
 import { LuSettings, LuUser } from "react-icons/lu";
-import { MdDashboard, MdHome, MdReport } from "react-icons/md";
+import { MdDashboard, MdEmail, MdHome, MdReport } from "react-icons/md";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import {
   Alert,
@@ -241,6 +241,7 @@ function App() {
               placeholder="Ex: user@gmail.com"
               label="E-mail"
               onChangeValue={() => {}}
+              iconLeft={<MdEmail />}
             />
             <Input
               value=""
