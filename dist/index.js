@@ -6018,7 +6018,7 @@ function dA(t) {
       style: A,
       onMouseEnter: C,
       onMouseLeave: w,
-      className: `px-3 flex items-center justify-center rounded-md py-[5.75px] ${y}`,
+      className: `px-3 flex items-center justify-center rounded py-[5.75px] ${y}`,
       children: i ? /* @__PURE__ */ Me("span", { children: /* @__PURE__ */ Me(uW, { color: r ? "green" : "white" }) }) : /* @__PURE__ */ Me(
         "p",
         {
@@ -36985,7 +36985,7 @@ var bq = R2.exports;
 const xq = /* @__PURE__ */ qx(bq);
 function _fe(t) {
   let e = "";
-  t.type === "phone" ? e = "(99) 99999-9999" : t.type === "cnpj" ? e = "99.999.999/9999-99" : t.type === "cpf" ? e = "999.999.999-99" : t.type === "cep" && (e = "99.999-99");
+  t.type === "phone" ? e = "(99) 99999-9999" : t.type === "cnpj" ? e = "99.999.999/9999-99" : t.type === "cpf" ? e = "999.999.999-99" : t.type === "cep" && (e = "99.999-999");
   const [n, r] = Rt(!1);
   return /* @__PURE__ */ Ft("div", { className: `flex flex-col w-${t.width ?? "full"}`, children: [
     /* @__PURE__ */ Me("p", { className: "text-sm font-medium", children: t.label }),
@@ -50277,6 +50277,10 @@ function Rfe({
           DropdownIndicator: () => /* @__PURE__ */ Me(Aie, { size: 18, color: "#777" })
         },
         styles: {
+          placeholder: (p) => ({
+            ...p,
+            color: "#9BA3AF"
+          }),
           control: (p, m) => ({
             borderRadius: 4,
             display: "flex",

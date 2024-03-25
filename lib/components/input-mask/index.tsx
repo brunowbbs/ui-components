@@ -14,7 +14,7 @@ export function InputMask(props: InputProps) {
   } else if (props.type === "cpf") {
     mask = "999.999.999-99";
   } else if (props.type === "cep") {
-    mask = "99.999-99";
+    mask = "99.999-999";
   }
 
   const [isFocused, setIsFocused] = useState(false);

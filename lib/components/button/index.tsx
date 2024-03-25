@@ -59,7 +59,7 @@ export function Button(props: ButtonProps) {
       style={buttonStyles}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`px-3 flex items-center justify-center rounded-md py-[5.75px] ${className}`}
+      className={`px-3 flex items-center justify-center rounded py-[5.75px] ${className}`}
     >
       {isLoading ? (
         <span>

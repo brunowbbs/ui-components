@@ -51,6 +51,10 @@ export function Select({
           DropdownIndicator: () => <BiChevronDown size={18} color="#777" />,
         }}
         styles={{
+          placeholder: (base) => ({
+            ...base,
+            color: "#9BA3AF",
+          }),
           control: (_, state) => ({
             borderRadius: 4,
             display: "flex",
