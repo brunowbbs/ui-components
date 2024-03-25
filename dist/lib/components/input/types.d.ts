@@ -9,5 +9,4 @@ export type InputProps = {
     placeholder?: string;
     type?: HTMLInputTypeAttribute;
     disabled?: boolean;
-    iconLeft?: React.ReactElement;
 };

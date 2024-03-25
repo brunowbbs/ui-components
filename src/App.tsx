@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AiOutlineAppstore } from "react-icons/ai";
 import { IoMdMore } from "react-icons/io";
 import { LuSettings, LuUser } from "react-icons/lu";
-import { MdDashboard, MdEmail, MdHome, MdReport } from "react-icons/md";
+import { MdDashboard, MdHome, MdReport } from "react-icons/md";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import {
   Alert,
@@ -241,7 +241,6 @@ function App() {
               placeholder="Ex: user@gmail.com"
               label="E-mail"
               onChangeValue={() => {}}
-              iconLeft={<MdEmail />}
             />
             <Input
               value=""
@@ -711,6 +710,27 @@ function App() {
             Formulário com validação
           </p>
           <Form />
+        </Card>
+      </div>
+
+      <div className="flex-1 flex-wrap mt-3">
+        <Card>
+          <div className="grid grid-cols-12 gap-4 mb-2">
+            <div className="col-span-8 md:col-span-8">
+              <Input
+                value=""
+                onChangeValue={() => {}}
+                // value={values.name}
+                // onChangeValue={(value) => setFieldValue("name", value)}
+                label="Nome"
+                placeholder="Informe o nome do cliente"
+                // error={errors?.name}
+              />
+            </div>
+            <div className="col-span-4 md:col-span-4">
+              <Checkbox label="Ativo" onChangeValue={() => {}} />
+            </div>
+          </div>
         </Card>
       </div>
 

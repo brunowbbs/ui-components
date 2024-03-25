@@ -23,13 +23,10 @@ export function InputMask(props: InputProps) {
     <div className={`flex flex-col w-${props.width ?? "full"}`}>
       <p className="text-sm font-medium">{props.label}</p>
       <div
-        className={clsx(
-          "border border-gray-400 rounded-md py-[2.5px] relative",
-          {
-            "border-primary": isFocused,
-            "border-red-600": props.error,
-          }
-        )}
+        className={clsx("border border-gray-400 rounded py-[2.5px] relative", {
+          "border-primary": isFocused,
+          "border-red-600": props.error,
+        })}
       >
         {props.type === "money" ? (
           <CurrencyInput

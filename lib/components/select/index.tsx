@@ -33,7 +33,7 @@ export function Select({
             }
           )
         }
-        className="text-sm rounded-md cursor-pointer"
+        className="text-sm rounded cursor-pointer"
         noOptionsMessage={() => "Nenhum item encontrado"}
         components={{
           ClearIndicator: (props) => (
@@ -52,7 +52,7 @@ export function Select({
         }}
         styles={{
           control: (_, state) => ({
-            borderRadius: 6,
+            borderRadius: 4,
             display: "flex",
             width: "100%",
             paddingTop: 1.7,
