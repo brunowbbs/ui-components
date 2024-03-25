@@ -2,7 +2,7 @@ import "./index.css";
 
 export { DashboardLayout } from "./layouts/dashboard-layout";
 
-export { Alert } from "./components/alert";
+// export { Alert } from "./components/alert2";
 export { Button } from "./components/button";
 export { Card } from "./components/card";
 export { BarChart } from "./components/charts/bar-chart";
@@ -23,5 +23,6 @@ export { Tabs } from "./components/tabs";
 export { Wizard } from "./components/wizard";
 
 export { showToast } from "./components/toast/showToast";
+export { showAlert } from "./components/alert/showAlert";
 
 export * from "./utils";

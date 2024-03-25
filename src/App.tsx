@@ -5,7 +5,6 @@ import { LuSettings, LuUser } from "react-icons/lu";
 import { MdDashboard, MdHome, MdReport } from "react-icons/md";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import {
-  Alert,
   BarChart,
   Button,
   Card,
@@ -23,6 +22,7 @@ import {
   Table,
   Tabs,
   Wizard,
+  showAlert,
 } from "../lib";
 import { Modal } from "../lib/components/modal";
 import { showToast } from "../lib/components/toast/showToast";
@@ -315,13 +315,13 @@ function App() {
           </p> */}
 
         {/* <div className="flex gap-2 flex-row"> */}
-        <Alert
+        {/* <Alert
           message="Seu disco está quase cheio!"
           title="Atenção"
           type="error"
           actionButton={() => alert("ok")}
           textButton="Resolver"
-        />
+        /> */}
         {/* </div> */}
         {/* </Card> */}
 
@@ -450,6 +450,52 @@ function App() {
               { label: "Option 3", value: "option3" },
             ]}
           />
+        </Card>
+
+        <div className="mt-3" />
+        <Card>
+          <p className="text-sm uppercase mb-2 font-bold text-primary">Alert</p>
+          <div className="flex gap-2">
+            <Button
+              text="Success"
+              variant="success"
+              onClick={() =>
+                showAlert({
+                  message: "Há registros que precisam de atenção",
+                  title: "Atenção",
+                  onAction: () => alert("ok"),
+                  textButton: "Verificar",
+                  type: "success",
+                })
+              }
+            />
+            <Button
+              text="Error"
+              variant="danger"
+              onClick={() =>
+                showAlert({
+                  message: "Há registros que precisam de atenção",
+                  title: "Atenção",
+                  onAction: () => alert("ok"),
+                  textButton: "Verificar",
+                  type: "error",
+                })
+              }
+            />
+            <Button
+              text="Warning"
+              variant="warning"
+              onClick={() =>
+                showAlert({
+                  message: "Há registros que precisam de atenção",
+                  title: "Atenção",
+                  onAction: () => alert("ok"),
+                  textButton: "Verificar",
+                  type: "warning",
+                })
+              }
+            />
+          </div>
         </Card>
 
         <div className="mt-3" />
