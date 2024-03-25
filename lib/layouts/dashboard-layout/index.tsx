@@ -1,3 +1,5 @@
+import { ToastContainer } from "react-toastify";
+
 import { MotionProps, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
@@ -252,6 +254,7 @@ export function DashboardLayout({
           {children}
         </section>
       </div>
+      <ToastContainer />
     </div>
   );
 }

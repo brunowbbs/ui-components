@@ -1,5 +1,5 @@
+import "react-toastify/dist/ReactToastify.css";
 export { DashboardLayout } from "./layouts/dashboard-layout";
-export { Alert } from "./components/alert";
 export { Button } from "./components/button";
 export { Card } from "./components/card";
 export { BarChart } from "./components/charts/bar-chart";
@@ -19,4 +19,5 @@ export { Table } from "./components/table";
 export { Tabs } from "./components/tabs";
 export { Wizard } from "./components/wizard";
 export { showToast } from "./components/toast/showToast";
+export { showAlert } from "./components/alert/showAlert";
 export * from "./utils";

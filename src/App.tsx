@@ -507,18 +507,34 @@ function App() {
             <Button
               text="Success"
               variant="success"
-              onClick={() => showToast("Registro salvo com sucesso", "success")}
+              onClick={() =>
+                showToast({
+                  message: "Cliente salvo com sucesso",
+                  title: "Sucesso",
+                  type: "success",
+                })
+              }
             />
             <Button
               text="Error"
               variant="danger"
-              onClick={() => showToast("Erro ao salvar registro", "error")}
+              onClick={() =>
+                showToast({
+                  message: "Erro ao salvar o cliente",
+                  title: "Error",
+                  type: "error",
+                })
+              }
             />
             <Button
               text="Warning"
               variant="warning"
               onClick={() =>
-                showToast("Há uma registro que precisa de atenção", "warning")
+                showToast({
+                  message: "Perigo ao salvar o cliente",
+                  title: "Atenção",
+                  type: "warning",
+                })
               }
             />
           </div>

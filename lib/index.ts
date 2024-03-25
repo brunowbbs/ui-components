@@ -1,4 +1,5 @@
 import "./index.css";
+import "react-toastify/dist/ReactToastify.css";
 
 export { DashboardLayout } from "./layouts/dashboard-layout";
 
