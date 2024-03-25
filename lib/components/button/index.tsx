@@ -73,9 +73,9 @@ export function Button(props: ButtonProps) {
           })}
         >
           <span className="flex flex-row items-center gap-1 text-sm">
-            <span> {iconLeft}</span>
-            <span> {text}</span>
-            <span> {iconRight}</span>
+            {iconLeft && <span> {iconLeft}</span>}
+            {text && <span> {text}</span>}
+            {iconRight && <span> {iconRight}</span>}
           </span>
         </p>
       )}

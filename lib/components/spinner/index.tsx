@@ -1,9 +1,16 @@
-export function Spinner({ color }: { color?: string }) {
+export function Spinner({
+  color,
+  size = 15,
+}: {
+  color?: string;
+  size?: number;
+}) {
   const colorClass = color ? `text-${color}` : "text-current";
 
   return (
     <svg
-      className={`animate-spin h-4 w-4 ${colorClass}`}
+      style={{ width: size, height: size }}
+      className={`animate-spin ${colorClass}`}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"

@@ -5929,12 +5929,16 @@ const bfe = ({
     }
   ) });
 };
-function cW({ color: t }) {
-  const e = t ? `text-${t}` : "text-current";
+function cW({
+  color: t,
+  size: e = 15
+}) {
+  const n = t ? `text-${t}` : "text-current";
   return /* @__PURE__ */ Ft(
     "svg",
     {
-      className: `animate-spin h-4 w-4 ${e}`,
+      style: { width: e, height: e },
+      className: `animate-spin ${n}`,
       xmlns: "http://www.w3.org/2000/svg",
       fill: "none",
       viewBox: "0 0 24 24",
@@ -6022,15 +6026,15 @@ function hA(t) {
             "text-primary hover:text-primary-darker hover:transition font-medium": n
           }),
           children: /* @__PURE__ */ Ft("span", { className: "flex flex-row items-center gap-1 text-sm", children: [
-            /* @__PURE__ */ Ft("span", { children: [
+            f && /* @__PURE__ */ Ft("span", { children: [
               " ",
               f
             ] }),
-            /* @__PURE__ */ Ft("span", { children: [
+            l && /* @__PURE__ */ Ft("span", { children: [
               " ",
               l
             ] }),
-            /* @__PURE__ */ Ft("span", { children: [
+            c && /* @__PURE__ */ Ft("span", { children: [
               " ",
               c
             ] })
