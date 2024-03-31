@@ -308,23 +308,6 @@ function App() {
           </div>
         </Card>
 
-        {/* <div className="mt-3" />
-        <Card>
-          <p className="text-sm uppercase mb-2 font-bold text-primary">
-            Alerts
-          </p> */}
-
-        {/* <div className="flex gap-2 flex-row"> */}
-        {/* <Alert
-          message="Seu disco está quase cheio!"
-          title="Atenção"
-          type="error"
-          actionButton={() => alert("ok")}
-          textButton="Resolver"
-        /> */}
-        {/* </div> */}
-        {/* </Card> */}
-
         <div className="mt-3" />
         <Card>
           <p className="text-sm uppercase mb-2 font-bold text-primary">
@@ -507,35 +490,17 @@ function App() {
             <Button
               text="Success"
               variant="success"
-              onClick={() =>
-                showToast({
-                  message: "Cliente salvo com sucesso",
-                  title: "Sucesso",
-                  type: "success",
-                })
-              }
+              onClick={() => showToast.success("Cliente salvo com sucesso")}
             />
             <Button
               text="Error"
               variant="danger"
-              onClick={() =>
-                showToast({
-                  message: "Erro ao salvar o cliente",
-                  title: "Error",
-                  type: "error",
-                })
-              }
+              onClick={() => showToast.error("Erro ao salvar cliente")}
             />
             <Button
               text="Warning"
               variant="warning"
-              onClick={() =>
-                showToast({
-                  message: "Perigo ao salvar o cliente",
-                  title: "Atenção",
-                  type: "warning",
-                })
-              }
+              onClick={() => showToast.warning("Perigo ao salvar cliente")}
             />
           </div>
         </Card>

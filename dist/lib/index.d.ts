@@ -1,5 +1,6 @@
 import "react-toastify/dist/ReactToastify.css";
 export { DashboardLayout } from "./layouts/dashboard-layout";
+export { ProviderUiComponents } from "./layouts/provider-ui-components";
 export { Button } from "./components/button";
 export { Card } from "./components/card";
 export { BarChart } from "./components/charts/bar-chart";

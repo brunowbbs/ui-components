@@ -1,7 +1,5 @@
-interface ToastOptions {
-    title: string;
-    message: string;
-    type?: "success" | "warning" | "error";
-}
-export declare const showToast: ({ type, message, title }: ToastOptions) => void;
-export {};
+export declare const showToast: {
+    error: (message: string) => void;
+    success: (message: string) => void;
+    warning: (message: string) => void;
+};
