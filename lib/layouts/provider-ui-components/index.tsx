@@ -6,8 +6,8 @@ import "react-toastify/dist/ReactToastify.css";
 export function ProviderUiComponents({ children }: DashboardLayoutType) {
   return (
     <>
-      <ToastContainer />
       {children}
+      <ToastContainer />
     </>
   );
 }

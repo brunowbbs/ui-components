@@ -6174,8 +6174,8 @@ function nde({
 }
 function rde({ children: t }) {
   return /* @__PURE__ */ Nt(hM, { children: [
-    /* @__PURE__ */ Ie(bM, {}),
-    t
+    t,
+    /* @__PURE__ */ Ie(bM, {})
   ] });
 }
 function WW({
