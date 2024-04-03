@@ -1,18 +1,16 @@
-import { toast } from "react-toastify";
 import clsx from "clsx";
 import { BiCheckCircle, BiErrorCircle } from "react-icons/bi";
 import { PiWarningCircle } from "react-icons/pi";
+import { toast } from "react-toastify";
+import { ToastProps } from "./types";
 
-interface ToastOptions {
-  title: string;
-  message: string;
-}
+import "./styles.css";
 
-const Toast = (
-  { title, message }: ToastOptions,
+function Toast(
+  { title, message }: ToastProps,
   renderIcon: JSX.Element,
   color: string
-) => {
+) {
   const CustomToast = () => (
     <div className="flex items-center gap-2">
       <div className="">{renderIcon}</div>
@@ -24,8 +22,8 @@ const Toast = (
               color === "#F0FDF4"
                 ? "text-success-lighter"
                 : color === "#FFF7ED"
-                ? "text-warning"
-                : "text-danger"
+                  ? "text-warning"
+                  : "text-danger"
             }`
           )}
         >
@@ -47,7 +45,7 @@ const Toast = (
     position: "bottom-right",
     closeOnClick: false,
   });
-};
+}
 
 export const showToast = {
   error: (message: string) => {

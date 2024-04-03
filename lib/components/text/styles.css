@@ -1,0 +1,96 @@
+.text {
+  @apply isolate
+  relative
+  text-[color:var(--text-color)]
+
+  focus:text-[color:var(--text-color-focus)]
+  active:text-[color:var(--text-color-active)];
+
+  --text-color-default: theme("colors.primary");
+  --text-color-focus-default: theme("colors.primary-darker");
+  --text-color-active-default: theme("colors.primary-darker");
+
+  --text-color: var(--text-color-default);
+  --text-color-focus: var(--text-color-focus);
+  --text-color-active: var(--text-color-active);
+
+  &.--6xl {
+    @apply text-5xl;
+  }
+
+  &.--5xl {
+    @apply text-4xl;
+  }
+
+  &.--4xl {
+    @apply text-3xl;
+  }
+
+  &.--3xl {
+    @apply text-2xl;
+  }
+
+  &.--2xl {
+    @apply text-xl;
+  }
+
+  &.--xl {
+    @apply text-lg;
+  }
+
+  &.--lg {
+    @apply text-base;
+  }
+
+  &.--md {
+    @apply text-sm;
+  }
+
+  &.--sm {
+    @apply text-xs;
+  }
+
+  &.--xs {
+    @apply text-xs;
+  }
+
+  &.--primary {
+    --text-color-primary: theme("colors.primary");
+    --text-color-focus-primary: theme("colors.primary-darker");
+    --text-color-active-primary: theme("colors.primary-darker");
+
+    --text-color: var(--text-color-primary);
+    --text-color-focus: var(--text-color-focus-primary);
+    --text-color-active: var(--text-color-active-primary);
+  }
+
+  &.--secondary {
+    --text-color-secondary: theme("colors.secondary");
+    --text-color-focus-secondary: theme("colors.secondary-darker");
+    --text-color-active-secondary: theme("colors.secondary-darker");
+
+    --text-color: var(--text-color-secondary);
+    --text-color-focus: var(--text-color-focus-secondary);
+    --text-color-active: var(--text-color-active-secondary);
+  }
+
+  &.--danger {
+    --text-color-danger: theme("colors.danger");
+    --text-color-focus-danger: theme("colors.danger-darker");
+    --text-color-active-danger: theme("colors.danger-darker");
+
+    --text-color: var(--text-color-danger);
+    --text-color-focus: var(--text-color-focus-danger);
+    --text-color-active: var(--text-color-active-danger);
+  }
+
+  &.--success {
+    --text-color-success: theme("colors.success");
+    --text-color-focus-success: theme("colors.success-darker");
+    --text-color-active-success: theme("colors.success-darker");
+
+    --text-color: var(--text-color-success);
+    --text-color-focus: var(--text-color-focus-success);
+    --text-color-active: var(--text-color-active-success);
+  }
+}

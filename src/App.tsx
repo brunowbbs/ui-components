@@ -14,6 +14,7 @@ import {
   Input,
   InputMask,
   LineChart,
+  Modal,
   PieChart,
   Popover,
   RadioButtonGroup,
@@ -22,11 +23,10 @@ import {
   Table,
   Tabs,
   Wizard,
+  mountDataTable,
   showAlert,
+  showToast,
 } from "../lib";
-import { Modal } from "../lib/components/modal";
-import { showToast } from "../lib/components/toast/showToast";
-import { mountDataTable } from "../lib/utils";
 import { Form } from "./components/form";
 
 const MENU_ITEMS = [

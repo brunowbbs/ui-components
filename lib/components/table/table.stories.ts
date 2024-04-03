@@ -14,12 +14,23 @@ const { columns, rows } = mountDataTable(
 
 const meta: Meta<typeof Table> = {
   component: Table,
+  parameters: {
+    layout: "padded",
+    docs: {
+      description: {
+        component: "Componente de acordeão para colapsar conteúdos.",
+      },
+    },
+  },
+  tags: ["autodocs"],
   argTypes: {
     columns: {
-      description: "Lista de elementos que será renderizado nas colunas.",
+      description:
+        "Lista de elementos que será renderizado nas colunas. Obs.: Para montar essa lista temos a função utilitária mountDataTable.",
     },
     rows: {
-      description: "Lista de elementos que será renderizado nas linhas.",
+      description:
+        "Lista de elementos que será renderizado nas linhas. Obs.: Para montar essa lista temos a função utilitária mountDataTable.",
     },
     onRowAction: {
       description: "Evento que captura a linha da tabela.",
