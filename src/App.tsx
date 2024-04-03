@@ -770,6 +770,9 @@ function App() {
             disabled={["1"]}
             columns={columns}
             rows={rows}
+            onRowAction={(key) => {
+              console.log("ROW:", key);
+            }}
           />
         </Card>
       </div>

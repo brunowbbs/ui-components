@@ -55925,16 +55925,23 @@ const jfe = Va(
     ] });
   }
 );
-function bde({ columns: t, rows: e, mode: n = "none", disabled: r }) {
+function bde({
+  columns: t,
+  rows: e,
+  mode: n = "none",
+  disabled: r,
+  onRowAction: i
+}) {
   return /* @__PURE__ */ Ie("div", { className: "safearea-table", children: /* @__PURE__ */ Nt(
     Wfe,
     {
       "aria-label": "Tabela",
       selectionMode: n,
       disabledKeys: r,
+      onRowAction: i,
       children: [
-        /* @__PURE__ */ Ie(Pfe, { children: t.map((i) => /* @__PURE__ */ Ie(Lfe, { children: i.elem }, i.key)) }),
-        /* @__PURE__ */ Ie(Nfe, { children: e.map(({ key: i, items: s }) => /* @__PURE__ */ Ie(Bfe, { children: s.map((l) => /* @__PURE__ */ Ie(Ffe, { children: l.elem }, l.key)) }, i)) })
+        /* @__PURE__ */ Ie(Pfe, { children: t.map((s) => /* @__PURE__ */ Ie(Lfe, { children: s.elem }, s.key)) }),
+        /* @__PURE__ */ Ie(Nfe, { children: e.map(({ key: s, items: l }) => /* @__PURE__ */ Ie(Bfe, { children: l.map((c) => /* @__PURE__ */ Ie(Ffe, { children: c.elem }, c.key)) }, s)) })
       ]
     }
   ) });

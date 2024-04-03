@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import type { AriaTableProps } from "react-aria";
+import type { AriaTableProps, Key } from "react-aria";
 import type { TableStateProps } from "@react-stately/table";
 export type CustomTableProps = AriaTableProps<object> & TableStateProps<object> & {
     className?: string;
@@ -9,6 +9,7 @@ export type TableProps = {
     rows: Array<RowTypes>;
     mode?: "multiple" | "none" | "single";
     disabled?: Array<string>;
+    onRowAction?: (key: Key) => void;
 };
 export type RowTypes = {
     key: string;

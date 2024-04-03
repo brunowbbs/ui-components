@@ -72,13 +72,20 @@ export const CustomTable = forwardRef(
   }
 );
 
-export function Table({ columns, rows, mode = "none", disabled }: TableProps) {
+export function Table({
+  columns,
+  rows,
+  mode = "none",
+  disabled,
+  onRowAction,
+}: TableProps) {
   return (
     <div className="safearea-table">
       <CustomTable
         aria-label="Tabela"
         selectionMode={mode}
         disabledKeys={disabled}
+        onRowAction={onRowAction}
       >
         <TableHeader>
           {columns.map((column: ItemsTypes) => (

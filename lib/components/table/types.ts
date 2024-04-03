@@ -1,4 +1,4 @@
-import type { AriaTableProps } from "react-aria";
+import type { AriaTableProps, Key } from "react-aria";
 
 import type { TableStateProps } from "@react-stately/table";
 
@@ -12,6 +12,7 @@ export type TableProps = {
   rows: Array<RowTypes>;
   mode?: "multiple" | "none" | "single";
   disabled?: Array<string>;
+  onRowAction?: (key: Key) => void;
 };
 
 export type RowTypes = { key: string; items: Array<ItemsTypes> };
