@@ -51,7 +51,7 @@ const meta: Meta<typeof Text> = {
     variant: {
       description: "Varição dos textos conforme o tema usado",
       control: { type: "select" },
-      defaultValue: "md",
+      defaultValue: "primary",
       options: ["danger", "success", "primary", "secondary", "warning"],
     },
   },
@@ -61,6 +61,32 @@ export default meta;
 
 type Story = StoryObj<typeof Text>;
 
-export const Default: Story = {
-  args: {},
+export const Primary: Story = {
+  args: {
+    variant: "primary",
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    variant: "secondary",
+  },
+};
+
+export const Danger: Story = {
+  args: {
+    variant: "danger",
+  },
+};
+
+export const Warning: Story = {
+  args: {
+    variant: "warning",
+  },
+};
+
+export const Success: Story = {
+  args: {
+    variant: "success",
+  },
 };

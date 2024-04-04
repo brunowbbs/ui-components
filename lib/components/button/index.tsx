@@ -1,8 +1,8 @@
-import { useState } from "react";
 import clsx from "clsx";
+import { useState } from "react";
+import { COLORS } from "../../../utils";
 import { Spinner } from "../spinner";
 import { ButtonProps } from "./types";
-import { COLORS } from "../../../utils";
 
 export function Button(props: ButtonProps) {
   const {

@@ -1,13 +1,6 @@
-import { toast } from "react-toastify";
 import clsx from "clsx";
-
-interface AlertOptions {
-  title: string;
-  message: string;
-  type?: "success" | "warning" | "error";
-  onAction?: () => void;
-  textButton?: string;
-}
+import { toast } from "react-toastify";
+import { AlertOptions } from "./types";
 
 export const showAlert = ({
   type,
@@ -38,8 +31,8 @@ export const showAlert = ({
               type === "success"
                 ? "text-success-lighter"
                 : type === "warning"
-                ? "text-warning"
-                : "text-danger"
+                  ? "text-warning"
+                  : "text-danger"
             }`
           )}
         >
@@ -60,8 +53,8 @@ export const showAlert = ({
               type === "success"
                 ? "bg-success-lighter"
                 : type === "warning"
-                ? "bg-warning"
-                : "bg-danger"
+                  ? "bg-warning"
+                  : "bg-danger"
             }  transition`}
           >
             {textButton}

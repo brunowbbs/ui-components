@@ -1,16 +1,7 @@
 import React, { useState } from "react";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import { Button } from "../button";
-
-interface Step {
-  name: string;
-  component: JSX.Element;
-  icon: JSX.Element;
-}
-
-interface WizardProps {
-  steps: Step[];
-}
+import { WizardProps } from "./types";
 
 export function Wizard({ steps }: WizardProps) {
   const [currentStep, setCurrentStep] = useState(0);
@@ -47,13 +38,6 @@ export function Wizard({ steps }: WizardProps) {
                   <p className="text-sm">{step.icon}</p>
                 </div>
               )}
-              {/* <p
-                className={
-                  currentStep === index ? "text-slate-500 text-sm" : ""
-                }
-              >
-                {step.name}
-              </p> */}
             </div>
             {index !== totalSteps - 1 && (
               <div className="w-[20%] h-[1px] bg-slate-300 mx-2"></div>
