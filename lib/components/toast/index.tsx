@@ -1,37 +1,31 @@
-import clsx from "clsx";
+import { ToastProps } from "./types";
+
 import { BiCheckCircle, BiErrorCircle } from "react-icons/bi";
 import { PiWarningCircle } from "react-icons/pi";
 import { toast } from "react-toastify";
-import { ToastProps } from "./types";
+import { Text } from "..";
 
+import { ThemeVariant } from "../..";
 import "./styles.css";
 
 function Toast(
   { title, message }: ToastProps,
   renderIcon: JSX.Element,
+  variant: ThemeVariant,
   color: string
 ) {
   const CustomToast = () => (
-    <div className="flex items-center gap-2">
-      <div className="">{renderIcon}</div>
+    <div className="wrapper-toast">
+      <div>{renderIcon}</div>
+
       <div>
-        <p
-          style={{ fontFamily: "Plus Jakarta Sans" }}
-          className={clsx(
-            `font-bold text-[0.85rem] ${
-              color === "#F0FDF4"
-                ? "text-success-lighter"
-                : color === "#FFF7ED"
-                  ? "text-warning"
-                  : "text-danger"
-            }`
-          )}
-        >
+        <Text as="p" variant={variant} className="font-bold" size="md">
           {title}
-        </p>
-        <p className="text-sm" style={{ fontFamily: "Plus Jakarta Sans" }}>
+        </Text>
+
+        <Text as="p" size="xs" variant="secondary">
           {message}
-        </p>
+        </Text>
       </div>
     </div>
   );
@@ -52,6 +46,7 @@ export const showToast = {
     Toast(
       { title: "Erro", message },
       <BiErrorCircle color="#e74c3c" size={24} />,
+      "danger",
       "#FEF2F2"
     );
   },
@@ -59,6 +54,7 @@ export const showToast = {
     Toast(
       { title: "Sucesso", message },
       <BiCheckCircle color="#27ae60" size={24} />,
+      "success",
       "#F0FDF4"
     );
   },
@@ -66,6 +62,7 @@ export const showToast = {
     Toast(
       { title: "Atenção", message },
       <PiWarningCircle color="#e67e22" size={24} />,
+      "warning",
       "#FFF7ED"
     );
   },

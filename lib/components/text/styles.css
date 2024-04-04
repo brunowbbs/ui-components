@@ -93,4 +93,14 @@
     --text-color-focus: var(--text-color-focus-success);
     --text-color-active: var(--text-color-active-success);
   }
+
+  &.--warning {
+    --text-color-warning: theme("colors.warning");
+    --text-color-focus-warning: theme("colors.warning-darker");
+    --text-color-active-warning: theme("colors.warning-darker");
+
+    --text-color: var(--text-color-warning);
+    --text-color-focus: var(--text-color-focus-warning);
+    --text-color-active: var(--text-color-active-warning);
+  }
 }

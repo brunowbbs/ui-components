@@ -48,6 +48,12 @@ const meta: Meta<typeof Text> = {
         "xs",
       ],
     },
+    variant: {
+      description: "Varição dos textos conforme o tema usado",
+      control: { type: "select" },
+      defaultValue: "md",
+      options: ["danger", "success", "primary", "secondary", "warning"],
+    },
   },
 };
 
