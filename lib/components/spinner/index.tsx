@@ -16,6 +16,7 @@ export function Spinner({
       viewBox="0 0 24 24"
     >
       <circle
+        role="presentation"
         className="opacity-25"
         cx="12"
         cy="12"

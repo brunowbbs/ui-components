@@ -107,9 +107,9 @@ export const ButtonV2 = forwardRef(
       >
         <IconText isVertical={isVertical}>
           {isLoading ? (
-            <span className="mt-auto mb-auto min-w-24 flex items-center justify-center">
+            <div className="mt-auto mb-auto min-w-24 flex items-center justify-center">
               <Spinner color={isOutlined ? "green" : "white"} />
-            </span>
+            </div>
           ) : (
             children
           )}
