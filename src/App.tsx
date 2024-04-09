@@ -22,6 +22,7 @@ import {
   Select,
   Table,
   Tabs,
+  Text,
   Wizard,
   mountDataTable,
   showAlert,
@@ -175,6 +176,30 @@ function App() {
       }}
     >
       <div>
+        <Card>
+          <p className="text-sm uppercase mb-2 font-bold text-primary">Texts</p>
+
+          <Text>
+            Do duis minim consequat mollit. Do et qui irure do magna id ad
+            occaecat sint proident incididunt amet excepteur. Consectetur
+            consequat ad irure incididunt pariatur est Lorem esse. Nostrud
+            occaecat voluptate pariatur dolore aliqua ullamco ut exercitation
+            quis. Anim voluptate ad est fugiat esse consequat do elit aute
+            fugiat sint. Lorem Lorem dolore tempor do ad qui amet et
+            exercitation culpa esse incididunt duis non. Ex consectetur eu
+            consequat consequat. Proident exercitation do dolore commodo eu
+            voluptate mollit veniam ea dolore irure ut elit et. Cupidatat
+            proident mollit sit magna sit in anim veniam aliquip nostrud. Non
+            proident id sint amet excepteur voluptate officia proident tempor
+            consectetur. Veniam officia officia culpa deserunt officia pariatur
+            non.
+          </Text>
+
+          <Text>
+            ***************************************************************
+          </Text>
+        </Card>
+
         <Card>
           <p className="text-sm uppercase mb-2 font-bold text-primary">
             Botões

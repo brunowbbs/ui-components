@@ -1,14 +1,15 @@
 .text {
   @apply isolate
   relative
+  block
   text-[color:var(--text-color)]
 
   focus:text-[color:var(--text-color-focus)]
   active:text-[color:var(--text-color-active)];
 
-  --text-color-default: theme("colors.primary");
+  /*   --text-color-default: theme("colors.primary");
   --text-color-focus-default: theme("colors.primary-darker");
-  --text-color-active-default: theme("colors.primary-darker");
+  --text-color-active-default: theme("colors.primary-darker"); */
 
   --text-color: var(--text-color-default);
   --text-color-focus: var(--text-color-focus);

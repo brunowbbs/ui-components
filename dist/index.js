@@ -54591,7 +54591,7 @@ const hM = xa(
         ...s,
         style: { fontFamily: "Plus Jakarta Sans" },
         ref: c,
-        className: rn("text", i, {
+        className: rn(i, "text", {
           "--primary": n === "primary",
           "--secondary": n === "secondary",
           "--danger": n === "danger",
