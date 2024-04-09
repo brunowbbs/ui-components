@@ -8,7 +8,6 @@ import {
   useEffect,
   useRef,
 } from "react";
-import { Spinner } from "../spinner";
 
 import { ButtonProps } from "./types";
 
@@ -19,6 +18,7 @@ import { useToggleState } from "react-stately";
 import { useSlots } from "use-slots";
 import { IconText } from "../iconText";
 
+import { Spinner } from "..";
 import "./styles.css";
 
 const atLeast = (minimum: number, ...args: unknown[]) => {
@@ -97,6 +97,7 @@ export const ButtonV2 = forwardRef(
           "--warning": variant === "warning",
           "--disabled": isDisabled,
           "--outlined": isOutlined,
+          "--loading": isLoading,
           "--xs": size === "xs",
           "--sm": size === "sm",
           "--md": size === "md",
@@ -104,11 +105,15 @@ export const ButtonV2 = forwardRef(
           "--xl": size === "xl",
         })}
       >
-        {isLoading ? (
-          <Spinner color={isOutlined ? "green" : "white"} />
-        ) : (
-          <IconText isVertical={isVertical}>{children}</IconText>
-        )}
+        <IconText isVertical={isVertical}>
+          {isLoading ? (
+            <span className="mt-auto mb-auto min-w-24 flex items-center justify-center">
+              <Spinner color={isOutlined ? "green" : "white"} />
+            </span>
+          ) : (
+            children
+          )}
+        </IconText>
       </Tag>
     );
   }

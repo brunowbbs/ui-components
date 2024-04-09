@@ -50,6 +50,11 @@ const meta: Meta<typeof ButtonV2> = {
       type: "boolean",
       defaultValue: false,
     },
+    isLoading: {
+      description: "Loading no botão",
+      type: "boolean",
+      defaultValue: false,
+    },
     onPress: {
       description: "Evento ao pressionar",
       action: "button-press",
