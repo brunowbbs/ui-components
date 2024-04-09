@@ -1,11 +1,2 @@
-/// <reference types="react" />
-interface Step {
-    name: string;
-    component: JSX.Element;
-    icon: JSX.Element;
-}
-interface WizardProps {
-    steps: Step[];
-}
+import { WizardProps } from "./types";
 export declare function Wizard({ steps }: WizardProps): import("react/jsx-runtime").JSX.Element;
-export {};

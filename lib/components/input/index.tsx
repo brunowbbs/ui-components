@@ -24,6 +24,7 @@ export function Input(props: InputProps) {
       >
         <div className="flex items-center">
           <input
+            value={props.value}
             disabled={props.disabled}
             onChange={(event) => props.onChangeValue(event.target.value)}
             type={inputType}
@@ -40,7 +41,6 @@ export function Input(props: InputProps) {
             placeholder={props.placeholder}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
-            // {...props}
           />
         </div>
         {props.isPassword && (

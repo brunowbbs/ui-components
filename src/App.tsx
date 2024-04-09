@@ -251,7 +251,7 @@ function App() {
               isPassword={true}
             />
             <Input
-              value=""
+              value={new Date().toISOString().split("T")[0]}
               width={80}
               label="Data"
               type="date"
