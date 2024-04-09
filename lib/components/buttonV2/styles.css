@@ -1,0 +1,293 @@
+.button {
+  &:not(.link) {
+    @apply flex 
+    justify-center 
+    items-center 
+    outline-none
+    cursor-pointer;
+
+    & > * {
+      @apply font-bold
+      text-[color:var(--color)];
+    }
+
+    &:disabled > * {
+      @apply text-inherit;
+    }
+
+    &:not(.--icon),
+    &:disabled {
+      @apply rounded
+      w-full
+      sm:w-auto
+      sm:whitespace-nowrap;
+      border-width: var(--border-width);
+
+      &:not(.--icon) {
+        &.--xs {
+          @apply px-2       
+          py-0.5
+          rounded-full;
+        }
+
+        &.--sm {
+          @apply px-2       
+          py-2;
+        }
+
+        &.--md {
+          @apply px-8        
+          py-2;
+        }
+
+        &.--lg {
+          @apply px-8       
+          py-4;
+        }
+
+        &.--xl {
+          @apply px-12       
+          py-4;
+        }
+      }
+    }
+
+    &:not(.--outlined) {
+      @apply text-[color:var(--color)]
+      bg-[color:var(--background-color)]
+      border-[color:var(--border-color)]
+      border-none;
+
+      &:not(:disabled) {
+        @apply hover:text-[color:var(--color-hover)]
+        focus:text-[color:var(--color-focus)]
+        hover:bg-[color:var(--background-hover)]
+        focus:bg-[color:var(--background-focus)]
+        hover:border-[color:var(--border-focus)]
+        focus:border-[color:var(--background-focus)]
+        focus:outline-offset-2
+        focus:outline-2
+        focus:outline
+        focus:outline-[color:var(--background-focus)];
+      }
+    }
+
+    &.--outlined {
+      @apply text-[color:var(--color)]
+      border-[color:var(--border-color)]
+      outline-[color:var(--background-color)]
+      border-none
+      bg-transparent  
+      outline-offset-2
+      outline-2
+      outline;
+
+      &:not(:disabled) {
+        @apply hover:text-[color:var(--color-hover)]
+        focus:text-[color:var(--color-focus)]
+        focus:border-[color:var(--border-focus)]
+        focus:outline-[color:var(--background-focus)];
+      }
+    }
+
+    &.--primary {
+      --primary-border-width: theme("width.1");
+      --primary-border-color: transparent;
+      --primary-border-focus: transparent;
+      --primary-border-active: transparent;
+
+      --primary-color-color: theme("colors.white");
+      --primary-color-focus: theme("colors.white");
+      --primary-color-active: theme("colors.white");
+
+      --primary-background-color: theme("colors.primary");
+      --primary-background-focus: theme("colors.primary-lighter");
+      --primary-background-active: theme("colors.primary-darker");
+
+      --border-width: var(--primary-border-width);
+      --border-color: var(--primary-border-color);
+      --border-focus: var(--primary-border-focus);
+      --border-hover: var(--primary-border-active);
+
+      --color: var(--primary-color-color);
+      --color-focus: var(--primary-color-focus);
+      --color-hover: var(--primary-color-active);
+
+      --background-color: var(--primary-background-color);
+      --background-focus: var(--primary-background-focus);
+      --background-hover: var(--primary-background-active);
+      --background-active: var(--primary-background-active);
+    }
+
+    &.--secondary {
+      --secondary-border-width: theme("width.1");
+      --secondary-border-color: transparent;
+      --secondary-border-focus: transparent;
+      --secondary-border-active: transparent;
+
+      --secondary-color-color: theme("colors.white");
+      --secondary-color-focus: theme("colors.white");
+      --secondary-color-active: theme("colors.white");
+
+      --secondary-background-color: theme("colors.secondary");
+      --secondary-background-focus: theme("colors.secondary-lighter");
+      --secondary-background-active: theme("colors.secondary-darker");
+
+      --border-width: var(--secondary-border-width);
+      --border-color: var(--secondary-border-color);
+      --border-focus: var(--secondary-border-focus);
+      --border-hover: var(--secondary-border-active);
+
+      --color: var(--secondary-color-color);
+      --color-focus: var(--secondary-color-focus);
+      --color-hover: var(--secondary-color-active);
+
+      --background-color: var(--secondary-background-color);
+      --background-focus: var(--secondary-background-focus);
+      --background-hover: var(--secondary-background-active);
+      --background-active: var(--secondary-background-active);
+    }
+
+    &.--warning {
+      --warning-border-width: theme("width.1");
+      --warning-border-color: transparent;
+      --warning-border-focus: transparent;
+      --warning-border-active: transparent;
+
+      --warning-color-color: theme("colors.white");
+      --warning-color-focus: theme("colors.white");
+      --warning-color-active: theme("colors.white");
+
+      --warning-background-color: theme("colors.warning");
+      --warning-background-focus: theme("colors.warning-lighter");
+      --warning-background-active: theme("colors.warning-darker");
+
+      --border-width: var(--warning-border-width);
+      --border-color: var(--warning-border-color);
+      --border-focus: var(--warning-border-focus);
+      --border-hover: var(--warning-border-active);
+
+      --color: var(--warning-color-color);
+      --color-focus: var(--warning-color-focus);
+      --color-hover: var(--warning-color-active);
+
+      --background-color: var(--warning-background-color);
+      --background-focus: var(--warning-background-focus);
+      --background-hover: var(--warning-background-active);
+      --background-active: var(--warning-background-active);
+    }
+
+    &.--danger {
+      --danger-border-width: theme("width.1");
+      --danger-border-color: transparent;
+      --danger-border-focus: transparent;
+      --danger-border-active: transparent;
+
+      --danger-color-color: theme("colors.white");
+      --danger-color-focus: theme("colors.white");
+      --danger-color-active: theme("colors.white");
+
+      --danger-background-color: theme("colors.danger");
+      --danger-background-focus: theme("colors.danger-lighter");
+      --danger-background-active: theme("colors.danger-darker");
+
+      --border-width: var(--danger-border-width);
+      --border-color: var(--danger-border-color);
+      --border-focus: var(--danger-border-focus);
+      --border-hover: var(--danger-border-active);
+
+      --color: var(--danger-color-color);
+      --color-focus: var(--danger-color-focus);
+      --color-hover: var(--danger-color-active);
+
+      --background-color: var(--danger-background-color);
+      --background-focus: var(--danger-background-focus);
+      --background-hover: var(--danger-background-active);
+      --background-active: var(--danger-background-active);
+    }
+
+    &.--success {
+      --success-border-width: theme("width.1");
+      --success-border-color: transparent;
+      --success-border-focus: transparent;
+      --success-border-active: transparent;
+
+      --success-color: theme("colors.white");
+      --success-color-focus: theme("colors.white");
+      --success-color-active: theme("colors.white");
+
+      --success-background-color: theme("colors.success");
+      --success-background-focus: theme("colors.success-lighter");
+      --success-background-active: theme("colors.success-darker");
+
+      --border-width: var(--success-border-width);
+      --border-color: var(--success-border-color);
+      --border-focus: var(--success-border-focus);
+      --border-hover: var(--success-border-active);
+
+      --color: var(--success-color);
+      --color-focus: var(--success-color-focus);
+      --color-hover: var(--success-color-active);
+
+      --background-color: var(--success-background-color);
+      --background-focus: var(--success-background-focus);
+      --background-hover: var(--success-background-active);
+      --background-active: var(--success-background-active);
+    }
+
+    &.--disabled {
+      --disabled-border-width: theme("width.1");
+      --disabled-border-color: transparent;
+      --disabled-border-focus: transparent;
+      --disabled-border-active: transparent;
+
+      --disabled-color-color: theme("colors.gray.400");
+      --disabled-color-focus: theme("colors.gray.400");
+      --disabled-color-active: theme("colors.gray.400");
+
+      --disabled-background-color: theme("colors.gray.200");
+      --disabled-background-focus: theme("colors.gray.200");
+      --disabled-background-active: theme("colors.gray.200");
+
+      --border-width: var(--disabled-border-width);
+      --border-color: var(--disabled-border-color);
+      --border-focus: var(--disabled-border-focus);
+      --border-hover: var(--disabled-border-active);
+
+      --color: var(--disabled-color-color);
+      --color-focus: var(--disabled-color-focus);
+      --color-hover: var(--disabled-color-active);
+
+      --background-color: var(--disabled-background-color);
+      --background-focus: var(--disabled-background-focus);
+      --background-hover: var(--disabled-background-active);
+      --background-active: var(--disabled-background-active);
+    }
+
+    &.--outlined {
+      --outlined-border-width: theme("width.1");
+      --outlined-border-color: theme("colors.gray.400");
+      --outlined-border-focus: theme("colors.gray.400");
+      --outlined-border-active: theme("colors.gray.400");
+
+      --outlined-color: theme("colors.black");
+      --outlined-color-focus: theme("colors.black");
+      --outlined-color-active: theme("colors.black");
+
+      --border-width: var(--outlined-border-width);
+      --border-color: var(--outlined-border-color);
+      --border-focus: var(--outlined-border-focus);
+      --border-hover: var(--outlined-border-active);
+
+      --color: var(--outlined-color);
+      --color-focus: var(--outlined-color-focus);
+      --color-hover: var(--outlined-color-active);
+    }
+  }
+}
+
+.link {
+  @apply border-none
+  bg-transparent
+  cursor-pointer;
+}

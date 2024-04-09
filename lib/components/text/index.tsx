@@ -19,7 +19,7 @@ export const Text = forwardRef<TextElement, TextProps>(
         {...(props as TextProps<typeof Tag>)}
         style={{ fontFamily: "Plus Jakarta Sans" }}
         ref={forwardedRef}
-        className={clsx("text", className, {
+        className={clsx(className, "text", {
           "--primary": variant === "primary",
           "--secondary": variant === "secondary",
           "--danger": variant === "danger",

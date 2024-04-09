@@ -6,3 +6,5 @@ export type ThemeVariant =
   | "primary"
   | "secondary"
   | "warning";
+
+export type ThemeSize = "lg" | "md" | "sm" | "xl" | "xs";
