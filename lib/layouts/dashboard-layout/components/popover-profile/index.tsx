@@ -7,7 +7,7 @@ export function PopoverProfile({
   logoutAction = () => alert("ok"),
 }: PopoverProfileProps) {
   return (
-    <div>
+    <div className="w-full">
       <div className="flex gap-2 border-b pb-2 mb-2">
         <img
           src={

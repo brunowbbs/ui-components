@@ -106,7 +106,7 @@ const MENU_ITEMS = [
 
 const USER_LOGGED = {
   description: "Porteirinha - MG",
-  name: "Wesley Bruno Barbosa Silva",
+  name: "Wesley Bruno",
 };
 
 const MENU_ITEMS_POPOVER_PROFILE = [
