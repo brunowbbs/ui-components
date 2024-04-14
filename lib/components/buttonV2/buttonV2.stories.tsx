@@ -35,11 +35,6 @@ const meta: Meta<typeof ButtonV2> = {
       type: "boolean",
       defaultValue: false,
     },
-    isTogglable: {
-      description: "Botão de alternância",
-      type: "boolean",
-      defaultValue: false,
-    },
     isSummary: {
       description: "Botão do acordeão",
       type: "boolean",
@@ -58,11 +53,6 @@ const meta: Meta<typeof ButtonV2> = {
     onPress: {
       description: "Evento ao pressionar",
       action: "button-press",
-      type: "function",
-    },
-    onToggle: {
-      description: "Evento ao alternar",
-      action: "button-toggle",
       type: "function",
     },
     variant: {
