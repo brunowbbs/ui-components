@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ButtonV2 } from ".";
+import ButtonV2 from ".";
 import { html } from "../../assets/generated";
 import { IconFirst } from "../iconText";
 
