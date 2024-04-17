@@ -56781,7 +56781,6 @@ function uhe(t, e) {
 export {
   Hde as BarChart,
   yw as Button,
-  WH as ButtonV2,
   $de as Card,
   Xde as Checkbox,
   tde as CustomTable,

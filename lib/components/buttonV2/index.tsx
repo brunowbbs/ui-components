@@ -16,7 +16,7 @@ const atLeast = (minimum: number, ...args: unknown[]) => {
   return args.filter(Boolean).length >= minimum;
 };
 
-export function ButtonV2(props: ButtonProps, ref: Ref<HTMLButtonElement>) {
+function ButtonV2(props: ButtonProps, ref: Ref<HTMLButtonElement>) {
   const {
     variant = "primary",
     children,
