@@ -1,17 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { IconFirst, IconLast, IconText } from ".";
-import { html } from "../../assets/generated";
+import { IconLeft, IconRight, IconText } from ".";
+import { camera } from "../../assets/generated";
 
 const meta: Meta<typeof IconText> = {
+  title: "Componentes/IconText",
   component: IconText,
   tags: ["autodocs"],
   args: {},
   render: ({ ...args }) => (
     <IconText {...args}>
-      <IconFirst size="4x" src={html} alt="htmlIcons" />
+      <IconLeft size="4x" src={camera} alt="cameraIcons" />
       Componente Renderizador de ícones
-      <IconLast src={html} alt="htmlIcons" />
+      <IconRight src={camera} alt="cameraIcons" />
     </IconText>
   ),
   argTypes: {

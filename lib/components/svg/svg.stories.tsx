@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Svg } from ".";
-import { html } from "../../assets/generated";
+import { camera } from "../../assets/generated";
 
 const meta: Meta<typeof Svg> = {
+  title: "Componentes/Svg",
   component: Svg,
   tags: ["autodocs"],
   parameters: {
@@ -16,7 +17,7 @@ const meta: Meta<typeof Svg> = {
   },
   args: {
     alt: "icon",
-    src: html,
+    src: camera,
     isCurrentColor: false,
   },
   argTypes: {

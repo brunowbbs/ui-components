@@ -1,6 +1,8 @@
-/// <reference types="react" />
+import { Ref } from "react";
+import { ButtonProps } from "./types";
 import "./styles.css";
-export declare const ButtonV2: import("react").ForwardRefExoticComponent<import("react-aria").AriaButtonProps<"button"> & {
+export declare function ButtonV2(props: ButtonProps, ref: Ref<HTMLButtonElement>): import("react/jsx-runtime").JSX.Element;
+declare const _default: import("react").ForwardRefExoticComponent<import("react-aria").AriaButtonProps<"button"> & {
     isLink?: boolean | undefined;
     isVertical?: boolean | undefined;
     isOutlined?: boolean | undefined;
@@ -13,3 +15,4 @@ export declare const ButtonV2: import("react").ForwardRefExoticComponent<import(
 } & {
     children?: import("react").ReactNode;
 } & import("react").RefAttributes<HTMLButtonElement>>;
+export default _default;

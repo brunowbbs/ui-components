@@ -17,7 +17,7 @@ export const IconText = forwardRef<IconTextElement, IconTextProps>(
   ({ children, isVertical = false, as, size }, ref) => {
     const forwardedRef = useForwardedRef(ref);
 
-    const { firstIcon, lastIcon } = useSlots(children);
+    const { leftIcon, rightIcon } = useSlots(children);
 
     const text = Children.toArray(children).find(
       (child: any) => !child?.type?.slot
@@ -31,21 +31,22 @@ export const IconText = forwardRef<IconTextElement, IconTextProps>(
         className={clsx("icon-text", {
           "--vertical": isVertical,
         })}
+        mode="unset"
       >
-        {firstIcon}
+        {leftIcon}
         {text}
-        {lastIcon}
+        {rightIcon}
       </Text>
     );
   }
 );
 
-export const IconFirst = beSlot(
+export const IconLeft = beSlot(
   (props: IconProps) => <Icon {...props} />,
-  "firstIcon"
+  "leftIcon"
 );
 
-export const IconLast = beSlot(
+export const IconRight = beSlot(
   (props: IconProps) => <Icon {...props} />,
-  "lastIcon"
+  "rightIcon"
 );

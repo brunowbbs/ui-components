@@ -1,15 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import ButtonV2 from ".";
-import { html } from "../../assets/generated";
-import { IconFirst } from "../iconText";
+import { camera } from "../../assets/generated";
+import { IconLeft } from "../iconText";
 
 const meta: Meta<typeof ButtonV2> = {
+  title: "Componentes/ButtonV2",
   component: ButtonV2,
   tags: ["autodocs"],
   render: ({ ...args }) => (
     <ButtonV2 {...args}>
-      <IconFirst src={html} alt={""} />
+      <IconLeft src={camera} alt={""} />
       Teste
     </ButtonV2>
   ),

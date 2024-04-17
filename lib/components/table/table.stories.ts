@@ -13,6 +13,7 @@ const { columns, rows } = mountDataTable(
 );
 
 const meta: Meta<typeof Table> = {
+  title: "Componentes/Table",
   component: Table,
   parameters: {
     layout: "padded",

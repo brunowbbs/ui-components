@@ -9,7 +9,15 @@ import "./styles.css";
 
 export const Text = forwardRef<TextElement, TextProps>(
   (
-    { as: Tag = "span", size = "sm", variant, children, className, ...props },
+    {
+      as: Tag = "span",
+      size = "sm",
+      variant,
+      children,
+      className,
+      mode = "block",
+      ...props
+    },
     ref
   ) => {
     const forwardedRef = useForwardedRef(ref);
@@ -20,6 +28,8 @@ export const Text = forwardRef<TextElement, TextProps>(
         style={{ fontFamily: "Plus Jakarta Sans" }}
         ref={forwardedRef}
         className={clsx(className, "text", {
+          "--block": mode === "block",
+          "--unset": mode === "unset",
           "--primary": variant === "primary",
           "--secondary": variant === "secondary",
           "--danger": variant === "danger",

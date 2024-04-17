@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Icon } from ".";
-import { html } from "../../assets/generated";
+import { camera } from "../../assets/generated";
 
 const meta: Meta<typeof Icon> = {
+  title: "Componentes/Icon",
   component: Icon,
   tags: ["autodocs"],
   parameters: {
@@ -15,8 +16,8 @@ const meta: Meta<typeof Icon> = {
     },
   },
   args: {
-    src: html,
-    alt: "htmlIcon",
+    src: camera,
+    alt: "cameraIcon",
     size: "1x",
   },
   argTypes: {

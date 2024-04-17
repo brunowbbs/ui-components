@@ -1,9 +1,11 @@
 .icon-text {
   @apply flex
-  items-center
-  gap-4;
+  flex-row
+  gap-2
+  items-center;
 
   &.--vertical {
-    @apply flex-col;
+    @apply flex-col
+    items-start;
   }
 }

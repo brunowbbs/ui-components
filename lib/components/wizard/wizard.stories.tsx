@@ -4,6 +4,7 @@ import { MdHeadphones, MdHome, MdPhone } from "react-icons/md";
 import { Wizard } from ".";
 
 const meta: Meta<typeof Wizard> = {
+  title: "Componentes/Wizard",
   component: Wizard,
   tags: ["autodocs"],
   args: {

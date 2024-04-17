@@ -4,17 +4,10 @@ export declare const edit: {
         xmlns: string;
         viewBox: string;
     };
-    children: ({
-        tag: string;
-        props: {
-            fill: string;
-            d: string;
-        };
-    } | {
+    children: {
         tag: string;
         props: {
             d: string;
-            fill?: undefined;
         };
-    })[];
+    }[];
 };

@@ -8,4 +8,5 @@ export type TextProps<As = TextTags> = PropsWithChildren<{
     size?: TextSize;
     className?: string;
     variant?: ThemeVariant;
+    mode?: "block" | "unset";
 }>;
