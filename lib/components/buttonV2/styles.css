@@ -78,7 +78,7 @@
       outline-[color:var(--background-color)]
       border-none
       bg-transparent  
-      outline-offset-2
+      -outline-offset-2
       outline-2
       outline;
 
@@ -117,6 +117,10 @@
       --background-focus: var(--primary-background-focus);
       --background-hover: var(--primary-background-active);
       --background-active: var(--primary-background-active);
+
+      &.--outlined {
+        --color: var(--primary-background-color);
+      }
     }
 
     &.--secondary {
@@ -146,6 +150,10 @@
       --background-focus: var(--secondary-background-focus);
       --background-hover: var(--secondary-background-active);
       --background-active: var(--secondary-background-active);
+
+      &.--outlined {
+        --color: var(--secondary-background-color);
+      }
     }
 
     &.--warning {
@@ -175,6 +183,10 @@
       --background-focus: var(--warning-background-focus);
       --background-hover: var(--warning-background-active);
       --background-active: var(--warning-background-active);
+
+      &.--outlined {
+        --color: var(--warning-background-color);
+      }
     }
 
     &.--danger {
@@ -204,6 +216,10 @@
       --background-focus: var(--danger-background-focus);
       --background-hover: var(--danger-background-active);
       --background-active: var(--danger-background-active);
+
+      &.--outlined {
+        --color: var(--danger-background-color);
+      }
     }
 
     &.--success {
@@ -233,6 +249,10 @@
       --background-focus: var(--success-background-focus);
       --background-hover: var(--success-background-active);
       --background-active: var(--success-background-active);
+
+      &.--outlined {
+        --color: var(--success-background-color);
+      }
     }
 
     &.--disabled {
@@ -262,26 +282,10 @@
       --background-focus: var(--disabled-background-focus);
       --background-hover: var(--disabled-background-active);
       --background-active: var(--disabled-background-active);
-    }
 
-    &.--outlined {
-      --outlined-border-width: theme("width.1");
-      --outlined-border-color: theme("colors.gray.400");
-      --outlined-border-focus: theme("colors.gray.400");
-      --outlined-border-active: theme("colors.gray.400");
-
-      --outlined-color: theme("colors.black");
-      --outlined-color-focus: theme("colors.black");
-      --outlined-color-active: theme("colors.black");
-
-      --border-width: var(--outlined-border-width);
-      --border-color: var(--outlined-border-color);
-      --border-focus: var(--outlined-border-focus);
-      --border-hover: var(--outlined-border-active);
-
-      --color: var(--outlined-color);
-      --color-focus: var(--outlined-color-focus);
-      --color-hover: var(--outlined-color-active);
+      &.--outlined {
+        --color: var(--disabled-background-color);
+      }
     }
   }
 }

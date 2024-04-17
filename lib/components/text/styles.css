@@ -5,10 +5,6 @@
   focus:text-[color:var(--text-color-focus)]
   active:text-[color:var(--text-color-active)];
 
-  --text-color: var(--text-color-default);
-  --text-color-focus: var(--text-color-focus);
-  --text-color-active: var(--text-color-active);
-
   &.--block {
     @apply block;
   }

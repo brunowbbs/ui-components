@@ -7,10 +7,12 @@ import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import {
   BarChart,
   Button,
+  ButtonV2,
   Card,
   Checkbox,
   DashboardLayout,
   DougnutChart,
+  Icon,
   Input,
   InputMask,
   LineChart,
@@ -24,6 +26,7 @@ import {
   Tabs,
   Text,
   Wizard,
+  camera,
   mountDataTable,
   showAlert,
   showToast,
@@ -204,6 +207,7 @@ function App() {
           <p className="text-sm uppercase mb-2 font-bold text-primary">
             Botões
           </p>
+
           <div className="flex gap-2 flex-wrap">
             <Button text="Primary" onClick={() => alert("ok")} />
 
@@ -250,6 +254,67 @@ function App() {
               iconLeft={<LuSettings size={12} />}
             />
             <Button text="Link" onClick={() => alert("ok")} link={true} />
+          </div>
+
+          <p className="text-sm uppercase mt-4 font-bold text-primary">
+            Botões v2
+          </p>
+
+          <div className="flex gap-2 flex-wrap">
+            <ButtonV2 variant="unset" onPress={() => alert("ok")}>
+              Default
+            </ButtonV2>
+
+            <ButtonV2 size="md" variant="primary" onPress={() => alert("ok")}>
+              Primary
+            </ButtonV2>
+
+            <ButtonV2
+              size="md"
+              isLoading
+              variant="primary"
+              onPress={() => alert("ok")}
+            >
+              Primary
+            </ButtonV2>
+
+            <ButtonV2 size="md" variant="secondary" onPress={() => alert("ok")}>
+              Secondary
+            </ButtonV2>
+
+            <ButtonV2 size="md" variant="danger" onPress={() => alert("ok")}>
+              Danger
+            </ButtonV2>
+
+            <ButtonV2 size="md" variant="warning" onPress={() => alert("ok")}>
+              Warning
+            </ButtonV2>
+
+            <ButtonV2 size="md" variant="success" onPress={() => alert("ok")}>
+              Success
+            </ButtonV2>
+
+            <ButtonV2
+              size="md"
+              variant="primary"
+              onPress={() => alert("ok")}
+              isOutlined
+            >
+              Outlined
+            </ButtonV2>
+
+            <ButtonV2 size="md" variant="primary" onPress={() => alert("ok")}>
+              <Icon src={camera} alt="camera ícone" />
+            </ButtonV2>
+
+            <ButtonV2
+              size="md"
+              variant="primary"
+              isLink
+              onPress={() => alert("ok")}
+            >
+              Link
+            </ButtonV2>
           </div>
         </Card>
 

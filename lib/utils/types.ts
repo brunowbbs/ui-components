@@ -5,6 +5,7 @@ export type ThemeVariant =
   | "success"
   | "primary"
   | "secondary"
-  | "warning";
+  | "warning"
+  | "unset";
 
 export type ThemeSize = "lg" | "md" | "sm" | "xl" | "xs";
