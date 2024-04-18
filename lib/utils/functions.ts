@@ -1,8 +1,8 @@
-import { RowTypes } from "../components/table/types";
+import { RowTypes } from '../components/table/types';
 
 export function mountDataTable(
   dataColumns: Array<string | number | JSX.Element>,
-  dataRows: Array<Array<string | number | JSX.Element>>
+  dataRows: Array<Array<string | number | JSX.Element>>,
 ) {
   let tempRows: Array<RowTypes> = [];
 
@@ -17,7 +17,7 @@ export function mountDataTable(
               elem: line,
             };
           } else {
-            return { key: "", elem: "" };
+            return { key: '', elem: '' };
           }
         }),
       };

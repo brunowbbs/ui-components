@@ -5,7 +5,7 @@ export function Spinner({
   color?: string;
   size?: number;
 }) {
-  const colorClass = color ? `text-${color}` : "text-current";
+  const colorClass = color ? `text-${color}` : 'text-current';
 
   return (
     <svg

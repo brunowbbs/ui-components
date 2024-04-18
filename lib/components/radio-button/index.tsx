@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { BsCheckCircle, BsCircle } from "react-icons/bs";
-import { RadioButtonGroupProps, RadioButtonProps } from "./types";
-import clsx from "clsx";
+import { useState } from 'react';
+import { BsCheckCircle, BsCircle } from 'react-icons/bs';
+import { RadioButtonGroupProps, RadioButtonProps } from './types';
+import clsx from 'clsx';
 
 export function RadioButtonGroup({
   options,
@@ -52,31 +52,31 @@ export function RadioButton({
       <button
         onClick={onChangeValue}
         value={value}
-        className={clsx("flex items-center gap-2 cursor-pointer", {
-          "cursor-default": disabled,
+        className={clsx('flex items-center gap-2 cursor-pointer', {
+          'cursor-default': disabled,
         })}
       >
         {!checked && (
           <BsCircle
-            className={clsx("fill-current ", {
-              "text-gray-500": !error,
-              "text-red-600": error,
-              "text-slate-300": disabled,
+            className={clsx('fill-current ', {
+              'text-gray-500': !error,
+              'text-red-600': error,
+              'text-slate-300': disabled,
             })}
             size={16}
           />
         )}
         {checked && (
           <BsCheckCircle
-            className={clsx("fill-current cursor-pointer", {
-              "text-primary": !disabled,
-              "cursor-default": disabled,
-              "text-slate-300": disabled,
+            className={clsx('fill-current cursor-pointer', {
+              'text-primary': !disabled,
+              'cursor-default': disabled,
+              'text-slate-300': disabled,
             })}
             size={16}
           />
         )}
-        <p className={clsx("text-sm", { "text-gray-400": disabled })}>
+        <p className={clsx('text-sm', { 'text-gray-400': disabled })}>
           {label}
         </p>
       </button>

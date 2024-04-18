@@ -1,7 +1,7 @@
-import { useState } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
-import { RichTextProps } from "./types";
+import { useState } from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import { RichTextProps } from './types';
 
 export function RichText({
   onChangeValue,
@@ -19,10 +19,10 @@ export function RichText({
       <div
         className={`border rounded-md ${
           error
-            ? "border-red-600"
+            ? 'border-red-600'
             : isFocused
-            ? "border-primary"
-            : "border-gray-400"
+              ? 'border-primary'
+              : 'border-gray-400'
         }`}
       >
         <ReactQuill
@@ -32,15 +32,15 @@ export function RichText({
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           onChange={(value) => {
-            const valueReplaced = value.replace(/<p><br><\/p>/g, "");
+            const valueReplaced = value.replace(/<p><br><\/p>/g, '');
 
-            if (valueReplaced === "") {
+            if (valueReplaced === '') {
               onChangeValue(valueReplaced);
             } else {
               onChangeValue(value);
             }
           }}
-          style={{ maxWidth: "100%", paddingRight: "50px" }}
+          style={{ maxWidth: '100%', paddingRight: '50px' }}
         />
       </div>
       {error && <p className="text-[10px] text-red-600">{error}</p>}
@@ -52,14 +52,14 @@ const modules = {
   toolbar: {
     container: [
       [{ font: [] }],
-      [{ size: ["small", false, "large"] }],
-      ["bold", "italic", "underline", "strike", "blockquote"],
+      [{ size: ['small', false, 'large'] }],
+      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
       [{ color: [] }, { background: [] }],
-      [{ list: "ordered" }, { list: "bullet" }],
-      ["link", "video", "image"],
+      [{ list: 'ordered' }, { list: 'bullet' }],
+      ['link', 'video', 'image'],
       [{ align: [] }],
-      [{ indent: "-1" }, { indent: "+1" }],
-      ["clean"],
+      [{ indent: '-1' }, { indent: '+1' }],
+      ['clean'],
     ],
   },
 };

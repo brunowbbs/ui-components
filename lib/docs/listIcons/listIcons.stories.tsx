@@ -1,21 +1,21 @@
-import * as icons from "../../assets/generated";
+import * as icons from '../../assets/generated';
 
-import type { Meta } from "@storybook/react";
+import type { Meta } from '@storybook/react';
 
-import { Icons } from ".";
+import { Icons } from '.';
 
 const meta: Meta<typeof Icons> = {
-  title: "Docs/Icons",
+  title: 'Docs/Icons',
   component: Icons,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   parameters: {
-    layout: "padded",
+    layout: 'padded',
     controls: { disable: true },
     previewTabs: { canvas: { hidden: true } },
 
     docs: {
       description: {
-        component: "Lista de ícones.",
+        component: 'Lista de ícones.',
       },
     },
   },

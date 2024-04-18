@@ -1,5 +1,5 @@
-import { PropsWithChildren } from "react";
-import { PopoverProfileProps } from "./components/popover-profile/types";
+import { PropsWithChildren } from 'react';
+import { PopoverProfileProps } from './components/popover-profile/types';
 
 export type DropdownSelect = { group: null | number; itemGroup: null | number };
 

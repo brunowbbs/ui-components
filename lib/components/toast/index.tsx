@@ -1,18 +1,17 @@
-import { ToastProps } from "./types";
+import { ToastProps } from './types';
 
-import { BiCheckCircle, BiErrorCircle } from "react-icons/bi";
-import { PiWarningCircle } from "react-icons/pi";
-import { toast } from "react-toastify";
-import { Text } from "..";
+import { BiCheckCircle, BiErrorCircle } from 'react-icons/bi';
+import { PiWarningCircle } from 'react-icons/pi';
+import { toast } from 'react-toastify';
+import { Text } from '..';
 
-import { ThemeVariant } from "../..";
-import "./styles.css";
+import { ThemeVariant } from '../..';
 
 function Toast(
   { title, message }: ToastProps,
   renderIcon: JSX.Element,
   variant: ThemeVariant,
-  color: string
+  color: string,
 ) {
   const CustomToast = () => (
     <div className="wrapper-toast">
@@ -36,7 +35,7 @@ function Toast(
     style: {
       background: color,
     },
-    position: "bottom-right",
+    position: 'bottom-right',
     closeOnClick: false,
   });
 }
@@ -44,26 +43,26 @@ function Toast(
 export const showToast = {
   error: (message: string) => {
     Toast(
-      { title: "Erro", message },
+      { title: 'Erro', message },
       <BiErrorCircle color="#e74c3c" size={24} />,
-      "danger",
-      "#FEF2F2"
+      'danger',
+      '#FEF2F2',
     );
   },
   success: (message: string) => {
     Toast(
-      { title: "Sucesso", message },
+      { title: 'Sucesso', message },
       <BiCheckCircle color="#27ae60" size={24} />,
-      "success",
-      "#F0FDF4"
+      'success',
+      '#F0FDF4',
     );
   },
   warning: (message: string) => {
     Toast(
-      { title: "Atenção", message },
+      { title: 'Atenção', message },
       <PiWarningCircle color="#e67e22" size={24} />,
-      "warning",
-      "#FFF7ED"
+      'warning',
+      '#FFF7ED',
     );
   },
 };

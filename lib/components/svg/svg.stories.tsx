@@ -1,41 +1,41 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Svg } from ".";
-import { camera } from "../../assets/generated";
+import { Svg } from '.';
+import { camera } from '../../assets/generated';
 
 const meta: Meta<typeof Svg> = {
-  title: "Componentes/Svg",
+  title: 'Componentes/Svg',
   component: Svg,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   parameters: {
     docs: {
       description: {
         component:
-          "Componente para carregar Gráficos Vetoriais Escaláveis (SVG)",
+          'Componente para carregar Gráficos Vetoriais Escaláveis (SVG)',
       },
     },
   },
   args: {
-    alt: "icon",
+    alt: 'icon',
     src: camera,
     isCurrentColor: false,
   },
   argTypes: {
     alt: {
-      description: "Texto de descrição da imagem vetorial",
-      type: "string",
+      description: 'Texto de descrição da imagem vetorial',
+      type: 'string',
     },
-    src: { description: "JSON do svg", type: "symbol" },
-    color: { description: "Cor do svg", type: "string" },
-    width: { description: "Largura do svg", type: "string" },
-    height: { description: "Altura do svg", type: "string" },
+    src: { description: 'JSON do svg', type: 'symbol' },
+    color: { description: 'Cor do svg', type: 'string' },
+    width: { description: 'Largura do svg', type: 'string' },
+    height: { description: 'Altura do svg', type: 'string' },
     isCurrentColor: {
-      description: "Usa o cor do texto, invés da original",
-      type: "boolean",
+      description: 'Usa o cor do texto, invés da original',
+      type: 'boolean',
     },
     clipPathId: {
-      description: "Identificador do svg de recorte de conteiners",
-      type: "string",
+      description: 'Identificador do svg de recorte de conteiners',
+      type: 'string',
     },
   },
 };

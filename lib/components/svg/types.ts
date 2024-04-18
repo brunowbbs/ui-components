@@ -1,4 +1,4 @@
-import type { ReactSVG } from "react";
+import type { ReactSVG } from 'react';
 
 export type Vector = {
   children?: Vector[];

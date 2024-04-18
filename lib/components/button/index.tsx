@@ -1,12 +1,12 @@
-import clsx from "clsx";
-import { useState } from "react";
-import { COLORS } from "../../../utils";
-import { Spinner } from "../spinner";
-import { ButtonProps } from "./types";
+import clsx from 'clsx';
+import { useState } from 'react';
+import { COLORS } from '../../../utils';
+import { Spinner } from '../spinner';
+import { ButtonProps } from './types';
 
 export function Button(props: ButtonProps) {
   const {
-    variant = "primary",
+    variant = 'primary',
     link,
     outline,
     isLoading,
@@ -15,7 +15,7 @@ export function Button(props: ButtonProps) {
     iconRight,
     iconLeft,
     width = undefined,
-    type = "button",
+    type = 'button',
     onClick,
     className,
   } = props;
@@ -33,22 +33,22 @@ export function Button(props: ButtonProps) {
   const buttonStyles = {
     width,
     backgroundColor: isHovered ? COLORS[`${variant}-darker`] : COLORS[variant],
-    color: "white",
-    transition: "all 0.5s ease",
+    color: 'white',
+    transition: 'all 0.5s ease',
     borderWidth: 1,
     borderColor: isHovered ? COLORS[`${variant}-darker`] : COLORS[variant],
   };
 
   if (outline) {
-    buttonStyles.backgroundColor = "transparent";
+    buttonStyles.backgroundColor = 'transparent';
     buttonStyles.color = isHovered
       ? COLORS[`${variant}-darker`]
       : COLORS[variant];
   }
 
   if (link) {
-    buttonStyles.backgroundColor = "transparent";
-    buttonStyles.borderColor = "transparent";
+    buttonStyles.backgroundColor = 'transparent';
+    buttonStyles.borderColor = 'transparent';
   }
 
   return (
@@ -63,12 +63,12 @@ export function Button(props: ButtonProps) {
     >
       {isLoading ? (
         <span>
-          <Spinner color={outline ? "green" : "white"} />
+          <Spinner color={outline ? 'green' : 'white'} />
         </span>
       ) : (
         <p
           className={clsx({
-            "text-primary hover:text-primary-darker hover:transition font-medium":
+            'text-primary hover:text-primary-darker hover:transition font-medium':
               link,
           })}
         >

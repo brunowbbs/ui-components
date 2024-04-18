@@ -1,8 +1,8 @@
-import { BiChevronDown } from "react-icons/bi";
-import { IoClose } from "react-icons/io5";
-import SelectReact from "react-select";
-import { COLORS } from "../../../utils";
-import { SelectProps } from "./types";
+import { BiChevronDown } from 'react-icons/bi';
+import { IoClose } from 'react-icons/io5';
+import SelectReact from 'react-select';
+import { COLORS } from '../../../utils';
+import { SelectProps } from './types';
 
 export function Select({
   label,
@@ -16,7 +16,7 @@ export function Select({
   error,
 }: SelectProps) {
   return (
-    <div className={`w-${width ?? "full"}`}>
+    <div className={`w-${width ?? 'full'}`}>
       <p className="text-sm font-medium">{label}</p>
 
       <SelectReact
@@ -30,11 +30,11 @@ export function Select({
             event as {
               label: string;
               value: string;
-            }
+            },
           )
         }
         className="text-sm rounded cursor-pointer"
-        noOptionsMessage={() => "Nenhum item encontrado"}
+        noOptionsMessage={() => 'Nenhum item encontrado'}
         components={{
           ClearIndicator: (props) => (
             <div
@@ -53,21 +53,21 @@ export function Select({
         styles={{
           placeholder: (base) => ({
             ...base,
-            color: "#9BA3AF",
+            color: '#9BA3AF',
           }),
           control: (_, state) => ({
             borderRadius: 4,
-            display: "flex",
-            width: "100%",
+            display: 'flex',
+            width: '100%',
             paddingTop: 1.7,
             paddingBottom: 1.6,
             borderColor: error
               ? COLORS.danger
               : state.isFocused
-              ? COLORS.primary
-              : "#94a3b8",
-            borderWidth: "1px",
-            borderStyle: "solid",
+                ? COLORS.primary
+                : '#94a3b8',
+            borderWidth: '1px',
+            borderStyle: 'solid',
             paddingLeft: 8,
             paddingRight: 8,
             fontWeight: 500,
@@ -95,9 +95,9 @@ export function Select({
             ...base,
             padding: 0,
             margin: 0,
-            display: "flex",
-            "&:hover": {
-              backgroundColor: "#ecf0f1",
+            display: 'flex',
+            '&:hover': {
+              backgroundColor: '#ecf0f1',
             },
             // height: 10,
             // background: "yellow",
@@ -129,12 +129,12 @@ export function Select({
             // background: "#888",
             padding: 0,
             margin: 0,
-            height: "auto",
+            height: 'auto',
           }),
 
           menu: (baseStyles) => ({
             ...baseStyles,
-            overflowY: "auto",
+            overflowY: 'auto',
           }),
 
           option: (base, state) => ({
@@ -143,12 +143,12 @@ export function Select({
             paddingLeft: 10,
             paddingTop: 3,
             paddingBottom: 3,
-            cursor: "pointer",
+            cursor: 'pointer',
             // background: "blue",
-            backgroundColor: state.isFocused ? "#ecf0f1" : "transparent",
-            color: "#000",
-            "&:hover": {
-              backgroundColor: "#ecf0f1",
+            backgroundColor: state.isFocused ? '#ecf0f1' : 'transparent',
+            color: '#000',
+            '&:hover': {
+              backgroundColor: '#ecf0f1',
             },
           }),
 
@@ -181,7 +181,7 @@ export function Select({
 
           singleValue: (base) => ({
             ...base,
-            fontSize: "12px",
+            fontSize: '12px',
           }),
         }}
       />

@@ -1,13 +1,13 @@
-import { Fragment } from "react";
-import { toast } from "react-toastify";
-import { Svg } from "../../components";
-import { IconsListProps } from "./types";
+import { Fragment } from 'react';
+import { toast } from 'react-toastify';
+import { Svg } from '../../components';
+import { IconsListProps } from './types';
 
 export const Icons = ({ width, icons, isCurrentColor }: IconsListProps) => {
   function copyNameIcon(name: string) {
     navigator.clipboard.writeText(name);
 
-    toast("Ícone " + name + " copiado!");
+    toast('Ícone ' + name + ' copiado!');
   }
 
   return (
@@ -40,7 +40,7 @@ export const Icons = ({ width, icons, isCurrentColor }: IconsListProps) => {
                 isCurrentColor={isCurrentColor}
                 alt={`${icon} icon`}
                 height="30"
-                width={width || "30"}
+                width={width || '30'}
               />
             </div>
             <button

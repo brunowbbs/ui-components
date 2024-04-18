@@ -1,7 +1,7 @@
-import { clsx } from "clsx";
-import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
-import { Props } from "./types";
+import { clsx } from 'clsx';
+import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+import { Props } from './types';
 
 export function Popover({
   left = 0,
@@ -28,10 +28,10 @@ export function Popover({
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [onClose]);
 
@@ -56,7 +56,7 @@ export function Popover({
           animate={{ opacity: 1, y: 0 }}
           style={{ left: left ? `${-left * 100}%` : undefined, width: width }}
           className={clsx(
-            `bg-white absolute p-3 rounded-md shadow-2xl mt-1 z-[999] border`
+            `bg-white absolute p-3 rounded-md shadow-2xl mt-1 z-[999] border`,
           )}
         >
           <div className="flex justify-center items-center">{children}</div>

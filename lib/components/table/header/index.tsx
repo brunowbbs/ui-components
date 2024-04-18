@@ -1,22 +1,22 @@
-import type { Ref, TableHTMLAttributes } from "react";
-import { forwardRef } from "react";
+import type { Ref, TableHTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 import {
   mergeProps,
   useFocusRing,
   useTableColumnHeader,
   useTableHeaderRow,
   useTableRowGroup,
-} from "react-aria";
+} from 'react-aria';
 
-import clsx from "clsx";
+import clsx from 'clsx';
 
-import useForwardedRef from "@bedrock-layout/use-forwarded-ref";
+import useForwardedRef from '@bedrock-layout/use-forwarded-ref';
 
 import type {
   TableColumnHeaderProps,
   TableHeaderRowProps,
   TableRowGroupProps,
-} from "./types";
+} from './types';
 
 export function TableRowGroup({
   type: Element,
@@ -31,7 +31,7 @@ export function TableRowGroup({
 export const TableHeaderRow = forwardRef(
   (
     { state, children, item }: TableHeaderRowProps,
-    ref: Ref<TableHTMLAttributes<HTMLTableRowElement>>
+    ref: Ref<TableHTMLAttributes<HTMLTableRowElement>>,
   ) => {
     const forwardedRef = useForwardedRef(ref);
 
@@ -42,20 +42,20 @@ export const TableHeaderRow = forwardRef(
         {children}
       </tr>
     );
-  }
+  },
 );
 
 export const TableColumnHeader = forwardRef(
   (
     { state, column }: TableColumnHeaderProps,
-    ref: Ref<TableHTMLAttributes<HTMLTableHeaderCellElement>>
+    ref: Ref<TableHTMLAttributes<HTMLTableHeaderCellElement>>,
   ) => {
     const forwardedRef = useForwardedRef(ref);
 
     const { columnHeaderProps } = useTableColumnHeader(
       { node: column },
       state,
-      forwardedRef
+      forwardedRef,
     );
     const { isFocusVisible, focusProps } = useFocusRing();
 
@@ -63,12 +63,12 @@ export const TableColumnHeader = forwardRef(
       <th
         ref={forwardedRef}
         {...mergeProps(columnHeaderProps, focusProps)}
-        className={clsx("th-header", {
-          "--outline": isFocusVisible,
+        className={clsx('th-header', {
+          '--outline': isFocusVisible,
         })}
       >
         {column.rendered}
       </th>
     );
-  }
+  },
 );

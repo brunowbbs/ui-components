@@ -1,5 +1,5 @@
-import { HtmlHTMLAttributes, Ref, forwardRef } from "react";
-import { useTable } from "react-aria";
+import { HtmlHTMLAttributes, Ref, forwardRef } from 'react';
+import { useTable } from 'react-aria';
 import {
   Cell,
   Column,
@@ -7,15 +7,13 @@ import {
   TableBody,
   TableHeader,
   useTableState,
-} from "react-stately";
-import { TableCell, TableCheckboxCell, TableSelectAllCell } from "./cell";
-import { TableColumnHeader, TableHeaderRow, TableRowGroup } from "./header";
-import { TableRow } from "./row";
-import { CustomTableProps, ItemsTypes, RowTypes, TableProps } from "./types";
+} from 'react-stately';
+import { TableCell, TableCheckboxCell, TableSelectAllCell } from './cell';
+import { TableColumnHeader, TableHeaderRow, TableRowGroup } from './header';
+import { TableRow } from './row';
+import { CustomTableProps, ItemsTypes, RowTypes, TableProps } from './types';
 
-import useForwardedRef from "@bedrock-layout/use-forwarded-ref";
-
-import "./styles.css";
+import useForwardedRef from '@bedrock-layout/use-forwarded-ref';
 
 export const CustomTable = forwardRef(
   (props: CustomTableProps, ref: Ref<HtmlHTMLAttributes<HTMLTableElement>>) => {
@@ -25,7 +23,7 @@ export const CustomTable = forwardRef(
     const state = useTableState({
       ...props,
       showSelectionCheckboxes:
-        selectionMode === "multiple" && selectionBehavior !== "replace",
+        selectionMode === 'multiple' && selectionBehavior !== 'replace',
     });
 
     const { collection } = state;
@@ -49,7 +47,7 @@ export const CustomTable = forwardRef(
                     column={column}
                     state={state}
                   />
-                )
+                ),
               )}
             </TableHeaderRow>
           ))}
@@ -62,20 +60,20 @@ export const CustomTable = forwardRef(
                   <TableCheckboxCell key={cell.key} cell={cell} state={state} />
                 ) : (
                   <TableCell key={cell.key} cell={cell} state={state} />
-                )
+                ),
               )}
             </TableRow>
           ))}
         </TableRowGroup>
       </table>
     );
-  }
+  },
 );
 
 export function Table({
   columns,
   rows,
-  mode = "none",
+  mode = 'none',
   disabled,
   onRowAction,
 }: TableProps) {

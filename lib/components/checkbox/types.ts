@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 export type Props = {
-  className?: React.HTMLAttributes<HTMLDivElement>["className"];
+  className?: React.HTMLAttributes<HTMLDivElement>['className'];
   label: string;
   onChangeValue: (value: boolean) => void;
   error?: string;

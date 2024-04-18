@@ -1,7 +1,7 @@
-import "react-responsive-modal/styles.css";
-import { Modal as ModalResponsive } from "react-responsive-modal";
-import { PropsWithChildren } from "react";
-import { MdClose } from "react-icons/md";
+import 'react-responsive-modal/styles.css';
+import { Modal as ModalResponsive } from 'react-responsive-modal';
+import { PropsWithChildren } from 'react';
+import { MdClose } from 'react-icons/md';
 
 type ModalProps = {
   isOpen: boolean;
@@ -23,10 +23,10 @@ export function Modal({
       onClose={onClose}
       styles={{
         modal: {
-          width: "90%",
+          width: '90%',
           maxWidth,
           borderRadius: 8,
-          maxHeight: "90%",
+          maxHeight: '90%',
         },
       }}
     >
