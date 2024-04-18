@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ToastContainer } from 'react-toastify';
 
 import { MotionProps, motion } from 'framer-motion';
@@ -9,10 +10,10 @@ import { useMediaQuery } from 'react-responsive';
 import { Popover } from '../..';
 import { PopoverProfile } from './components/popover-profile';
 
+import clsx from 'clsx';
 import { FiChevronDown } from 'react-icons/fi';
 import logo from './logo-temp.jpeg';
 import { DashboardLayoutType, DropdownSelect } from './types';
-import clsx from 'clsx';
 
 export function DashboardLayout({
   children,

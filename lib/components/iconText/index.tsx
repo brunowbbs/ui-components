@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Children, forwardRef } from 'react';
 
 import useForwardedRef from '@bedrock-layout/use-forwarded-ref';

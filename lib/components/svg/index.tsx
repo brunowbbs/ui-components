@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { forwardRef, useCallback, useMemo } from 'react';
 
 import { useId } from '@react-aria/utils';
@@ -43,13 +44,10 @@ export const Svg = forwardRef<SVGSVGElement, SvgProps>(
           </Tag>
         );
       },
-      [ariaId, color, isCurrentColor, width, height],
+      [ref, width, height, isCurrentColor, color, ariaId],
     );
 
-    const svg = useMemo(
-      () => src && jsonToJSX(src),
-      [src, color, isCurrentColor, width, height],
-    );
+    const svg = useMemo(() => src && jsonToJSX(src), [src, jsonToJSX]);
 
     return (
       <i

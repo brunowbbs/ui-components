@@ -7,6 +7,7 @@ import { Text } from '..';
 
 import { ThemeVariant } from '../..';
 
+// eslint-disable-next-line react-refresh/only-export-components
 function Toast(
   { title, message }: ToastProps,
   renderIcon: JSX.Element,

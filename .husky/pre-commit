@@ -1,0 +1,6 @@
+yarn format
+yarn lint
+yarn svg
+yarn bundle
+yarn build-storybook
+yarn build
