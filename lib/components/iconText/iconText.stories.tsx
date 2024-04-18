@@ -1,12 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { IconLeft, IconRight, IconText } from '.';
-import { camera } from '../../assets/generated';
+import { IconLeft, IconRight, IconText } from ".";
+import { camera } from "../../assets/generated";
 
 const meta: Meta<typeof IconText> = {
-  title: 'Componentes/IconText',
+  title: "Componentes/IconText",
   component: IconText,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   args: {},
   render: ({ ...args }) => (
     <IconText {...args}>
@@ -17,25 +17,25 @@ const meta: Meta<typeof IconText> = {
   ),
   argTypes: {
     size: {
-      description: 'Tamanho dos textos',
-      control: { type: 'select' },
-      defaultValue: 'md',
+      description: "Tamanho dos textos",
+      control: { type: "select" },
+      defaultValue: "md",
       options: [
-        '2xl',
-        '3xl',
-        '4xl',
-        '5xl',
-        '6xl',
-        'lg',
-        'md',
-        'sm',
-        'xl',
-        'xs',
+        "2xl",
+        "3xl",
+        "4xl",
+        "5xl",
+        "6xl",
+        "lg",
+        "md",
+        "sm",
+        "xl",
+        "xs",
       ],
     },
     isVertical: {
-      description: 'Componente muda sua orientção para vertical',
-      type: 'boolean',
+      description: "Componente muda sua orientção para vertical",
+      type: "boolean",
     },
   },
 };

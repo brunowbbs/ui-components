@@ -1,7 +1,7 @@
-import clsx from 'clsx';
-import { useState } from 'react';
-import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
-import { InputProps } from './types';
+import clsx from "clsx";
+import { useState } from "react";
+import { RiEyeLine, RiEyeOffLine } from "react-icons/ri";
+import { InputProps } from "./types";
 
 export function Input(props: InputProps) {
   const [isVisibleContent, setIsVisibleContent] = useState(false);
@@ -9,17 +9,17 @@ export function Input(props: InputProps) {
 
   const inputType = props.isPassword
     ? isVisibleContent
-      ? 'text'
-      : 'password'
-    : props.type ?? 'text';
+      ? "text"
+      : "password"
+    : props.type ?? "text";
 
   return (
-    <div className={`flex flex-col w-${props.width ?? 'full'}`}>
+    <div className={`flex flex-col w-${props.width ?? "full"}`}>
       <p className="text-sm font-medium">{props.label}</p>
       <div
-        className={clsx('border rounded py-[0.75px] relative border-gray-400', {
-          'border-primary': isFocused,
-          'border-red-600': props.error,
+        className={clsx("border rounded py-[0.75px] relative border-gray-400", {
+          "border-primary": isFocused,
+          "border-red-600": props.error,
         })}
       >
         <div className="flex items-center">
@@ -29,14 +29,14 @@ export function Input(props: InputProps) {
             onChange={(event) => props.onChangeValue(event.target.value)}
             type={inputType}
             className={clsx(
-              'text-sm font-medium px-2 h-7 rounded outline-none border-gray-500 w-full focus:ring-primary focus:border-primary',
+              "text-sm font-medium px-2 h-7 rounded outline-none border-gray-500 w-full focus:ring-primary focus:border-primary",
               {
-                'pr-6': props.isPassword,
-                'cursor-pointer':
-                  props.type === 'date' ||
-                  props.type === 'datetime-local' ||
-                  props.type === 'time',
-              },
+                "pr-6": props.isPassword,
+                "cursor-pointer":
+                  props.type === "date" ||
+                  props.type === "datetime-local" ||
+                  props.type === "time",
+              }
             )}
             placeholder={props.placeholder}
             onFocus={() => setIsFocused(true)}
@@ -46,7 +46,7 @@ export function Input(props: InputProps) {
         {props.isPassword && (
           <div
             className={clsx(
-              `absolute inset-y-0 right-0 flex items-center pr-2`,
+              `absolute inset-y-0 right-0 flex items-center pr-2`
             )}
           >
             {!isVisibleContent ? (

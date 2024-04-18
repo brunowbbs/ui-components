@@ -1,18 +1,18 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Card } from '.';
+import { Card } from ".";
 
 const meta: Meta<typeof Card> = {
-  title: 'Componentes/Card',
+  title: "Componentes/Card",
   component: Card,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   args: {
-    children: 'child card',
+    children: "child card",
   },
   argTypes: {
     children: {
       description:
-        'Componente que renderiza um componente filho dentro de uma box (Card)',
+        "Componente que renderiza um componente filho dentro de uma box (Card)",
     },
   },
 };

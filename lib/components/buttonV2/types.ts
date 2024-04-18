@@ -1,9 +1,9 @@
-import type { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from "react";
 
-import type { AriaButtonProps } from '@react-types/button';
-import { ThemeSize, ThemeVariant } from '../..';
+import type { AriaButtonProps } from "@react-types/button";
+import { ThemeSize, ThemeVariant } from "../..";
 
-export type ButtonProps = AriaButtonProps<'button'> &
+export type ButtonProps = AriaButtonProps<"button"> &
   PropsWithChildren<{
     isLink?: boolean;
     isVertical?: boolean;
@@ -12,5 +12,6 @@ export type ButtonProps = AriaButtonProps<'button'> &
     variant?: ThemeVariant;
     title?: string;
     size?: ThemeSize;
+    className?: string;
     isLoading?: boolean;
   }>;

@@ -24916,8 +24916,11 @@ const jH = qr(
           E == null ? void 0 : E.map(m)
         );
       },
-      [f, l, c, s, n, p]
-    ), v = hn(() => e && m(e), [e, m]);
+      [p, n, s, l, c]
+    ), v = hn(
+      () => e && m(e),
+      [e, n, s, l, c]
+    );
     return /* @__PURE__ */ _e(
       "i",
       {
@@ -24989,41 +24992,42 @@ const jH = qr(
       children: r,
       isSummary: i,
       isLink: s,
-      isLoading: l,
-      isOutlined: c,
-      isVertical: f,
-      isDisabled: p,
-      title: m,
-      size: v
-    } = t, y = oo(e), x = Yj(t, y), { firstIcon: E, lastIcon: C } = kL(r), w = i ? "summary" : "button", A = xM.count(r) === 1, O = UH(1, E, C) && A, { buttonProps: _, isPressed: I } = x;
+      className: l,
+      isLoading: c,
+      isOutlined: f,
+      isVertical: p,
+      isDisabled: m,
+      title: v,
+      size: y
+    } = t, x = oo(e), E = Yj(t, x), { firstIcon: C, lastIcon: w } = kL(r), A = i ? "summary" : "button", T = xM.count(r) === 1, _ = UH(1, C, w) && T, { buttonProps: I, isPressed: z } = E;
     return /* @__PURE__ */ _e(
-      w,
+      A,
       {
         role: "button",
-        ref: y,
-        title: m,
-        "aria-pressed": I,
-        onKeyDown: i ? void 0 : _.onKeyDown,
-        className: Jt({
+        ...I,
+        ref: x,
+        title: v,
+        "aria-pressed": z,
+        onKeyDown: i ? void 0 : I.onKeyDown,
+        className: Jt(l, {
+          button: !s,
           link: s,
-          "--icon": O,
+          "--icon": _,
           "--primary": n === "primary",
           "--secondary": n === "secondary",
           "--danger": n === "danger",
           "--success": n === "success",
           "--warning": n === "warning",
-          "--disabled": p,
-          "--outlined": c,
-          "--loading": l,
-          "--xs": v === "xs",
-          "--sm": v === "sm",
-          "--md": v === "md",
-          "--lg": v === "lg",
-          "--xl": v === "xl"
+          "--disabled": m,
+          "--outlined": f,
+          "--loading": c,
+          "--xs": y === "xs",
+          "--sm": y === "sm",
+          "--md": y === "md",
+          "--lg": y === "lg",
+          "--xl": y === "xl"
         }),
-        disabled: p,
-        ..._,
-        children: /* @__PURE__ */ _e(HH, { isVertical: f, children: l ? /* @__PURE__ */ _e("div", { className: "mt-auto mb-auto min-w-24 flex items-center justify-center", children: /* @__PURE__ */ _e(_M, { color: c ? "green" : "white" }) }) : r })
+        children: /* @__PURE__ */ _e(HH, { isVertical: p, children: c ? /* @__PURE__ */ _e("div", { className: "mt-auto mb-auto min-w-24 flex items-center justify-center", children: /* @__PURE__ */ _e(_M, { color: f ? "green" : "white" }) }) : r })
       }
     );
   }

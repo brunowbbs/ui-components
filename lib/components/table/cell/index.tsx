@@ -1,5 +1,5 @@
-import type { Ref, TableHTMLAttributes } from 'react';
-import { forwardRef } from 'react';
+import type { Ref, TableHTMLAttributes } from "react";
+import { forwardRef } from "react";
 import {
   Key,
   VisuallyHidden,
@@ -9,20 +9,20 @@ import {
   useTableColumnHeader,
   useTableSelectAllCheckbox,
   useTableSelectionCheckbox,
-} from 'react-aria';
+} from "react-aria";
 
-import type { Node } from '@react-types/shared';
-import clsx from 'clsx';
+import type { Node } from "@react-types/shared";
+import clsx from "clsx";
 
-import { Checkbox } from '../checkbox';
-import type { TableCellProps, TableColProps } from './types';
+import { Checkbox } from "../checkbox";
+import type { TableCellProps, TableColProps } from "./types";
 
-import useForwardedRef from '@bedrock-layout/use-forwarded-ref';
+import useForwardedRef from "@bedrock-layout/use-forwarded-ref";
 
 export const TableCell = forwardRef(
   (
     { cell, state }: TableCellProps,
-    ref: Ref<TableHTMLAttributes<HTMLTableDataCellElement>>,
+    ref: Ref<TableHTMLAttributes<HTMLTableDataCellElement>>
   ) => {
     const forwardedRef = useForwardedRef(ref);
     const { gridCellProps } = useTableCell({ node: cell }, state, forwardedRef);
@@ -38,26 +38,26 @@ export const TableCell = forwardRef(
       <td
         ref={forwardedRef}
         {...mergeProps(gridCellProps, focusProps)}
-        className={clsx('td-cell', {
-          '--outlined': isFocusVisible,
+        className={clsx("td-cell", {
+          "--outlined": isFocusVisible,
         })}
       >
         {handleRenderCellComponent(cell)}
       </td>
     );
-  },
+  }
 );
 
 export const TableCheckboxCell = forwardRef(
   (
     { cell, state }: TableCellProps,
-    ref: Ref<TableHTMLAttributes<HTMLTableDataCellElement>>,
+    ref: Ref<TableHTMLAttributes<HTMLTableDataCellElement>>
   ) => {
     const forwardedRef = useForwardedRef(ref);
     const { gridCellProps } = useTableCell({ node: cell }, state, forwardedRef);
     const { checkboxProps } = useTableSelectionCheckbox(
       { key: cell.parentKey as Key },
-      state,
+      state
     );
 
     return (
@@ -69,31 +69,31 @@ export const TableCheckboxCell = forwardRef(
         <Checkbox {...checkboxProps} />
       </td>
     );
-  },
+  }
 );
 
 export const TableSelectAllCell = forwardRef(
   (
     { column, state }: TableColProps,
-    ref: Ref<TableHTMLAttributes<HTMLTableHeaderCellElement>>,
+    ref: Ref<TableHTMLAttributes<HTMLTableHeaderCellElement>>
   ) => {
     const forwardedRef = useForwardedRef(ref);
     const { columnHeaderProps } = useTableColumnHeader(
       { node: column },
       state,
-      forwardedRef,
+      forwardedRef
     );
     const { checkboxProps } = useTableSelectAllCheckbox(state);
-    const isShowCheckbox = state.selectionManager.selectionMode === 'single';
+    const isShowCheckbox = state.selectionManager.selectionMode === "single";
 
     return (
       <th {...columnHeaderProps} ref={forwardedRef}>
         {isShowCheckbox ? (
-          <VisuallyHidden>{checkboxProps['aria-label']}</VisuallyHidden>
+          <VisuallyHidden>{checkboxProps["aria-label"]}</VisuallyHidden>
         ) : (
           <Checkbox {...checkboxProps} />
         )}
       </th>
     );
-  },
+  }
 );

@@ -1,19 +1,18 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 
-import { MotionProps, motion } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { MotionProps, motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
-import { LuMenu } from 'react-icons/lu';
-import { MdMenu } from 'react-icons/md';
-import { useMediaQuery } from 'react-responsive';
-import { Popover } from '../..';
-import { PopoverProfile } from './components/popover-profile';
+import { LuMenu } from "react-icons/lu";
+import { MdMenu } from "react-icons/md";
+import { useMediaQuery } from "react-responsive";
+import { Popover } from "../..";
+import { PopoverProfile } from "./components/popover-profile";
 
-import clsx from 'clsx';
-import { FiChevronDown } from 'react-icons/fi';
-import logo from './logo-temp.jpeg';
-import { DashboardLayoutType, DropdownSelect } from './types';
+import { FiChevronDown } from "react-icons/fi";
+import logo from "./logo-temp.jpeg";
+import { DashboardLayoutType, DropdownSelect } from "./types";
+import clsx from "clsx";
 
 export function DashboardLayout({
   children,
@@ -23,9 +22,9 @@ export function DashboardLayout({
 }: DashboardLayoutType) {
   const [isShowPopoverProfile, setIsShowPopoverProfile] = useState(false);
 
-  const isSmallScreen = useMediaQuery({ query: '(max-width: 768px)' });
+  const isSmallScreen = useMediaQuery({ query: "(max-width: 768px)" });
   const [open, setOpen] = useState(
-    startSidebarOpened && !isSmallScreen ? true : false,
+    startSidebarOpened && !isSmallScreen ? true : false
   );
   const sidebarRef = useRef<MotionProps>();
 
@@ -48,7 +47,7 @@ export function DashboardLayout({
     ? {
         open: {
           x: 0,
-          width: '13rem',
+          width: "13rem",
           transition: {
             damping: 2,
           },
@@ -64,13 +63,13 @@ export function DashboardLayout({
       }
     : {
         open: {
-          width: '13rem',
+          width: "13rem",
           transition: {
             damping: 2,
           },
         },
         closed: {
-          width: '3.2rem',
+          width: "3.2rem",
           transition: {
             damping: 2,
           },
@@ -83,19 +82,19 @@ export function DashboardLayout({
         <div
           onClick={() => setOpen(false)}
           className={`md:hidden fixed inset-0 max-h-screen bg-black/50 z-[999] ${
-            open ? 'block' : 'hidden'
+            open ? "block" : "hidden"
           } `}
         ></div>
         <motion.div
           ref={sidebarRef as any}
           variants={Nav_animation}
           initial={{ x: isSmallScreen ? -250 : 0 }}
-          animate={open ? 'open' : 'closed'}
+          animate={open ? "open" : "closed"}
           className={clsx(
-            'bg-white border-transparent shadow-sm overflow-hidden md:relative fixed h-screen z-[999] font-medium',
-            { 'w-[13rem]': open, 'w-[3.2rem]': startSidebarOpened === false },
+            "bg-white border-transparent shadow-sm overflow-hidden md:relative fixed h-screen z-[999] font-medium",
+            { "w-[13rem]": open, "w-[3.2rem]": startSidebarOpened === false }
           )}
-          style={{ maxWidth: open ? '13rem' : '3.2rem' }}
+          style={{ maxWidth: open ? "13rem" : "3.2rem" }}
         >
           <div className="flex items-center gap-2 font-medium py-3 mx-5">
             <img src={logo} width={12} alt="" className="w-[12px]" />
@@ -234,7 +233,7 @@ export function DashboardLayout({
                 <img
                   src={
                     popoverProfile.userLoggedData.avatar ||
-                    'https://cdn-icons-png.flaticon.com/256/149/149071.png'
+                    "https://cdn-icons-png.flaticon.com/256/149/149071.png"
                   }
                   className="w-8 h-8 rounded-full cursor-pointer"
                 />

@@ -1,10 +1,10 @@
-import { LuLogOut } from 'react-icons/lu';
-import { PopoverProfileProps } from './types';
+import { LuLogOut } from "react-icons/lu";
+import { PopoverProfileProps } from "./types";
 
 export function PopoverProfile({
   menuItems = [],
   userLoggedData,
-  logoutAction = () => alert('ok'),
+  logoutAction = () => alert("ok"),
 }: PopoverProfileProps) {
   return (
     <div className="w-full">
@@ -12,7 +12,7 @@ export function PopoverProfile({
         <img
           src={
             userLoggedData.avatar ||
-            'https://cdn-icons-png.flaticon.com/256/149/149071.png'
+            "https://cdn-icons-png.flaticon.com/256/149/149071.png"
           }
           className="w-8 h-8 rounded-full"
         />

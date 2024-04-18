@@ -1,14 +1,14 @@
-import { defaults } from 'chart.js/auto';
-import { Line } from 'react-chartjs-2';
-import { LineChartProps } from './types';
-import { COLORS } from '../../../../utils';
+import { defaults } from "chart.js/auto";
+import { Line } from "react-chartjs-2";
+import { LineChartProps } from "./types";
+import { COLORS } from "../../../../utils";
 
 defaults.maintainAspectRatio = false;
 defaults.responsive = true;
 
 defaults.plugins.title.display = false;
-defaults.plugins.title.align = 'start';
-defaults.plugins.title.color = 'black';
+defaults.plugins.title.align = "start";
+defaults.plugins.title.color = "black";
 
 export function LineChart({
   height = 400,
@@ -16,8 +16,8 @@ export function LineChart({
   offset = 4,
   color1 = COLORS.primary,
   color2 = COLORS.warning,
-  label1 = 'Total1',
-  label2 = 'Total2',
+  label1 = "Total1",
+  label2 = "Total2",
 }: LineChartProps) {
   return (
     <div className="flex-1" style={{ height }}>
@@ -52,7 +52,7 @@ export function LineChart({
                 display: true,
                 font: {
                   weight: 700,
-                  family: 'Plus Jakarta Sans',
+                  family: "Plus Jakarta Sans",
                   size: 10,
                 },
               },
@@ -61,7 +61,7 @@ export function LineChart({
               ticks: {
                 font: {
                   weight: 700,
-                  family: 'Plus Jakarta Sans',
+                  family: "Plus Jakarta Sans",
                   size: 10,
                 },
                 // display: false,
@@ -77,11 +77,11 @@ export function LineChart({
           plugins: {
             legend: {
               display: true,
-              position: 'bottom',
+              position: "bottom",
               labels: {
                 font: {
                   weight: 700,
-                  family: 'Plus Jakarta Sans',
+                  family: "Plus Jakarta Sans",
                   size: 10,
                 },
               },
@@ -89,12 +89,12 @@ export function LineChart({
 
             datalabels: {
               display: true,
-              color: 'black',
-              align: 'end',
-              anchor: 'end',
+              color: "black",
+              align: "end",
+              anchor: "end",
               offset,
               font: {
-                family: 'Plus Jakarta Sans',
+                family: "Plus Jakarta Sans",
                 size: 10,
                 weight: 700,
               },

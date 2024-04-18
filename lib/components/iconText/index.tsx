@@ -1,16 +1,17 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { Children, forwardRef } from 'react';
+import { Children, forwardRef } from "react";
 
-import useForwardedRef from '@bedrock-layout/use-forwarded-ref';
-import clsx from 'clsx';
-import { beSlot, useSlots } from 'use-slots';
+import useForwardedRef from "@bedrock-layout/use-forwarded-ref";
+import clsx from "clsx";
+import { beSlot, useSlots } from "use-slots";
 
-import type { IconTextElement, IconTextProps } from './types';
+import type { IconTextElement, IconTextProps } from "./types";
 
-import { Text } from '..';
+import { Text } from "..";
 
-import { Icon } from '../icon';
-import { IconProps } from '../icon/types';
+import { Icon } from "../icon";
+import { IconProps } from "../icon/types";
+
+import "./styles.css";
 
 export const IconText = forwardRef<IconTextElement, IconTextProps>(
   ({ children, isVertical = false, as, size }, ref) => {
@@ -19,7 +20,7 @@ export const IconText = forwardRef<IconTextElement, IconTextProps>(
     const { leftIcon, rightIcon } = useSlots(children);
 
     const text = Children.toArray(children).find(
-      (child: any) => !child?.type?.slot,
+      (child: any) => !child?.type?.slot
     );
 
     return (
@@ -27,8 +28,8 @@ export const IconText = forwardRef<IconTextElement, IconTextProps>(
         as={as}
         size={size}
         ref={forwardedRef}
-        className={clsx('icon-text', {
-          '--vertical': isVertical,
+        className={clsx("icon-text", {
+          "--vertical": isVertical,
         })}
         mode="unset"
       >
@@ -37,15 +38,15 @@ export const IconText = forwardRef<IconTextElement, IconTextProps>(
         {rightIcon}
       </Text>
     );
-  },
+  }
 );
 
 export const IconLeft = beSlot(
   (props: IconProps) => <Icon {...props} />,
-  'leftIcon',
+  "leftIcon"
 );
 
 export const IconRight = beSlot(
   (props: IconProps) => <Icon {...props} />,
-  'rightIcon',
+  "rightIcon"
 );

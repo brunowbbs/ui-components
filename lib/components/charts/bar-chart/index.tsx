@@ -1,18 +1,18 @@
-import { Chart } from 'chart.js';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { Chart } from "chart.js";
+import ChartDataLabels from "chartjs-plugin-datalabels";
 
-import { defaults } from 'chart.js/auto';
+import { defaults } from "chart.js/auto";
 
-import { Bar } from 'react-chartjs-2';
-import { COLORS } from '../../../../utils';
-import { BarChartProps } from './types';
+import { Bar } from "react-chartjs-2";
+import { COLORS } from "../../../../utils";
+import { BarChartProps } from "./types";
 
 defaults.maintainAspectRatio = false;
 defaults.responsive = true;
 
 defaults.plugins.title.display = false;
-defaults.plugins.title.align = 'start';
-defaults.plugins.title.color = 'black';
+defaults.plugins.title.align = "start";
+defaults.plugins.title.color = "black";
 
 Chart.register(ChartDataLabels);
 
@@ -21,7 +21,7 @@ export function BarChart({
   sourceData = [],
   offset = 4,
   color = COLORS.primary,
-  label = 'Total',
+  label = "Total",
 }: BarChartProps) {
   if (sourceData?.length < 1) {
     return <h3 className="text-sm ">Informe os dados do Bar chart</h3>;
@@ -55,7 +55,7 @@ export function BarChart({
                 display: true,
                 font: {
                   weight: 700,
-                  family: 'Plus Jakarta Sans',
+                  family: "Plus Jakarta Sans",
                   size: 10,
                 },
               },
@@ -64,7 +64,7 @@ export function BarChart({
               ticks: {
                 font: {
                   weight: 700,
-                  family: 'Plus Jakarta Sans',
+                  family: "Plus Jakarta Sans",
                   size: 10,
                 },
                 // display: false,
@@ -84,12 +84,12 @@ export function BarChart({
 
             datalabels: {
               display: true,
-              color: 'black',
-              align: 'end',
-              anchor: 'end',
+              color: "black",
+              align: "end",
+              anchor: "end",
               offset,
               font: {
-                family: 'Plus Jakarta Sans',
+                family: "Plus Jakarta Sans",
                 size: 10,
                 weight: 700,
               },

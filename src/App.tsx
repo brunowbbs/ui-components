@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { AiOutlineAppstore } from 'react-icons/ai';
-import { IoMdMore } from 'react-icons/io';
-import { LuSettings, LuUser } from 'react-icons/lu';
-import { MdDashboard, MdHome, MdReport } from 'react-icons/md';
-import { RiMoneyDollarCircleLine } from 'react-icons/ri';
+import { useState } from "react";
+import { AiOutlineAppstore } from "react-icons/ai";
+import { IoMdMore } from "react-icons/io";
+import { LuSettings, LuUser } from "react-icons/lu";
+import { MdDashboard, MdHome, MdReport } from "react-icons/md";
+import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import {
   BarChart,
   Button,
@@ -30,31 +30,31 @@ import {
   mountDataTable,
   showAlert,
   showToast,
-} from '../lib';
-import { Form } from './components/form';
+} from "../lib";
+import { Form } from "./components/form";
 
 const MENU_ITEMS = [
   {
-    group_name: 'Home',
+    group_name: "Home",
     items: [
       {
         icon: (
           <AiOutlineAppstore size={18} className="min-w-max" color="#999" />
         ),
-        title: 'Home',
-        action: () => alert('ok'),
+        title: "Home",
+        action: () => alert("ok"),
         dropdown: [
           {
-            title: 'Dropdown 1',
-            action: () => alert('ok'),
+            title: "Dropdown 1",
+            action: () => alert("ok"),
           },
           {
-            title: 'Dropdown 2',
-            action: () => alert('ok'),
+            title: "Dropdown 2",
+            action: () => alert("ok"),
           },
           {
-            title: 'Dropdown 2',
-            action: () => alert('ok'),
+            title: "Dropdown 2",
+            action: () => alert("ok"),
           },
         ],
       },
@@ -62,66 +62,66 @@ const MENU_ITEMS = [
         icon: (
           <AiOutlineAppstore size={18} className="min-w-max" color="#999" />
         ),
-        title: 'Charts',
-        action: () => alert('ok'),
+        title: "Charts",
+        action: () => alert("ok"),
       },
     ],
   },
   {
-    group_name: 'Vendas',
+    group_name: "Vendas",
     items: [
       {
         icon: (
           <AiOutlineAppstore size={18} className="min-w-max" color="#999" />
         ),
-        title: 'Home',
-        action: () => alert('ok'),
+        title: "Home",
+        action: () => alert("ok"),
       },
       {
         icon: (
           <AiOutlineAppstore size={18} className="min-w-max" color="#999" />
         ),
-        title: 'Charts',
-        action: () => alert('ok'),
+        title: "Charts",
+        action: () => alert("ok"),
       },
     ],
   },
   {
-    group_name: 'Relatorios',
+    group_name: "Relatorios",
     items: [
       {
         icon: (
           <AiOutlineAppstore size={18} className="min-w-max" color="#999" />
         ),
-        title: 'Home',
-        action: () => alert('ok'),
+        title: "Home",
+        action: () => alert("ok"),
       },
       {
         icon: (
           <AiOutlineAppstore size={18} className="min-w-max" color="#999" />
         ),
-        title: 'Charts',
-        action: () => alert('ok'),
+        title: "Charts",
+        action: () => alert("ok"),
       },
     ],
   },
 ];
 
 const USER_LOGGED = {
-  description: 'Porteirinha - MG',
-  name: 'Wesley Bruno',
+  description: "Porteirinha - MG",
+  name: "Wesley Bruno",
 };
 
 const MENU_ITEMS_POPOVER_PROFILE = [
   {
-    title: 'Meu Perfil',
+    title: "Meu Perfil",
     icon: <LuUser size={14} />,
-    action: () => alert('ok'),
+    action: () => alert("ok"),
   },
   {
-    title: 'Ajustes',
+    title: "Ajustes",
     icon: <LuSettings size={14} />,
-    action: () => alert('ok'),
+    action: () => alert("ok"),
   },
 ];
 
@@ -141,26 +141,26 @@ const sourceData2 = Array.from({ length: 28 }, (_, index) => {
 
 const sourcedata3 = [
   {
-    label: 'Leandro',
+    label: "Leandro",
     value: 32,
   },
   {
-    label: 'Antonio',
+    label: "Antonio",
     value: 45,
   },
   {
-    label: 'Fernanda',
+    label: "Fernanda",
     value: 23,
   },
 ];
 
 const { columns, rows } = mountDataTable(
-  ['Id', 'Date', 'Status', 'Customer', 'Purchased'],
+  ["Id", "Date", "Status", "Customer", "Purchased"],
   [
-    ['1', '01 de mar 24', 'pending', 'John', 'unpaid'],
-    ['2', '12 de mar 24', 'processed', 'Leo', 'paid'],
-    ['3', '21 de mar 25', 'processed', 'Bruno', 'paid'],
-  ],
+    ["1", "01 de mar 24", "pending", "John", "unpaid"],
+    ["2", "12 de mar 24", "processed", "Leo", "paid"],
+    ["3", "21 de mar 25", "processed", "Bruno", "paid"],
+  ]
 );
 
 function App() {
@@ -173,7 +173,7 @@ function App() {
       startSidebarOpened={false}
       menuItems={MENU_ITEMS}
       popoverProfile={{
-        logoutAction: () => alert('ok'),
+        logoutAction: () => alert("ok"),
         userLoggedData: USER_LOGGED,
         menuItems: MENU_ITEMS_POPOVER_PROFILE,
       }}
@@ -209,51 +209,51 @@ function App() {
           </p>
 
           <div className="flex gap-2 flex-wrap">
-            <Button text="Primary" onClick={() => alert('ok')} />
+            <Button text="Primary" onClick={() => alert("ok")} />
 
             <Button
               size="lg"
               text="Primary"
-              onClick={() => alert('ok')}
+              onClick={() => alert("ok")}
               outline
               variant="primary"
             />
             <Button
               text="Danger"
-              onClick={() => alert('ok')}
+              onClick={() => alert("ok")}
               variant="danger"
             />
             <Button
               text="Warning"
-              onClick={() => alert('ok')}
+              onClick={() => alert("ok")}
               variant="warning"
             />
             <Button
               text="Secondary"
-              onClick={() => alert('ok')}
+              onClick={() => alert("ok")}
               variant="secondary"
             />
             <Button
               text="Success"
-              onClick={() => alert('ok')}
+              onClick={() => alert("ok")}
               variant="success"
             />
             <Button
               text="Pressione"
-              onClick={() => alert('ok')}
+              onClick={() => alert("ok")}
               iconLeft={<LuSettings size={12} />}
             />
             <Button
               text="Pressione"
-              onClick={() => alert('ok')}
+              onClick={() => alert("ok")}
               iconRight={<LuSettings size={12} />}
             />
             <Button isLoading />
             <Button
-              onClick={() => alert('ok')}
+              onClick={() => alert("ok")}
               iconLeft={<LuSettings size={12} />}
             />
-            <Button text="Link" onClick={() => alert('ok')} link={true} />
+            <Button text="Link" onClick={() => alert("ok")} link={true} />
           </div>
 
           <p className="text-sm uppercase mt-4 font-bold text-primary">
@@ -261,11 +261,11 @@ function App() {
           </p>
 
           <div className="flex gap-2 flex-wrap">
-            <ButtonV2 variant="unset" onPress={() => alert('ok')}>
+            <ButtonV2 variant="unset" onPress={() => alert("ok")}>
               Default
             </ButtonV2>
 
-            <ButtonV2 size="md" variant="primary" onPress={() => alert('ok')}>
+            <ButtonV2 size="md" variant="primary" onPress={() => alert("ok")}>
               Primary
             </ButtonV2>
 
@@ -273,37 +273,37 @@ function App() {
               size="md"
               isLoading
               variant="primary"
-              onPress={() => alert('ok')}
+              onPress={() => alert("ok")}
             >
               Primary
             </ButtonV2>
 
-            <ButtonV2 size="md" variant="secondary" onPress={() => alert('ok')}>
+            <ButtonV2 size="md" variant="secondary" onPress={() => alert("ok")}>
               Secondary
             </ButtonV2>
 
-            <ButtonV2 size="md" variant="danger" onPress={() => alert('ok')}>
+            <ButtonV2 size="md" variant="danger" onPress={() => alert("ok")}>
               Danger
             </ButtonV2>
 
-            <ButtonV2 size="md" variant="warning" onPress={() => alert('ok')}>
+            <ButtonV2 size="md" variant="warning" onPress={() => alert("ok")}>
               Warning
             </ButtonV2>
 
-            <ButtonV2 size="md" variant="success" onPress={() => alert('ok')}>
+            <ButtonV2 size="md" variant="success" onPress={() => alert("ok")}>
               Success
             </ButtonV2>
 
             <ButtonV2
               size="md"
               variant="primary"
-              onPress={() => alert('ok')}
+              onPress={() => alert("ok")}
               isOutlined
             >
               Outlined
             </ButtonV2>
 
-            <ButtonV2 size="md" variant="primary" onPress={() => alert('ok')}>
+            <ButtonV2 size="md" variant="primary" onPress={() => alert("ok")}>
               <Icon src={camera} alt="camera ícone" />
             </ButtonV2>
 
@@ -311,7 +311,7 @@ function App() {
               size="md"
               variant="primary"
               isLink
-              onPress={() => alert('ok')}
+              onPress={() => alert("ok")}
             >
               Link
             </ButtonV2>
@@ -341,7 +341,7 @@ function App() {
               isPassword={true}
             />
             <Input
-              value={new Date().toISOString().split('T')[0]}
+              value={new Date().toISOString().split("T")[0]}
               width={80}
               label="Data"
               type="date"
@@ -451,9 +451,9 @@ function App() {
               label="Cidade"
               placeholder="Selecione uma cidade"
               options={[
-                { label: 'Porteirinha', value: 1 },
-                { label: 'Janaúba', value: 2 },
-                { label: 'Montes Claros', value: 3 },
+                { label: "Porteirinha", value: 1 },
+                { label: "Janaúba", value: 2 },
+                { label: "Montes Claros", value: 3 },
               ]}
             />
             <Input
@@ -479,11 +479,11 @@ function App() {
               label="Eletrodomésticos"
               placeholder="Selecione seus eletrodomésticos"
               options={[
-                { label: 'Geladeira', value: 1 },
-                { label: 'Liquidificador', value: 2 },
-                { label: 'Batedeira', value: 3 },
-                { label: 'Forno elétrico', value: 4 },
-                { label: 'Cafeteira', value: 5 },
+                { label: "Geladeira", value: 1 },
+                { label: "Liquidificador", value: 2 },
+                { label: "Batedeira", value: 3 },
+                { label: "Forno elétrico", value: 4 },
+                { label: "Cafeteira", value: 5 },
               ]}
             />
           </div>
@@ -518,9 +518,9 @@ function App() {
             label=""
             onChangeValue={(value) => console.log(value)}
             options={[
-              { label: 'Option 1', value: 'option1' },
-              { label: 'Option 2', value: 'option2' },
-              { label: 'Option 3', value: 'option3' },
+              { label: "Option 1", value: "option1" },
+              { label: "Option 2", value: "option2" },
+              { label: "Option 3", value: "option3" },
             ]}
           />
         </Card>
@@ -534,11 +534,11 @@ function App() {
               variant="success"
               onClick={() =>
                 showAlert({
-                  message: 'Há registros que precisam de atenção',
-                  title: 'Atenção',
-                  onAction: () => alert('ok'),
-                  textButton: 'Verificar',
-                  type: 'success',
+                  message: "Há registros que precisam de atenção",
+                  title: "Atenção",
+                  onAction: () => alert("ok"),
+                  textButton: "Verificar",
+                  type: "success",
                 })
               }
             />
@@ -547,11 +547,11 @@ function App() {
               variant="danger"
               onClick={() =>
                 showAlert({
-                  message: 'Há registros que precisam de atenção',
-                  title: 'Atenção',
-                  onAction: () => alert('ok'),
-                  textButton: 'Verificar',
-                  type: 'error',
+                  message: "Há registros que precisam de atenção",
+                  title: "Atenção",
+                  onAction: () => alert("ok"),
+                  textButton: "Verificar",
+                  type: "error",
                 })
               }
             />
@@ -560,11 +560,11 @@ function App() {
               variant="warning"
               onClick={() =>
                 showAlert({
-                  message: 'Há registros que precisam de atenção',
-                  title: 'Atenção',
-                  onAction: () => alert('ok'),
-                  textButton: 'Verificar',
-                  type: 'warning',
+                  message: "Há registros que precisam de atenção",
+                  title: "Atenção",
+                  onAction: () => alert("ok"),
+                  textButton: "Verificar",
+                  type: "warning",
                 })
               }
             />
@@ -580,17 +580,17 @@ function App() {
             <Button
               text="Success"
               variant="success"
-              onClick={() => showToast.success('Cliente salvo com sucesso')}
+              onClick={() => showToast.success("Cliente salvo com sucesso")}
             />
             <Button
               text="Error"
               variant="danger"
-              onClick={() => showToast.error('Erro ao salvar cliente')}
+              onClick={() => showToast.error("Erro ao salvar cliente")}
             />
             <Button
               text="Warning"
               variant="warning"
-              onClick={() => showToast.warning('Perigo ao salvar cliente')}
+              onClick={() => showToast.warning("Perigo ao salvar cliente")}
             />
           </div>
         </Card>
@@ -609,7 +609,7 @@ function App() {
           <Tabs
             tabs={[
               {
-                title: 'Tab 1',
+                title: "Tab 1",
                 content: (
                   <div className="text-sm">
                     <p>Content for Tab 1</p>
@@ -617,7 +617,7 @@ function App() {
                 ),
               },
               {
-                title: 'Tab 2',
+                title: "Tab 2",
                 content: (
                   <div className="text-sm">
                     <p>Content for Tab 2</p>
@@ -625,7 +625,7 @@ function App() {
                 ),
               },
               {
-                title: 'Tab 3',
+                title: "Tab 3",
                 content: (
                   <div className="text-sm">
                     <p>Content for Tab 3</p>
@@ -649,7 +649,7 @@ function App() {
                 </div>
               ),
               icon: <MdHome size={22} />,
-              name: 'Step 1',
+              name: "Step 1",
             },
             {
               component: (
@@ -658,7 +658,7 @@ function App() {
                 </div>
               ),
               icon: <MdDashboard size={22} />,
-              name: 'Step 2',
+              name: "Step 2",
             },
             {
               component: (
@@ -667,7 +667,7 @@ function App() {
                 </div>
               ),
               icon: <MdReport size={22} />,
-              name: 'Step 2',
+              name: "Step 2",
             },
           ]}
         />
@@ -724,7 +724,7 @@ function App() {
                     onChangeValue={() => {}}
                     label=""
                     placeholder="Selecione um vendedor"
-                    options={[{ label: 'Wesley', value: 1 }]}
+                    options={[{ label: "Wesley", value: 1 }]}
                   />
                 </div>
               </div>
@@ -752,7 +752,7 @@ function App() {
                     onChangeValue={() => {}}
                     label=""
                     placeholder="Selecione um vendedor"
-                    options={[{ label: 'Wesley', value: 1 }]}
+                    options={[{ label: "Wesley", value: 1 }]}
                   />
                 </div>
               </div>
@@ -782,7 +782,7 @@ function App() {
                     onChangeValue={() => {}}
                     label=""
                     placeholder="Selecione um vendedor"
-                    options={[{ label: 'Wesley', value: 1 }]}
+                    options={[{ label: "Wesley", value: 1 }]}
                   />
                 </div>
               </div>
@@ -810,7 +810,7 @@ function App() {
                     onChangeValue={() => {}}
                     label=""
                     placeholder="Selecione um vendedor"
-                    options={[{ label: 'Wesley', value: 1 }]}
+                    options={[{ label: "Wesley", value: 1 }]}
                   />
                 </div>
               </div>
@@ -857,11 +857,11 @@ function App() {
 
           <Table
             mode="multiple"
-            disabled={['1']}
+            disabled={["1"]}
             columns={columns}
             rows={rows}
             onRowAction={(key) => {
-              console.log('ROW:', key);
+              console.log("ROW:", key);
             }}
           />
         </Card>

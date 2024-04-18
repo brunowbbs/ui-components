@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { forwardRef, useCallback, useMemo } from 'react';
+import { forwardRef, useCallback, useMemo } from "react";
 
-import { useId } from '@react-aria/utils';
+import { useId } from "@react-aria/utils";
 
-import type { SvgProps } from './types';
+import type { SvgProps } from "./types";
 
 export const Svg = forwardRef<SVGSVGElement, SvgProps>(
   (
@@ -14,20 +13,20 @@ export const Svg = forwardRef<SVGSVGElement, SvgProps>(
       className,
       clipPathId,
       isCurrentColor = false,
-      width = '100%',
-      height = '100%',
+      width = "100%",
+      height = "100%",
     },
-    ref,
+    ref
   ) => {
-    const ariaId = useId(alt?.replace(/\s/g, '-'));
+    const ariaId = useId(alt?.replace(/\s/g, "-"));
 
     const jsonToJSX = useCallback(
       ({ tag: Tag, props, children }: any, i = 0) => {
-        const svgProps = { ref, width, height, 'aria-hidden': 'true' };
+        const svgProps = { ref, width, height, "aria-hidden": "true" };
 
         const pathProps = {
           fill: isCurrentColor
-            ? 'currentColor'
+            ? "currentColor"
             : color ??
               props?.fill?.replace(/^url\((.*)\)$/, `url($1-${ariaId})`),
         };
@@ -35,8 +34,8 @@ export const Svg = forwardRef<SVGSVGElement, SvgProps>(
         return (
           <Tag
             {...props}
-            {...(Tag == 'svg' && svgProps)}
-            {...(Tag == 'path' && pathProps)}
+            {...(Tag == "svg" && svgProps)}
+            {...(Tag == "path" && pathProps)}
             key={`${ariaId}-${i}`}
             id={props.id && `${props.id}${ariaId}`}
           >
@@ -44,20 +43,23 @@ export const Svg = forwardRef<SVGSVGElement, SvgProps>(
           </Tag>
         );
       },
-      [ref, width, height, isCurrentColor, color, ariaId],
+      [ariaId, color, isCurrentColor, width, height]
     );
 
-    const svg = useMemo(() => src && jsonToJSX(src), [src, jsonToJSX]);
+    const svg = useMemo(
+      () => src && jsonToJSX(src),
+      [src, color, isCurrentColor, width, height]
+    );
 
     return (
       <i
         className={className}
-        role={'img'}
+        role={"img"}
         aria-label={alt}
         aria-hidden={!!clipPathId}
       >
         {svg}
       </i>
     );
-  },
+  }
 );

@@ -1,16 +1,18 @@
-import { mergeProps, useFocusRing, useTableRow } from 'react-aria';
+import { mergeProps, useFocusRing, useTableRow } from "react-aria";
 
-import clsx from 'clsx';
+import clsx from "clsx";
 
-import useForwardedRef from '@bedrock-layout/use-forwarded-ref';
-import type { TableRowProps } from './types';
+import useForwardedRef from "@bedrock-layout/use-forwarded-ref";
+import type { TableRowProps } from "./types";
 
-import { Ref, TableHTMLAttributes, forwardRef } from 'react';
+import { Ref, TableHTMLAttributes, forwardRef } from "react";
+
+import "../styles.css";
 
 export const TableRow = forwardRef(
   (
     { item, state, children }: TableRowProps,
-    ref: Ref<TableHTMLAttributes<HTMLTableRowElement>>,
+    ref: Ref<TableHTMLAttributes<HTMLTableRowElement>>
   ) => {
     const forwardedRef = useForwardedRef(ref);
 
@@ -22,7 +24,7 @@ export const TableRow = forwardRef(
         node: item,
       },
       state,
-      forwardedRef,
+      forwardedRef
     );
     const { isFocusVisible, focusProps } = useFocusRing();
 
@@ -30,15 +32,15 @@ export const TableRow = forwardRef(
       <tr
         ref={forwardedRef}
         {...mergeProps(rowProps, focusProps)}
-        className={clsx('tr-row', {
-          '--selected': isSelected,
-          '--pressed': isPressed,
-          '--outlined': isFocusVisible,
-          '--disabled': isDisabled,
+        className={clsx("tr-row", {
+          "--selected": isSelected,
+          "--pressed": isPressed,
+          "--outlined": isFocusVisible,
+          "--disabled": isDisabled,
         })}
       >
         {children}
       </tr>
     );
-  },
+  }
 );

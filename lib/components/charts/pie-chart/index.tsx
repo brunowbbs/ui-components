@@ -1,25 +1,25 @@
-import { defaults } from 'chart.js/auto';
-import { Pie } from 'react-chartjs-2';
-import { PieChartProps } from './types';
+import { defaults } from "chart.js/auto";
+import { Pie } from "react-chartjs-2";
+import { PieChartProps } from "./types";
 
 defaults.maintainAspectRatio = false;
 defaults.responsive = true;
 
 defaults.plugins.title.display = true;
-defaults.plugins.title.align = 'start';
-defaults.plugins.title.color = 'black';
+defaults.plugins.title.align = "start";
+defaults.plugins.title.color = "black";
 
 const sourcedata3 = [
   {
-    label: 'Ana',
+    label: "Ana",
     value: 32,
   },
   {
-    label: 'Wesley',
+    label: "Wesley",
     value: 15,
   },
   {
-    label: 'Leandro',
+    label: "Leandro",
     value: 23,
   },
 ];
@@ -38,7 +38,7 @@ export function PieChart({
           labels: sourceData.map((data) => data.label),
           datasets: [
             {
-              label: 'Total',
+              label: "Total",
               data: sourceData.map((data) => data.value),
               backgroundColor: backgroundColors,
               borderColor: borderColors,
@@ -49,13 +49,13 @@ export function PieChart({
           plugins: {
             legend: {
               display: true,
-              position: 'bottom',
+              position: "bottom",
               labels: {
                 usePointStyle: true,
-                pointStyle: 'circle',
+                pointStyle: "circle",
                 font: {
                   weight: 700,
-                  family: 'Plus Jakarta Sans',
+                  family: "Plus Jakarta Sans",
                   size: 10,
                 },
               },
@@ -63,10 +63,10 @@ export function PieChart({
 
             datalabels: {
               display: true,
-              color: 'white',
+              color: "white",
               offset,
               font: {
-                family: 'Plus Jakarta Sans',
+                family: "Plus Jakarta Sans",
                 size: 10,
                 weight: 700,
               },

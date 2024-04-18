@@ -1,26 +1,26 @@
-import { defaults } from 'chart.js/auto';
-import { Doughnut } from 'react-chartjs-2';
-import { COLORS } from '../../../../utils';
-import { DougnutChartProps } from './types';
+import { defaults } from "chart.js/auto";
+import { Doughnut } from "react-chartjs-2";
+import { COLORS } from "../../../../utils";
+import { DougnutChartProps } from "./types";
 
 defaults.maintainAspectRatio = false;
 defaults.responsive = true;
 
 defaults.plugins.title.display = true;
-defaults.plugins.title.align = 'start';
-defaults.plugins.title.color = 'black';
+defaults.plugins.title.align = "start";
+defaults.plugins.title.color = "black";
 
 const sourcedata = [
   {
-    label: 'Marcela',
+    label: "Marcela",
     value: 32,
   },
   {
-    label: 'Wesley',
+    label: "Wesley",
     value: 45,
   },
   {
-    label: 'Leandro',
+    label: "Leandro",
     value: 23,
   },
 ];
@@ -37,7 +37,7 @@ export function DougnutChart({
           labels: sourceData.map((data) => data.label), // Corrigindo aqui
           datasets: [
             {
-              label: 'Count',
+              label: "Count",
               data: sourceData.map((data) => data.value), // Corrigindo aqui
               backgroundColor: [COLORS.primary, COLORS.danger, COLORS.warning],
               borderColor: [COLORS.primary, COLORS.danger, COLORS.warning],
@@ -49,21 +49,21 @@ export function DougnutChart({
             // Movendo a configuração da legenda para dentro de plugins
             legend: {
               display: true,
-              position: 'bottom',
+              position: "bottom",
               labels: {
                 font: {
                   weight: 700,
-                  family: 'Plus Jakarta Sans',
+                  family: "Plus Jakarta Sans",
                   size: 10,
                 },
               },
             },
             datalabels: {
               display: true,
-              color: 'white',
+              color: "white",
               offset,
               font: {
-                family: 'Plus Jakarta Sans',
+                family: "Plus Jakarta Sans",
                 size: 10,
                 weight: 700,
               },

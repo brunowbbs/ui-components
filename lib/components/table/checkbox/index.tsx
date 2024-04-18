@@ -1,6 +1,6 @@
-import React from 'react';
-import { useCheckbox } from 'react-aria';
-import { useToggleState } from 'react-stately';
+import React from "react";
+import { useCheckbox } from "react-aria";
+import { useToggleState } from "react-stately";
 
 export function Checkbox(props) {
   const ref = React.useRef(null);

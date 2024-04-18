@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
-import { Button } from '../button';
-import { WizardProps } from './types';
+import React, { useState } from "react";
+import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
+import { Button } from "../button";
+import { WizardProps } from "./types";
 
 export function Wizard({ steps }: WizardProps) {
   const [currentStep, setCurrentStep] = useState(0);

@@ -1,6 +1,6 @@
-import clsx from 'clsx';
-import { toast } from 'react-toastify';
-import { AlertOptions } from './types';
+import clsx from "clsx";
+import { toast } from "react-toastify";
+import { AlertOptions } from "./types";
 
 export const showAlert = ({
   type,
@@ -9,14 +9,14 @@ export const showAlert = ({
   onAction,
   textButton,
 }: AlertOptions) => {
-  let color = '';
+  let color = "";
 
-  if (type === 'success') {
-    color = '#F0FDF4';
-  } else if (type === 'error') {
-    color = '#FEF2F2';
-  } else if (type === 'warning') {
-    color = '#FFF7ED';
+  if (type === "success") {
+    color = "#F0FDF4";
+  } else if (type === "error") {
+    color = "#FEF2F2";
+  } else if (type === "warning") {
+    color = "#FFF7ED";
   }
 
   let toastId: string | null | number = null;
@@ -25,20 +25,20 @@ export const showAlert = ({
     <div className="px-2">
       <div>
         <p
-          style={{ fontFamily: 'Plus Jakarta Sans' }}
+          style={{ fontFamily: "Plus Jakarta Sans" }}
           className={clsx(
             `font-bold text-[0.85rem] ${
-              type === 'success'
-                ? 'text-success-lighter'
-                : type === 'warning'
-                  ? 'text-warning'
-                  : 'text-danger'
-            }`,
+              type === "success"
+                ? "text-success-lighter"
+                : type === "warning"
+                  ? "text-warning"
+                  : "text-danger"
+            }`
           )}
         >
           {title}
         </p>
-        <p className="text-sm" style={{ fontFamily: 'Plus Jakarta Sans' }}>
+        <p className="text-sm" style={{ fontFamily: "Plus Jakarta Sans" }}>
           {message}
         </p>
         {textButton && (
@@ -50,11 +50,11 @@ export const showAlert = ({
               }
             }}
             className={`text-sm px-4 rounded-md py-0.5 mt-2 text-white ${
-              type === 'success'
-                ? 'bg-success-lighter'
-                : type === 'warning'
-                  ? 'bg-warning'
-                  : 'bg-danger'
+              type === "success"
+                ? "bg-success-lighter"
+                : type === "warning"
+                  ? "bg-warning"
+                  : "bg-danger"
             }  transition`}
           >
             {textButton}

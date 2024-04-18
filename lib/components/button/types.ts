@@ -1,5 +1,5 @@
-import { ReactElement } from 'react';
-import { Colors } from '../../utils/types';
+import { ReactElement } from "react";
+import { Colors } from "../../utils/types";
 
 export type ButtonProps = {
   variant?: Colors;
@@ -7,12 +7,12 @@ export type ButtonProps = {
   outline?: boolean;
   isLoading?: boolean;
   disabled?: boolean;
-  size?: 'sm' | 'md' | 'lg';
+  size?: "sm" | "md" | "lg";
   link?: boolean;
   iconRight?: ReactElement;
   iconLeft?: ReactElement;
   width?: number;
   onClick?: () => void;
   className?: string;
-  type?: 'submit' | 'reset' | 'button';
+  type?: "submit" | "reset" | "button";
 };
