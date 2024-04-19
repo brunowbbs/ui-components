@@ -78,8 +78,8 @@
       outline-[color:var(--background-color)]
       border-none
       bg-transparent  
-      -outline-offset-2
-      outline-2
+      -outline-offset-1
+      outline-1
       outline;
 
       &:not(:disabled) {
@@ -119,7 +119,10 @@
       --background-active: var(--primary-background-active);
 
       &.--outlined {
-        --color: var(--primary-background-color);
+        --color: var(--background-color);
+        --color-focus: var(--background-focus);
+        --color-hover: var(--background-hover);
+        --color-active: var(--background-active);
       }
     }
 
@@ -152,7 +155,10 @@
       --background-active: var(--secondary-background-active);
 
       &.--outlined {
-        --color: var(--secondary-background-color);
+        --color: var(--background-color);
+        --color-focus: var(--background-focus);
+        --color-hover: var(--background-hover);
+        --color-active: var(--background-active);
       }
     }
 
@@ -185,7 +191,10 @@
       --background-active: var(--warning-background-active);
 
       &.--outlined {
-        --color: var(--warning-background-color);
+        --color: var(--background-color);
+        --color-focus: var(--background-focus);
+        --color-hover: var(--background-hover);
+        --color-active: var(--background-active);
       }
     }
 
@@ -218,7 +227,10 @@
       --background-active: var(--danger-background-active);
 
       &.--outlined {
-        --color: var(--danger-background-color);
+        --color: var(--background-color);
+        --color-focus: var(--background-focus);
+        --color-hover: var(--background-hover);
+        --color-active: var(--background-active);
       }
     }
 
@@ -251,7 +263,10 @@
       --background-active: var(--success-background-active);
 
       &.--outlined {
-        --color: var(--success-background-color);
+        --color: var(--background-color);
+        --color-focus: var(--background-focus);
+        --color-hover: var(--background-hover);
+        --color-active: var(--background-active);
       }
     }
 
@@ -284,7 +299,10 @@
       --background-active: var(--disabled-background-active);
 
       &.--outlined {
-        --color: var(--disabled-background-color);
+        --color: var(--background-color);
+        --color-focus: var(--background-focus);
+        --color-hover: var(--background-hover);
+        --color-active: var(--background-active);
       }
     }
   }
