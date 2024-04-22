@@ -59,22 +59,28 @@ export function Popover({
   buttonProps,
   ...props
 }: PopoverTriggerProps) {
-  const ref = useRef(null);
+  const triggerRef = useRef(null);
+  const popoverRef = useRef(null);
   const state = useOverlayTriggerState(props as OverlayTriggerProps);
   const { triggerProps, overlayProps } = useOverlayTrigger(
     { type: "dialog" },
     state,
-    ref
+    triggerRef
   );
 
   return (
     <>
-      <ButtonV2 {...mergeProps(triggerProps, buttonProps)} ref={ref}>
+      <ButtonV2 {...mergeProps(triggerProps, buttonProps)} ref={triggerRef}>
         {childButton}
       </ButtonV2>
 
       {state.isOpen ? (
-        <PopoverComponent {...props} triggerRef={ref} state={state}>
+        <PopoverComponent
+          {...props}
+          popoverRef={popoverRef}
+          triggerRef={triggerRef}
+          state={state}
+        >
           {React.cloneElement(children, overlayProps)}
         </PopoverComponent>
       ) : null}

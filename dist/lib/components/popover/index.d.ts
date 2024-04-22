@@ -1,2 +1,3 @@
-import { Props } from "./types";
-export declare function Popover({ left, button, children, width, isOpen, onOpen, onClose, }: Props): import("react/jsx-runtime").JSX.Element;
+import { PopoverTriggerProps } from "./types";
+import "./styles.css";
+export declare function Popover({ children, childButton, buttonProps, ...props }: PopoverTriggerProps): import("react/jsx-runtime").JSX.Element;
