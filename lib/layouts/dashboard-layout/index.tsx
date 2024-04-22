@@ -12,6 +12,7 @@ import { PopoverProfile } from "./components/popover-profile";
 
 import clsx from "clsx";
 import { FiChevronDown } from "react-icons/fi";
+import { useStatePopover } from "../../components/popover/hooks";
 import logo from "./logo-temp.jpeg";
 import { DashboardLayoutType, DropdownSelect } from "./types";
 
@@ -26,6 +27,7 @@ export function DashboardLayout({
     startSidebarOpened && !isSmallScreen ? true : false
   );
   const sidebarRef = useRef<MotionProps>();
+  const { state: statePopoverMenu } = useStatePopover();
 
   const [dropdownActive, setDropdownActive] = useState({
     group: null,
@@ -223,6 +225,7 @@ export function DashboardLayout({
           </div>
           <div className="flex gap-2">
             <Popover
+              state={statePopoverMenu}
               childButton={
                 <img
                   src={
@@ -232,7 +235,6 @@ export function DashboardLayout({
                   className="w-8 h-8 rounded-full cursor-pointer"
                 />
               }
-              buttonProps={undefined}
             >
               <PopoverProfile
                 userLoggedData={popoverProfile.userLoggedData}

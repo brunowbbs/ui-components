@@ -10,5 +10,5 @@ export type PopoverTriggerProps = Omit<AriaPopoverProps, "popoverRef" | "trigger
     children: ReactElement<any, string | JSXElementConstructor<any>>;
     childButton: ReactNode | string;
     buttonProps?: ButtonProps;
-    onClose?: () => void;
+    state: OverlayTriggerState;
 };
