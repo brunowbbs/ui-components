@@ -1,0 +1,40 @@
+.underlay {
+  @apply fixed inset-0;
+}
+
+.popover {
+  @apply bg-white
+  p-3
+  shadow-2xl
+  border
+  rounded-md;
+}
+
+/* .arrow {
+  position: absolute;
+  fill: var(--page-background);
+  stroke: var(--spectrum-global-color-gray-400);
+  stroke-width: 1px;
+  width: 12px;
+  height: 12px;
+}
+
+.arrow[data-placement="top"] {
+  top: 100%;
+  transform: translateX(-50%);
+}
+
+.arrow[data-placement="bottom"] {
+  bottom: 100%;
+  transform: translateX(-50%) rotate(180deg);
+}
+
+.arrow[data-placement="left"] {
+  left: 100%;
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+.arrow[data-placement="right"] {
+  right: 100%;
+  transform: translateY(-50%) rotate(90deg);
+} */

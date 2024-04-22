@@ -1,10 +1,16 @@
-import { PropsWithChildren, ReactNode } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { JSXElementConstructor, ReactElement, ReactNode } from "react";
+import { AriaPopoverProps } from "react-aria";
+import { OverlayTriggerState } from "react-stately";
+import { ButtonProps } from "../buttonV2/types";
 
-export type Props = {
-  left?: number;
-  button: ReactNode;
-  width?: number;
-  isOpen: boolean;
-  onClose: () => void;
-  onOpen: () => void;
-} & PropsWithChildren;
+export type PopoverProps = AriaPopoverProps & {
+  children: ReactNode;
+  state: OverlayTriggerState;
+};
+
+export type PopoverTriggerProps = AriaPopoverProps & {
+  children: ReactElement<any, string | JSXElementConstructor<any>>;
+  childButton: ReactNode | string;
+  buttonProps: ButtonProps;
+};

@@ -1,67 +1,83 @@
-import { clsx } from "clsx";
-import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
-import { Props } from "./types";
+import React, { useRef } from "react";
+import {
+  DismissButton,
+  Overlay,
+  mergeProps,
+  useOverlayTrigger,
+  usePopover,
+} from "react-aria";
+import { OverlayTriggerProps, useOverlayTriggerState } from "react-stately";
+import { ButtonV2 } from "../buttonV2";
+import { PopoverProps, PopoverTriggerProps } from "./types";
 
-export function Popover({
-  left = 0,
-  button,
+import "./styles.css";
+
+function PopoverComponent({
   children,
-  width = 100,
-  isOpen,
-  onOpen,
-  onClose,
-}: Props) {
-  const popoverRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        popoverRef.current &&
-        !popoverRef.current.contains(event.target as Node) &&
-        buttonRef.current &&
-        !buttonRef.current.contains(event.target as Node)
-      ) {
-        onClose();
-        // setShow(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [onClose]);
-
-  const togglePopover = () => {
-    if (isOpen) {
-      onClose();
-    } else {
-      onOpen();
-    }
-  };
+  state,
+  offset = 8,
+  ...props
+}: PopoverProps) {
+  const popoverRef = React.useRef(null);
+  const {
+    popoverProps,
+    underlayProps,
+    // arrowProps,
+    //  placement
+  } = usePopover(
+    {
+      ...props,
+      offset,
+      popoverRef,
+    },
+    state
+  );
 
   return (
-    <div className="relative">
-      <button ref={buttonRef} onClick={togglePopover} className="h-full flex">
-        {button}
-      </button>
-
-      {isOpen && (
-        <motion.div
-          ref={popoverRef}
-          initial={{ opacity: 0, y: 0 }}
-          animate={{ opacity: 1, y: 0 }}
-          style={{ left: left ? `${-left * 100}%` : undefined, width: width }}
-          className={clsx(
-            `bg-white absolute p-3 rounded-md shadow-2xl mt-1 z-[999] border`
-          )}
+    <Overlay>
+      <div {...underlayProps} className="underlay" />
+      <div {...popoverProps} ref={popoverRef} className="popover">
+        {/* <svg
+          {...arrowProps}
+          className="arrow"
+          data-placement={placement}
+          viewBox="0 0 12 12"
         >
-          <div className="flex justify-center items-center">{children}</div>
-        </motion.div>
-      )}
-    </div>
+          <path d="M0 0 L6 6 L12 0" />
+        </svg> */}
+        <DismissButton onDismiss={state.close} />
+        {children}
+        <DismissButton onDismiss={state.close} />
+      </div>
+    </Overlay>
+  );
+}
+
+export function Popover({
+  children,
+  childButton = "popover",
+  buttonProps,
+  ...props
+}: PopoverTriggerProps) {
+  const ref = useRef(null);
+  const state = useOverlayTriggerState(props as OverlayTriggerProps);
+  const { triggerProps, overlayProps } = useOverlayTrigger(
+    { type: "dialog" },
+    state,
+    ref
+  );
+
+  return (
+    <>
+      <ButtonV2 {...mergeProps(triggerProps, buttonProps)} ref={ref}>
+        {childButton}
+      </ButtonV2>
+
+      {state.isOpen ? (
+        <PopoverComponent {...props} triggerRef={ref} state={state}>
+          {React.cloneElement(children, overlayProps)}
+        </PopoverComponent>
+      ) : null}
+    </>
   );
 }
