@@ -6,7 +6,6 @@ import {
   useOverlayTrigger,
   usePopover,
 } from "react-aria";
-import { OverlayTriggerProps, useOverlayTriggerState } from "react-stately";
 import { ButtonV2 } from "../buttonV2";
 import { PopoverProps, PopoverTriggerProps } from "./types";
 
@@ -57,22 +56,16 @@ export function Popover({
   children,
   childButton = "popover",
   buttonProps,
-  onClose,
+  state,
   ...props
 }: PopoverTriggerProps) {
   const triggerRef = useRef(null);
   const popoverRef = useRef(null);
-  const state = useOverlayTriggerState(props as OverlayTriggerProps);
   const { triggerProps, overlayProps } = useOverlayTrigger(
     { type: "dialog" },
     state,
     triggerRef
   );
-
-  if (onClose) {
-    onClose();
-    state.close();
-  }
 
   return (
     <>
