@@ -57,6 +57,7 @@ export function Popover({
   children,
   childButton = "popover",
   buttonProps,
+  onClose,
   ...props
 }: PopoverTriggerProps) {
   const triggerRef = useRef(null);
@@ -67,6 +68,11 @@ export function Popover({
     state,
     triggerRef
   );
+
+  if (onClose) {
+    onClose();
+    state.close();
+  }
 
   return (
     <>
@@ -81,7 +87,7 @@ export function Popover({
           triggerRef={triggerRef}
           state={state}
         >
-          {React.cloneElement(children, overlayProps)}
+          {mergeProps(children, overlayProps)}
         </PopoverComponent>
       ) : null}
     </>
