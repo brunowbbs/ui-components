@@ -22,3 +22,4 @@ export * from "./tabs";
 export * from "./text";
 export * from "./toast";
 export * from "./wizard";
+export * from "./textarea";

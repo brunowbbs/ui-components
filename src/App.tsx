@@ -29,6 +29,7 @@ import {
   mountDataTable,
   showAlert,
   showToast,
+  TextArea,
 } from "../lib";
 import { useStatePopover } from "../lib/components";
 import { Form } from "./components/form";
@@ -165,6 +166,8 @@ const { columns, rows } = mountDataTable(
 
 function App() {
   const [isModalConfirm, setIsModalConfirm] = useState(false);
+
+  const [textArea, setTextArea] = useState("");
 
   const { state } = useStatePopover();
 
@@ -867,6 +870,21 @@ function App() {
             onRowAction={(key) => {
               console.log("ROW:", key);
             }}
+          />
+        </Card>
+      </div>
+
+      <div className="flex-1 flex-wrap mt-3">
+        <Card>
+          <TextArea
+            className="w-full"
+            value={textArea}
+            onChangeValue={(value) => setTextArea(value)}
+            // value={values.name}
+            // onChangeValue={(value) => setFieldValue("name", value)}
+            label="Nome"
+            placeholder="Informe o nome do cliente"
+            // error={errors?.name}
           />
         </Card>
       </div>
