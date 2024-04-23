@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { AiOutlineAppstore } from "react-icons/ai";
-import { IoMdMore } from "react-icons/io";
 import { LuSettings, LuUser } from "react-icons/lu";
 import { MdDashboard, MdHome, MdReport } from "react-icons/md";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
@@ -31,6 +30,7 @@ import {
   showAlert,
   showToast,
 } from "../lib";
+import { useStatePopover } from "../lib/components";
 import { Form } from "./components/form";
 
 const MENU_ITEMS = [
@@ -166,7 +166,7 @@ const { columns, rows } = mountDataTable(
 function App() {
   const [isModalConfirm, setIsModalConfirm] = useState(false);
 
-  const [isShowPopoverDemo, setIsShowPopoverDemo] = useState(false);
+  const { state } = useStatePopover();
 
   return (
     <DashboardLayout
@@ -680,21 +680,25 @@ function App() {
         </p>
 
         <div className="flex items-center justify-between">
-          <Button variant="success" text="Novo produto" />
-
-          <div className="">
+          <div>
             <Popover
-              isOpen={isShowPopoverDemo}
-              onClose={() => setIsShowPopoverDemo(false)}
-              onOpen={() => setIsShowPopoverDemo(true)}
-              left={4.5}
-              button={
-                <div className="border border-gray-400 rounded-md cursor-pointer">
-                  <IoMdMore />
-                </div>
-              }
+              state={state}
+              childButton="Popover"
+              buttonProps={{ size: "md" }}
+              placement="bottom left"
             >
-              <p className="text-sm">Hello world</p>
+              <>
+                <p>children dropdown</p>
+                <p>children dropdown</p>
+                <button
+                  onClick={() => {
+                    console.log("cliquei");
+                    state.close();
+                  }}
+                >
+                  children dropdown
+                </button>
+              </>
             </Popover>
           </div>
         </div>

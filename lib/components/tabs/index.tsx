@@ -1,33 +1,76 @@
-import { useState } from "react";
+import { useRef } from "react";
+
+import {
+  AriaTabListOptions,
+  AriaTabPanelProps,
+  AriaTabProps,
+  useTab,
+  useTabList,
+  useTabPanel,
+} from "react-aria";
+import { Item, Node, useTabListState } from "react-stately";
+
+import { TabListState, TabListStateOptions } from "@react-stately/tabs";
+import "./styles.css";
 import { TabProps } from "./types";
 
-export function Tabs({ tabs }: TabProps) {
-  const [tabSelected, setTabSelected] = useState(0);
-
-  const handleTabClick = (index) => {
-    setTabSelected(index);
-  };
+function Tab({
+  item,
+  state,
+}: AriaTabProps & { state: TabListState<unknown>; item: Node<object> }) {
+  const { key, rendered } = item;
+  const ref = useRef(null);
+  const { tabProps } = useTab({ key }, state, ref);
 
   return (
-    <div>
-      <div className="flex border-b border-gray-200 mb-4">
-        {tabs.map((tab, index) => (
-          <button
-            key={index}
-            onClick={() => handleTabClick(index)}
-            className={`py-2 px-4 mr-2 focus:outline-none text-sm font-medium ${
-              index === tabSelected
-                ? "text-primary border-b-2 border-primary"
-                : "text-gray-600 border-b-2 border-b-transparent hover:text-primary"
-            }`}
-          >
-            <span>{tab.title}</span>
-          </button>
+    <div {...tabProps} ref={ref}>
+      {rendered}
+    </div>
+  );
+}
+
+function TabPanel({
+  state,
+  ...props
+}: AriaTabPanelProps & { state: TabListState<unknown> }) {
+  const ref = useRef(null);
+  const { tabPanelProps } = useTabPanel(props, state, ref);
+
+  return (
+    <div {...tabPanelProps} ref={ref}>
+      {state.selectedItem?.props.children}
+    </div>
+  );
+}
+
+export function TabsBase(
+  props: TabListStateOptions<object> & AriaTabListOptions<object>
+) {
+  const state = useTabListState(props);
+  const ref = useRef(null);
+  const { tabListProps } = useTabList(props, state, ref);
+
+  return (
+    <div className={`tabs ${props.orientation || ""}`}>
+      <div {...tabListProps} ref={ref}>
+        {[...state.collection].map((item) => (
+          <Tab key={item.key} item={item} state={state} />
         ))}
       </div>
-      <div>
-        <span>{tabs[tabSelected].content}</span>
-      </div>
+
+      <TabPanel key={state.selectedItem?.key} state={state} />
     </div>
+  );
+}
+
+export function Tabs({ tabs }: TabProps) {
+  return (
+    <TabsBase>
+      {tabs.map(({ content, title }) => (
+        <Item key={title} title={title}>
+          {content}
+        </Item>
+      ))}
+    </TabsBase>
   );
 }

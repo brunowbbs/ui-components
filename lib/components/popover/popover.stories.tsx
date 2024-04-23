@@ -46,27 +46,3 @@ function ComponentRenderDefault() {
 export const Basic: Story = {
   render: () => <ComponentRenderDefault />,
 };
-
-// export const Dropdown: Story = {
-//   args: {
-//     state: state,
-//     children: (
-//       <>
-//         <p>children dropdown</p>
-//         <p>children dropdown</p>
-//         <button
-//           onClick={() => {
-//             console.log("cliquei");
-//           }}
-//         >
-//           children dropdown
-//         </button>
-//       </>
-//     ),
-//     buttonProps: {
-//       variant: "unset",
-//     },
-//     childButton: <Icon src={menuDotsVertical} alt="ícone Dropdown" />,
-//     placement: "bottom right",
-//   },
-// };

@@ -226,6 +226,7 @@ export function DashboardLayout({
           <div className="flex gap-2">
             <Popover
               state={statePopoverMenu}
+              buttonProps={{ variant: "unset" }}
               childButton={
                 <img
                   src={
