@@ -11,6 +11,7 @@ export * from "./input-mask";
 export * from "./modal";
 export * from "./pagination";
 export * from "./popover";
+export * from "./popover/hooks";
 export * from "./radio-button";
 export * from "./rich-text";
 export * from "./select";
