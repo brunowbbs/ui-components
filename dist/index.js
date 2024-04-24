@@ -37956,6 +37956,7 @@ function yme(t) {
             decimalScale: 2,
             onFocus: () => r(!0),
             onBlur: () => r(!1),
+            value: t.value,
             onChange: (i) => t.onChangeValue(i.target.value)
           }
         ) : /* @__PURE__ */ Ee(
