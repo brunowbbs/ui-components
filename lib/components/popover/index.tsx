@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { Children, useRef } from "react";
 import {
   DismissButton,
   Overlay,
@@ -67,10 +67,15 @@ export function Popover({
     triggerRef
   );
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const childElements = Children.map(childButton, (child: unknown | any) => {
+    return child?.props?.children;
+  });
+
   return (
     <>
       <ButtonV2 {...mergeProps(triggerProps, buttonProps)} ref={triggerRef}>
-        {childButton}
+        {childElements}
       </ButtonV2>
 
       {state.isOpen ? (
