@@ -74,9 +74,11 @@ export function Popover({
 
   return (
     <>
-      <ButtonV2 {...mergeProps(triggerProps, buttonProps)} ref={triggerRef}>
-        {childElements}
-      </ButtonV2>
+      <div className="flex">
+        <ButtonV2 {...mergeProps(triggerProps, buttonProps)} ref={triggerRef}>
+          {childElements}
+        </ButtonV2>
+      </div>
 
       {state.isOpen ? (
         <PopoverComponent
