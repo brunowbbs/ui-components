@@ -1,38 +1,21 @@
-import { RowTypes } from "../components/table/types";
+type DataRow = Array<string | number | JSX.Element>;
 
 export function mountDataTable(
   dataColumns: Array<string | number | JSX.Element>,
-  dataRows: Array<Array<string | number | JSX.Element>>
+  dataRows: Array<DataRow>
 ) {
-  let tempRows: Array<RowTypes> = [];
+  const columns = dataColumns.map((column) => ({
+    key: String(column).toLowerCase(),
+    elem: column,
+  }));
 
-  dataColumns.forEach((_, indexColumn) => {
-    tempRows = dataRows.map((lines, index) => {
-      return {
-        key: index.toString(),
-        items: lines.map((line, lineIndex) => {
-          if (dataColumns && lines[indexColumn]) {
-            return {
-              key: dataColumns[lineIndex].toString().toLowerCase(),
-              elem: line,
-            };
-          } else {
-            return { key: "", elem: "" };
-          }
-        }),
-      };
-    });
-  });
+  const rows = dataRows.map((row, rowIndex) => ({
+    key: String(rowIndex),
+    items: row.map((item, columnIndex) => ({
+      key: String(dataColumns[columnIndex]).toLowerCase(),
+      elem: item,
+    })),
+  }));
 
-  const tempColumns = dataColumns.map((column) => {
-    return {
-      key: column?.toString()?.toLowerCase(),
-      elem: column,
-    };
-  });
-
-  return {
-    columns: tempColumns,
-    rows: tempRows,
-  };
+  return { columns, rows };
 }

@@ -18,9 +18,8 @@
     &:not(.--icon),
     &:disabled {
       @apply rounded
-      w-full
-      sm:w-auto
-      sm:whitespace-nowrap;
+      min-h-6
+      w-full;
       border-width: var(--border-width);
 
       &:not(.--icon) {
