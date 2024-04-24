@@ -42,6 +42,7 @@ export function InputMask(props: InputProps) {
             decimalScale={2}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
+            value={props.value}
             onChange={(event) => props.onChangeValue(event.target.value)}
           />
         ) : (
