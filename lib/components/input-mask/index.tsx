@@ -6,12 +6,7 @@ import clsx from "clsx";
 import { Text } from "../text";
 import "./styles.css";
 
-export function InputWithMask({
-  mask,
-  label,
-  error,
-  ...props
-}: InputMaskProps) {
+export function InputMask({ mask, label, error, ...props }: InputMaskProps) {
   const ref = useRef(null);
   const { labelProps, inputProps } = useTextField(props, ref);
 
