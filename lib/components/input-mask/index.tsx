@@ -1,65 +1,102 @@
+import { useRef } from "react";
+import { useTextField } from "react-aria";
+import { InputMaskProps } from "./types";
+
 import clsx from "clsx";
-import { useState } from "react";
-import CurrencyInput from "react-currency-input-field";
-import ReactInputMask from "react-input-mask";
-import { InputProps } from "./types";
+import { Text } from "../text";
+import "./styles.css";
 
-export function InputMask(props: InputProps) {
-  let mask = "";
+export function InputWithMask({
+  mask,
+  label,
+  error,
+  ...props
+}: InputMaskProps) {
+  const ref = useRef(null);
+  const { labelProps, inputProps } = useTextField(props, ref);
 
-  if (props.type === "phone") {
-    mask = "(99) 99999-9999";
-  } else if (props.type === "cnpj") {
-    mask = "99.999.999/9999-99";
-  } else if (props.type === "cpf") {
-    mask = "999.999.999-99";
-  } else if (props.type === "cep") {
-    mask = "99.999-999";
+  const { onChange, ...rest } = inputProps;
+
+  const maskConfigs = {
+    phone: {
+      pattern: /^(\d{2})(\d{5})(\d{4})$/,
+      mask: "($1) $2-$3",
+      maxLength: 15,
+    },
+    cpf: {
+      pattern: /^(\d{3})(\d{3})(\d{3})(\d{2})$/,
+      mask: "$1.$2.$3-$4",
+      maxLength: 14,
+    },
+    cnpj: {
+      pattern: /^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/,
+      mask: "$1.$2.$3/$4-$5",
+      maxLength: 18,
+    },
+    cep: {
+      pattern: /^(\d{2})(\d{3})(\d{3})$/,
+      mask: "$1.$2-$3",
+      maxLength: 10,
+    },
+  };
+
+  function formatValue(value: string, { pattern, mask }) {
+    if (!value) {
+      return "";
+    }
+
+    const cleanedValue = value.replace(/\D/g, "");
+    const matches = cleanedValue.match(pattern);
+
+    if (!matches) {
+      return value;
+    }
+
+    return mask.replace(/\$[0-9]/g, (match) => matches[parseInt(match[1])]);
   }
 
-  const [isFocused, setIsFocused] = useState(false);
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const { value } = event.target;
+
+    if (!mask || mask === "text") {
+      return;
+    }
+
+    const numericValue = value.replace(/\D/g, "");
+
+    const { pattern, mask: maskPattern } = maskConfigs[mask];
+
+    event.target.value = formatValue(mask ? numericValue : value, {
+      pattern,
+      mask: maskPattern,
+    });
+  }
 
   return (
-    <div className={`flex flex-col w-${props.width ?? "full"}`}>
-      <p className="text-sm font-medium">{props.label}</p>
-      <div
-        className={clsx("border border-gray-400 rounded py-[2.5px] relative", {
-          "border-primary": isFocused,
-          "border-red-600": props.error,
+    <div className="grid grid-cols-1">
+      <Text {...labelProps} as="label" size="sm" className="font-medium">
+        {label}
+      </Text>
+
+      <input
+        {...rest}
+        ref={ref}
+        onChange={(event) => {
+          handleChange(event);
+          onChange ? onChange(event) : null;
+        }}
+        maxLength={maskConfigs[mask as string]?.maxLength}
+        className={clsx("input", {
+          "--danger": error,
         })}
-      >
-        {props.type === "money" ? (
-          <CurrencyInput
-            disabled={props.disabled}
-            className="outline-none px-2 p-0 w-full text-sm"
-            name="input-name"
-            placeholder={props.placeholder}
-            prefix="R$ "
-            groupSeparator="."
-            decimalSeparator=","
-            allowNegativeValue={false}
-            decimalsLimit={2}
-            decimalScale={2}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
-            value={props.value}
-            onChange={(event) => props.onChangeValue(event.target.value)}
-          />
-        ) : (
-          <ReactInputMask
-            placeholder={props.placeholder}
-            disabled={props.disabled}
-            className="w-full text-sm outline-none bg-white px-2"
-            mask={mask}
-            maskChar="_"
-            value={props.value}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
-            onChange={(event) => props.onChangeValue(event.target.value)}
-          />
-        )}
-      </div>
-      {props.error && <p className="text-[10px] text-red-600">{props.error}</p>}
+        inputMode="numeric"
+      />
+
+      {error ? (
+        <Text size="md" variant="danger">
+          {error}
+        </Text>
+      ) : null}
     </div>
   );
 }
