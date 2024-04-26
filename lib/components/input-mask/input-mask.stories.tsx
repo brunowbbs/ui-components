@@ -1,19 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { InputWithMask } from ".";
+import { InputMask } from ".";
 
-const meta: Meta<typeof InputWithMask> = {
-  title: "Componentes/InputWithMask",
-  component: InputWithMask,
+const meta: Meta<typeof InputMask> = {
+  title: "Componentes/InputMask",
+  component: InputMask,
   tags: ["autodocs"],
-  render: ({ ...args }) => <InputWithMask {...args} />,
+  render: ({ ...args }) => <InputMask {...args} />,
   args: {},
   argTypes: {},
 };
 
 export default meta;
 
-type Story = StoryObj<typeof InputWithMask>;
+type Story = StoryObj<typeof InputMask>;
 
 export const Default: Story = {
   args: {

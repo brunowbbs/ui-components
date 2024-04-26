@@ -36953,12 +36953,7 @@ const od = mi(
     );
   }
 );
-function zpe({
-  mask: t,
-  label: e,
-  error: n,
-  ...r
-}) {
+function zpe({ mask: t, label: e, error: n, ...r }) {
   var g;
   const i = Xe(null), { labelProps: s, inputProps: l } = A9(r, i), { onChange: c, ...f } = l, h = {
     phone: {
@@ -57421,7 +57416,7 @@ export {
   Ipe as IconRight,
   WU as IconText,
   Vpe as Input,
-  zpe as InputWithMask,
+  zpe as InputMask,
   Bpe as LineChart,
   jpe as Modal,
   Hpe as Pagination,
