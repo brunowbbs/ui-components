@@ -17,7 +17,13 @@ const meta: Meta<typeof Popover> = {
     },
   },
   args: {},
-  argTypes: {},
+  argTypes: {
+    // placement: {
+    //   description: "Variações",
+    //   // options: ["danger", "success", "primary", "secondary", "warning"],
+    //   control: { type: "select" },
+    // },
+  },
 };
 
 export default meta;
@@ -28,8 +34,8 @@ function ComponentRenderDefault() {
   const { state } = useStatePopover();
 
   return (
-    <Popover state={state} childButton={<>Filtros</>}>
-      <>
+    <Popover state={state} placement="bottom start" childButton={<>Filtros</>}>
+      <div>
         <p>children dropdown</p>
         <p>children dropdown</p>
         <button
@@ -39,7 +45,7 @@ function ComponentRenderDefault() {
         >
           children dropdown
         </button>
-      </>
+      </div>
     </Popover>
   );
 }
@@ -106,6 +112,7 @@ function ComponentRenderWithIcon() {
   return (
     <Popover
       state={state}
+      buttonProps={{ variant: "unset" }}
       childButton={
         <>
           <IconRight src={filter} alt="ícone de filtro" />
@@ -129,8 +136,36 @@ function ComponentRenderWithIcon() {
   );
 }
 
+function ComponentRenderOnlyIcon() {
+  const { state } = useStatePopover();
+
+  return (
+    <Popover
+      state={state}
+      buttonProps={{ variant: "unset" }}
+      childButton={<IconRight src={filter} alt="ícone de filtro" />}
+    >
+      <>
+        <p>children dropdown</p>
+        <p>children dropdown</p>
+        <button
+          onClick={() => {
+            state.close();
+          }}
+        >
+          children dropdown
+        </button>
+      </>
+    </Popover>
+  );
+}
+
 export const Default: Story = {
   render: () => <ComponentRenderDefault />,
+};
+
+export const OnlyIcon: Story = {
+  render: () => <ComponentRenderOnlyIcon />,
 };
 
 export const WithIcon: Story = {

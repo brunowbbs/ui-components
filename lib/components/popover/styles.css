@@ -1,13 +1,18 @@
 .underlay {
-  @apply fixed inset-0;
+  @apply fixed 
+  inset-0;
 }
 
 .popover {
-  @apply bg-white
-  p-3
+  @apply flex
+  justify-center
+  items-center
+  bg-white
   shadow-2xl
   border
-  rounded-md;
+  border-gray-200
+  rounded-md
+  mt-1;
 }
 
 /* .arrow {

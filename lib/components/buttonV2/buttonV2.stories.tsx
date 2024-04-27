@@ -75,5 +75,5 @@ export default meta;
 type Story = StoryObj<typeof ButtonV2>;
 
 export const Default: Story = {
-  args: { onPress: () => console.log("click") },
+  args: { onPress: () => console.log("click"), isLoading: true },
 };

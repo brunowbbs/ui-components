@@ -1,4 +1,5 @@
-import React, { Children, useRef } from "react";
+import useForwardedRef from "@bedrock-layout/use-forwarded-ref";
+import { Children, Ref, forwardRef, useRef } from "react";
 import {
   DismissButton,
   Overlay,
@@ -9,21 +10,17 @@ import {
 import { ButtonV2 } from "../buttonV2";
 import { PopoverProps, PopoverTriggerProps } from "./types";
 
+import clsx from "clsx";
 import "./styles.css";
 
 function PopoverComponent({
   children,
   state,
-  offset = 8,
+  offset = 0,
+  popoverRef,
   ...props
 }: PopoverProps) {
-  const popoverRef = React.useRef(null);
-  const {
-    popoverProps,
-    underlayProps,
-    // arrowProps,
-    //  placement
-  } = usePopover(
+  const { popoverProps, underlayProps } = usePopover(
     {
       ...props,
       offset,
@@ -35,15 +32,11 @@ function PopoverComponent({
   return (
     <Overlay>
       <div {...underlayProps} className="underlay" />
-      <div {...popoverProps} ref={popoverRef} className="popover">
-        {/* <svg
-          {...arrowProps}
-          className="arrow"
-          data-placement={placement}
-          viewBox="0 0 12 12"
-        >
-          <path d="M0 0 L6 6 L12 0" />
-        </svg> */}
+      <div
+        {...popoverProps}
+        ref={popoverRef as Ref<HTMLDivElement>}
+        className={clsx("popover")}
+      >
         <DismissButton onDismiss={state.close} />
         {children}
         <DismissButton onDismiss={state.close} />
@@ -52,44 +45,60 @@ function PopoverComponent({
   );
 }
 
-export function Popover({
-  children,
-  childButton = "popover",
-  buttonProps,
-  state,
-  ...props
-}: PopoverTriggerProps) {
-  const triggerRef = useRef(null);
-  const popoverRef = useRef(null);
-  const { triggerProps, overlayProps } = useOverlayTrigger(
-    { type: "dialog" },
-    state,
-    triggerRef
-  );
+export const Popover = forwardRef(
+  (
+    {
+      children,
+      childButton,
+      buttonProps,
+      state,
+      isFull,
+      ...props
+    }: PopoverTriggerProps,
+    ref: Ref<HTMLDivElement>
+  ) => {
+    const triggerRef = useRef(null);
+    const forwardedRef = useForwardedRef(ref);
+    const { triggerProps, overlayProps } = useOverlayTrigger(
+      { type: "dialog" },
+      state,
+      triggerRef
+    );
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const childElements = Children.map(childButton, (child: unknown | any) => {
-    return child?.props?.children;
-  });
+    const isOnlyChild = Children.count(childButton);
 
-  return (
-    <>
-      <div className="flex">
-        <ButtonV2 {...mergeProps(triggerProps, buttonProps)} ref={triggerRef}>
-          {childElements}
-        </ButtonV2>
-      </div>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const childElements = Children.map(childButton, (child: unknown | any) => {
+      return child?.props?.children;
+    });
 
-      {state.isOpen ? (
-        <PopoverComponent
-          {...props}
-          popoverRef={popoverRef}
-          triggerRef={triggerRef}
-          state={state}
-        >
-          {mergeProps(children, overlayProps)}
-        </PopoverComponent>
-      ) : null}
-    </>
-  );
-}
+    return (
+      <>
+        {childButton ? (
+          <div className={clsx("flex")}>
+            <ButtonV2
+              {...mergeProps(triggerProps, buttonProps)}
+              ref={triggerRef}
+            >
+              {isOnlyChild && childElements[0] == undefined
+                ? childButton
+                : childElements}
+            </ButtonV2>
+          </div>
+        ) : null}
+
+        {state.isOpen ? (
+          <PopoverComponent
+            {...props}
+            popoverRef={forwardedRef}
+            triggerRef={triggerRef}
+            state={state}
+            isFull={isFull}
+          >
+            {mergeProps(children, overlayProps)}
+          </PopoverComponent>
+        ) : null}
+      </>
+    );
+  }
+);

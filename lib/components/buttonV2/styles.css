@@ -89,6 +89,11 @@
       }
     }
 
+    &.--loading {
+      @apply cursor-not-allowed
+      caret-transparent;
+    }
+
     &.--primary {
       --primary-border-width: theme("width.1");
       --primary-border-color: transparent;
