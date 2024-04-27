@@ -97,7 +97,7 @@ export const SelectBase = forwardRef(
   }
 );
 
-export function Select({
+export function SelectV2({
   items,
   onChange,
   error,

@@ -8,7 +8,7 @@ export type PopoverProps = AriaPopoverProps & {
 };
 export type PopoverTriggerProps = Omit<AriaPopoverProps, "popoverRef" | "triggerRef"> & {
     children: ReactElement<any, string | JSXElementConstructor<any>>;
-    childButton: ReactNode | string;
+    childButton?: ReactNode | string;
     buttonProps?: ButtonProps;
     state: OverlayTriggerState;
 };

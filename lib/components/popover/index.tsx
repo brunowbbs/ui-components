@@ -52,7 +52,6 @@ export const Popover = forwardRef(
       childButton,
       buttonProps,
       state,
-      isFull,
       ...props
     }: PopoverTriggerProps,
     ref: Ref<HTMLDivElement>
@@ -93,7 +92,6 @@ export const Popover = forwardRef(
             popoverRef={forwardedRef}
             triggerRef={triggerRef}
             state={state}
-            isFull={isFull}
           >
             {mergeProps(children, overlayProps)}
           </PopoverComponent>

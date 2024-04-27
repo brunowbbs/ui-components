@@ -1,4 +1,3 @@
-/// <reference types="react" />
 type DataRow = Array<string | number | JSX.Element>;
 export declare function mountDataTable(dataColumns: Array<string | number | JSX.Element>, dataRows: Array<DataRow>): {
     columns: {

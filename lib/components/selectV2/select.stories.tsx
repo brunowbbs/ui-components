@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react";
 
-import { Select } from ".";
+import { SelectV2 } from ".";
 
-const meta: Meta<typeof Select> = {
-  title: "Componentes/Select",
-  component: Select,
+const meta: Meta<typeof SelectV2> = {
+  title: "Componentes/SelectV2",
+  component: SelectV2,
   tags: ["autodocs"],
   parameters: {
     docs: {
@@ -19,7 +19,7 @@ const meta: Meta<typeof Select> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Select>;
+type Story = StoryObj<typeof SelectV2>;
 
 function ComponentRenderDefault() {
   const reason = [
@@ -30,7 +30,7 @@ function ComponentRenderDefault() {
     { key: 5, label: "outros" },
   ];
 
-  return <Select items={reason} />;
+  return <SelectV2 items={reason} />;
 }
 
 function ComponentRenderWithLabel() {
@@ -42,7 +42,7 @@ function ComponentRenderWithLabel() {
     { key: 5, label: "outros" },
   ];
 
-  return <Select items={reason} label="label" />;
+  return <SelectV2 items={reason} label="label" />;
 }
 
 function ComponentRenderWithError() {
@@ -54,7 +54,7 @@ function ComponentRenderWithError() {
     { key: 5, label: "outros" },
   ];
 
-  return <Select items={reason} label="label" error="error" />;
+  return <SelectV2 items={reason} label="label" error="error" />;
 }
 
 export const Default: Story = {

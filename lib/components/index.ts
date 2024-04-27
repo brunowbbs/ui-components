@@ -15,6 +15,7 @@ export * from "./popover/hooks";
 export * from "./radio-button";
 export * from "./rich-text";
 export * from "./select";
+export * from "./selectV2";
 export * from "./spinner";
 export * from "./svg";
 export * from "./table";

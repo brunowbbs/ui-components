@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import type { AriaTableProps, Key } from "react-aria";
 import type { TableStateProps } from "@react-stately/table";
 export type CustomTableProps = AriaTableProps<object> & TableStateProps<object> & {

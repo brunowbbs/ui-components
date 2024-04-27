@@ -4,6 +4,7 @@ export * from './backChevron';
 export * from './calendar';
 export * from './camera';
 export * from './chevronRight';
+export * from './chevron';
 export * from './crossCircle';
 export * from './cross';
 export * from './edit';
