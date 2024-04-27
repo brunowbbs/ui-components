@@ -1,0 +1,61 @@
+.combobox {
+  @apply grid;
+
+  .__wrapper {
+    input {
+      @apply bg-white
+    outline-gray-400
+    focus:outline-primary
+      rounded
+      outline
+      outline-1
+      relative
+      w-full
+      px-2
+      text-sm
+      h-6;
+    }
+
+    @apply flex
+    justify-between 
+    items-center;
+
+    &.--disabled {
+      @apply cursor-not-allowed
+      caret-transparent;
+    }
+
+    &.--selected {
+      @apply outline-primary;
+    }
+
+    &.--focused {
+      @apply outline-primary;
+    }
+
+    &.--warning {
+      @apply outline-danger;
+    }
+
+    &.--warning.--focused {
+      @apply outline-danger;
+    }
+
+    &.--warning.--selected {
+      @apply outline-danger;
+    }
+  }
+}
+
+button {
+  @apply bg-transparent
+  border-0
+  outline-none
+  text-[8px] 
+  text-gray-400
+  absolute
+  right-1
+  flex
+  justify-center
+  items-center;
+}
