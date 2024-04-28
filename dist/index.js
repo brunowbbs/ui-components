@@ -40517,8 +40517,12 @@ function Wge(t) {
                 }
               ),
               placeholder: t.placeholder,
-              onFocus: () => i(!0),
-              onBlur: () => i(!1)
+              onFocus: () => {
+                i(!0), t.onFocus && t.onFocus();
+              },
+              onBlur: () => {
+                i(!1), t.onBlur && t.onBlur();
+              }
             }
           ) }),
           t.isPassword && /* @__PURE__ */ ue(

@@ -39,8 +39,18 @@ export function Input(props: Props) {
               }
             )}
             placeholder={props.placeholder}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
+            onFocus={() => {
+              setIsFocused(true);
+              if (props.onFocus) {
+                props.onFocus();
+              }
+            }}
+            onBlur={() => {
+              setIsFocused(false);
+              if (props.onBlur) {
+                props.onBlur();
+              }
+            }}
           />
         </div>
         {props.isPassword && (

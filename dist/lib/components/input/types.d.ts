@@ -9,4 +9,6 @@ export type Props = {
     placeholder?: string;
     type?: HTMLInputTypeAttribute;
     disabled?: boolean;
-} & HTMLInputElement;
+    onFocus?: () => void;
+    onBlur?: () => void;
+};
