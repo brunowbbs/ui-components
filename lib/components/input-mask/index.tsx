@@ -3,6 +3,7 @@ import { useTextField } from "react-aria";
 import { InputMaskProps } from "./types";
 
 import clsx from "clsx";
+import { moneyMask } from "../../utils";
 import { Text } from "../text";
 import "./styles.css";
 
@@ -59,6 +60,10 @@ export function InputMask({ mask, label, error, ...props }: InputMaskProps) {
 
     const numericValue = value.replace(/\D/g, "");
 
+    if (mask === "money") {
+      return (event.target.value = moneyMask(numericValue || "0"));
+    }
+
     const { pattern, mask: maskPattern } = maskConfigs[mask];
 
     event.target.value = formatValue(mask ? numericValue : value, {
@@ -84,7 +89,6 @@ export function InputMask({ mask, label, error, ...props }: InputMaskProps) {
         className={clsx("input", {
           "--danger": error,
         })}
-        inputMode="numeric"
       />
 
       {error ? (
