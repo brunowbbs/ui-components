@@ -27,11 +27,13 @@ import {
   TextArea,
   Wizard,
   camera,
+  menuDotsVertical,
   mountDataTable,
   showAlert,
   showToast,
 } from "../lib";
-import { useStatePopover } from "../lib/components";
+import { IconLeft, useStatePopover } from "../lib/components";
+import { Menu } from "../lib/components/menu";
 import { Form } from "./components/form";
 
 const MENU_ITEMS = [
@@ -155,21 +157,76 @@ const sourcedata3 = [
   },
 ];
 
-const { columns, rows } = mountDataTable(
-  ["Id", "Date", "Status", "Customer", "Purchased"],
-  [
-    ["1", "01 de mar 24", "pending", "John", "unpaid"],
-    ["2", "12 de mar 24", "processed", "Leo", "paid"],
-    ["3", "21 de mar 25", "processed", "Bruno", "paid"],
-  ]
-);
-
 function App() {
   const [isModalConfirm, setIsModalConfirm] = useState(false);
 
   const [textArea, setTextArea] = useState("");
 
   const { state } = useStatePopover();
+
+  const { columns, rows } = mountDataTable(
+    ["Id", "Date", "Status", "Customer", "Purchased", "Actions"],
+    [
+      [
+        "1",
+        "01 de mar 24",
+        "pending",
+        "John",
+        "unpaid",
+        <Menu
+          childButton={<IconLeft src={menuDotsVertical} alt="ícone menu" />}
+          buttonProps={{ variant: "unset" }}
+          items={[
+            { key: 1, label: "Item 1" },
+            { key: 2, label: "Item 2" },
+            { key: 3, label: "Item 3" },
+          ]}
+          onAction={(action) => alert(action)}
+        />,
+      ],
+      [
+        "2",
+        "12 de mar 24",
+        "processed",
+        "Leo",
+        "paid",
+        <Menu
+          childButton={<IconLeft src={menuDotsVertical} alt="ícone menu" />}
+          buttonProps={{ variant: "unset" }}
+          items={[
+            { key: 1, label: "Item 1" },
+            { key: 2, label: "Item 2" },
+            { key: 3, label: "Item 3" },
+          ]}
+          onAction={(action) => alert(action)}
+        />,
+      ],
+      [
+        "3",
+        "21 de mar 25",
+        "processed",
+        "Bruno",
+        "paid",
+        <Menu
+          childButton={<IconLeft src={menuDotsVertical} alt="ícone menu" />}
+          buttonProps={{ variant: "unset" }}
+          items={[
+            { key: 1, label: "Item 1" },
+            {
+              key: 2,
+              label: (
+                <div className="w-32">
+                  <ButtonV2>Teste</ButtonV2>
+                </div>
+              ),
+            },
+            { key: 3, label: "Item 3" },
+          ]}
+          onAction={(action) => alert(action)}
+        />,
+      ],
+    ]
+  );
 
   return (
     <DashboardLayout

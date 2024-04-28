@@ -13,7 +13,7 @@ import { SearchProps } from "./types";
 export { Item } from "react-stately";
 
 function SearchAutocomplete<T extends object>(props: ComboBoxProps<T>) {
-  const { label } = props;
+  const { label, errorMessage } = props;
 
   const { contains } = useFilter({ sensitivity: "base" });
   const state = useComboBoxState({ ...props, defaultFilter: contains });
@@ -22,15 +22,16 @@ function SearchAutocomplete<T extends object>(props: ComboBoxProps<T>) {
   const listBoxRef = React.useRef(null);
   const popoverRef = React.useRef(null);
 
-  const { inputProps, listBoxProps, labelProps } = useComboBox(
-    {
-      ...props,
-      inputRef,
-      listBoxRef,
-      popoverRef,
-    },
-    state
-  );
+  const { inputProps, listBoxProps, labelProps, errorMessageProps } =
+    useComboBox(
+      {
+        ...props,
+        inputRef,
+        listBoxRef,
+        popoverRef,
+      },
+      state
+    );
 
   // Get props for the clear button from useSearchField
   const searchProps = {
@@ -111,6 +112,12 @@ function SearchAutocomplete<T extends object>(props: ComboBoxProps<T>) {
             }
           />
         </Popover>
+      ) : null}
+
+      {errorMessage ? (
+        <Text {...errorMessageProps} variant="danger">
+          {errorMessage as string}
+        </Text>
       ) : null}
     </div>
   );

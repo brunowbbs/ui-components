@@ -63,11 +63,7 @@
         hover:bg-[color:var(--background-hover)]
         focus:bg-[color:var(--background-focus)]
         hover:border-[color:var(--border-focus)]
-        focus:border-[color:var(--background-focus)]
-        focus:outline-offset-2
-        focus:outline-2
-        focus:outline
-        focus:outline-[color:var(--background-focus)];
+        focus:border-[color:var(--background-focus)];
       }
     }
 
