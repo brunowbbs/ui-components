@@ -11,7 +11,7 @@ export function InputMask({ mask, label, error, ...props }: InputMaskProps) {
   const ref = useRef(null);
   const { labelProps, inputProps } = useTextField(props, ref);
 
-  const { onChange, ...rest } = inputProps;
+  const { onChange, value, ...rest } = inputProps;
 
   const maskConfigs = {
     phone: {
@@ -72,6 +72,20 @@ export function InputMask({ mask, label, error, ...props }: InputMaskProps) {
     });
   }
 
+  function maskDefaultValue() {
+    if (!mask || mask === "text") {
+      return value;
+    }
+
+    if (mask === "money") {
+      return moneyMask((value as string) || "0");
+    } else {
+      const { pattern, mask: maskPattern } = maskConfigs[mask];
+
+      return formatValue(value as string, { pattern, mask: maskPattern });
+    }
+  }
+
   return (
     <div className="grid grid-cols-1">
       <Text {...labelProps} as="label" size="sm" className="font-medium">
@@ -81,6 +95,7 @@ export function InputMask({ mask, label, error, ...props }: InputMaskProps) {
       <input
         {...rest}
         ref={ref}
+        value={maskDefaultValue()}
         onChange={(event) => {
           handleChange(event);
           onChange ? onChange(event) : null;
