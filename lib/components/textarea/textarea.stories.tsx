@@ -32,6 +32,6 @@ export const WithError: Story = {
   args: {
     label: "Label",
     placeholder: "Placeholder",
-    errorMessage: "error",
+    error: "error",
   },
 };

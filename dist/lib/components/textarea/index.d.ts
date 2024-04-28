@@ -1,2 +1,2 @@
-import { InputProps } from "./types";
-export declare function TextArea(props: InputProps): import("react/jsx-runtime").JSX.Element;
+import { TextAreaProps } from "./types";
+export declare function TextArea({ error, ...props }: TextAreaProps): import("react/jsx-runtime").JSX.Element;
