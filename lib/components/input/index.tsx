@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import { useState } from "react";
 import { RiEyeLine, RiEyeOffLine } from "react-icons/ri";
-import { InputProps } from "./types";
+import { Props } from "./types";
 
-export function Input(props: InputProps) {
+export function Input(props: Props) {
   const [isVisibleContent, setIsVisibleContent] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
 
