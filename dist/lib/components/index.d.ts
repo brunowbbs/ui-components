@@ -9,6 +9,7 @@ export * from "./icon";
 export * from "./iconText";
 export * from "./input";
 export * from "./input-mask";
+export * from "./menu";
 export * from "./modal";
 export * from "./pagination";
 export * from "./popover";
