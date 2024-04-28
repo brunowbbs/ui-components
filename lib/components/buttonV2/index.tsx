@@ -48,8 +48,8 @@ export const ButtonV2 = forwardRef(
 
     return (
       <Tag
-        role="button"
         {...buttonProps}
+        role="button"
         ref={forwardedRef}
         title={title}
         aria-pressed={isPressed}

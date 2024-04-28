@@ -24,12 +24,12 @@ import {
   Table,
   Tabs,
   Text,
+  TextArea,
   Wizard,
   camera,
   mountDataTable,
   showAlert,
   showToast,
-  TextArea,
 } from "../lib";
 import { useStatePopover } from "../lib/components";
 import { Form } from "./components/form";
@@ -368,35 +368,31 @@ function App() {
 
           <div className="flex gap-2 flex-row flex-wrap">
             <InputMask
-              onChangeValue={() => {}}
-              width={80}
+              onChange={() => {}}
               label="Telefone"
               type="phone"
               placeholder="Telefone"
             />
 
             <InputMask
-              onChangeValue={() => {}}
-              width={80}
+              onChange={() => {}}
               label="Preço"
               type="money"
               placeholder="Preço"
             />
 
             <InputMask
-              width={80}
               label="CPF"
               type="cpf"
               placeholder="CPF"
-              onChangeValue={() => {}}
+              onChange={() => {}}
             />
 
             <InputMask
-              width={80}
               label="CNPJ"
               type="cnpj"
               placeholder="CNPJ"
-              onChangeValue={() => {}}
+              onChange={() => {}}
             />
           </div>
         </Card>
@@ -467,11 +463,10 @@ function App() {
               onChangeValue={() => {}}
             />
             <InputMask
-              width={80}
               label="CNPJ"
               type="cnpj"
               placeholder="CNPJ"
-              onChangeValue={() => {}}
+              onChange={() => {}}
             />
 
             <Select
@@ -879,7 +874,7 @@ function App() {
           <TextArea
             className="w-full"
             value={textArea}
-            onChangeValue={(value) => setTextArea(value)}
+            onChange={(value) => setTextArea(value)}
             // value={values.name}
             // onChangeValue={(value) => setFieldValue("name", value)}
             label="Nome"

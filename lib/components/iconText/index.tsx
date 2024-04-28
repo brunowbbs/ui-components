@@ -20,6 +20,7 @@ export const IconText = forwardRef<IconTextElement, IconTextProps>(
     const { leftIcon, rightIcon } = useSlots(children);
 
     const text = Children.toArray(children).find(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (child: any) => !child?.type?.slot
     );
 

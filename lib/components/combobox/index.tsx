@@ -13,7 +13,7 @@ import { Text } from "../text";
 
 import { ButtonProps, ComboboxBaseProps, ComboboxProps } from "./types";
 
-import { ListBox } from "./listBox";
+import { ListBox } from "./listbox";
 import { Popover } from "./popover";
 
 import "./styles.css";
@@ -23,7 +23,7 @@ function Button(props: ButtonProps) {
   const { buttonProps } = useButton(props, ref);
 
   return (
-    <button {...buttonProps} ref={ref}>
+    <button {...buttonProps} className="btn-combobox" ref={ref}>
       {props.children}
     </button>
   );
