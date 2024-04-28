@@ -28232,12 +28232,9 @@ const RK = ui(
       isDisabled: m,
       title: v,
       size: g
-    } = t, b = gr(e), S = r ? "summary" : "button", E = PA(
-      { elementType: S, ...t },
-      b
-    ), { firstIcon: w, lastIcon: A } = UN(i), T = CA.count(i) === 1, _ = NK(1, w, A) && T, { buttonProps: P, isPressed: B } = E;
+    } = t, b = gr(e), S = PA(t, b), { firstIcon: E, lastIcon: w } = UN(i), A = r ? "summary" : "button", T = CA.count(i) === 1, _ = NK(1, E, w) && T, { buttonProps: P, isPressed: B } = S;
     return /* @__PURE__ */ me(
-      S,
+      A,
       {
         role: "button",
         ...P,
@@ -28263,7 +28260,8 @@ const RK = ui(
           "--lg": g === "lg",
           "--xl": g === "xl"
         }),
-        children: /* @__PURE__ */ me(MK, { isVertical: d, children: c ? /* @__PURE__ */ me("div", { className: "flex items-center justify-center ", children: /* @__PURE__ */ me(PM, { color: f ? "blue" : "white" }) }) : i })
+        disabled: c,
+        children: /* @__PURE__ */ me(MK, { isVertical: d, children: c ? /* @__PURE__ */ me("div", { className: "mt-auto mb-auto flex items-center justify-center", children: /* @__PURE__ */ me(PM, { color: f ? "green" : "white" }) }) : i })
       }
     );
   }
