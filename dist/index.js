@@ -28189,6 +28189,7 @@ const RK = ui(
 ), MK = ui(
   ({ children: t, isVertical: e = !1, as: n, size: i }, r) => {
     const a = gr(r), { leftIcon: l, rightIcon: c } = UN(t), f = CA.toArray(t).find(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (d) => {
         var m;
         return !((m = d == null ? void 0 : d.type) != null && m.slot);
@@ -28236,8 +28237,8 @@ const RK = ui(
     return /* @__PURE__ */ me(
       A,
       {
-        role: "button",
         ...P,
+        role: "button",
         ref: b,
         title: v,
         "aria-pressed": B,
@@ -39872,7 +39873,7 @@ function qQ({
 }
 function JQ(t) {
   const e = t.buttonRef, { buttonProps: n } = PA(t, e);
-  return /* @__PURE__ */ me("button", { ...n, ref: e, children: t.children });
+  return /* @__PURE__ */ me("button", { ...n, className: "btn-combobox", ref: e, children: t.children });
 }
 const QQ = ui(
   ({ error: t, ...e }, n) => {
