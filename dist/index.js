@@ -28254,7 +28254,6 @@ const RK = ui(
           "--danger": n === "danger",
           "--success": n === "success",
           "--warning": n === "warning",
-          "--unset": n === "unset",
           "--disabled": m,
           "--outlined": f,
           "--loading": c,
