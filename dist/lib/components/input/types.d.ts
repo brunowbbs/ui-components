@@ -1,5 +1,4 @@
 import { HTMLInputTypeAttribute } from "react";
-import { InputProps } from "react-select";
 export type Props = {
     value: string;
     width?: number;
@@ -10,4 +9,4 @@ export type Props = {
     placeholder?: string;
     type?: HTMLInputTypeAttribute;
     disabled?: boolean;
-} & InputProps;
+} & HTMLInputElement;
