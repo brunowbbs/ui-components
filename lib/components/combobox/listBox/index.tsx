@@ -21,9 +21,7 @@ export const ListBox = forwardRef(
         {...listBoxProps}
         aria-label={props["aria-label"]}
         ref={forwardedRef}
-        className={clsx("list-ul", {
-          "--scrolling": state.collection.size > 5,
-        })}
+        className={clsx("list-ul")}
         style={{ width }}
       >
         {[...state.collection].map((item) => (

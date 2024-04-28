@@ -1,0 +1,7 @@
+.popover-select {
+  @apply bg-white 
+  shadow-2xl 
+  rounded-lg 
+  border 
+  border-gray-300;
+}

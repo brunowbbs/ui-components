@@ -26,7 +26,6 @@ addons.setConfig({
     base: "light",
     fontBase: "Inter",
     fontCode: "Fira Code",
-    brandTitle: "BrasilSeg",
     brandImage,
     appBg: "#e5e8ff",
     barBg: "#fff",

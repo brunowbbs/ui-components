@@ -1,5 +1,5 @@
-.button {
-  &:not(.link) {
+button {
+  &:not(.link)&:not(.--unset) {
     @apply flex 
     justify-center 
     items-center 

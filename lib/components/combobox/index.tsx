@@ -4,8 +4,6 @@ import { forwardRef, useRef } from "react";
 import useForwardedRef from "@bedrock-layout/use-forwarded-ref";
 import { HiddenSelect } from "@react-aria/select";
 import clsx from "clsx";
-import { Popover } from "../popover";
-import { ListBox } from "../utils";
 
 import { useButton, useComboBox, useFilter } from "react-aria";
 import { Item, useComboBoxState } from "react-stately";
@@ -14,6 +12,9 @@ import { IconRight } from "../iconText";
 import { Text } from "../text";
 
 import { ButtonProps, ComboboxBaseProps, ComboboxProps } from "./types";
+
+import { ListBox } from "./listBox";
+import { Popover } from "./popover";
 
 import "./styles.css";
 
@@ -84,12 +85,9 @@ export const ComboboxBase = forwardRef(
             disabled={isDisabled}
           />
 
-          {/* Substituir ícone futuramente */}
-
           <Button
             {...buttonProps}
             buttonRef={buttonRef}
-            onPress={() => state.open()}
             disabled={isDisabled}
             isOpen={state.isOpen}
           >
@@ -101,20 +99,28 @@ export const ComboboxBase = forwardRef(
               alt="ícone de expansão"
             />
           </Button>
-        </div>
 
-        {state.isOpen ? (
-          <Popover state={state} placement="bottom right">
-            <ListBox
-              {...listBoxProps}
+          {state.isOpen ? (
+            <Popover
               state={state}
-              width={
-                document.getElementById("combobox")?.getBoundingClientRect()
-                  .width
-              }
-            />
-          </Popover>
-        ) : null}
+              triggerRef={forwardedRef}
+              popoverRef={popoverRef}
+              isNonModal
+              placement="bottom start"
+              containerPadding={0}
+              offset={6}
+            >
+              <ListBox
+                {...listBoxProps}
+                state={state}
+                width={
+                  document.getElementById("combobox")?.getBoundingClientRect()
+                    .width
+                }
+              />
+            </Popover>
+          ) : null}
+        </div>
 
         {error ? (
           <Text {...errorMessageProps} variant="danger">

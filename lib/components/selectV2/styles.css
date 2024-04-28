@@ -1,24 +1,27 @@
 .select {
-  @apply grid;
+  @apply grid
+  relative;
 
   button {
     @apply flex
-    justify-between 
-    items-center
-    px-2
-    rounded
-    outline
-    outline-1
-    h-6
-    w-full
-    bg-white
-    outline-gray-400
-    focus:outline-primary
-    relative;
+      justify-between 
+      items-center
+      px-2
+      rounded
+      outline
+      outline-1
+      h-6
+      w-full
+      bg-white
+      outline-gray-400
+      focus:outline-primary
+      relative
+      cursor-pointer
+      text-black;
 
     &.--disabled {
       @apply cursor-not-allowed
-      caret-transparent;
+          caret-transparent;
     }
 
     &.--selected {

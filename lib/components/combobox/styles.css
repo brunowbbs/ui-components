@@ -1,10 +1,11 @@
 .combobox {
-  @apply grid;
+  @apply grid
+  relative;
 
   .__wrapper {
     input {
       @apply bg-white
-    outline-gray-400
+      outline-gray-400
     focus:outline-primary
       rounded
       outline
@@ -13,7 +14,8 @@
       w-full
       px-2
       text-sm
-      h-6;
+      h-6
+      border-none;
     }
 
     @apply flex

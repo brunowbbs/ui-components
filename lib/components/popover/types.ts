@@ -14,7 +14,7 @@ export type PopoverTriggerProps = Omit<
   "popoverRef" | "triggerRef"
 > & {
   children: ReactElement<any, string | JSXElementConstructor<any>>;
-  childButton?: ReactNode | string;
+  childButton: ReactNode | string;
   buttonProps?: ButtonProps;
   state: OverlayTriggerState;
 };
