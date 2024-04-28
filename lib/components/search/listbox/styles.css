@@ -1,0 +1,20 @@
+.listbox {
+  @apply p-0
+  m-0
+  grid;
+
+  li {
+    @apply grid
+    px-2
+    cursor-pointer
+    font-medium
+    outline-none
+    py-1
+
+    first:rounded-t
+    last:rounded-b
+
+    hover:bg-gray-100
+    hover:text-primary;
+  }
+}

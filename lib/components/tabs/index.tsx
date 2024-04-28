@@ -23,7 +23,7 @@ function Tab({
   const { tabProps } = useTab({ key }, state, ref);
 
   return (
-    <div {...tabProps} ref={ref}>
+    <div {...tabProps} className="cursor-pointer" ref={ref}>
       {rendered}
     </div>
   );
