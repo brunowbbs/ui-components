@@ -13,7 +13,7 @@ export function mountDataTable(
     key: String(rowIndex),
     items: row.map((item, columnIndex) => ({
       key: String(dataColumns[columnIndex]).toLowerCase(),
-      elem: item,
+      elem: item || "-",
     })),
   }));
 

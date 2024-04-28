@@ -17,11 +17,12 @@
       focus:outline-primary
       relative
       cursor-pointer
-      text-black;
+      text-black
+      border-none;
 
     &.--disabled {
       @apply cursor-not-allowed
-          caret-transparent;
+      caret-transparent;
     }
 
     &.--selected {

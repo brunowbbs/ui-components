@@ -7,7 +7,7 @@ const { columns, rows } = mountDataTable(
   ["Id", "Date", "Status", "Customer", "Purchased"],
   [
     ["1", "01 de mar 24", "pending", "John", "unpaid"],
-    ["2", "12 de mar 24", "processed", "Leo", "paid"],
+    ["2", "12 de mar 24", "processed", "", "paid"],
     ["3", "21 de mar 25", "processed", "Bruno", "paid"],
   ]
 );

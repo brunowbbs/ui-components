@@ -4,9 +4,9 @@ import { useTextField } from "react-aria";
 import { Text } from "../text";
 
 import "./styles.css";
-import { InputProps } from "./types";
+import { InputProps, TextAreaProps } from "./types";
 
-export function TextArea(props: InputProps) {
+function TextAreaBase(props: InputProps) {
   const { label, errorMessage, className } = props;
   const ref = useRef(null);
   const { labelProps, inputProps } = useTextField(
@@ -38,4 +38,8 @@ export function TextArea(props: InputProps) {
       ) : null}
     </div>
   );
+}
+
+export function TextArea({ error, ...props }: TextAreaProps) {
+  return <TextAreaBase errorMessage={error} {...props} />;
 }
