@@ -39816,7 +39816,7 @@ const Do = ui(
         ...a,
         "aria-label": e["aria-label"],
         ref: i,
-        className: $t("list-ul"),
+        className: $t("listbox"),
         style: { width: t },
         children: [...r.collection].map((l) => /* @__PURE__ */ me(YQ, { item: l, state: r }, l.key))
       }
@@ -53404,7 +53404,7 @@ const Sfe = ui(
         ...a,
         ref: i,
         "aria-label": e["aria-label"],
-        className: $t("list-ul"),
+        className: $t("listbox"),
         style: { width: t },
         children: [...r.collection].map((l) => /* @__PURE__ */ me(Efe, { item: l, state: r }, l.key))
       }
