@@ -65,7 +65,6 @@ export const ButtonV2 = forwardRef(
           "--danger": variant === "danger",
           "--success": variant === "success",
           "--warning": variant === "warning",
-          "--unset": variant === "unset",
           "--disabled": isDisabled,
           "--outlined": isOutlined,
           "--loading": isLoading,
