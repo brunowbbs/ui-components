@@ -32,13 +32,11 @@ export const ButtonV2 = forwardRef(
     } = props;
 
     const forwardedRef = useForwardedRef(ref);
-    const Tag = isSummary ? "summary" : "button";
 
-    const normalButton = useButton(
-      { elementType: Tag, ...props },
-      forwardedRef
-    );
+    const normalButton = useButton(props, forwardedRef);
     const { firstIcon, lastIcon } = useSlots(children);
+
+    const Tag = isSummary ? "summary" : "button";
 
     const onlyOne = Children.count(children) === 1;
 
@@ -74,11 +72,12 @@ export const ButtonV2 = forwardRef(
           "--lg": size === "lg",
           "--xl": size === "xl",
         })}
+        disabled={isLoading}
       >
         <IconText isVertical={isVertical}>
           {isLoading ? (
-            <div className="flex items-center justify-center ">
-              <Spinner color={isOutlined ? "blue" : "white"} />
+            <div className="mt-auto mb-auto flex items-center justify-center">
+              <Spinner color={isOutlined ? "green" : "white"} />
             </div>
           ) : (
             children
