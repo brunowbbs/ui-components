@@ -6,7 +6,23 @@ import { useListBox, useOption } from "@react-aria/listbox";
 import clsx from "clsx";
 
 import { Text } from "../../text";
-import type { ListBoxProps, OptionProps } from "./types";
+
+import type { PropsWithChildren } from "react";
+
+import type { AriaListBoxOptions } from "@react-aria/listbox";
+import type { ListState } from "@react-stately/list";
+import type { Node } from "@react-types/shared";
+
+type ListBoxProps = AriaListBoxOptions<unknown> &
+  PropsWithChildren<{
+    width?: number;
+    state: ListState<unknown>;
+  }>;
+
+type OptionProps = {
+  item: Node<unknown>;
+  state: ListState<unknown>;
+};
 
 import "./styles.css";
 

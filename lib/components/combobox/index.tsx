@@ -13,7 +13,7 @@ import { Text } from "../text";
 
 import { ButtonProps, ComboboxBaseProps, ComboboxProps } from "./types";
 
-import { ListBox } from "./listBox";
+import { ListBox } from "./listbox";
 import { Popover } from "./popover";
 
 import "./styles.css";
