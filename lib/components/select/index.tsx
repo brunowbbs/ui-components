@@ -14,6 +14,7 @@ export function Select({
   value,
   onChangeValue,
   error,
+  onInputChange,
 }: SelectProps) {
   return (
     <div className={`w-${width ?? "full"}`}>
@@ -25,6 +26,7 @@ export function Select({
         isDisabled={disabled}
         placeholder={placeholder}
         options={options}
+        onInputChange={(value) => onInputChange && onInputChange(value)}
         onChange={(event) =>
           onChangeValue(
             event as {
@@ -64,8 +66,8 @@ export function Select({
             borderColor: error
               ? COLORS.danger
               : state.isFocused
-              ? COLORS.primary
-              : "#94a3b8",
+                ? COLORS.primary
+                : "#94a3b8",
             borderWidth: "1px",
             borderStyle: "solid",
             paddingLeft: 8,

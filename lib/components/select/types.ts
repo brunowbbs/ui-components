@@ -9,6 +9,7 @@ export type SelectProps = {
   isMulti?: boolean;
   width?: number;
   onChangeValue: (selectedOption: { label: string; value: string }) => void;
+  onInputChange?: (value: string) => void;
   value: string;
   error?: string;
 };
