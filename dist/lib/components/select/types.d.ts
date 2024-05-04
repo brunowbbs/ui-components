@@ -12,6 +12,7 @@ export type SelectProps = {
         label: string;
         value: string;
     }) => void;
+    onInputChange?: (value: string) => void;
     value: string;
     error?: string;
 };
