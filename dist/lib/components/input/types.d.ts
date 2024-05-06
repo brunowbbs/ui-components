@@ -1,4 +1,5 @@
-import { HTMLInputTypeAttribute } from "react";
+import { HTMLInputTypeAttribute } from 'react';
+
 export type Props = {
     value: string;
     width?: number;

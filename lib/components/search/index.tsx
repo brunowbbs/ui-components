@@ -97,9 +97,6 @@ function SearchAutocomplete<T extends object>(props: ComboBoxProps<T>) {
           triggerRef={outerRef}
           state={state}
           isNonModal
-          placement="bottom start"
-          containerPadding={0}
-          offset={6}
         >
           <ListBox
             {...listBoxProps}
@@ -135,7 +132,7 @@ export function Search({
     <SearchAutocomplete
       label={label}
       inputValue={value}
-      onSelectionChange={onChange}
+      onInputChange={onChange}
       placeholder={placeholder}
       errorMessage={error}
     >

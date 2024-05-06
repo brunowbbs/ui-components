@@ -1,4 +1,5 @@
-import { ReactElement } from "react";
+import { ReactElement } from 'react';
+
 export type TabProps = {
     tabs: {
         title: string;

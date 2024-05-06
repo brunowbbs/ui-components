@@ -1,5 +1,6 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { Search } from ".";
+import { Meta, StoryObj } from '@storybook/react';
+import { Search } from '.';
+
 declare const meta: Meta<typeof Search>;
 export default meta;
 type Story = StoryObj<typeof Search>;

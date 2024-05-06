@@ -1,5 +1,6 @@
-import { ReactElement } from "react";
-import { Colors } from "../../utils/types";
+import { ReactElement } from 'react';
+import { Colors } from '../../utils/types';
+
 export type ButtonProps = {
     variant?: Colors;
     text?: string;

@@ -1,5 +1,6 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { SelectV2 } from ".";
+import { Meta, StoryObj } from '@storybook/react';
+import { SelectV2 } from '.';
+
 declare const meta: Meta<typeof SelectV2>;
 export default meta;
 type Story = StoryObj<typeof SelectV2>;

@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { InputMask } from ".";
+import { Meta, StoryObj } from '@storybook/react';
+import { InputMask } from '.';
+
 declare const meta: Meta<typeof InputMask>;
 export default meta;
 type Story = StoryObj<typeof InputMask>;

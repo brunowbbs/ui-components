@@ -1,4 +1,5 @@
-import { Key } from "react-aria";
+import { Key } from 'react-aria';
+
 export type SearchProps = {
     items: Array<{
         key: string | number;

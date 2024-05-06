@@ -1,5 +1,6 @@
-import type { AriaTableProps, Key } from "react-aria";
-import type { TableStateProps } from "@react-stately/table";
+import { AriaTableProps, Key } from 'react-aria';
+import { TableStateProps } from '@react-stately/table';
+
 export type CustomTableProps = AriaTableProps<object> & TableStateProps<object> & {
     className?: string;
 };

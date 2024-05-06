@@ -1,4 +1,5 @@
-import { OverlayTriggerProps } from "react-stately";
+import { OverlayTriggerProps } from 'react-stately';
+
 export declare function useStatePopover(props?: OverlayTriggerProps): {
     state: {
         isOpen: boolean;

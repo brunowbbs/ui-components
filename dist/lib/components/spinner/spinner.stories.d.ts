@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Spinner } from ".";
+import { Meta, StoryObj } from '@storybook/react';
+import { Spinner } from '.';
+
 declare const meta: Meta<typeof Spinner>;
 export default meta;
 type Story = StoryObj<typeof Spinner>;

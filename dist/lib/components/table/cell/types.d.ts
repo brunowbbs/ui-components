@@ -1,6 +1,7 @@
-import type { PropsWithChildren } from "react";
-import type { Node } from "@react-types/shared";
-import type { TableState } from "react-stately";
+import { PropsWithChildren } from 'react';
+import { Node } from '@react-types/shared';
+import { TableState } from 'react-stately';
+
 export type TableCellProps = PropsWithChildren<{
     cell: Node<object>;
     state: TableState<object>;

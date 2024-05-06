@@ -18,7 +18,7 @@ export type ComboboxProps = {
   items: Array<{ key: string | number; label: string }>;
   error?: string;
   placeholder?: string;
-  onChange?: (value: Key) => void;
+  onChange?: (value: Key | null) => void;
   value?: Key;
   label?: string;
 };

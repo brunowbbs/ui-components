@@ -1,7 +1,8 @@
-import { ReactNode } from "react";
-import { AriaMenuProps, Key } from "react-aria";
-import { MenuTriggerProps } from "react-stately";
-import { ButtonProps } from "../buttonV2/types";
+import { ReactNode } from 'react';
+import { AriaMenuProps, Key } from 'react-aria';
+import { MenuTriggerProps } from 'react-stately';
+import { ButtonProps } from '../buttonV2/types';
+
 export type MenuProps = {
     items: Array<{
         key: string | number;

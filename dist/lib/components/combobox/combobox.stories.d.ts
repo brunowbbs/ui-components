@@ -1,5 +1,6 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { Combobox } from ".";
+import { Meta, StoryObj } from '@storybook/react';
+import { Combobox } from '.';
+
 declare const meta: Meta<typeof Combobox>;
 export default meta;
 type Story = StoryObj<typeof Combobox>;

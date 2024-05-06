@@ -1,4 +1,5 @@
-import type { ReactSVG } from "react";
+import { ReactSVG } from 'react';
+
 export type Vector = {
     children?: Vector[];
     tag?: string | keyof ReactSVG;
