@@ -1,6 +1,6 @@
-import * as icons from "../../assets/generated";
-
 import type { Meta } from "@storybook/react";
+
+import * as icons from "@leopsousaa/ui-icons/dist";
 
 import { Icons } from ".";
 
@@ -23,4 +23,4 @@ const meta: Meta<typeof Icons> = {
 
 export default meta;
 
-export const ListIcons = () => <Icons isCurrentColor icons={icons} />;
+export const ListIcons = () => <Icons icons={icons} isCurrentColor />;

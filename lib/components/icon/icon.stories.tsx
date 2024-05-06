@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { abcIconsMaterialUiOutlined } from "@leopsousaa/ui-icons/dist";
 import { Icon } from ".";
-import { camera } from "../../assets/generated";
 
 const meta: Meta<typeof Icon> = {
   title: "Componentes/Icon",
@@ -16,8 +16,8 @@ const meta: Meta<typeof Icon> = {
     },
   },
   args: {
-    src: camera,
-    alt: "cameraIcon",
+    src: abcIconsMaterialUiOutlined,
+    alt: "abcIconsMaterialUiOutlined",
     size: "1x",
   },
   argTypes: {

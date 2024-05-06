@@ -13,7 +13,7 @@ import { Text } from "../text";
 
 import { ButtonProps, ComboboxBaseProps, ComboboxProps } from "./types";
 
-import { ListBox } from "./listBox";
+import { ListBox } from "./listbox";
 import { Popover } from "./popover";
 
 import "./styles.css";
@@ -106,9 +106,6 @@ export const ComboboxBase = forwardRef(
               triggerRef={forwardedRef}
               popoverRef={popoverRef}
               isNonModal
-              placement="bottom start"
-              containerPadding={0}
-              offset={6}
             >
               <ListBox
                 {...listBoxProps}

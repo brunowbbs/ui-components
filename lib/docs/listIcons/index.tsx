@@ -1,7 +1,8 @@
-import { Fragment } from "react";
-import { toast } from "react-toastify";
-import { Svg } from "../../components";
+import { ToastContainer, toast } from "react-toastify";
+import { ButtonV2, Svg } from "../../components";
 import { IconsListProps } from "./types";
+
+import "../../index";
 
 export const Icons = ({ width, icons, isCurrentColor }: IconsListProps) => {
   function copyNameIcon(name: string) {
@@ -12,47 +13,30 @@ export const Icons = ({ width, icons, isCurrentColor }: IconsListProps) => {
 
   return (
     <>
-      <div
-        className="
-        grid
-        gap-6
-        items-center
-        grid-cols-[auto,1fr]
-        md:grid-cols-[auto,1fr,auto,1fr]
-        lg:grid-cols-[auto,1fr,auto,1fr,auto,1fr,auto,1fr]
-      "
-      >
+      <ToastContainer />
+      <div className="grid grid-cols-6">
         {Object.keys(icons).map((icon: string) => (
-          <Fragment key={icon}>
-            <div
+            <div key={icon}
               tabIndex={0}
-              className="
-                p-2
-                rounded
-                border-1
-                border-base-grey-light-100
-                bg-base-white
-                text-font-default
-              "
+              className="flex flex-col items-center p-2 rounded border-1"
             >
-              <Svg
-                src={icons[icon]}
-                isCurrentColor={isCurrentColor}
-                alt={`${icon} icon`}
-                height="30"
-                width={width || "30"}
-              />
+                <Svg
+                  src={icons[icon]}
+                  isCurrentColor={isCurrentColor}
+                  alt={`${icon} icon`}
+                  height="30"
+                  width={width || "30"}
+                />
+              <ButtonV2
+                size="xs"
+                onPress={() => copyNameIcon(icon)}
+                variant="primary"
+                >
+                {icon}
+              </ButtonV2>
             </div>
-            <button
-              role="button"
-              className="truncate cursor-pointer"
-              onClick={() => copyNameIcon(icon)}
-            >
-              {icon}
-            </button>
-          </Fragment>
         ))}
       </div>
-    </>
+      </>
   );
 };
