@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { cameraAltIconsMaterialUiOutlined } from "@leopsousaa/ui-icons/dist";
 import { Svg } from ".";
-import { camera } from "../../assets/generated";
 
 const meta: Meta<typeof Svg> = {
   title: "Componentes/Svg",
@@ -17,7 +17,7 @@ const meta: Meta<typeof Svg> = {
   },
   args: {
     alt: "icon",
-    src: camera,
+    src: cameraAltIconsMaterialUiOutlined,
     isCurrentColor: false,
   },
   argTypes: {

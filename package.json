@@ -7,7 +7,6 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --p ./tsconfig-build.json && vite build",
-    "svg": "svj -i ./lib/assets/icons -d ./lib/assets/generated -r",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "prepublishOnly": "npm run build",
@@ -47,7 +46,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^8.0.8",
-    "svj": "^2.2.3",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.2.2",
     "vite": "^5.1.4",

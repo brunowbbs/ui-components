@@ -7,7 +7,6 @@ import clsx from "clsx";
 
 import { useButton, useComboBox, useFilter } from "react-aria";
 import { Item, useComboBoxState } from "react-stately";
-import { chevron } from "../../assets";
 import { IconRight } from "../iconText";
 import { Text } from "../text";
 
@@ -16,6 +15,7 @@ import { ButtonProps, ComboboxBaseProps, ComboboxProps } from "./types";
 import { ListBox } from "./listbox";
 import { Popover } from "./popover";
 
+import { chevronLeftIconsMaterialUiOutlined } from "@leopsousaa/ui-icons/dist";
 import "./styles.css";
 
 function Button(props: ButtonProps) {
@@ -92,10 +92,10 @@ export const ComboboxBase = forwardRef(
             isOpen={state.isOpen}
           >
             <IconRight
-              className={clsx("text-[8px] text-gray-400", {
-                "rotate-180 transition text-primary": state.isOpen,
+              className={clsx("text-[8px] rotate-[-90deg] text-gray-400", {
+                "rotate-[90deg] transition text-primary": state.isOpen,
               })}
-              src={chevron}
+              src={chevronLeftIconsMaterialUiOutlined}
               alt="ícone de expansão"
             />
           </Button>

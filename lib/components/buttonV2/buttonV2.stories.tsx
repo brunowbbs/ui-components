@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { cameraAltIconsMaterialUiOutlined } from "@leopsousaa/ui-icons/dist";
 import { ButtonV2 } from ".";
-import { camera } from "../../assets/generated";
 import { IconLeft } from "../iconText";
 
 const meta: Meta<typeof ButtonV2> = {
@@ -10,7 +10,7 @@ const meta: Meta<typeof ButtonV2> = {
   tags: ["autodocs"],
   render: ({ ...args }) => (
     <ButtonV2 {...args}>
-      <IconLeft src={camera} alt={""} />
+      <IconLeft src={cameraAltIconsMaterialUiOutlined} alt={""} />
       Teste
     </ButtonV2>
   ),

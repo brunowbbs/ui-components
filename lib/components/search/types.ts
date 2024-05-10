@@ -1,6 +1,6 @@
-import { Key } from "react-aria";
+import { AriaComboBoxProps, Key } from "react-aria";
 
-export type SearchProps = {
+export type SearchProps = AriaComboBoxProps<object> & {
   items: Array<{ key: string | number; label: string }>;
   error?: string;
   placeholder?: string;

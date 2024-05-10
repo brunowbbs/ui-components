@@ -1,15 +1,7 @@
-import { HTMLInputTypeAttribute } from "react";
+import { AriaTextFieldProps } from "react-aria";
 
-export type Props = {
-  value: string;
-  width?: number;
-  label: string;
-  isPassword?: boolean;
-  onChangeValue: (value: string | number) => void;
+export type InputProps = AriaTextFieldProps & {
+  mask?: "money" | "phone" | "cpf" | "cnpj" | "cep" | "text";
+  isDisabled?: boolean;
   error?: string;
-  placeholder?: string;
-  type?: HTMLInputTypeAttribute;
-  disabled?: boolean;
-  onFocus?: () => void;
-  onBlur?: () => void;
 };

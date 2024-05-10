@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 
+import { filter1IconsMaterialUiOutlined } from "@leopsousaa/ui-icons/dist";
 import { Popover } from ".";
-import { filter } from "../../assets";
 import { IconLeft, IconRight } from "../iconText";
 import { useStatePopover } from "./hooks";
 
@@ -52,7 +52,10 @@ function ComponentRenderWithIconLeft() {
       state={state}
       childButton={
         <>
-          <IconLeft src={filter} alt="ícone de filtro" />
+          <IconLeft
+            src={filter1IconsMaterialUiOutlined}
+            alt="ícone de filtro"
+          />
           Filtros
         </>
       }
@@ -80,7 +83,10 @@ function ComponentRenderWithIconRight() {
       state={state}
       childButton={
         <>
-          <IconRight src={filter} alt="ícone de filtro" />
+          <IconRight
+            src={filter1IconsMaterialUiOutlined}
+            alt="ícone de filtro"
+          />
           Filtros
         </>
       }
@@ -108,8 +114,14 @@ function ComponentRenderWithIcon() {
       state={state}
       childButton={
         <>
-          <IconRight src={filter} alt="ícone de filtro" />
-          <IconLeft src={filter} alt="ícone de filtro" />
+          <IconRight
+            src={filter1IconsMaterialUiOutlined}
+            alt="ícone de filtro"
+          />
+          <IconLeft
+            src={filter1IconsMaterialUiOutlined}
+            alt="ícone de filtro"
+          />
           Filtros
         </>
       }

@@ -1,9 +1,18 @@
 import type { ComboBoxProps } from "@react-types/combobox";
 import * as React from "react";
-import { useButton, useComboBox, useFilter, useSearchField } from "react-aria";
+import {
+  AriaComboBoxProps,
+  useButton,
+  useComboBox,
+  useFilter,
+  useSearchField,
+} from "react-aria";
 import { Item, useComboBoxState, useSearchFieldState } from "react-stately";
 
-import { cross, search } from "../../assets";
+import {
+  clearIconsMaterialUiOutlined,
+  searchIconsMaterialUiOutlined,
+} from "@leopsousaa/ui-icons/dist";
 import { Icon } from "../icon";
 import { Text } from "../text";
 import { ListBox } from "./listbox";
@@ -12,7 +21,9 @@ import { SearchProps } from "./types";
 
 export { Item } from "react-stately";
 
-function SearchAutocomplete<T extends object>(props: ComboBoxProps<T>) {
+function SearchAutocomplete<T extends object>(
+  props: AriaComboBoxProps<T> & ComboBoxProps<T>
+) {
   const { label, errorMessage } = props;
 
   const { contains } = useFilter({ sensitivity: "base" });
@@ -64,10 +75,10 @@ function SearchAutocomplete<T extends object>(props: ComboBoxProps<T>) {
         }`}
       >
         <Icon
-          src={search}
+          src={searchIconsMaterialUiOutlined}
           alt="buscar"
           aria-hidden="true"
-          className="text-[10px] text-gray-400"
+          className="text-[14px] text-gray-400"
         />
 
         <input
@@ -83,10 +94,10 @@ function SearchAutocomplete<T extends object>(props: ComboBoxProps<T>) {
           className="cursor-default text-gray-400 hover:text-gray-600"
         >
           <Icon
-            src={cross}
+            src={clearIconsMaterialUiOutlined}
             alt="limpar busca"
             aria-hidden="true"
-            className="text-[8px]"
+            className="text-[14px]"
           />
         </button>
       </div>
@@ -127,14 +138,17 @@ export function Search({
   label,
   placeholder,
   value,
+  ...rest
 }: SearchProps) {
   return (
     <SearchAutocomplete
       label={label}
+      aria-label={rest["aria-label"]}
       inputValue={value}
       onInputChange={onChange}
       placeholder={placeholder}
       errorMessage={error}
+      {...rest}
     >
       {items.map(({ key, label }) => {
         return <Item key={key}>{label}</Item>;

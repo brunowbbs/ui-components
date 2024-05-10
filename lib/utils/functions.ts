@@ -20,7 +20,20 @@ export function mountDataTable(
   return { columns, rows };
 }
 
-export const moneyMask = (value: string) => {
+export function formatCurrency(value: number) {
+  // Arredonda o valor para duas casas decimais
+  const roundedAmount = Math.round(value * 100) / 100;
+  // Converte o número para uma string com duas casas decimais
+  let formattedAmount = roundedAmount.toFixed(2);
+  // Se a parte decimal tiver apenas um dígito, adiciona um zero à esquerda
+  if (formattedAmount.split(".")[1].length === 1) {
+    formattedAmount = `0${formattedAmount}`;
+  }
+
+  return formattedAmount;
+}
+
+export function moneyMask(value: string) {
   value = value.replace(".", "").replace(",", "").replace(/\D/g, "");
 
   const options = { minimumFractionDigits: 2 };
@@ -28,7 +41,5 @@ export const moneyMask = (value: string) => {
     parseFloat(value) / 100
   );
 
-  console.log(result);
-
   return "R$ " + result;
-};
+}

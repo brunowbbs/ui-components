@@ -9,13 +9,13 @@ import {
 import { Item, useSelectState } from "react-stately";
 
 import clsx from "clsx";
-import { chevron } from "../../assets";
 import { Icon } from "../icon";
 import { Text } from "../text";
 import { ListBox } from "./listBox";
 import { Popover } from "./popover";
 import { SelectBaseProps, SelectProps } from "./types";
 
+import { chevronLeftIconsMaterialUiOutlined } from "@leopsousaa/ui-icons/dist";
 import "./styles.css";
 
 export { Item } from "react-stately";
@@ -70,10 +70,10 @@ export function SelectBase(props: SelectBaseProps) {
         </Text>
 
         <Icon
-          src={chevron}
+          src={chevronLeftIconsMaterialUiOutlined}
           alt="ícone de expansão"
-          className={clsx("text-[8px] text-gray-400", {
-            "rotate-180 transition text-primary": state.isOpen,
+          className={clsx("text-[8px] rotate-[-90deg] text-gray-400", {
+            "rotate-[90deg] transition text-primary": state.isOpen,
           })}
         />
       </button>

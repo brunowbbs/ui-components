@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { cameraAltIconsMaterialUiOutlined } from "@leopsousaa/ui-icons/dist";
 import { IconLeft, IconRight, IconText } from ".";
-import { camera } from "../../assets/generated";
 
 const meta: Meta<typeof IconText> = {
   title: "Componentes/IconText",
@@ -10,9 +10,13 @@ const meta: Meta<typeof IconText> = {
   args: {},
   render: ({ ...args }) => (
     <IconText {...args}>
-      <IconLeft size="4x" src={camera} alt="cameraIcons" />
+      <IconLeft
+        size="4x"
+        src={cameraAltIconsMaterialUiOutlined}
+        alt="cameraIcons"
+      />
       Componente Renderizador de ícones
-      <IconRight src={camera} alt="cameraIcons" />
+      <IconRight src={cameraAltIconsMaterialUiOutlined} alt="cameraIcons" />
     </IconText>
   ),
   argTypes: {
