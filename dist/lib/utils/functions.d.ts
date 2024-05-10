@@ -13,5 +13,6 @@ export declare function mountDataTable(dataColumns: Array<string | number | JSX.
         }[];
     }[];
 };
-export declare const moneyMask: (value: string) => string;
+export declare function formatCurrency(value: number): string;
+export declare function moneyMask(value: string): string;
 export {};

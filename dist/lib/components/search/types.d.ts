@@ -1,6 +1,6 @@
-import { Key } from 'react-aria';
+import { AriaComboBoxProps, Key } from 'react-aria';
 
-export type SearchProps = {
+export type SearchProps = Omit<AriaComboBoxProps<object>, "children"> & {
     items: Array<{
         key: string | number;
         label: string;
