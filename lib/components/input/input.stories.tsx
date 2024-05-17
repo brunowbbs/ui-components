@@ -38,7 +38,7 @@ export const Money: Story = {
     placeholder: "Placeholder",
     "aria-label": "Input example",
     mask: "money",
-    value: "5000",
+    defaultValue: "5000",
   },
 };
 
@@ -48,7 +48,7 @@ export const Cep: Story = {
     placeholder: "Placeholder",
     "aria-label": "Input example",
     mask: "cep",
-    value: "00000000",
+    defaultValue: "00000000",
   },
 };
 

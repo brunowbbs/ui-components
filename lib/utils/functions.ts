@@ -34,12 +34,19 @@ export function formatCurrency(value: number) {
 }
 
 export function moneyMask(value: string) {
-  value = value.replace(".", "").replace(",", "").replace(/\D/g, "");
+  if (!value) return "";
 
-  const options = { minimumFractionDigits: 2 };
-  const result = new Intl.NumberFormat("pt-BR", options).format(
-    parseFloat(value) / 100
-  );
+  // Remove todos os caracteres não numéricos
+  const cleanedValue = value.replace(/\D/g, "");
 
-  return "R$ " + result;
+  // Se o valor for menor que 3 dígitos, adiciona zeros à esquerda para garantir a formatação correta
+  const numericValue = parseFloat(cleanedValue.padStart(3, "0")) / 100;
+
+  // Formata o valor para representar uma moeda
+  const formattedValue = numericValue.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+
+  return formattedValue;
 }

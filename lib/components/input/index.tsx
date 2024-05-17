@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useTextField } from "react-aria";
 import { InputProps } from "./types";
 
@@ -57,39 +57,44 @@ export function Input({
     return mask.replace(/\$[0-9]/g, (match) => matches[parseInt(match[1])]);
   }
 
-  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const { value } = event.target;
-
+  function applyMask(rawValue: string) {
     if (!mask || mask === "text") {
-      return;
+      return rawValue;
     }
 
-    const numericValue = value.replace(/\D/g, "");
+    const numericValue = rawValue.replace(/\D/g, "");
 
     if (mask === "money") {
-      return (event.target.value = moneyMask(numericValue || "0"));
+      return moneyMask(numericValue || "0");
     }
 
     const { pattern, mask: maskPattern } = maskConfigs[mask];
-
-    event.target.value = formatValue(mask ? numericValue : value, {
-      pattern,
-      mask: maskPattern,
-    });
+    return formatValue(numericValue, { pattern, mask: maskPattern });
   }
 
-  function maskDefaultValue() {
+  function applyDefaultMask(rawValue: string) {
     if (!mask || mask === "text") {
-      return value;
+      return rawValue;
     }
+
+    const numericValue = rawValue.replace(/\D/g, "");
 
     if (mask === "money") {
-      return moneyMask(formatCurrency(value as number) || "0");
-    } else {
-      const { pattern, mask: maskPattern } = maskConfigs[mask];
-
-      return formatValue(value as string, { pattern, mask: maskPattern });
+      return moneyMask(formatCurrency(Number(numericValue)) || "0");
     }
+
+    const { pattern, mask: maskPattern } = maskConfigs[mask];
+    return formatValue(numericValue, { pattern, mask: maskPattern });
+  }
+
+  const [maskedValue, setMaskedValue] = useState<string>(
+    applyDefaultMask(String(value))
+  );
+
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const newValue = applyMask(event.target.value);
+    setMaskedValue(newValue);
+    onChange && onChange(newValue);
   }
 
   return (
@@ -101,11 +106,8 @@ export function Input({
       <input
         {...rest}
         ref={ref}
-        value={maskDefaultValue()}
-        onChange={(event) => {
-          handleChange(event);
-          onChange ? onChange(event) : null;
-        }}
+        value={maskedValue}
+        onChange={handleChange}
         maxLength={maskConfigs[mask as string]?.maxLength}
         className={clsx({
           "--danger": error,
