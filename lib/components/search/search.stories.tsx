@@ -82,6 +82,7 @@ function ComponentRenderWithLabel() {
       filterValue: "outros",
     },
   ];
+
   return <Search items={reason} label="label" />;
 }
 
@@ -114,7 +115,7 @@ function ComponentRenderWithError() {
     },
   ];
 
-  return <Search items={reason} label="label" error="error" />;
+  return <Search items={reason} label="label" error="error" handleOpen />;
 }
 
 function ComponentRenderWithElement() {

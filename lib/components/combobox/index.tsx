@@ -106,6 +106,8 @@ export const ComboboxBase = forwardRef(
               triggerRef={forwardedRef}
               popoverRef={popoverRef}
               isNonModal
+              offset={6}
+              containerPadding={0}
             >
               <ListBox
                 {...listBoxProps}

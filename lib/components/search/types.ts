@@ -13,4 +13,5 @@ export type SearchProps = Omit<AriaComboBoxProps<object>, "children"> & {
   value?: string;
   label?: string;
   isLoading?: boolean;
+  handleOpen?: boolean;
 };

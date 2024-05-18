@@ -1,7 +1,8 @@
 import type { ComboBoxProps } from "@react-types/combobox";
-import * as React from "react";
+import React, { useEffect } from "react";
 import {
   AriaComboBoxProps,
+  HiddenSelect,
   useButton,
   useComboBox,
   useFilter,
@@ -23,16 +24,19 @@ import { SearchProps } from "./types";
 export { Item } from "react-stately";
 
 function SearchAutocomplete<T extends object>(
-  props: AriaComboBoxProps<T> & ComboBoxProps<T> & { isLoading?: boolean }
+  props: AriaComboBoxProps<T> &
+    ComboBoxProps<T> & { isLoading?: boolean; handleOpen?: boolean }
 ) {
-  const { label, errorMessage, isLoading } = props;
+  const { contains } = useFilter({ sensitivity: "base" });
 
-  const { contains } = useFilter({ sensitivity: "base", usage: "search" });
   const state = useComboBoxState({
     ...props,
     defaultFilter: contains,
     menuTrigger: "focus",
+    allowsEmptyCollection: true,
   });
+
+  const { label, errorMessage, isLoading } = props;
 
   const inputRef = React.useRef(null);
   const listBoxRef = React.useRef(null);
@@ -48,6 +52,14 @@ function SearchAutocomplete<T extends object>(
       },
       state
     );
+
+  useEffect(() => {
+    if (props.handleOpen) {
+      console.log("entrei");
+
+      state.open();
+    }
+  }, [inputProps.value, props.handleOpen]);
 
   // Get props for the clear button from useSearchField
   const searchProps = {
@@ -71,6 +83,13 @@ function SearchAutocomplete<T extends object>(
       <Text as="label" {...labelProps}>
         {label}
       </Text>
+
+      <HiddenSelect
+        state={state}
+        triggerRef={outerRef}
+        label={props.label}
+        name={props.name}
+      />
 
       <div
         ref={outerRef}
@@ -168,6 +187,7 @@ export function Search({
   label,
   placeholder,
   value,
+  handleOpen,
   ...rest
 }: SearchProps) {
   return (
@@ -178,6 +198,7 @@ export function Search({
       onInputChange={onChange}
       placeholder={placeholder}
       errorMessage={error}
+      handleOpen={handleOpen}
       {...rest}
     >
       {items?.map(({ key, render, filterValue }) => {

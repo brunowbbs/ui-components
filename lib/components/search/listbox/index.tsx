@@ -32,10 +32,14 @@ export const ListBox = forwardRef(
           <div className="flex items-center justify-center py-1">
             <Spinner color="black" />
           </div>
-        ) : (
+        ) : [...state.collection].length ? (
           [...state.collection]?.map((item) => (
             <Option key={item.key} item={item} state={state} />
           ))
+        ) : (
+          <div className="flex items-center justify-center py-1">
+            <Text>Nenhum item foi encontrado!</Text>
+          </div>
         )}
       </ul>
     );
