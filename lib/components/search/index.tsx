@@ -22,9 +22,9 @@ import { SearchProps } from "./types";
 export { Item } from "react-stately";
 
 function SearchAutocomplete<T extends object>(
-  props: AriaComboBoxProps<T> & ComboBoxProps<T>
+  props: AriaComboBoxProps<T> & ComboBoxProps<T> & { isLoading?: boolean }
 ) {
-  const { label, errorMessage } = props;
+  const { label, errorMessage, isLoading } = props;
 
   const { contains } = useFilter({ sensitivity: "base" });
   const state = useComboBoxState({ ...props, defaultFilter: contains });
@@ -108,11 +108,14 @@ function SearchAutocomplete<T extends object>(
           triggerRef={outerRef}
           state={state}
           isNonModal
+          offset={6}
+          containerPadding={0}
         >
           <ListBox
             {...listBoxProps}
             ref={listBoxRef}
             state={state}
+            isLoading={isLoading}
             width={
               document
                 .getElementById("container-search")

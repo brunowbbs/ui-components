@@ -8,10 +8,14 @@ import clsx from "clsx";
 import { Text } from "../../text";
 import type { ListBoxProps, OptionProps } from "./types";
 
+import { Spinner } from "../../spinner";
 import "./styles.css";
 
 export const ListBox = forwardRef(
-  ({ width, ...props }: ListBoxProps, ref: Ref<HTMLUListElement>) => {
+  (
+    { width, isLoading, ...props }: ListBoxProps,
+    ref: Ref<HTMLUListElement>
+  ) => {
     const forwardedRef = useForwardedRef(ref);
     const { state } = props;
     const { listBoxProps } = useListBox(props, state, forwardedRef);
@@ -24,9 +28,15 @@ export const ListBox = forwardRef(
         className={clsx("listbox")}
         style={{ width }}
       >
-        {[...state.collection].map((item) => (
-          <Option key={item.key} item={item} state={state} />
-        ))}
+        {isLoading ? (
+          <div className="flex items-center justify-center py-1">
+            <Spinner color="black" />
+          </div>
+        ) : (
+          [...state.collection].map((item) => (
+            <Option key={item.key} item={item} state={state} />
+          ))
+        )}
       </ul>
     );
   }

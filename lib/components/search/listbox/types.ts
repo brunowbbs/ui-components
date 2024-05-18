@@ -8,6 +8,7 @@ export type ListBoxProps = AriaListBoxOptions<unknown> &
   PropsWithChildren<{
     width?: number;
     state: ListState<unknown>;
+    isLoading?: boolean;
   }>;
 
 export type OptionProps = {

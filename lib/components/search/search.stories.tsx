@@ -156,7 +156,7 @@ function ComponentRenderWithElement() {
     },
   ];
 
-  return <Search items={reason} label="label" error="error" />;
+  return <Search items={reason} label="label" error="error" isLoading />;
 }
 
 export const Default: Story = {
