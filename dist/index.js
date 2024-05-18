@@ -49242,7 +49242,11 @@ function Ale({
 }
 function wle(t) {
   var k;
-  const { label: e, errorMessage: n, isLoading: r } = t, { contains: i } = l$({ sensitivity: "base" }), a = WB({ ...t, defaultFilter: i }), l = bt.useRef(null), u = bt.useRef(null), f = bt.useRef(null), { inputProps: h, listBoxProps: m, labelProps: v, errorMessageProps: g } = w9(
+  const { label: e, errorMessage: n, isLoading: r } = t, { contains: i } = l$({ sensitivity: "base", usage: "search" }), a = WB({
+    ...t,
+    defaultFilter: i,
+    menuTrigger: "focus"
+  }), l = bt.useRef(null), u = bt.useRef(null), f = bt.useRef(null), { inputProps: h, listBoxProps: m, labelProps: v, errorMessageProps: g } = w9(
     {
       ...t,
       inputRef: l,
