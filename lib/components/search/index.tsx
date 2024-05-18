@@ -157,7 +157,7 @@ export function Search({
       errorMessage={error}
       {...rest}
     >
-      {items.map(({ key, render, filterValue }) => {
+      {items?.map(({ key, render, filterValue }) => {
         return (
           <Item key={key} textValue={filterValue}>
             {render}
