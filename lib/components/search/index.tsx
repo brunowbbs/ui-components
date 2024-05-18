@@ -14,6 +14,7 @@ import {
   searchIconsMaterialUiOutlined,
 } from "@leopsousaa/ui-icons/dist";
 import { Icon } from "../icon";
+import { Spinner } from "../spinner";
 import { Text } from "../text";
 import { ListBox } from "./listbox";
 import { Popover } from "./popover";
@@ -105,6 +106,28 @@ function SearchAutocomplete<T extends object>(
           />
         </button>
       </div>
+
+      {isLoading ? (
+        <Popover
+          popoverRef={popoverRef}
+          triggerRef={outerRef}
+          state={state}
+          isNonModal
+          offset={6}
+          containerPadding={0}
+        >
+          <div
+            style={{
+              width: document
+                .getElementById("container-search")
+                ?.getBoundingClientRect().width,
+            }}
+            className="flex items-center justify-center py-1"
+          >
+            <Spinner color="black" />
+          </div>
+        </Popover>
+      ) : null}
 
       {state.isOpen ? (
         <Popover
