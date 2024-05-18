@@ -49353,7 +49353,7 @@ function Hge({
       placeholder: i,
       errorMessage: e,
       ...l,
-      children: t.map(({ key: u, render: f, filterValue: h }) => /* @__PURE__ */ ce(ky, { textValue: h, children: f }, u))
+      children: t == null ? void 0 : t.map(({ key: u, render: f, filterValue: h }) => /* @__PURE__ */ ce(ky, { textValue: h, children: f }, u))
     }
   );
 }
