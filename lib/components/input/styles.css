@@ -6,14 +6,15 @@
   input {
     @apply text-sm 
     font-medium
-    px-2
-    py-2 
+    px-1
+    py-1 
     rounded 
     outline
     outline-1
     w-full
-    outline-gray-400
+    outline-gray-300
     focus:outline-primary
+    shadow-sm
     border-none;
 
     &.--danger {

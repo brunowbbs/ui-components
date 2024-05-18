@@ -84,7 +84,7 @@ function SearchAutocomplete<T extends object>(
         <input
           {...inputProps}
           ref={inputRef}
-          className="text-sm w-full outline-none px-3 py-1 appearance-none"
+          className="text-sm w-full outline-none px-1 py-1 appearance-none"
         />
 
         <button
@@ -143,15 +143,19 @@ export function Search({
   return (
     <SearchAutocomplete
       label={label}
-      aria-label={rest["aria-label"]}
+      aria-label={rest["aria-label"] || "Procurar..."}
       inputValue={value}
       onInputChange={onChange}
       placeholder={placeholder}
       errorMessage={error}
       {...rest}
     >
-      {items.map(({ key, label }) => {
-        return <Item key={key}>{label}</Item>;
+      {items.map(({ key, render, filterValue }) => {
+        return (
+          <Item key={key} textValue={filterValue}>
+            {render}
+          </Item>
+        );
       })}
     </SearchAutocomplete>
   );
