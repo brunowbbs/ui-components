@@ -6,6 +6,7 @@ import { Node } from '@react-types/shared';
 export type ListBoxProps = AriaListBoxOptions<unknown> & PropsWithChildren<{
     width?: number;
     state: ListState<unknown>;
+    isLoading?: boolean;
 }>;
 export type OptionProps = {
     item: Node<unknown>;

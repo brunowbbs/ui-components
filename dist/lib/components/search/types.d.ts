@@ -12,4 +12,5 @@ export type SearchProps = Omit<AriaComboBoxProps<object>, "children"> & {
     onChange?: (value: Key) => void;
     value?: string;
     label?: string;
+    isLoading?: boolean;
 };
