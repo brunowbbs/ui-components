@@ -26,8 +26,12 @@ function SearchAutocomplete<T extends object>(
 ) {
   const { label, errorMessage, isLoading } = props;
 
-  const { contains } = useFilter({ sensitivity: "base" });
-  const state = useComboBoxState({ ...props, defaultFilter: contains });
+  const { contains } = useFilter({ sensitivity: "base", usage: "search" });
+  const state = useComboBoxState({
+    ...props,
+    defaultFilter: contains,
+    menuTrigger: "focus",
+  });
 
   const inputRef = React.useRef(null);
   const listBoxRef = React.useRef(null);

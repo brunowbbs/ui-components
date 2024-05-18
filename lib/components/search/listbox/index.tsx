@@ -33,7 +33,7 @@ export const ListBox = forwardRef(
             <Spinner color="black" />
           </div>
         ) : (
-          [...state.collection].map((item) => (
+          [...state.collection]?.map((item) => (
             <Option key={item.key} item={item} state={state} />
           ))
         )}
