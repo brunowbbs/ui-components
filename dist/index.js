@@ -49282,7 +49282,7 @@ function wle(t) {
             {
               ...f,
               ref: a,
-              className: "text-sm w-full outline-none px-3 py-1 appearance-none"
+              className: "text-sm w-full outline-none px-1 py-1 appearance-none"
             }
           ),
           /* @__PURE__ */ ce(
@@ -49340,13 +49340,13 @@ function Hge({
     wle,
     {
       label: r,
-      "aria-label": l["aria-label"],
+      "aria-label": l["aria-label"] || "Procurar...",
       inputValue: a,
       onInputChange: n,
       placeholder: i,
       errorMessage: e,
       ...l,
-      children: t.map(({ key: c, label: f }) => /* @__PURE__ */ ce(ky, { children: f }, c))
+      children: t.map(({ key: c, render: f, filterValue: h }) => /* @__PURE__ */ ce(ky, { textValue: h, children: f }, c))
     }
   );
 }
