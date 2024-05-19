@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTextField } from "react-aria";
 import { InputProps } from "./types";
 
@@ -65,32 +65,21 @@ export function Input({
     const numericValue = rawValue.replace(/\D/g, "");
 
     if (mask === "money") {
-      return moneyMask(numericValue || "0");
+      const numberValue = parseFloat(numericValue) / 100;
+      return moneyMask(formatCurrency(numberValue) || "0");
     }
 
     const { pattern, mask: maskPattern } = maskConfigs[mask];
-    return formatValue(numericValue, { pattern, mask: maskPattern });
-  }
-
-  function applyDefaultMask(rawValue: string): string {
-    if (!mask || mask === "text") {
-      return rawValue;
-    }
-
-    const numericValue = rawValue.replace(/\D/g, "");
-
-    if (mask === "money") {
-      return moneyMask(formatCurrency(Number(numericValue)) || "0");
-    }
-
-    const { pattern, mask: maskPattern } = maskConfigs[mask];
-
     return formatValue(numericValue, { pattern, mask: maskPattern });
   }
 
   const [maskedValue, setMaskedValue] = useState<string>(
-    applyDefaultMask(String(value))
+    applyMask(String(value))
   );
+
+  useEffect(() => {
+    setMaskedValue(applyMask(String(value)));
+  }, [value]);
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { value } = event.target;
@@ -99,9 +88,13 @@ export function Input({
 
     setMaskedValue(newValue);
 
-    event.target.value = newValue;
-
-    onChange ? onChange(event) : null;
+    if (onChange) {
+      const clonedEvent = {
+        ...event,
+        target: { ...event.target, value: newValue },
+      };
+      onChange(clonedEvent);
+    }
   }
 
   return (

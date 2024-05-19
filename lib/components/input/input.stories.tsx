@@ -39,7 +39,7 @@ export const Money: Story = {
     placeholder: "Placeholder",
     "aria-label": "Input example",
     mask: "money",
-    defaultValue: "5000",
+    value: "5000.00",
   },
 };
 
