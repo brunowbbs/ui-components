@@ -20,6 +20,7 @@ export const Default: Story = {
     label: "Label",
     placeholder: "Placeholder",
     "aria-label": "Input example",
+    onChange: (value) => console.log(value),
   },
 };
 

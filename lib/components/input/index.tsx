@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useTextField } from "react-aria";
 import { InputProps } from "./types";
 
@@ -17,7 +17,7 @@ export function Input({
   const ref = useRef(null);
   const { labelProps, inputProps } = useTextField(props, ref);
 
-  const { value, ...rest } = inputProps;
+  const { onChange, value, ...rest } = inputProps;
 
   const maskConfigs = {
     phone: {
@@ -92,18 +92,16 @@ export function Input({
     applyDefaultMask(String(value))
   );
 
-  useEffect(() => {
-    if (applyDefaultMask(String(value))) {
-      setMaskedValue(applyDefaultMask(String(value)));
-    }
-  }, [applyDefaultMask(String(value))]);
-
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { value } = event.target;
 
     const newValue = applyMask(value);
 
     setMaskedValue(newValue);
+
+    event.target.value = newValue;
+
+    onChange ? onChange(event) : null;
   }
 
   return (
