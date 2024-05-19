@@ -40198,6 +40198,8 @@ function Lge(t, e) {
   return { columns: n, rows: r };
 }
 function cte(t) {
+  if (!t)
+    return "";
   let n = (Math.round(t * 100) / 100).toFixed(2);
   return n.split(".")[1].length === 1 && (n = `0${n}`), n;
 }
