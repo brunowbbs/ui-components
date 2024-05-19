@@ -21,6 +21,7 @@ export function mountDataTable(
 }
 
 export function formatCurrency(value: number) {
+  if (!value) return "";
   // Arredonda o valor para duas casas decimais
   const roundedAmount = Math.round(value * 100) / 100;
   // Converte o número para uma string com duas casas decimais
