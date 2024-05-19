@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTextField } from "react-aria";
 import { InputProps } from "./types";
 
@@ -17,7 +17,7 @@ export function Input({
   const ref = useRef(null);
   const { labelProps, inputProps } = useTextField(props, ref);
 
-  const { onChange, value, ...rest } = inputProps;
+  const { value, ...rest } = inputProps;
 
   const maskConfigs = {
     phone: {
@@ -57,7 +57,7 @@ export function Input({
     return mask.replace(/\$[0-9]/g, (match) => matches[parseInt(match[1])]);
   }
 
-  function applyMask(rawValue: string) {
+  function applyMask(rawValue: string): string {
     if (!mask || mask === "text") {
       return rawValue;
     }
@@ -72,7 +72,7 @@ export function Input({
     return formatValue(numericValue, { pattern, mask: maskPattern });
   }
 
-  function applyDefaultMask(rawValue: string) {
+  function applyDefaultMask(rawValue: string): string {
     if (!mask || mask === "text") {
       return rawValue;
     }
@@ -84,6 +84,7 @@ export function Input({
     }
 
     const { pattern, mask: maskPattern } = maskConfigs[mask];
+
     return formatValue(numericValue, { pattern, mask: maskPattern });
   }
 
@@ -91,10 +92,18 @@ export function Input({
     applyDefaultMask(String(value))
   );
 
+  useEffect(() => {
+    if (applyDefaultMask(String(value))) {
+      setMaskedValue(applyDefaultMask(String(value)));
+    }
+  }, [applyDefaultMask(String(value))]);
+
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const newValue = applyMask(event.target.value);
+    const { value } = event.target;
+
+    const newValue = applyMask(value);
+
     setMaskedValue(newValue);
-    onChange && onChange(newValue);
   }
 
   return (
